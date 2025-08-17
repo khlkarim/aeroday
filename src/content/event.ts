@@ -23,7 +23,8 @@ export interface Event {
             secondary: string;
         };
     };
-    badges: {        
+    badges: {   
+        icon: string;     
         title: string;
         subtitle: string;
     }[];
@@ -91,20 +92,24 @@ export const event: Event = {
     },
     badges: [
         {
+            icon: "trophy",
             title: "Défi a battre",
-            subtitle: "Plusieurs challenges vous attendent",
+            subtitle: "Plusieurs challenges vous attendent"
         },
         {
+            icon: "history",
             title: "Notre Histoire",
-            subtitle: "plus de 10 ans d'experience",
+            subtitle: "plus de 10 ans d'experience"
         },
         {
+            icon: "gift",
             title: "Des prix a gagner",
-            subtitle: "Grands prix à venir.",
+            subtitle: "Grands prix à venir."
         },
         {
+            icon: "support",
             title: "24 / 7 Support",
-            subtitle: "contact@aeroday.tn",
+            subtitle: "contact@aeroday.tn"
         },
     ],
     contact: {

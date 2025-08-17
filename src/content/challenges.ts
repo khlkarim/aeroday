@@ -30,8 +30,8 @@ export const challenges: Challenge[] = [
             "les exigences du cahier des charges. Ce challenge a pour objectif de réunir les passionnés " +
             "de drones dans un affrontement captivant où leur talent, leurs compétences et leur enthousiasme " +
             "seront mis en lumière.",
-        cahierDesCharges: "",
-        formulaire: "",
+        cahierDesCharges: "#",
+        formulaire: "#",
         responsableId: 4
     },
     {
@@ -49,8 +49,8 @@ export const challenges: Challenge[] = [
             "fait ensuite voler son planeur, démontrant son talent technique et créatif devant un public de " +
             "passionnés et un jury de professionnels. Ce challenge est une occasion unique de partager sa passion " +
             "pour l'aéromodélisme dans une ambiance conviviale et inspirante.",
-        cahierDesCharges: "",
-        formulaire: "",
+        cahierDesCharges: "#",
+        formulaire: "#",
         responsableId: 6
     },
     {
@@ -67,8 +67,8 @@ export const challenges: Challenge[] = [
             "leur propre PolyClub en suivant un cahier des charges rigoureux. Au cours de ce show aérien compétitif, chaque équipe " +
             "présente un spectacle innovant, mettant en avant leurs compétences en pilotage devant un jury de professionnels et un " +
             "public enthousiaste.",
-        cahierDesCharges: "",
-        formulaire: "",
+        cahierDesCharges: "#",
+        formulaire: "#",
         responsableId: 3
     },
     {
@@ -85,8 +85,8 @@ export const challenges: Challenge[] = [
             "Les participants devront concevoir un modèle 3D novateur et fonctionnel d'un engin, en respectant un cahier des charges précis " +
             "et en utilisant des logiciels de modélisation (SolidWorks, Catia, …). À l'issue du challenge, chaque équipe présentera son projet " +
             "devant un jury d'experts en CAO, qui évaluera les créations selon des critères pertinents.",
-        cahierDesCharges: "",
-        formulaire: "",
+        cahierDesCharges: "#",
+        formulaire: "#",
         responsableId: 7
     },
     {
@@ -102,8 +102,8 @@ export const challenges: Challenge[] = [
             "Le challenge de vidéographie par drone offre aux passionnés de production visuelle une occasion unique de présenter leurs œuvres au grand public. " +
             "Les participants devront respecter un cahier des charges précis, garantissant une compétition de qualité où créativité et expertise seront mises en avant. " +
             "Cette compétition mettra en lumière le talent des vidéastes et permettra de valoriser la maîtrise technique de la production aérienne.",
-        cahierDesCharges: "",
-        formulaire: "",
+        cahierDesCharges: "#",
+        formulaire: "#",
         responsableId: 5
     }
 ];

@@ -29,7 +29,7 @@ export const axes: Axe[] = [
             "dans le hall de l'INSAT, offrent un espace d'échange inspirant " +
             "et intergénérationnel, mettant en lumière des projets, des " +
             "innovations et des exploits remarquables.",
-        formulaire: "",
+        formulaire: "#",
         responsableId: 8
     },
     {
@@ -49,7 +49,7 @@ export const axes: Axe[] = [
             "Cette exposition offrira aux visiteurs l'occasion de plonger dans une diversité " +
             "de projets fascinants, révélant les promesses de l'espace et éveillant la curiosité " +
             "des passionnés pour l'astronomie et l'exploration spatiale.",
-        formulaire: "",
+        formulaire: "#",
         responsableId: 8
     },
     {
@@ -69,7 +69,7 @@ export const axes: Axe[] = [
             "Ce mini Aeroday propose des ateliers adaptés à chaque tranche d'âge, " +
             "incluant des défis en aéromodélisme, programmation et conception assistée " +
             "par ordinateur (CAO), pour des découvertes enrichissantes.",
-        formulaire: "",
+        formulaire: "#",
         responsableId: 10
     }, 
     {
@@ -89,7 +89,7 @@ export const axes: Axe[] = [
             "diversifiée. Grâce à son réseau d'ambassadeurs, il connecte l'événement " +
             "avec plusieurs universités et acteurs nationaux, tout en organisant des " +
             "conférences qui encouragent le partage des connaissances en aéronautique.",
-        formulaire: "",
+        formulaire: "#",
         responsableId: 9
     }
 ];

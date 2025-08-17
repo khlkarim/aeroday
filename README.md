@@ -38,3 +38,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 work on content
 parallax effect in axes and challenges
+
+scroll trigger pin to pin component to the screen

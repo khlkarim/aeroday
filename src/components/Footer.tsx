@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                         <Link href={"/contact-us"}>
                             Contact
                         </Link>
-                        <Link href={"/privacy-policy"}>
+                        <Link href={"https://privacy.aeroday.tn/"}>
                             Privacy Policy
                         </Link>
                     </Stack>

@@ -5,7 +5,7 @@ import ThemeToggle from "../../ThemeToggle";
 import MobileNavLink from "./MobileNavLink";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { links } from "../../../content/navlinks";
+import { links } from "../../../constants/navlinks";
 import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Box } from "@mui/material";
 
 const MobileNavbar: React.FC = () => {

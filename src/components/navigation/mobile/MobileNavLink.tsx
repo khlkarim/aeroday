@@ -10,7 +10,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { axes } from "../../../content/axes";
 import { challenges } from "../../../content/challenges";
-import { links } from "../../../content/navlinks";
+import { links } from "../../../constants/navlinks";
 import Link from 'next/link';
 
 interface MobileNavLinkProps {

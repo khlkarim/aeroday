@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { links } from "../../../content/navlinks";
+import { links } from "../../../constants/navlinks";
 import { axes } from "../../../content/axes";
 import { challenges } from "../../../content/challenges";
 import Link from 'next/link';
