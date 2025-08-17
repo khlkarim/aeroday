@@ -29,13 +29,14 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
             />
 
             <CardContent className="flex flex-col gap-4">
-                <Box className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    <Typography variant="h5" fontWeight={600}>
+                <Box className="flex flex-row items-center" sx={{ justifyContent: "space-between" }}>
+                    <Typography variant="h5" fontWeight={600} className="truncate">
                         {item.name}
                     </Typography>
                     <Chip
                         color="primary"
                         label={`${String(item.date.day).padStart(2, '0')}/${String(item.date.month).padStart(2, '0')}`}
+                        className="ml-4"
                     />
                 </Box>
 
@@ -46,13 +47,14 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                 </Typography>
             </CardContent>
 
-            <CardActions className="p-4 flex justify-end gap-2">
+            <CardActions className="flex flex-col sm:flex-row sm:justify-end gap-2 w-full">
                 <Button
                     variant="outlined"
                     size="small"
                     href={item.cahierDesCharges}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="w-full sm:w-auto"
                 >
                     Cahier des charges
                 </Button>
@@ -62,6 +64,7 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                     href={item.formulaire}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="w-full sm:w-auto"
                 >
                     Remplir le formulaire
                 </Button>

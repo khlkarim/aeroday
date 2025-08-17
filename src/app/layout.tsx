@@ -1,4 +1,8 @@
 import "./globals.css";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 import "@fontsource/geist-sans/300.css"; 
 import "@fontsource/geist-sans/400.css"; 
 import "@fontsource/geist-sans/500.css"; 
