@@ -13,7 +13,7 @@ export const tokens = {
     },
     // Semantic Colors
     success: { 
-        main: '#66BB6A',     // Lighter green for dark theme
+        main: '#388E3C',     // Lighter green for dark theme
         light: '#81C784', 
         dark: '#388E3C' 
     },
@@ -35,7 +35,7 @@ export const tokens = {
     // Backgrounds & Surfaces
     background: {
         default: '#FFFFFF',  // Material Design dark surface
-        paper: '#1E1E1E',    // Elevated surface
+        paper: '#EEEEEE',    // Elevated surface
     },
     // Text Colors
     text: {

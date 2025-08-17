@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { Container } from "@mui/material";
 import Navbar from "@/components/navigation/Navbar";
 import ThemeModeProvider from "@/providers/ThemeModeProvider";
+import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 
 export const metadata: Metadata = {
     title: "Tunisian Aeroday 2026",
@@ -24,16 +25,18 @@ export default function RootLayout({
         <html lang="en">
             <body>
                 <ThemeModeProvider>
-                    <Container sx={{ 
-                        pt: '7rem',
-                        gap: 8, 
-                        display: "flex", 
-                        flexDirection: "column"
-                    }}>
-                        <Navbar />
-                            {children}
+                    <Navbar />
+                    <SmoothScrollProvider>
+                        <Container sx={{ 
+                            pt: '6rem',
+                            gap: 8, 
+                            display: "flex", 
+                            flexDirection: "column"
+                        }}>
+                                {children}
                         <Footer />
-                    </Container>
+                        </Container>
+                    </SmoothScrollProvider>
                 </ThemeModeProvider>
             </body>
         </html>

@@ -11,12 +11,12 @@ const About: React.FC = () => {
             <Box className="flex flex-wrap items-center justify-around gap-6 mb-10">
             <Box>
                 <Image 
-                src={eventLogo} 
-                alt={`${event.name} logo`} 
-                width={240}
-                height={240}
-                className='w-60 h-auto object-contain rounded-full'
-                priority
+                    src={eventLogo} 
+                    alt={`${event.name} logo`} 
+                    width={240}
+                    height={240}
+                    className='w-60 h-auto object-contain rounded-full'
+                    priority
                 />
             </Box>
             <Box>

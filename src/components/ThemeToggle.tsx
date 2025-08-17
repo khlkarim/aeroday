@@ -1,8 +1,8 @@
 import React from "react";
+import useThemeMode from "../hooks/useThemeMode";
 import { IconButton, useTheme } from "@mui/material";
-import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import useThemeMode from "../../hooks/useThemeMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 const ThemeToggle: React.FC = () => {
     const theme = useTheme();

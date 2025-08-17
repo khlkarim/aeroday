@@ -1,13 +1,11 @@
-import Hero from "@/components/event/Hero";
-import About from "@/components/event/About";
-import { Divider } from "@mui/material";
+import { Deck } from "@/components/cards/Deck";
+import ProfileCard from "@/components/team/ProfileCard";
+import { team } from "@/content/team";
 
-export default function Home() {
+export default function AboutUs() {
     return (
         <>
-            <Hero/>
-            <Divider />
-            <About/>
+            <Deck title="Our Team" data={team} CardComponent={ProfileCard} />
         </>
     );
 }

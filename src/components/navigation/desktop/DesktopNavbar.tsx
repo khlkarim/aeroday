@@ -1,8 +1,8 @@
 import React from "react";
-import { AppBar, Toolbar, Container, useTheme } from "@mui/material";
-import ThemeToggle from "../../theme/ThemeToggle";
+import ThemeToggle from "../../ThemeToggle";
 import DesktopNavLink from "./DesktopNavLink";
 import { links } from "../../../content/navlinks";
+import { AppBar, Toolbar, Container, useTheme } from "@mui/material";
 
 const DesktopNavbar: React.FC = () => {
     const theme = useTheme();

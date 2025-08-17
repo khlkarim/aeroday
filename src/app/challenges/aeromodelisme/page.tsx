@@ -1,13 +1,7 @@
-import Hero from "@/components/event/Hero";
-import About from "@/components/event/About";
-import { Divider } from "@mui/material";
+import Page from "@/components/challenges/Page";
 
-export default function Home() {
+export default function Ambassade() {
     return (
-        <>
-            <Hero/>
-            <Divider />
-            <About/>
-        </>
+        <Page id={1} />        
     );
 }

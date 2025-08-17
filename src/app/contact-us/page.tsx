@@ -1,13 +1,7 @@
-import Hero from "@/components/event/Hero";
-import About from "@/components/event/About";
-import { Divider } from "@mui/material";
+import ContactForm from "@/components/ContactForm";
 
-export default function Home() {
+export default function ContactUs() {
     return (
-        <>
-            <Hero/>
-            <Divider />
-            <About/>
-        </>
+        <ContactForm />
     );
 }
