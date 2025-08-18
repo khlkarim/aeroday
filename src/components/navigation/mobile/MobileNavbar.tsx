@@ -19,10 +19,10 @@ const MobileNavbar: React.FC = () => {
             <AppBar
                 elevation={0}
                 position="fixed"
-                color="transparent"
                 sx={{
                     backdropFilter: "blur(8px)",
                     borderBottom: `1px solid ${theme.palette.divider}`,
+                    backgroundColor: `${theme.palette.background.paper}88`,
                 }}
             >
                 <Toolbar>
@@ -39,8 +39,8 @@ const MobileNavbar: React.FC = () => {
                 sx={{
                     "& .MuiPaper-root": {
                         width: "100%",
-                        background: "transparent",
                         backdropFilter: "blur(8px)",
+                        backgroundColor: `${theme.palette.background.paper}88`,
                     },
                 }}
                 >

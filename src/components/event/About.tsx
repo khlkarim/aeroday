@@ -23,52 +23,65 @@ const About: React.FC = () => {
     useGSAP(() => {
         if (!container.current || !badges.current) return;
 
-        const tl = gsap.timeline({
-            defaults: { opacity: 0, ease: "power2.out" },
-            scrollTrigger: {
-            trigger: container.current,
-            start: "top 100%", // Animation starts when the top of the container hits 80% of the viewport height
-            end: "top -10%", // Animation ends when the bottom of the container hits 40% of the viewport height
-            scrub: true
-            }
-        });
-
-        tl.from(".about-logo", {
+        // Animate logo
+        gsap.from(".about-logo", {
             autoAlpha: 0,
             y: 50,
             duration: 0.8,
-            ease: "power2.out",
             scale: 0.95,
-            transformOrigin: "center"
+            transformOrigin: "center",
+            scrollTrigger: {
+                trigger: ".about-logo",
+                start: "top 90%",
+                end: "top 60%",
+                scrub: true
+            }
         });
 
-        tl.from(".about-title", {
+        // Animate title
+        gsap.from(".about-title", {
             autoAlpha: 0,
             y: 50,
             duration: 0.6,
-            ease: "power2.out"
-        }, "-=0.4");
+            scrollTrigger: {
+                trigger: ".about-title",
+                start: "top 90%",
+                end: "top 60%",
+                scrub: true
+            }
+        });
 
-        tl.from(".about-description", {
+        // Animate description
+        gsap.from(".about-description", {
             autoAlpha: 0,
             y: 50,
             duration: 0.6,
-            ease: "power2.out"
-        }, "-=0.3");
+            scrollTrigger: {
+                trigger: ".about-description",
+                start: "top 90%",
+                end: "top 60%",
+                scrub: true
+            }
+        });
 
-        tl.from(".about-badge", {
-            autoAlpha: 0,
-            y: 30,
-            scale: 0.8,
-            duration: 0.5,
-            ease: "back.out(1.7)",
-            stagger: 0.1
-        }, "-=0.2");
-
+        // Animate each badge individually
         const badgeElements = badges.current.children;
         Array.from(badgeElements).forEach((badge) => {
+            gsap.from(badge, {
+                autoAlpha: 0,
+                y: 30,
+                scale: 0.8,
+                duration: 0.5,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                    trigger: badge,
+                    start: "top 95%",
+                    end: "top 70%",
+                    scrub: true
+                }
+            });
+
             const icon = badge.querySelector('svg');
-        
             badge.addEventListener('mouseenter', () => {
                 gsap.to(badge, {
                     y: -8,
@@ -76,7 +89,6 @@ const About: React.FC = () => {
                     duration: 0.3,
                     ease: "power2.out"
                 });
-            
                 if (icon) {
                     gsap.to(icon, {
                         scale: 1.2,
@@ -86,7 +98,6 @@ const About: React.FC = () => {
                     });
                 }
             });
-            
             badge.addEventListener('mouseleave', () => {
                 gsap.to(badge, {
                     y: 0,
@@ -94,7 +105,6 @@ const About: React.FC = () => {
                     duration: 0.3,
                     ease: "power2.out"
                 });
-            
                 if (icon) {
                     gsap.to(icon, {
                         scale: 1,
@@ -105,7 +115,8 @@ const About: React.FC = () => {
                 }
             });
         });
-    }, { scope: container } );
+    }, { scope: container });
+
 
     return (
         <Box ref={container} className="flex flex-col items-center justify-around gap-6" sx={{ minHeight: '100vh' }}>
