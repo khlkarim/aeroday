@@ -17,60 +17,50 @@ const Hero: React.FC = () => {
     const highlightRef = useRef<HTMLSpanElement>(null);
 
     useGSAP(() => {
-        // gsap.set(".hero-chip", { y: -30, scale: 0.8 });
-        // gsap.set(".hero-title", { y: 50 });
-        // gsap.set(".hero-subtitle", { y: 30, x: -20 });
-        // gsap.set(".hero-paragraph", { y: 40 });
-        // gsap.set(".hero-buttons button", { y: 30, scale: 0.9 });
+        const tl = gsap.timeline({
+        defaults: { ease: "power3.out" },
+        });
 
-        // Create main timeline
-const tl = gsap.timeline({
-  defaults: { ease: "power3.out" },
-});
+        // Animate elements in sequence with overlapping timing
+        tl.from(".hero-chip", { 
+            autoAlpha: 0, 
+            y: 40, 
+            scale: 0.95,
+            duration: 0.6, // shorter
+            ease: "back.out(1.7)"
+        })
+        .from(".hero-title", { 
+            autoAlpha: 0, 
+            y: 30,
+            duration: 0.8, // shorter
+            ease: "power3.out"
+        }, "-=0.35")
+        .from(".hero-subtitle", { 
+            autoAlpha: 0, 
+            y: 20,
+            duration: 0.5,
+            ease: "power2.out"
+        }, "-=0.45")
+        .from(".hero-paragraph", { 
+            autoAlpha: 0, 
+            y: 20,
+            duration: 0.6,
+            ease: "power2.out"
+        }, "-=0.4")
+        .from(".hero-buttons button", { 
+            autoAlpha: 0, 
+            y: 20,
+            scale: 0.9,
+            duration: 0.45,
+            stagger: 0.12, // tighter staggering
+            ease: "back.out(1.4)"
+        }, "-=0.35");
 
-// Animate elements in sequence with overlapping timing
-tl.from(".hero-chip", { 
-    autoAlpha: 0, 
-    y: 40, 
-    scale: 0.95,
-    duration: 0.6, // shorter
-    ease: "back.out(1.7)"
-})
-.from(".hero-title", { 
-    autoAlpha: 0, 
-    y: 30,
-    duration: 0.8, // shorter
-    ease: "power3.out"
-}, "-=0.35")
-.from(".hero-subtitle", { 
-    autoAlpha: 0, 
-    y: 20,
-    duration: 0.5,
-    ease: "power2.out"
-}, "-=0.45")
-.from(".hero-paragraph", { 
-    autoAlpha: 0, 
-    y: 20,
-    duration: 0.6,
-    ease: "power2.out"
-}, "-=0.4")
-.from(".hero-buttons button", { 
-    autoAlpha: 0, 
-    y: 20,
-    scale: 0.9,
-    duration: 0.45,
-    stagger: 0.12, // tighter staggering
-    ease: "back.out(1.4)"
-}, "-=0.35");
-
-// Highlight animation after title loads
-gsap.fromTo(highlightRef.current, 
-  { backgroundSize: "0% 100%" },
-  { backgroundSize: "100% 100%", duration: 0.9, ease: "power2.out", delay: 0.6 }
-);
-
-
-
+        // Highlight animation after title loads
+        gsap.fromTo(highlightRef.current, 
+        { backgroundSize: "0% 100%" },
+        { backgroundSize: "100% 100%", duration: 0.9, ease: "power2.out", delay: 0.6 }
+        );
     }, { scope: container });
 
     const handleScroll = (target: string) => {
@@ -121,8 +111,9 @@ gsap.fromTo(highlightRef.current,
             ref={container}
             className="flex flex-col items-start justify-center gap-6"
             sx={{ 
-            position: 'relative',
-            minHeight: '100vh' // Take 80% of screen height
+                position: 'relative',
+                minHeight: '82vh',
+                paddingBottom: '12vh' 
             }}
         >
             <Chip

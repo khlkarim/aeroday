@@ -3,16 +3,18 @@
 import React from "react";
 import MobileNavbar from "./mobile/MobileNavbar";
 import DesktopNavbar from "./desktop/DesktopNavbar";
-import { useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Box } from "@mui/material";
 
 const Navbar: React.FC = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-    
+
     return (
         <>
-            {isMobile ? <MobileNavbar /> : <DesktopNavbar />}
+            <Box display={{ xs: "block", md: "none" }}>
+                <MobileNavbar />
+            </Box>
+            <Box display={{ xs: "none", md: "block" }}>
+                <DesktopNavbar />
+            </Box>
         </>
     );
 };

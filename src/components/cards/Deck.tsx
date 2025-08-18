@@ -17,7 +17,7 @@ export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
     useSlideInLeft({ container });
     useStaggeredList({
         container,
-        stagger: { grid: "auto", from: "start", axis: "y", amount: 0.2 }
+        stagger: { grid: "auto", from: "start", axis: "y" }
     });
 
     return (

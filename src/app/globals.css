@@ -1,7 +1,17 @@
 @import "tailwindcss";
 
 /* Animated components */
-.stagger, .slide-in-left, .hero-chip, .hero-title, .hero-subtitle, .hero-paragraph, .hero-buttons button
+.stagger, 
+.slide-in-left, 
+.hero-chip, 
+.hero-title, 
+.hero-subtitle, 
+.hero-paragraph, 
+.hero-buttons button,
+.about-logo,
+.about-title,
+.about-description,
+.about-badge
 {
     visibility: hidden;
 }

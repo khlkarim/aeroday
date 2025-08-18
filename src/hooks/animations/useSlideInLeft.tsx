@@ -26,7 +26,7 @@ export const useSlideInLeft = ({
     ease = "power3.out",
     scrub = true,
     start = "top 100%",
-    end = "bottom 80%"
+    end = "top 0%"
 }: UseSlideInLeftProps) => {
     const tl = React.useRef<gsap.core.Timeline | null>(null);
 
