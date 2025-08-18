@@ -32,7 +32,7 @@ export default function RootLayout({
                     <Navbar />
                     <SmoothScrollProvider>
                         <Container sx={{ 
-                            pt: '6rem',
+                            // pt: '6rem',
                             gap: 8, 
                             display: "flex", 
                             flexDirection: "column"

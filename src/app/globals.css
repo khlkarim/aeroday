@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+/* Animated components */
+.stagger, .slide-in-left, .hero-chip, .hero-title, .hero-subtitle, .hero-paragraph, .hero-buttons button
+{
+    visibility: hidden;
+}
