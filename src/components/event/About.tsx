@@ -9,12 +9,8 @@ import { History } from "@mui/icons-material";
 import { Paragraph } from "../text/Paragraph";
 import { Typography, Box } from "@mui/material";
 import { EmojiEvents } from "@mui/icons-material";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CardGiftcard } from "@mui/icons-material";
 import { SupportAgent } from "@mui/icons-material";
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
 const About: React.FC = () => {
     const container = useRef<HTMLDivElement>(null);

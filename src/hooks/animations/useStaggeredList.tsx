@@ -1,9 +1,6 @@
+import React from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React from "react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface UseStaggeredListProps {
     container: React.RefObject<HTMLElement | null>;
