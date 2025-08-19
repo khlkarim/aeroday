@@ -1,11 +1,7 @@
 "use client"
 import React, { useRef } from "react";
 import { Container, Typography } from "@mui/material";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useAnimation } from "@/hooks/animations/useAnimation";
 
 interface DeckProps<T> {
     title: string;
@@ -18,79 +14,19 @@ export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
     const cardsContainerRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
-        const container = containerRef.current;
-        const cardsContainer = cardsContainerRef.current;
-        const titleElement = titleRef.current;
-
-        if (!container || !cardsContainer || !titleElement) return;
-
-        // Animate title with its own ScrollTrigger
-        gsap.set(titleElement, { x: -100, opacity: 0 });
-        gsap.to(titleElement, {
-            x: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: titleElement,
-                start: "top 90%",
-                end: "top 60%",
-                scrub: true
-            }
-        });
-
-        // Animate each card with its own ScrollTrigger
-        const cards = cardsContainer.querySelectorAll('.deck-card');
-        cards.forEach((card: Element) => {
-            gsap.set(card, { y: 60, opacity: 0, scale: 0.8 });
-            gsap.to(card, {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 0.6,
-                ease: "back.out(1.7)",
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top 90%",
-                    end: "top 60%",
-                    scrub: true
-                }
-            });
-        });
-
-        // Add hover animations for cards
-        const cleanupFunctions: (() => void)[] = [];
-        cards.forEach((card: Element) => {
-            const handleMouseEnter = () => {
-                gsap.to(card, {
-                    y: -8,
-                    scale: 1.05,
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
-            };
-            const handleMouseLeave = () => {
-                gsap.to(card, {
-                    y: 0,
-                    scale: 1,
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
-            };
-            card.addEventListener('mouseenter', handleMouseEnter);
-            card.addEventListener('mouseleave', handleMouseLeave);
-            cleanupFunctions.push(() => {
-                card.removeEventListener('mouseenter', handleMouseEnter);
-                card.removeEventListener('mouseleave', handleMouseLeave);
-            });
-        });
-
-        return () => {
-            cleanupFunctions.forEach(cleanup => cleanup());
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
-    }, { dependencies: [data], scope: containerRef });
+    useAnimation(titleRef, {
+        preset: 'slideInLeft',
+        distance: 80,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+            markers: true,
+            scrub: true,
+            start: "top 100%",
+            end: "top 10%"
+        },
+        trigger: containerRef
+    });
 
     return (
         <Container 
@@ -99,7 +35,7 @@ export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
             sx={{ m: 0, p: 0 }}
         >
             <div ref={titleRef} className="deck-title">
-                <Typography variant="h2">
+                <Typography variant="h3">
                     {title}
                 </Typography>
             </div>

@@ -8,8 +8,8 @@ import { useTheme } from '@mui/material/styles';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button } from '@mui/material';
 import { useAnimation } from '@/hooks/animations/useAnimation';
-import { createCustomAnimation } from '@/hooks/animations/config';
 import { useHoverAnimation } from '@/hooks/animations/useHoverAnimation';
+import { useParallaxAnimation } from '@/hooks/animations/useParallaxAnimation';
 
 // Register ScrollToPlugin
 gsap.registerPlugin(ScrollToPlugin);
@@ -61,91 +61,29 @@ const Hero: React.FC = () => {
 
     // Buttons animation - Slide up
     useAnimation(buttonsRef, {
-        preset: 'slideInUp',
-        distance: 40,
-        duration: 0.8,
-        ease: "power3.out",
         delay: 0.8,
-    });
-
-    // ===== EXIT ANIMATIONS =====
-    
-    // Chip fade out on scroll
-    useAnimation(chipRef, {
-        customAnimation: createCustomAnimation(
-            { autoAlpha: 1 },
-            { autoAlpha: 0 }
-        ),
-        duration: 0.6,
-        ease: "power2.out",
-        trigger: containerRef,
-        scrollTrigger: {
-            start: "bottom 90%",
-            end: "bottom 80%",
-            scrub: true,
-            markers: true
-        }
-    });
-
-    // Subtitle fade out on scroll
-    useAnimation(subtitleRef, {
-        customAnimation: createCustomAnimation(
-            { autoAlpha: 1 },
-            { autoAlpha: 0 }
-        ),
-        duration: 0.6,
-        ease: "power2.out",
-        trigger: containerRef,
-        scrollTrigger: {
-            start: "bottom 90%",
-            end: "bottom 10%",
-            scrub: true,
-            markers: true
-        }
-    });
-
-    // Description slide out left on scroll
-    useAnimation(descriptionRef, {
-        customAnimation: createCustomAnimation(
-            { x: 0, autoAlpha: 1 },
-            { x: -60, autoAlpha: 0 }
-        ),
-        duration: 0.7,
+        distance: 40,
+        duration: 0.5,
         ease: "power3.out",
-        trigger: containerRef,
-        scrollTrigger: {
-            start: "bottom 90%",
-            end: "bottom 10%",
-            scrub: true,
-            markers: true
-        }
-    });
-
-    // Buttons slide out left on scroll
-    useAnimation(buttonsRef, {
-        customAnimation: createCustomAnimation(
-            { x: 0, autoAlpha: 1 },
-            { x: -80, autoAlpha: 0 }
-        ),
-        duration: 0.8,
-        ease: "power3.out",
-        trigger: containerRef,
-        scrollTrigger: {
-            start: "bottom 90%",
-            end: "bottom 10%",
-            scrub: true,
-            markers: true
-        }
+        preset: 'slideInUp',
     });
 
     // ===== HOVER ANIMATIONS =====
     
     // Chip hover effect
     useHoverAnimation(chipRef, {
-        scale: 1.05,
         lift: 0,
-        duration: 0.3
+        scale: 1.05,
+        duration: 0.5
     });
+
+    useParallaxAnimation(
+        descriptionRef, 
+        {
+            trigger: containerRef, 
+            scrollTrigger: { start: "bottom 100%" } 
+        }
+    );
 
     // ===== SCROLL HANDLER =====
     const handleScroll = (target: string) => {

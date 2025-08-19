@@ -1,120 +1,89 @@
 import React from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ANIMATION_PRESETS, AnimationDefinition, AnimationPreset, ScrollAnimationConfig } from "./config";
+import { ANIMATION_PRESETS, AnimationDefinition, AnimationPreset, ScrollAnimationConfig } from "./presets";
 
-// ===== CORE ANIMATION HOOK =====
 export const useAnimation = (
     target: React.RefObject<HTMLElement | HTMLElement[] | null>,
     config: ScrollAnimationConfig & {
         preset?: AnimationPreset;
         distance?: number;
         customAnimation?: AnimationDefinition;
-    }
+    }   
 ) => {
     const {
         preset,
-        distance,
-        customAnimation,
-        duration = 0.6,
-        ease = "power2.out",
-        delay = 0,
         stagger,
-        scrollTrigger,
         trigger,
+        distance,
+        delay = 0,
+        scrollTrigger,
+        duration = 0.6,
+        customAnimation,
         disabled = false,
+        ease = "power2.out",
     } = config;
 
     const timelineRef = React.useRef<gsap.core.Timeline | null>(null);
 
-    useGSAP(
-        () => {
-            if (disabled) return;
-            const raw = target.current;
-            if (!raw) return;
+    useGSAP(() => {
+        if (disabled || !target.current) return;
 
-            // Normalize targets into a non-empty array of HTMLElements
-            const els: HTMLElement[] = Array.isArray(raw)
-                ? (raw.filter(Boolean) as HTMLElement[])
-                : raw
-                ? [raw as HTMLElement]
-                : [];
+        const elements: HTMLElement[] = Array.isArray(target.current)
+            ? (target.current.filter(Boolean) as HTMLElement[])
+            : target.current
+            ? [target.current as HTMLElement]
+            : [];
 
-            if (els.length === 0) return;
+        if (elements.length === 0) return;
 
-            // Resolve trigger element: explicit trigger ref or first target
-            const triggerEl = trigger?.current ?? els[0];
+        const triggerEl = trigger?.current ?? elements[0];
+        const animation = customAnimation || (preset ? ANIMATION_PRESETS[preset](distance) : null);
 
-            // Resolve animation definition
-            const animation =
-                customAnimation || (preset ? ANIMATION_PRESETS[preset](distance) : null);
+        if (!animation) {
+            console.warn("useAnimation: No animation preset or custom animation provided");
+            return;
+        }
 
-            if (!animation) {
-                console.warn(
-                    "useAnimation: No animation preset or custom animation provided"
-                );
-                return;
-            }
-
-            // Build timeline (attach ScrollTrigger here so scrubbing/controls work)
-            const tl = gsap.timeline({
-                defaults: {
-                    duration,
-                    ease,
-                    delay,
-                    // Avoid conflicts with other timelines on same targets
-                    overwrite: "auto",
-                },
-                scrollTrigger:
-                    scrollTrigger || triggerEl
-                        ? {
-                              trigger: triggerEl,
-                              start: "top 80%",
-                              toggleActions: "play none none reverse",
-                              invalidateOnRefresh: true,
-                              // allow caller to override anything above
-                              ...scrollTrigger,
-                          }
-                        : undefined,
-            });
-
-            // With ScrollTrigger, prevent early render of "from" values
-            const fromSide = tl.vars.scrollTrigger
-                ? { ...animation.from, immediateRender: false }
-                : animation.from;
-
-            tl.fromTo(
-                els,
-                fromSide,
-                {
-                    ...animation.to,
-                    // Pass stagger through as-is (number or object)
-                    ...(stagger !== undefined ? { stagger } : {}),
-                }
-            );
-
-            timelineRef.current = tl;
-            // Cleanup: revert clears inline styles and kills ScrollTriggers
-            return () => {
-                timelineRef.current = null;
-            };
-        },
-        {
-            dependencies: [
-                disabled,
-                preset,
-                distance,
-                duration,
+        const tl = gsap.timeline({
+            defaults: {
                 ease,
                 delay,
-                stagger,
-                scrollTrigger,
-                customAnimation,
-                trigger?.current,
-            ],
-            // ✅ Scope – lets GSAP context automatically track & revert
-            scope: target,
-        }
+                duration,
+                overwrite: "auto",
+            },
+            scrollTrigger:
+                scrollTrigger || triggerEl
+                    ? {
+                            start: "top 80%",
+                            trigger: triggerEl,
+                            ...scrollTrigger,
+                        }
+                    : undefined,
+        });
+
+        const from = tl.vars.scrollTrigger
+            ? { ...animation.from, immediateRender: false }
+            : animation.from;
+
+        tl.fromTo(
+            elements,
+            from,
+            {
+                ...animation.to,
+                ...(stagger !== undefined ? { stagger } : {}),
+            }
+        );
+
+        timelineRef.current = tl;
+        return () => {
+            timelineRef.current = null;
+        };
+    },
+    {
+        dependencies: [ target, config ],
+        scope: target,
+    }
     );
 
     return {
@@ -126,7 +95,6 @@ export const useAnimation = (
     };
 };
 
-// ===== CONVENIENCE HOOKS =====
 export const useFadeIn = (target: React.RefObject<HTMLElement | null>, config?: ScrollAnimationConfig) =>
   useAnimation(target, { preset: "fadeIn", ...config });
 

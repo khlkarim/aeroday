@@ -1,5 +1,5 @@
-import { ANIMATION_PRESETS, AnimationDefinition, AnimationPreset, ScrollAnimationConfig } from "./config";
 import { useAnimation } from "./useAnimation";
+import { ANIMATION_PRESETS, AnimationDefinition, AnimationPreset, ScrollAnimationConfig } from "./presets";
 
 export const useRevealAnimation = (
   target: React.RefObject<HTMLElement>,

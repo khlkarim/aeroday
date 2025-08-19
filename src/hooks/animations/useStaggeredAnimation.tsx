@@ -1,4 +1,4 @@
-import { AnimationPreset, ScrollAnimationConfig } from "./config";
+import { AnimationPreset, ScrollAnimationConfig } from "./presets";
 import { useAnimation } from "./useAnimation";
 
 // ===== ADVANCED COMPOSITION HOOKS =====

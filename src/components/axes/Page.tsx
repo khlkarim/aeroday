@@ -9,7 +9,7 @@ export default function Page({ id }: { id: number }) {
 
     return (
         <>
-            <Box className="flex flex-wrap justify-around gap-6">
+            <Box className="flex flex-wrap items-center justify-around gap-6">
                 <MaxCard item={axe} />
                 <Box
                     className="flex flex-col justify-around items-center"

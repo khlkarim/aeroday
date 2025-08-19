@@ -1,10 +1,10 @@
 "use client"
 
 import React from "react";
-import { Box, Typography, Button, Card, CardActionArea, CardContent, CardActions } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import type { TeamMember } from "../../content/team";
+import { Box, Typography, Button, Card, CardActionArea, CardContent } from "@mui/material";
 
 interface ProfileCardProps {
     item: TeamMember;
@@ -40,22 +40,20 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ item }) => {
                     </Box>
                 </CardContent>
             </CardActionArea>
-            <CardActions className="flex flex-col gap-2 justify-center">
+            <Box className="flex flex-col gap-2 p-2 justify-center">
                 <Button
                     variant="outlined"
                     startIcon={<PhoneIcon />}
-                    className="w-full"
                 >
                     {item.contact.phone}
                 </Button>
                 <Button
                     variant="outlined"
                     startIcon={<EmailIcon />}
-                    className="w-full"
                 >
                     {item.contact.email}
                 </Button>
-            </CardActions>
+            </Box>
         </Card>
     );
 };

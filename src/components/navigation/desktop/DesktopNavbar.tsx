@@ -15,6 +15,7 @@ const DesktopNavbar: React.FC = () => {
             sx={{
                 backdropFilter: "blur(8px)",
                 borderBottom: `1px solid ${theme.palette.divider}`,
+                // backgroundColor: `${theme.palette.background.paper}88`,
             }}
         >
             <Container maxWidth="md">

@@ -2,7 +2,6 @@ import React from 'react';
 import {
     Card,
     CardContent,
-    CardActions,
     CardMedia,
     Typography,
     Button,
@@ -47,7 +46,7 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                 </Typography>
             </CardContent>
 
-            <CardActions className="flex flex-col sm:flex-row sm:justify-end gap-2 w-full">
+            <Box className="flex flex-col sm:flex-row sm:justify-end gap-2 p-2">
                 <Button
                     variant="outlined"
                     size="small"
@@ -68,7 +67,7 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                 >
                     Remplir le formulaire
                 </Button>
-            </CardActions>
+            </Box>
         </Card>
     );
 };
