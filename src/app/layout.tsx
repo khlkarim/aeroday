@@ -17,7 +17,7 @@ import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 
 export const metadata: Metadata = {
     title: "Tunisian Aeroday 2026",
-    icons: "assets/images/logos/page-icon.ico"
+    icons: "/assets/images/logos/page-icon.ico"
 };
 
 export default function RootLayout({
@@ -32,12 +32,10 @@ export default function RootLayout({
                     <Navbar />
                     <SmoothScrollProvider>
                         <Container sx={{
-                            pt: '14vh', 
-                            gap: 4, 
                             display: "flex", 
                             flexDirection: "column"
                         }}>
-                                {children}
+                            {children}
                         <Footer />
                         </Container>
                     </SmoothScrollProvider>

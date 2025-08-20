@@ -1,7 +1,9 @@
 "use client"
+
+import gsap from "gsap";
 import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import { Container, Typography } from "@mui/material";
-import { useAnimation } from "@/hooks/animations/useAnimation";
 
 interface DeckProps<T> {
     title: string;
@@ -10,38 +12,43 @@ interface DeckProps<T> {
 }
 
 export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const cardsContainerRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
+    const cardsRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
-    useAnimation(titleRef, {
-        preset: 'slideInLeft',
-        distance: 80,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-            markers: true,
-            scrub: true,
-            start: "top 100%",
-            end: "top 10%"
-        },
-        trigger: containerRef
-    });
+    useGSAP(() => {
+        if(!containerRef.current || !cardsRef.current || !titleRef.current) return;
+
+        const onScrollIn = gsap.timeline();
+
+        onScrollIn.from(
+            titleRef.current,
+            {
+                x: -80, 
+                autoAlpha: 0,
+                scrollTrigger: {
+                    scrub: 1,
+                    end: "top 40%",
+                    start: "top 90%",
+                    trigger: containerRef.current,
+                },
+            }
+        );
+
+    }, { scope: containerRef });
 
     return (
         <Container 
+            id={title}
             ref={containerRef} 
-            id={title} 
-            sx={{ m: 0, p: 0 }}
+            sx={{ m: 0, pt: 10, pb: 10 }}
         >
-            <div ref={titleRef} className="deck-title">
-                <Typography variant="h3">
-                    {title}
-                </Typography>
-            </div>
+            <Typography ref={titleRef} className="animated" variant="h3">
+                {title}
+            </Typography>
+
             <Container 
-                ref={cardsContainerRef}
-                className="deck-cards"
+                ref={cardsRef}
                 sx={{
                     p: 4,
                     gap: 4,
@@ -54,7 +61,6 @@ export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
                     return (
                         <div 
                             key={index}
-                            className="deck-card"
                             style={{
                                 cursor: 'pointer',
                                 transition: 'transform 0.2s ease'

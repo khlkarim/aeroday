@@ -1,5 +1,13 @@
 import React from "react";
 
+export interface useAnimationProps {
+    to: gsap.TweenVars;
+    from: gsap.TweenVars;
+    target: React.RefObject<HTMLElement | null>;
+    trigger?: React.RefObject<HTMLElement | null>;
+    scrollTrigger?: Omit<ScrollTrigger.Vars, 'trigger'>;
+}
+
 export interface BaseAnimationConfig {
     duration?: number;
     ease?: string;

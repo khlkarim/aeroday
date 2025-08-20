@@ -1,6 +1,8 @@
-import { shadThemeShadows } from '@/themes/shad/shadows';
 import { createTheme, responsiveFontSizes } from '@mui/material';
 import { amber, common, green, grey, lightBlue, red } from '@mui/material/colors';
+
+const starWarsRed = "#E53935";
+const starWarsBlue = "#2b4f98";
 
 const background = common['black'];
 const bodyBackground = common['black'];
@@ -17,7 +19,7 @@ export const shadTheme = (mode: 'light' | 'dark') => {
                 light: isDarkMode ? grey['800'] : grey['100'],
             },
             secondary: {
-                main: isDarkMode ? grey['100'] : grey['800'],
+                main: isDarkMode ? starWarsRed : starWarsBlue,
             },
             success: {
                 main: green['900'],
@@ -85,7 +87,6 @@ export const shadTheme = (mode: 'light' | 'dark') => {
                 fontWeight: 600,
             },
         },
-        shadows: shadThemeShadows,
         components: {
             MuiCssBaseline: {
                 styleOverrides: {

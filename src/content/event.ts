@@ -28,6 +28,11 @@ export interface Event {
         title: string;
         subtitle: string;
     }[];
+    sponsors: {
+        name: string;
+        logo: string;
+        website?: string;
+    }[];
     editionsPrecedentes: {
         description: string;
     };
@@ -62,7 +67,7 @@ export const event: Event = {
             "la découverte des nouveaux potentiels dont disposent les jeunes."
     },
     teaser: {
-        video: "",
+        video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         description: {
             primary: "Cette 12ème édition du Tunisian Aeroday, placée sous le thème inspirant " +
                 "de Cieux éternels de l'Afrique, incarne une ambition forte : celle de " +
@@ -111,6 +116,38 @@ export const event: Event = {
             title: "24 / 7 Support",
             subtitle: "contact@aeroday.tn"
         },
+    ],
+    sponsors: [
+        {
+            name: "Company A",
+            logo: "https://picsum.photos/100",
+            website: "https://company-a.com"
+        },
+        {
+            name: "Company B", 
+            logo: "https://picsum.photos/100",
+            website: "https://company-b.com"
+        },
+        {
+            name: "Company C",
+            logo: "https://picsum.photos/100",
+            website: "https://company-c.com"
+        },
+        {
+            name: "Company D", 
+            logo: "https://picsum.photos/100",
+            website: "https://company-d.com"
+        },
+        {
+            name: "Company E",
+            logo: "https://picsum.photos/100",
+            website: "https://company-e.com"
+        },
+        {
+            name: "Company F", 
+            logo: "https://picsum.photos/100",
+            website: "https://company-f.com"
+        }
     ],
     contact: {
         phone: "+216 94 384 001",

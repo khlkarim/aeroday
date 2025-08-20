@@ -47,7 +47,7 @@ export const useParallaxAnimation = (
             },
             scrollTrigger: (scrollTrigger || triggerEl)
                 ? {
-                      scrub: true,
+                      scrub: 1,
                       start: "top bottom",
                       end: "bottom top",
                       trigger: triggerEl,
@@ -63,14 +63,14 @@ export const useParallaxAnimation = (
         );
 
         timelineRef.current = tl;
-        console.log(elements);
+        console.log(trigger?.current);
 
         return () => {
             tl.scrollTrigger?.kill();
             tl.kill();
             timelineRef.current = null;
         };
-    }, { dependencies: [target, config], scope: target });
+    }, { dependencies: [target, config] });
 
     return {
         timeline: timelineRef.current,

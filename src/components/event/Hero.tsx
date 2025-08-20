@@ -1,91 +1,78 @@
 "use client"
 
-import React, { useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { useGSAP } from '@gsap/react';
+import React, { useRef } from 'react';
 import { event } from '@/content/event';
 import { useTheme } from '@mui/material/styles';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button } from '@mui/material';
-import { useAnimation } from '@/hooks/animations/useAnimation';
-import { useHoverAnimation } from '@/hooks/animations/useHoverAnimation';
-import { useParallaxAnimation } from '@/hooks/animations/useParallaxAnimation';
-
-// Register ScrollToPlugin
-gsap.registerPlugin(ScrollToPlugin);
 
 const Hero: React.FC = () => {
-    const theme = useTheme();
-    
-    const containerRef = useRef<HTMLDivElement>(null);
+    const theme = useTheme();    
     const chipRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
+    const buttonsRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const subtitleRef = useRef<HTMLSpanElement>(null);
     const descriptionRef = useRef<HTMLDivElement>(null);
-    const buttonsRef = useRef<HTMLDivElement>(null);
 
-    // ===== ENTRANCE ANIMATIONS =====
-    
-    // Chip animation - Scale in with bounce
-    useAnimation(chipRef, {
-        preset: 'scaleIn',
-        duration: 0.6,
-        ease: "back.out(1.7)",
-    });
+    useGSAP(() => {
+        if (
+            !chipRef.current ||
+            !titleRef.current ||
+            !buttonsRef.current ||
+            !subtitleRef.current ||
+            !containerRef.current || 
+            !descriptionRef.current
+        ) return;
 
-    // Title animation - Slide in from left
-    useAnimation(titleRef, {
-        preset: 'slideInLeft',
-        distance: 80,
-        duration: 0.8,
-        ease: "power3.out",
-        delay: 0.2,
-    });
+        const onLoad = gsap.timeline();
+        onLoad
+            .from(chipRef.current, {
+                autoAlpha: 0,
+                y: 50,
+                duration: 1,
+                ease: "power3.out"
+            })
+            .from(titleRef.current, {
+                autoAlpha: 0,
+                y: 40,
+                duration: 0.9,
+                ease: "power3.out"
+            }, "-=0.8")
+            .from(subtitleRef.current, {
+                autoAlpha: 0,
+                y: 35,
+                duration: 0.8,
+                ease: "power3.out"
+            }, "-=0.7")
+            .from(descriptionRef.current, {
+                autoAlpha: 0,
+                y: 30,
+                duration: 0.7,
+                ease: "power3.out"
+            }, "-=0.6")
+            .from(buttonsRef.current, {
+                autoAlpha: 0,
+                y: 25,
+                scale: 0.8,
+                duration: 0.9,
+                ease: "power3.out"
+            }, "-=0.4");
 
-    // Subtitle animation - Fade in
-    useAnimation(subtitleRef, {
-        preset: 'fadeIn',
-        duration: 0.6,
-        ease: "power2.out",
-        delay: 0.4,
-    });
+        const onScroll = gsap.timeline({
+            scrollTrigger: {
+                scrub: 1,
+                start: "bottom bottom",
+                trigger: containerRef.current,
+            }
+        });
 
-    // Description animation - Slide up
-    useAnimation(descriptionRef, {
-        preset: 'slideInUp',
-        distance: 30,
-        duration: 0.7,
-        ease: "power3.out",
-        delay: 0.6,
-    });
+        onScroll.to(containerRef.current, { y: -80, autoAlpha: 0 });
 
-    // Buttons animation - Slide up
-    useAnimation(buttonsRef, {
-        delay: 0.8,
-        distance: 40,
-        duration: 0.5,
-        ease: "power3.out",
-        preset: 'slideInUp',
-    });
+    }, { scope: containerRef });
 
-    // ===== HOVER ANIMATIONS =====
-    
-    // Chip hover effect
-    useHoverAnimation(chipRef, {
-        lift: 0,
-        scale: 1.05,
-        duration: 0.5
-    });
-
-    useParallaxAnimation(
-        descriptionRef, 
-        {
-            trigger: containerRef, 
-            scrollTrigger: { start: "bottom 100%" } 
-        }
-    );
-
-    // ===== SCROLL HANDLER =====
     const handleScroll = (target: string) => {
         gsap.to(window, {
             duration: 1.2,
@@ -100,18 +87,14 @@ const Hero: React.FC = () => {
     return (
         <Box
             ref={containerRef}
+            sx={{ height: '100vh' }}
             className="flex flex-col items-start justify-center gap-6"
-            sx={{
-                minHeight: '82vh',
-                position: 'relative',
-                paddingBottom: '12vh',
-            }}
         >
             <Chip
                 ref={chipRef}
-                className='animated'
-                color="success"
+                color="secondary"
                 variant="outlined"
+                className='animated'
                 label={"📅 " + event.subtitle}
                 sx={{
                     borderRadius: 2,
@@ -123,13 +106,22 @@ const Hero: React.FC = () => {
             <Box ref={titleRef} className='animated'>
                 <Typography variant="h2">
                     {event.name + " "}
-                    <span className="bg-emerald-900/40 px-2 rounded-md text-white">
+                    <Box
+                        component="span"
+                        sx={{
+                            px: 2,
+                            borderRadius: 1,
+                            color: theme.palette.secondary.contrastText,
+                            backgroundColor: theme.palette.secondary.main,
+                        }}
+                    >
                         {event.date.year}
-                    </span>
+                    </Box>
                 </Typography>
                 <Typography
                     ref={subtitleRef}
                     variant="subtitle1"
+                    className='animated'
                     sx={{
                         color: theme.palette.text.secondary,
                     }}

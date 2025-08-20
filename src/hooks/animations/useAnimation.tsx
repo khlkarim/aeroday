@@ -55,7 +55,8 @@ export const useAnimation = (
             scrollTrigger:
                 scrollTrigger || triggerEl
                     ? {
-                            start: "top 80%",
+                        scrub: 1,
+                        start: "top 80%",
                             trigger: triggerEl,
                             ...scrollTrigger,
                         }
@@ -76,13 +77,15 @@ export const useAnimation = (
         );
 
         timelineRef.current = tl;
+        console.log(trigger?.current);
+
         return () => {
             timelineRef.current = null;
         };
     },
     {
-        dependencies: [ target, config ],
-        scope: target,
+        dependencies: [ target, config, trigger ],
+        scope: trigger,
     }
     );
 
