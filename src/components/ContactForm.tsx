@@ -8,6 +8,7 @@ import {
     TextField,
     Typography,
     Paper,
+    Container,
 } from "@mui/material";
 
 export default function ContactForm() {
@@ -27,11 +28,18 @@ export default function ContactForm() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
-        // TODO: integrate with backend or email service
     };
 
     return (
-        <Box sx={{ pt: 10, pb: 10, height: '100vh' }}>
+        <Container 
+            sx={{ 
+                gap: 6,
+                display: 'flex', 
+                alignItems: 'center',
+                flexDirection: 'column', 
+                
+            }}
+        >
             <Paper
                 elevation={3}
                 sx={{ p: 4, mx: "auto", borderRadius: 3 }}
@@ -99,6 +107,6 @@ export default function ContactForm() {
                     </Grid>
                 </Box>
             </Paper>
-        </Box>
+        </Container>
     );
 }

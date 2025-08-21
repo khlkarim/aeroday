@@ -10,6 +10,7 @@ import {
     Divider,
 } from '@mui/material';
 import type { Challenge } from '../../content/challenges';
+import Image from 'next/image';
 
 interface MaxCardProps {
     item: Challenge;
@@ -20,12 +21,16 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
         <Card
             className="w-full max-w-3xl rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
         >
-            <CardMedia
-                component="img"
-                image={item.image}
-                alt={item.name}
-                className="h-64 object-cover"
-            />
+            <Box sx={{ position: 'relative', width: '100%', height: { xs: 180, sm: 240, md: 300 } }}>
+                <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                    priority
+                />
+            </Box>
 
             <CardContent className="flex flex-col gap-4">
                 <Box className="flex flex-row items-center" sx={{ justifyContent: "space-between" }}>

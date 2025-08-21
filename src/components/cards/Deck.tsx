@@ -1,9 +1,10 @@
 "use client"
 
 import gsap from "gsap";
+import Title from "../text/Title";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 
 interface DeckProps<T> {
     title: string;
@@ -41,16 +42,19 @@ export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
         <Container 
             id={title}
             ref={containerRef} 
-            sx={{ m: 0, pt: 10, pb: 10 }}
+            sx={{ 
+                gap: 6,
+                display: 'flex', 
+                alignItems: 'center',
+                flexDirection: 'column', 
+                
+            }}
         >
-            <Typography ref={titleRef} className="animated" variant="h3">
-                {title}
-            </Typography>
+            <Title label={title} />
 
             <Container 
                 ref={cardsRef}
                 sx={{
-                    p: 4,
                     gap: 4,
                     display: "flex",
                     flexWrap: "wrap",

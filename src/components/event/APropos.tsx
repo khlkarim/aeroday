@@ -62,7 +62,7 @@ export const APropos = () => {
     }, { scope: containerRef });
 
     return (
-        <Box ref={containerRef} className="flex flex-wrap items-center justify-around">
+        <Box ref={containerRef} className="flex flex-wrap items-center justify-around gap-7">
             <Box
                 ref={logoRef}
                 component="img"

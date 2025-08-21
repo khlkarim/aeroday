@@ -20,6 +20,9 @@ const MobileNavbar: React.FC = () => {
                 elevation={0}
                 position="fixed"
                 sx={{
+                    height: '10vh',
+                    display: 'flex',
+                    justifyContent: "center",
                     backdropFilter: "blur(8px)",
                     borderBottom: `1px solid ${theme.palette.divider}`,
                     backgroundColor: `${theme.palette.background.paper}88`,
@@ -46,8 +49,10 @@ const MobileNavbar: React.FC = () => {
                 >
                 <Box
                     sx={{
+                        height: '10vh',
                         padding: 2,
                         display: "flex",
+                        alignItems: 'center',
                         justifyContent: "space-between",
                         borderBottom: `1px solid ${theme.palette.divider}`,
                     }}

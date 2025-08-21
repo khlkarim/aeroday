@@ -32,11 +32,13 @@ export default function RootLayout({
                     <Navbar />
                     <SmoothScrollProvider>
                         <Container sx={{
+                            gap: 8, 
+                            pt: '14vh', 
                             display: "flex", 
                             flexDirection: "column"
                         }}>
                             {children}
-                        <Footer />
+                            <Footer />
                         </Container>
                     </SmoothScrollProvider>
                 </ThemeModeProvider>

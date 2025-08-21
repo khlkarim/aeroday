@@ -6,7 +6,7 @@ import React, { useRef } from 'react';
 import { event } from '@/content/event';
 import { useTheme } from '@mui/material/styles';
 import { Paragraph } from '@/components/text/Paragraph';
-import { Box, Typography, Chip, Button } from '@mui/material';
+import { Box, Typography, Chip, Button, Container } from '@mui/material';
 
 const Hero: React.FC = () => {
     const theme = useTheme();    
@@ -61,16 +61,6 @@ const Hero: React.FC = () => {
                 ease: "power3.out"
             }, "-=0.4");
 
-        const onScroll = gsap.timeline({
-            scrollTrigger: {
-                scrub: 1,
-                start: "bottom bottom",
-                trigger: containerRef.current,
-            }
-        });
-
-        onScroll.to(containerRef.current, { y: -80, autoAlpha: 0 });
-
     }, { scope: containerRef });
 
     const handleScroll = (target: string) => {
@@ -85,10 +75,17 @@ const Hero: React.FC = () => {
     };
 
     return (
-        <Box
+        <Container
             ref={containerRef}
-            sx={{ height: '100vh' }}
-            className="flex flex-col items-start justify-center gap-6"
+            sx={{ 
+                gap: 3,
+                display: 'flex',
+                minHeight: '82vh',
+                alignItems: 'start',
+                paddingBottom: '12vh',
+                flexDirection: 'column',    
+                justifyContent: 'center',
+            }}
         >
             <Chip
                 ref={chipRef}
@@ -98,8 +95,8 @@ const Hero: React.FC = () => {
                 label={"📅 " + event.subtitle}
                 sx={{
                     borderRadius: 2,
-                    cursor: "pointer",
                     fontSize: "1rem",
+                    cursor: "pointer",
                 }}
             />
            
@@ -153,7 +150,7 @@ const Hero: React.FC = () => {
                     Challenges
                 </Button>
             </Box>
-        </Box>
+        </Container>
     );
 };
 

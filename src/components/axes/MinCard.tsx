@@ -19,7 +19,7 @@ const MinCard: React.FC<MinCardProps> = ({ item }) => {
         <Card
             className="w-full max-w-sm rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
         >
-            <CardActionArea>
+            <CardActionArea href={item.href}>
                 <Box
                     className="w-full overflow-hidden"
                     sx={{
