@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import Image from "next/image";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "../../content/event";
@@ -65,15 +66,23 @@ export const APropos = () => {
         <Box ref={containerRef} className="flex flex-wrap items-center justify-around gap-7">
             <Box
                 ref={logoRef}
-                component="img"
-                src={event.logo}
-                alt={`${event.name} logo`}
-                className='animated w-70 h-auto object-contain rounded-full'
                 sx={{
-                    filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))',
-                    cursor: 'pointer'
+                    overflow: "hidden",
+                    borderRadius: "50%",
+                    position: "relative",
+                    mx: { xs: "auto", md: 0 },
+                    backgroundColor: "action.hover",
+                    width: { xs: 180, sm: 220, md: 280 },
+                    height: { xs: 180, sm: 220, md: 280 },
                 }}
-            />
+            >
+                <Image
+                    fill
+                    src={event.logo}
+                    alt={`${event.name} logo`}
+                    style={{ objectFit: "cover" }}
+                />
+            </Box>
             <Box>
                 <Typography ref={titleRef} className="animated" variant="h3" sx={{ mb: 2 }}>
                     A propos de {event.name}

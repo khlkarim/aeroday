@@ -1,19 +1,9 @@
 "use client"
 
 import React from 'react';
-import {
-    Card,
-    CardContent,
-    CardActions,
-    CardMedia,
-    Typography,
-    Button,
-    Box,
-    Divider,
-    Chip,
-} from '@mui/material';
-import type { Axe } from '../../content/axes';
 import Image from 'next/image';
+import type { Axe } from '../../content/axes';
+import { Card, CardContent, CardActions, Typography, Button, Box, Divider, Chip } from '@mui/material';
 
 interface MaxCardProps {
     item: Axe;
@@ -24,14 +14,16 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
         <Card
             className="w-full max-w-3xl rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
         >
-            <Box sx={{ position: 'relative', width: '100%', height: { xs: 180, sm: 240, md: 300 } }}>
+            <Box sx={{ 
+                aspectRatio: '16/7', 
+                position: 'relative', 
+            }}>
                 <Image
-                    src={item.image}
-                    alt={item.name}
                     fill
-                    style={{ objectFit: 'cover' }}
-                    sizes="(max-width: 600px) 100vw, 50vw"
                     priority
+                    alt={item.name}
+                    src={item.image}
+                    style={{ objectFit: 'cover' }}
                 />
             </Box>
 

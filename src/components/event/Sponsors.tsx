@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { event } from "@/content/event";
 import { Box, Typography } from "@mui/material";
 
@@ -28,14 +29,23 @@ export default function Sponsors() {
             >
             {sponsors.map((sponsor) => (
                 <Box
-                    component="img"
                     key={sponsor.name}
-                    src={sponsor.logo}
-                    alt={sponsor.name}
                     sx={{
+                        width: 100,
+                        height: 100,
                         borderRadius: 100,
+                        overflow: 'hidden',
+                        position: 'relative',
+                        backgroundColor: 'action.hover',
                     }}
-                />
+                >
+                    <Image
+                        fill
+                        alt={sponsor.name}
+                        src={sponsor.logo}
+                        style={{ objectFit: 'cover' }}
+                    />
+                </Box>
             ))}
             </Box>
         </Box>

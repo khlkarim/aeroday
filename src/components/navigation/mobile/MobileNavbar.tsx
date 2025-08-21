@@ -1,5 +1,4 @@
 "use client"
-
 import React, { useState } from "react";
 import ThemeToggle from "../../ThemeToggle";
 import MobileNavLink from "./MobileNavLink";
@@ -10,7 +9,6 @@ import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Box } from "@mui/m
 
 const MobileNavbar: React.FC = () => {
     const theme = useTheme();
-
     const [open, setOpen] = useState(false);
     const toggleDrawer = (state: boolean) => () => setOpen(state);
 
@@ -20,12 +18,12 @@ const MobileNavbar: React.FC = () => {
                 elevation={0}
                 position="fixed"
                 sx={{
-                    height: '10vh',
                     display: 'flex',
                     justifyContent: "center",
-                    backdropFilter: "blur(8px)",
+                    backdropFilter: "blur(10px)",
                     borderBottom: `1px solid ${theme.palette.divider}`,
-                    backgroundColor: `${theme.palette.background.paper}88`,
+                    backgroundColor: theme.palette.mode == 'light'? 
+                        `${theme.palette.background.paper}22` : `transparent`,
                 }}
             >
                 <Toolbar>
@@ -34,7 +32,7 @@ const MobileNavbar: React.FC = () => {
                     </IconButton>
                 </Toolbar>
             </AppBar>
-
+            
             <Drawer
                 open={open}
                 anchor="right"
@@ -42,14 +40,14 @@ const MobileNavbar: React.FC = () => {
                 sx={{
                     "& .MuiPaper-root": {
                         width: "100%",
-                        backdropFilter: "blur(8px)",
-                        backgroundColor: `${theme.palette.background.paper}88`,
+                        backdropFilter: "blur(10px)",
+                        backgroundColor: theme.palette.mode == 'light'? 
+                            `${theme.palette.background.paper}22` : `transparent`,
                     },
                 }}
-                >
+            >
                 <Box
                     sx={{
-                        height: '10vh',
                         padding: 2,
                         display: "flex",
                         alignItems: 'center',
@@ -62,7 +60,6 @@ const MobileNavbar: React.FC = () => {
                     </IconButton>
                     <ThemeToggle />
                 </Box>
-
                 <List>
                     {links.map((_, index) => (
                         <MobileNavLink key={index} index={index} />

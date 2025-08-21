@@ -1,9 +1,7 @@
 "use client"
 
-import gsap from 'gsap';
 import { useRef } from 'react';
 import { Box } from '@mui/material';
-import { useGSAP } from '@gsap/react';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 

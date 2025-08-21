@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react";
+import Image from "next/image";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import type { TeamMember } from "../../content/team";
@@ -17,17 +18,19 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ item }) => {
         >
             <CardActionArea>
                 <Box
-                    className="w-full overflow-hidden"
                     sx={{
+                        height: 220,
+                        width: '100%',
                         aspectRatio: '4/3',
+                        position: 'relative',
                         backgroundColor: 'action.hover',
                     }}
                 >
-                    <Box
-                        component={"img"}
-                        src={item.image}
+                    <Image
+                        fill
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        src={item.image}
+                        style={{ objectFit: 'cover' }}
                     />
                 </Box>
 

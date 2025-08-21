@@ -1,5 +1,5 @@
 import Title from "../text/Title";
-import { Box, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import { event } from "@/content/event";
 import { Paragraph } from "../text/Paragraph";
 

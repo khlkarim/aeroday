@@ -10,8 +10,8 @@ import "@fontsource/geist-sans/700.css";
 
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
-import { Container } from "@mui/material";
 import Navbar from "@/components/navigation/Navbar";
+import { Container, Stack, Toolbar } from "@mui/material";
 import ThemeModeProvider from "@/providers/ThemeModeProvider";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 
@@ -31,14 +31,12 @@ export default function RootLayout({
                 <ThemeModeProvider>
                     <Navbar />
                     <SmoothScrollProvider>
-                        <Container sx={{
-                            gap: 8, 
-                            pt: '14vh', 
-                            display: "flex", 
-                            flexDirection: "column"
-                        }}>
-                            {children}
-                            <Footer />
+                        <Container>
+                            <Stack gap={8}>
+                                <Toolbar />
+                                {children}
+                                <Footer />
+                            </Stack>
                         </Container>
                     </SmoothScrollProvider>
                 </ThemeModeProvider>

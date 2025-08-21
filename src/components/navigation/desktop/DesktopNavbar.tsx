@@ -14,7 +14,8 @@ const DesktopNavbar: React.FC = () => {
             color="transparent"
             sx={{
                 backdropFilter: "blur(8px)",
-                borderBottom: `1px solid ${theme.palette.divider}`,
+                backgroundColor: theme.palette.mode == 'light'? 
+                    `${theme.palette.background.paper}22` : `transparent`,
             }}
         >
             <Container maxWidth="md">

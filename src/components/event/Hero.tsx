@@ -6,7 +6,7 @@ import React, { useRef } from 'react';
 import { event } from '@/content/event';
 import { useTheme } from '@mui/material/styles';
 import { Paragraph } from '@/components/text/Paragraph';
-import { Box, Typography, Chip, Button, Container } from '@mui/material';
+import { Box, Typography, Chip, Button, Stack } from '@mui/material';
 
 const Hero: React.FC = () => {
     const theme = useTheme();    
@@ -75,17 +75,12 @@ const Hero: React.FC = () => {
     };
 
     return (
-        <Container
+        <Stack
             ref={containerRef}
-            sx={{ 
-                gap: 3,
-                display: 'flex',
-                minHeight: '82vh',
-                alignItems: 'start',
-                paddingBottom: '12vh',
-                flexDirection: 'column',    
-                justifyContent: 'center',
-            }}
+            gap={3}
+            alignItems={'start'}
+            justifyContent={'center'}
+            sx={{ minHeight: '76vh' }}
         >
             <Chip
                 ref={chipRef}
@@ -150,7 +145,7 @@ const Hero: React.FC = () => {
                     Challenges
                 </Button>
             </Box>
-        </Container>
+        </Stack>
     );
 };
 

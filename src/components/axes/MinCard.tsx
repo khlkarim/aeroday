@@ -1,14 +1,9 @@
 "use client"
 
 import React from 'react';
-import {
-    Card,
-    CardActionArea,
-    CardContent,
-    Typography,
-    Box
-} from '@mui/material';
+import Image from 'next/image';
 import type { Axe } from '../../content/axes';
+import { Card, CardActionArea, CardContent, Typography, Box } from '@mui/material';
 
 interface MinCardProps {
     item: Axe;
@@ -21,17 +16,17 @@ const MinCard: React.FC<MinCardProps> = ({ item }) => {
         >
             <CardActionArea href={item.href}>
                 <Box
-                    className="w-full overflow-hidden"
                     sx={{
                         aspectRatio: '16/9',
-                        backgroundColor: 'action.hover',
+                        position: 'relative',
+                        backgroundColor: 'action.hover'
                     }}
                 >
-                    <Box
-                        component={"img"}
-                        src={item.image}
+                    <Image
+                        fill
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        src={item.image}
+                        style={{ objectFit: 'cover' }}
                     />
                 </Box>
 
