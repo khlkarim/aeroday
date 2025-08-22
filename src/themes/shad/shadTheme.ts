@@ -5,7 +5,10 @@ const starWarsRed = "#E53935";
 const starWarsBlue = "#2b4f98";
 
 const background = common['black'];
-const bodyBackground = common['black'];
+const bodyBackground = {
+    light: 'linear-gradient(to left, #90dffe 0%,#38a3d1 100%)',
+    dark: 'linear-gradient(to right, #020111 10%,#151426 100%)'
+};
 
 export const shadTheme = (mode: 'light' | 'dark') => {
     const isDarkMode = mode === 'dark';
@@ -98,7 +101,7 @@ export const shadTheme = (mode: 'light' | 'dark') => {
                     },
                     body: {
                         minHeight: '100%',
-                        backgroundColor: isDarkMode ? bodyBackground : '#fbfbfb',
+                        background: isDarkMode ? bodyBackground.dark : bodyBackground.light,
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'top right',
                         backgroundSize: '100%',

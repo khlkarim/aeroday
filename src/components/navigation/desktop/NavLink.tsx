@@ -8,7 +8,7 @@ import { axes } from "../../../content/axes";
 import { challenges } from "../../../content/challenges";
 import Link from 'next/link';
 
-interface DesktopNavLinkProps {
+interface NavLinkProps {
     index: number;
 }
 
@@ -69,7 +69,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ label, items }) => {
     );
 };
 
-const DesktopNavLink: React.FC<DesktopNavLinkProps> = ({ index }) => {
+const NavLink: React.FC<NavLinkProps> = ({ index }) => {
     const link = links[index];
 
     if (link.label === "Axes") {
@@ -91,4 +91,4 @@ const DesktopNavLink: React.FC<DesktopNavLinkProps> = ({ index }) => {
     );
 };
 
-export default DesktopNavLink;
+export default NavLink;

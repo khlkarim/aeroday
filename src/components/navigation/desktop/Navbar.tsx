@@ -1,6 +1,6 @@
 import React from "react";
+import NavLink from "./NavLink";
 import ThemeToggle from "../../ThemeToggle";
-import DesktopNavLink from "./DesktopNavLink";
 import { links } from "../../../constants/navlinks";
 import { AppBar, Toolbar, Container, useTheme } from "@mui/material";
 
@@ -21,7 +21,7 @@ const DesktopNavbar: React.FC = () => {
             <Container maxWidth="md">
                 <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
                     {links.map((_, index) => (
-                        <DesktopNavLink key={index} index={index} />
+                        <NavLink key={index} index={index} />
                     ))}
                     <ThemeToggle />
                 </Toolbar>

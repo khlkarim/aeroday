@@ -1,30 +1,18 @@
 import Title from "../text/Title";
 import { event } from "@/content/event";
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { Paragraph } from "../text/Paragraph";
 import { Gallery } from "./Gallery";
 
 export default function EditionsPrecedentes() {
     return (
-        <Container 
-            sx={{ 
-                gap: 6,
-                display: 'flex', 
-                flexDirection: 'column', 
-                minHeight: '100vh'
-            }}
-        >
-            <Box sx={{
-                gap: 6,
-                display: 'flex', 
-                alignItems: 'center',
-                flexDirection: 'column', 
-            }}>
+        <Stack gap={6}>
+            <Stack gap={6} alignItems={'center'}>
                 <Title label="Editions Précédentes" />
                 <Paragraph>
                     {event.editionsPrecedentes.description}
                 </Paragraph>
-            </Box>
+            </Stack>
 
 
             <Stack gap={8}>
@@ -36,6 +24,6 @@ export default function EditionsPrecedentes() {
                     );
                 })}
             </Stack>
-        </Container>
+        </Stack>
     );
 }

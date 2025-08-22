@@ -4,22 +4,22 @@ import gsap from "gsap";
 import Title from "./text/Title";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { Container } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 
 interface CardLayoutProps<T> {
+    data: T[]; 
     title: string;
-    data: T[];
     CardComponent: React.ComponentType<{ item: T }>;
 }
 
 export function CardLayout<T>({ title, data, CardComponent }: CardLayoutProps<T>) {
-    const CardLayoutRef = useRef<HTMLDivElement>(null);
+    const cardsRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        if (!CardLayoutRef.current) return;
+        if (!cardsRef.current) return;
 
-        const CardLayout = Array.from(CardLayoutRef.current.children);
-        CardLayout.forEach((card) => {
+        const cards = Array.from(cardsRef.current.children);
+        cards.forEach((card) => {
             gsap.from(card, {
                 y: 80,
                 scale: 1,
@@ -34,42 +34,31 @@ export function CardLayout<T>({ title, data, CardComponent }: CardLayoutProps<T>
             });
         });
 
-    }, { dependencies: [data], scope: CardLayoutRef });
+    }, { dependencies: [data], scope: cardsRef });
 
     return (
-        <Container 
-            id={title}
-            sx={{ 
-                gap: 6,
-                display: 'flex', 
-                alignItems: 'center',
-                flexDirection: 'column', 
-                
-            }}
-        >
+        <Stack id={title} gap={6}>
             <Title label={title} />
 
-            <Container 
-                ref={CardLayoutRef}
-                sx={{
-                    gap: 4,
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "space-around",
-                }}
+            <Stack 
+                ref={cardsRef} 
+                gap={4}
+                flexWrap={'wrap'} 
+                flexDirection={'row'} 
+                justifyContent={'space-around'} 
             >
                 {data.map((member, index) => {
                     return (
-                        <div 
+                        <Box 
                             key={index}
                             className="animated"
-                            style={{ cursor: 'pointer' }}
+                            sx={{ cursor: 'pointer' }}
                         >
                             <CardComponent item={member} />
-                        </div>
+                        </Box>
                     );
                 })}
-            </Container>
-        </Container>
+            </Stack>
+        </Stack>
     );
 }

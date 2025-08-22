@@ -7,6 +7,7 @@ import { event } from '@/content/event';
 import { useTheme } from '@mui/material/styles';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button, Stack } from '@mui/material';
+import Plane from '../scenes/Plane';
 
 const Hero: React.FC = () => {
     const theme = useTheme();    
@@ -75,77 +76,84 @@ const Hero: React.FC = () => {
     };
 
     return (
-        <Stack
-            ref={containerRef}
-            gap={3}
-            alignItems={'start'}
-            justifyContent={'center'}
-            sx={{ minHeight: '76vh' }}
-        >
-            <Chip
-                ref={chipRef}
-                color="secondary"
-                variant="outlined"
-                className='animated'
-                label={"📅 " + event.subtitle}
-                sx={{
-                    borderRadius: 2,
-                    fontSize: "1rem",
-                    cursor: "pointer",
-                }}
-            />
-           
-            <Box ref={titleRef} className='animated'>
-                <Typography variant="h2">
-                    {event.name + " "}
-                    <Box
-                        component="span"
+        <Stack flexDirection={'row'} gap={6} sx={{ minHeight: '76vh' }} flexWrap={'wrap'} justifyContent={'space-around'}>
+            <Stack
+                flex={2}
+                ref={containerRef}
+                gap={3}
+                alignItems={'start'}
+                justifyContent={'center'}
+            >
+                <Chip
+                    ref={chipRef}
+                    color="secondary"
+                    variant="outlined"
+                    className='animated'
+                    label={"📅 " + event.subtitle}
+                    sx={{
+                        borderRadius: 2,
+                        fontSize: "1rem",
+                        cursor: "pointer",
+                    }}
+                />
+            
+                <Box ref={titleRef} className='animated'>
+                    <Typography variant="h2">
+                        {event.name + " "}
+                        <Box
+                            component="span"
+                            sx={{
+                                px: 2,
+                                borderRadius: 1,
+                                color: theme.palette.secondary.contrastText,
+                                backgroundColor: theme.palette.secondary.main,
+                            }}
+                        >
+                            {event.date.year}
+                        </Box>
+                    </Typography>
+                    <Typography
+                        ref={subtitleRef}
+                        variant="subtitle1"
+                        className='animated'
                         sx={{
-                            px: 2,
-                            borderRadius: 1,
-                            color: theme.palette.secondary.contrastText,
-                            backgroundColor: theme.palette.secondary.main,
+                            color: theme.palette.text.secondary,
                         }}
                     >
-                        {event.date.year}
-                    </Box>
-                </Typography>
-                <Typography
-                    ref={subtitleRef}
-                    variant="subtitle1"
-                    className='animated'
-                    sx={{
-                        color: theme.palette.text.secondary,
-                    }}
-                >
-                    {event.edition}
-                </Typography>
-            </Box>
+                        {event.edition}
+                    </Typography>
+                </Box>
 
-            <Box ref={descriptionRef} className='animated'>
-                <Paragraph>
-                    {event.description.primary}
-                </Paragraph>
-            </Box>
+                <Box ref={descriptionRef} className='animated'>
+                    <Paragraph>
+                        {event.description.primary}
+                    </Paragraph>
+                </Box>
 
-            <Box 
-                ref={buttonsRef} 
-                className="animated flex gap-4"
-            >
-                <Button
-                    variant="contained"
-                    onClick={() => handleScroll("#Axes")}
+                <Box 
+                    ref={buttonsRef} 
+                    className="animated flex gap-4"
                 >
-                    Axes
-                </Button>
-                <Button
-                    variant="outlined"
-                    onClick={() => handleScroll("#Challenges")}
-                >
-                    Challenges
-                </Button>
+                    <Button
+                        variant="contained"
+                        onClick={() => handleScroll("#Axes")}
+                    >
+                        Axes
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => handleScroll("#Challenges")}
+                    >
+                        Challenges
+                    </Button>
+                </Box>
+            </Stack>
+            
+            <Box flex={1}>
+                <Plane />
             </Box>
         </Stack>
+
     );
 };
 

@@ -1,13 +1,14 @@
 "use client"
 
+import gsap from "gsap";
+import { useRef } from "react";
+import { axes } from "@/content/axes";
+import { useGSAP } from "@gsap/react";
+import { team } from "@/content/team";
+import { Box, Typography, Stack } from "@mui/material";
 import MaxCard from "@/components/axes/MaxCard";
 import ProfileCard from "@/components/team/ProfileCard";
-import { axes } from "@/content/axes";
-import { team } from "@/content/team";
-import { useGSAP } from "@gsap/react";
-import { Box, Typography } from "@mui/material";
-import { useRef } from "react";
-import gsap from "gsap";
+import Title from "../text/Title";
 
 export default function Page({ id }: { id: number }) {
     const axe = axes[id];
@@ -39,20 +40,25 @@ export default function Page({ id }: { id: number }) {
     }, []);
 
     return (
-        <>
-            <Box className="flex flex-wrap items-center justify-around gap-6">
-                <Box ref={cardRef} className='animated'>
-                    <MaxCard item={axe} />
-                </Box>
-                <Box className="flex flex-col justify-around items-center">
-                    <Typography ref={titleRef} className='animated' variant="h2" margin={2}>
-                        Responsable
-                    </Typography>
-                    <Box ref={profileRef} className='animated'>
-                       <ProfileCard item={team[axe.responsableId]} />
-                    </Box>
-                </Box>
+        <Stack 
+            flexWrap={'wrap'} 
+            flexDirection={'row'} 
+            justifyContent={'space-around'}
+        >
+            <Box ref={cardRef} className='animated'>
+                <MaxCard item={axe} />
             </Box>
-        </>
+            <Stack 
+                alignItems={'center'}
+                justifyContent={'space-around'} 
+            >
+                <Box ref={titleRef} className='animated' margin={2}>
+                    <Title label="Responsable" />
+                </Box>
+                <Box ref={profileRef} className='animated'>
+                    <ProfileCard item={team[axe.responsableId]} />
+                </Box>
+            </Stack>
+        </Stack>
     );
 }

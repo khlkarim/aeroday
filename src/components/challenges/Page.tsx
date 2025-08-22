@@ -7,7 +7,8 @@ import MaxCard from "@/components/challenges/MaxCard";
 import ProfileCard from "@/components/team/ProfileCard";
 import { challenges } from "@/content/challenges";
 import { team } from "@/content/team";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+import Title from "../text/Title";
 
 export default function Page({ id }: { id: number }) {
     const challenge = challenges[id];
@@ -39,20 +40,25 @@ export default function Page({ id }: { id: number }) {
     }, []);
 
     return (
-        <>
-            <Box className="flex flex-wrap items-center justify-around gap-6">
-                <Box ref={cardRef} className='animated'>
-                    <MaxCard item={challenge} />
-                </Box>
-                <Box className="flex flex-col justify-around items-center">
-                    <Typography ref={titleRef} className='animated' variant="h2" margin={2}>
-                        Responsable
-                    </Typography>
-                    <Box ref={profileRef} className='animated'>
-                        <ProfileCard item={team[challenge.responsableId]} />
-                    </Box>
-                </Box>
+        <Stack 
+            flexWrap={'wrap'} 
+            flexDirection={'row'} 
+            justifyContent={'space-around'}
+        >
+            <Box ref={cardRef} className='animated'>
+                <MaxCard item={challenge} />
             </Box>
-        </>
+            <Stack 
+                alignItems={'center'}
+                justifyContent={'space-around'} 
+            >
+                <Box ref={titleRef} className='animated' margin={2}>
+                    <Title label="Responsable" />
+                </Box>
+                <Box ref={profileRef} className='animated'>
+                    <ProfileCard item={team[challenge.responsableId]} />
+                </Box>
+            </Stack>
+        </Stack>
     );
 }

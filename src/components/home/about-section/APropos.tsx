@@ -4,7 +4,9 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "../../../content/event";
 import { Paragraph } from "../../text/Paragraph";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Stack } from "@mui/material";
+import EarthAndMoon from "@/components/scenes/EarthAndMoon";
+import LowPolyEarth from "@/components/scenes/LowPolyEarth";
 
 export const APropos = () => {
     const titleRef = useRef<HTMLDivElement>(null);
@@ -63,34 +65,24 @@ export const APropos = () => {
     }, { scope: containerRef });
 
     return (
-        <Box ref={containerRef} className="flex flex-wrap items-center justify-around gap-7">
-            <Box
-                ref={logoRef}
-                sx={{
-                    overflow: "hidden",
-                    borderRadius: "50%",
-                    position: "relative",
-                    mx: { xs: "auto", md: 0 },
-                    backgroundColor: "action.hover",
-                    width: { xs: 180, sm: 220, md: 280 },
-                    height: { xs: 180, sm: 220, md: 280 },
-                }}
-            >
-                <Image
-                    fill
-                    src={event.logo}
-                    alt={`${event.name} logo`}
-                    style={{ objectFit: "cover" }}
-                />
+        <Stack 
+            ref={containerRef} 
+            gap={7}
+            flexWrap={'wrap'}
+            flexDirection={'row'}
+            justifyContent={'space-around'}
+        >
+            <Box flex={1} minHeight={'300px'} ref={logoRef}>
+                <LowPolyEarth />
             </Box>
-            <Box>
+            <Stack flex={2} justifyContent={'center'}>
                 <Typography ref={titleRef} className="animated" variant="h3" sx={{ mb: 2 }}>
                     A propos de {event.name}
                 </Typography>
                 <Box ref={descriptionRef} className="animated">
                     <Paragraph>{event.description.secondary}</Paragraph>
                 </Box>
-            </Box>
-        </Box>
+            </Stack>
+        </Stack>
     );
 };

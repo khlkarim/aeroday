@@ -1,13 +1,14 @@
 "use client"
+
+import NavLink from "./NavLink";
 import React, { useState } from "react";
 import ThemeToggle from "../../ThemeToggle";
-import MobileNavLink from "./MobileNavLink";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { links } from "../../../constants/navlinks";
 import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Box } from "@mui/material";
 
-const MobileNavbar: React.FC = () => {
+const Navbar: React.FC = () => {
     const theme = useTheme();
     const [open, setOpen] = useState(false);
     const toggleDrawer = (state: boolean) => () => setOpen(state);
@@ -62,7 +63,7 @@ const MobileNavbar: React.FC = () => {
                 </Box>
                 <List>
                     {links.map((_, index) => (
-                        <MobileNavLink key={index} index={index} />
+                        <NavLink key={index} index={index} />
                     ))}
                 </List>
             </Drawer>
@@ -70,4 +71,4 @@ const MobileNavbar: React.FC = () => {
     );
 };
 
-export default MobileNavbar;
+export default Navbar;

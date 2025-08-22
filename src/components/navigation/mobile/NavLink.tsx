@@ -13,11 +13,11 @@ import { challenges } from "../../../content/challenges";
 import { links } from "../../../constants/navlinks";
 import Link from 'next/link';
 
-interface MobileNavLinkProps {
+interface NavLinkProps {
     index: number;
 }
 
-const MobileNavLink: React.FC<MobileNavLinkProps> = ({ index }) => {
+const NavLink: React.FC<NavLinkProps> = ({ index }) => {
     const link = links[index];
     const dropdownItems = link.label === "Axes" ? axes : challenges;
     const isDropdown = link.label === "Axes" || link.label === "Challenges";
@@ -54,4 +54,4 @@ const MobileNavLink: React.FC<MobileNavLinkProps> = ({ index }) => {
     );
 };
 
-export default MobileNavLink;
+export default NavLink;

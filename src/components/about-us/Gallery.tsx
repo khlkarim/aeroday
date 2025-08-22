@@ -28,7 +28,6 @@ export const Gallery: React.FC<GalleryProps> = ({ index }) => {
             });
         });
 
-        // Cleanup event listeners on unmount
         return () => {
             images.forEach((image) => {
                 image.removeEventListener("mouseenter", () => {});
