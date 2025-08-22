@@ -54,7 +54,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ item }) => {
                     variant="outlined"
                     startIcon={<EmailIcon />}
                 >
-                    {item.contact.email}
+                    {item.contact.aerodayEmail}
                 </Button>
             </Box>
         </Card>

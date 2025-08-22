@@ -8,3 +8,8 @@ it makes handling start and end easier
 
 there is 2 such animation
 leave the necessary ones only
+
+add images
+polish the animations 
+add 3d assets
+and plot the schedule

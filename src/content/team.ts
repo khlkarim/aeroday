@@ -5,239 +5,274 @@ export interface TeamMember {
     image: string;
     contact: {
         phone: string;
-        email: string;
+        personalEmail: string;
+        aerodayEmail: string;
     };
 }
 
 export const team: TeamMember[] = [
     {
         id: 0,
-        name: "Sarah Johnson",
+        name: "Firas Hammami",
         role: "President",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "96917998",
+            personalEmail: "firas.hammami@insat.ucar.tn",
+            aerodayEmail: "firas.hammami@aeroday.tn"
         }
     },
     {
         id: 1,
-        name: "Michael Chen",
-        role: "Vice President Technique",
+        name: "Zeineb Znaidi",
+        role: "Vice President Administratif",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "52307312",
+            personalEmail: "znaidi.zeineb@gmail.com",
+            aerodayEmail: "zeineb.znaidi@aeroday.tn"
         }
     },
     {
         id: 2,
-        name: "Amina Kouidri",
-        role: "Vice President Administratif",
+        name: "Mouadh Bel Haj Saleh",
+        role: "Vice President Technique",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "99735434",
+            personalEmail: "Mouadh.bhs@gmail.com",
+            aerodayEmail: "mouadh.belhajsaleh@aeroday.tn"
         }
     },
     {
         id: 3,
-        name: "David Martinez",
-        role: "Resp Airshow",
+        name: "Ayoub Ferjani",
+        role: "Responsable Aeromodélisme",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "99807899",
+            personalEmail: "ayoubferjani789@gmail.com",
+            aerodayEmail: "ayoub.ferjani@aeroday.tn"
         }
     },
     {
         id: 4,
-        name: "Leila Bennani",
-        role: "Resp AeroChallenge",
+        name: "Lina Chtioui",
+        role: "Responsable Aerochallenge",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "58882855",
+            personalEmail: "lina.chtioui01@gmail.com",
+            aerodayEmail: "lina.chtioui@aeroday.tn"
         }
     },
     {
         id: 5,
-        name: "Thomas Wilson",
-        role: "Resp Videographie par Drone",
+        name: "Mohamed Kallel",
+        role: "Responsable CAO",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "21300465",
+            personalEmail: "kallelmohamed094@gmail.com",
+            aerodayEmail: "mohamed.kallel@aeroday.tn"
         }
     },
     {
         id: 6,
-        name: "Sophia Rodriguez",
-        role: "Resp AeroModelisme",
+        name: "Wijden Darguech",
+        role: "Aeroentrepreneur",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "29568214",
+            personalEmail: "Ccps62075@gmail.com",
+            aerodayEmail: "wijden.darguech@aeroday.tn"
         }
     },
     {
         id: 7,
-        name: "Ahmed Kaddour",
-        role: "Resp CAO",
+        name: "Adem Mighri",
+        role: "Responsable Airshow",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "92935588",
+            personalEmail: "ademmighri7@gmail.com",
+            aerodayEmail: "adem.mighri@aeroday.tn"
         }
     },
     {
         id: 8,
-        name: "Emma Taylor",
-        role: "Resp Expositions",
+        name: "Seif Flifel",
+        role: "Videographie par Drone",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "52208390",
+            personalEmail: "flifel.seif@outlook.com / seif.flifel0@gmail.com",
+            aerodayEmail: "seif.flifel@aeroday.tn"
         }
     },
     {
         id: 9,
-        name: "Omar Farooq",
-        role: "Resp Ambassadeurs",
+        name: "Ahmed Ksibi",
+        role: "Responsable Aerospace",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "55158408",
+            personalEmail: "ahmed.ksibi9@gmail.com",
+            aerodayEmail: "ahmed.ksibi@aeroday.tn"
         }
     },
     {
         id: 10,
-        name: "Nadia Bensalem",
-        role: "Resp Ateliers Novices",
+        name: "Insaf Medimegh",
+        role: "Novice",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "55532572",
+            personalEmail: "medimegh.insaf2020@gmail.com",
+            aerodayEmail: "insaf.medimegh@aeroday.tn"
         }
     },
     {
         id: 11,
-        name: "Ryan Patel",
-        role: "Organisation",
+        name: "Ahmed Rannen",
+        role: "Sponsoring",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "92971236",
+            personalEmail: "ahmedrannen1@gmail.com",
+            aerodayEmail: "ahmed.rannen@aeroday.tn"
         }
     },
     {
         id: 12,
-        name: "Julia Novak",
-        role: "Decoration",
+        name: "Maha Menai",
+        role: "Participation Manager",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "51305581",
+            personalEmail: "mahexpro@gmail.com",
+            aerodayEmail: "maha.menai@aeroday.tn"
         }
     },
     {
         id: 13,
-        name: "Yasmine Touati",
-        role: "Secretaire Generale",
+        name: "Karim Khili",
+        role: "Web Master",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "58749077",
+            personalEmail: "karimkahili002@gmail.com",
+            aerodayEmail: "karim.khili@aeroday.tn"
         }
     },
     {
         id: 14,
-        name: "Daniel Kim",
-        role: "Tresorier",
+        name: "Khlifi Mariem",
+        role: "Secrétaire Général",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "23025252",
+            personalEmail: "khlifimariem122@gmail.com",
+            aerodayEmail: "mariem.khlifi@aeroday.tn"
         }
     },
     {
         id: 15,
-        name: "Fatima Zahra",
-        role: "RH",
+        name: "Yasmine Kefi",
+        role: "HR Manager",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "54546051/26349280",
+            personalEmail: "kefiyasmine229@gmail.com",
+            aerodayEmail: "yasmine.kefi@aeroday.tn"
         }
     },
     {
         id: 16,
-        name: "Antoine Dubois",
-        role: "Media On",
+        name: "Nouran Sbai",
+        role: "Ambassador Coordinator",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "28386759",
+            personalEmail: "nouransbai5@gmail.com",
+            aerodayEmail: "nouran.sbai@aeroday.tn"
         }
     },
     {
         id: 17,
-        name: "Layla Mansouri",
+        name: "Ahmed Belkahia",
         role: "Media Off",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "54378559",
+            personalEmail: "ahmed.belkahia.2004@gmail.com",
+            aerodayEmail: "ahmed.belkahia@aeroday.tn"
         }
     },
     {
         id: 18,
-        name: "Adam Leblanc",
-        role: "Web Master",
+        name: "Mariem Hammami",
+        role: "Media On",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "21903388",
+            personalEmail: "mariemhm2101@gmail.com",
+            aerodayEmail: "mariem.hammami@aeroday.tn"
         }
     },
     {
         id: 19,
-        name: "Elena Vasquez",
-        role: "Relations Externes",
+        name: "Issra Lassoued",
+        role: "Media On",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "96203547",
+            personalEmail: "issralass@gmail.com",
+            aerodayEmail: "issra.lassoued@aeroday.tn"
         }
     },
     {
         id: 20,
-        name: "Mehdi Bouazizi",
-        role: "Sponsoring",
+        name: "Hiba Daghesni",
+        role: "Décoration",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "29338552",
+            personalEmail: "hiba.daghesni25@gmail.com",
+            aerodayEmail: "hiba.daghesni@aeroday.tn"
         }
     },
     {
         id: 21,
-        name: "Olivia Thompson",
-        role: "Resp AeroEntrepneur",
+        name: "Yosr Yazidi",
+        role: "Responsable Organisation",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            phone: "94612076",
+            personalEmail: "yazidiyosr007@gmail.com",
+            aerodayEmail: "yosr.yazidi@aeroday.tn"
         }
     },
     {
         id: 22,
-        name: "Karim Benali",
-        role: "Resp AeroSpace",
+        name: "Sirine Bouzayene",
+        role: "Responsable Expositions aéronautiques",
+        image: "https://picsum.photos/400/300",
+        contact: {
+            phone: "55706442",
+            personalEmail: "sirine.bouzayene@insat.ucar.tn",
+            aerodayEmail: "sirine.bouzayene@aeroday.tn"
+        }
+    },
+    {
+        id: 23,
+        name: "Yassine Haj Hmida",
+        role: "Media On",
         image: "https://picsum.photos/400/300",
         contact: {
             phone: "12345678",
-            email: "doe.john@aeroday.tn"
+            personalEmail: "Hajhmidayassine@gmail.com",
+            aerodayEmail: "yassine.hajhamida@aeroday.tn"
         }
     }
 ];

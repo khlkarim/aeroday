@@ -17,7 +17,7 @@ export const axes: Axe[] = [
         id: 0,
         name: "Expositions Aéronautiques",
         href: "/axes/expositions-aeronautiques",
-        image: "https://picsum.photos/400/300",
+        image: "/assets/images/axes/expositions-aeronautiques/banner.jpg",
         date: {
             day: 2, 
             month: 2
@@ -36,8 +36,7 @@ export const axes: Axe[] = [
         id: 1,
         name: "Expositions Aérospatiales",
         href: "/axes/expositions-aerospatiales",
-        image: "https://picsum.photos/400/300",
-        
+        image: "/assets/images/axes/expositions-aerospatiales/banner.jpg",
         date: {
             day: 2,
             month: 2
@@ -56,8 +55,7 @@ export const axes: Axe[] = [
         id: 2,
         name: "Ateliers Novices",
         href: "/axes/ateliers-novices",
-        image: "https://picsum.photos/400/300",
-        
+        image: "/assets/images/axes/novices/banner.jpg",        
         date: {
             day: 2, 
             month: 2
@@ -76,8 +74,7 @@ export const axes: Axe[] = [
         id: 3,
         name: "Ambassade",
         href: "/axes/ambassade",
-        image: "https://picsum.photos/400/300",
-        
+        image: "/assets/images/axes/ambassade/banner.jpg",    
         date: {
             day: 2, 
             month: 2

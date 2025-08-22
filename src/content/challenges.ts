@@ -18,7 +18,7 @@ export const challenges: Challenge[] = [
         id: 0,
         name: "Aérochallenge",
         href: "/challenges/aerochallenge",
-        image: "https://picsum.photos/400/300",
+        image: "/assets/images/challenges/aerochallenge/banner.jpg",
         date: {
             day: 2,
             month: 2
@@ -38,7 +38,7 @@ export const challenges: Challenge[] = [
         id: 1,
         name: "Aéromodélisme",
         href: "/challenges/aeromodelisme",
-        image: "https://picsum.photos/400/300",
+        image: "/assets/images/challenges/aeromodelisme/banner.jpg",
         date: {
             day: 26,
             month: 1
@@ -57,7 +57,7 @@ export const challenges: Challenge[] = [
         id: 2,
         name: "Airshow",
         href: "/challenges/airshow",
-        image: "https://picsum.photos/400/300",
+        image: "/assets/images/challenges/airshow/banner.jpg",
         date: {
             day: 26,
             month: 1
@@ -75,7 +75,7 @@ export const challenges: Challenge[] = [
         id: 3,
         name: "Challenge CAO",
         href: "/challenges/challenge-cao",
-        image: "https://picsum.photos/400/300",
+        image: "/assets/images/challenges/cao/banner.jpg",
         date: {
             day: 1,
             month: 2
@@ -93,7 +93,7 @@ export const challenges: Challenge[] = [
         id: 4,
         name: "Vidéographie par drone",
         href: "/challenges/videographie-par-drone",
-        image: "https://picsum.photos/400/300",
+        image: "/assets/images/challenges/videographie-par-drone/banner.jpg",
         date: {
             day: 2,
             month: 2
