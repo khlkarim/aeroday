@@ -1,25 +1,25 @@
 "use client"
 
 import gsap from "gsap";
-import Title from "../text/Title";
+import Title from "./text/Title";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Container } from "@mui/material";
 
-interface DeckProps<T> {
+interface CardLayoutProps<T> {
     title: string;
     data: T[];
     CardComponent: React.ComponentType<{ item: T }>;
 }
 
-export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
-    const cardsRef = useRef<HTMLDivElement>(null);
+export function CardLayout<T>({ title, data, CardComponent }: CardLayoutProps<T>) {
+    const CardLayoutRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        if (!cardsRef.current) return;
+        if (!CardLayoutRef.current) return;
 
-        const cards = Array.from(cardsRef.current.children);
-        cards.forEach((card) => {
+        const CardLayout = Array.from(CardLayoutRef.current.children);
+        CardLayout.forEach((card) => {
             gsap.from(card, {
                 y: 80,
                 scale: 1,
@@ -34,7 +34,7 @@ export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
             });
         });
 
-    }, { dependencies: [data], scope: cardsRef });
+    }, { dependencies: [data], scope: CardLayoutRef });
 
     return (
         <Container 
@@ -50,7 +50,7 @@ export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
             <Title label={title} />
 
             <Container 
-                ref={cardsRef}
+                ref={CardLayoutRef}
                 sx={{
                     gap: 4,
                     display: "flex",

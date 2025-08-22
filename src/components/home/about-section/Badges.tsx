@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import React, { useRef } from "react";
 import { Star } from "@mui/icons-material";
-import { event } from "../../content/event";
+import { event } from "../../../content/event";
 import { History } from "@mui/icons-material";
 import { Typography, Box } from "@mui/material";
 import { EmojiEvents } from "@mui/icons-material";

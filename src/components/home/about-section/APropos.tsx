@@ -2,8 +2,8 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { event } from "../../content/event";
-import { Paragraph } from "../text/Paragraph";
+import { event } from "../../../content/event";
+import { Paragraph } from "../../text/Paragraph";
 import { Typography, Box } from "@mui/material";
 
 export const APropos = () => {

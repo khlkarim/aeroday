@@ -1,9 +1,9 @@
 import { team } from "@/content/team";
 import { Divider } from "@mui/material";
-import { Deck } from "@/components/cards/Deck";
-import Teaser from "@/components/event/Teaser";
+import { CardLayout } from "@/components/CardLayout";
+import Teaser from "@/components/home/Teaser";
 import ProfileCard from "@/components/team/ProfileCard";
-import EditionsPrecedentes from "@/components/event/EditionsPrecedentes";
+import EditionsPrecedentes from "@/components/about-us/EditionsPrecedentes";
 
 export default function AboutUs() {
     return (
@@ -12,7 +12,7 @@ export default function AboutUs() {
             <Divider />
             {/* <Teaser /> */}
             {/* <Divider /> */}
-            <Deck title="Our Team" data={team} CardComponent={ProfileCard} />
+            <CardLayout title="Our Team" data={team} CardComponent={ProfileCard} />
         </>
     );
 }
