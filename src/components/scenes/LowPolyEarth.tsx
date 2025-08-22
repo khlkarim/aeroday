@@ -18,15 +18,10 @@ export function ISS(props: JSX.IntrinsicElements['group']) {
 }
 
 export function Earth(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/assets/models/LowPolyEarth.glb')
+  const { nodes, materials } = useGLTF('/assets/models/LowPolyEarth-transformed.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh
-        geometry={(nodes.Object_Planet_0 as THREE.Mesh).geometry}
-        material={materials.Planet}
-        position={[0, 0, 0]}
-        rotation={[Math.PI, 0, Math.PI]}
-      />
+      <mesh geometry={(nodes.Object_Planet_0 as THREE.Mesh).geometry} material={materials.Planet} position={[0, 0, 0]} rotation={[Math.PI, 0, Math.PI]} />
     </group>
   )
 }
@@ -82,4 +77,4 @@ export default function Scene() {
 }
 
 useGLTF.preload('/assets/models/ISS.glb')
-useGLTF.preload('/assets/models/LowPolyEarth.glb')
+useGLTF.preload('/assets/models/LowPolyEarth-transformed.glb')
