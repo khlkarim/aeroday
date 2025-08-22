@@ -1,5 +1,14 @@
 "use client"
 
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "@fontsource/geist-sans/300.css"; 
+import "@fontsource/geist-sans/400.css"; 
+import "@fontsource/geist-sans/500.css"; 
+import "@fontsource/geist-sans/700.css"; 
+
 import { shadTheme } from "@/themes/shad/shadTheme";
 import { useMemo, useState, type ReactNode } from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";

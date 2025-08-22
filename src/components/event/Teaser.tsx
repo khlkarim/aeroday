@@ -1,52 +1,40 @@
 "use client";
 
-import React from 'react';
 import Title from '../text/Title';
+import React from 'react';
 import { event } from '@/content/event';
-import { Typography, Divider, Box, Container } from '@mui/material';
+import { Box, Stack } from '@mui/material';
+import { Paragraph } from '../text/Paragraph';
 
 export default function Teaser() {
     return (
-        <Container 
-            sx={{ 
-                gap: 6,
+        <Stack gap={6} alignItems={'center'}>
+            <Box sx={{
+                gap: 4,
+                width: "100%",
                 display: 'flex', 
                 alignItems: 'center',
                 flexDirection: 'column', 
-                minHeight: '100vh'
-            }}
-        >
-            <Title label="Teaser" />
-
-            <Box 
-                sx={{ 
-                    gap: 6, 
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent: "space-around", 
-                }}>
-                <Box>
-                    <iframe
-                        src={event.teaser.video}
-                        title="Event Teaser Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        style={{
-                            border: 0,
-                            borderRadius: 12,
-                        }}
-                    />
-                </Box>
-                <Box>
-                    <Typography variant="h6">
-                        {event.teaser.description.primary}
-                    </Typography>
-                    <Divider sx={{ my: 2 }} />
-                    <Typography variant="body1" color="text.secondary">
-                        {event.teaser.description.secondary}
-                    </Typography>
-                </Box>
+            }}>
+                <Title label="Teaser" />
+                <Paragraph>
+                    {event.teaser.description}
+                </Paragraph>
             </Box>
-        </Container>
+            <Box width={'80%'}>
+                <iframe
+                    style={{
+                        width: '100%',
+                        borderRadius: 12,
+                        aspectRatio: '16/9',
+                    }}
+                    title="vimeo-player"
+                    src="https://player.vimeo.com/video/1027667756?h=8cdfcae031"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    allowFullScreen
+                />
+            </Box>
+        </Stack>
     );
 }

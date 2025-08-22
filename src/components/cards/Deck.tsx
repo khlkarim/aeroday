@@ -13,35 +13,32 @@ interface DeckProps<T> {
 }
 
 export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
-    const titleRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        if(!containerRef.current || !cardsRef.current || !titleRef.current) return;
+        if (!cardsRef.current) return;
 
-        const onScrollIn = gsap.timeline();
-
-        onScrollIn.from(
-            titleRef.current,
-            {
-                x: -80, 
+        const cards = Array.from(cardsRef.current.children);
+        cards.forEach((card) => {
+            gsap.from(card, {
+                y: 80,
+                scale: 1,
                 autoAlpha: 0,
+                ease: "power2.out",
                 scrollTrigger: {
-                    scrub: 1,
-                    end: "top 40%",
-                    start: "top 90%",
-                    trigger: containerRef.current,
-                },
-            }
-        );
+                    scrub: true,
+                    trigger: card,
+                    end: "top center",
+                    start: "top bottom",
+                }
+            });
+        });
 
-    }, { scope: containerRef });
+    }, { dependencies: [data], scope: cardsRef });
 
     return (
         <Container 
             id={title}
-            ref={containerRef} 
             sx={{ 
                 gap: 6,
                 display: 'flex', 
@@ -65,10 +62,8 @@ export function Deck<T>({ title, data, CardComponent }: DeckProps<T>) {
                     return (
                         <div 
                             key={index}
-                            style={{
-                                cursor: 'pointer',
-                                transition: 'transform 0.2s ease'
-                            }}
+                            className="animated"
+                            style={{ cursor: 'pointer' }}
                         >
                             <CardComponent item={member} />
                         </div>

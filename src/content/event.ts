@@ -18,10 +18,8 @@ export interface Event {
     };
     teaser: {
         video: string;
-        description: {
-            primary: string;
-            secondary: string;
-        };
+        description: string;
+        headlines: string[];
     };
     badges: {   
         icon: string;     
@@ -34,6 +32,10 @@ export interface Event {
         website?: string;
     }[];
     editionsPrecedentes: {
+        galleries: {
+            label: string;
+            images: string[];
+        }[];
         description: string;
     };
     contact: {
@@ -68,28 +70,76 @@ export const event: Event = {
     },
     teaser: {
         video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        description: {
-            primary: "Cette 12ème édition du Tunisian Aeroday, placée sous le thème inspirant " +
-                "de Cieux éternels de l'Afrique, incarne une ambition forte : celle de " +
-                "positionner la Tunisie comme un centre névralgique de l'aviation en Afrique. " +
-                "Le choix de ce thème reflète une vision d'avenir qui relie l'héritage riche " +
-                "et intemporel du continent africain à son potentiel important de développement " +
-                "dans le domaine de l'aéronautique. Il s'agit d'un appel à exploiter les vastes " +
-                "horizons de l'innovation, à favoriser les échanges et à explorer les opportunités " +
-                "stratégiques qu'offre l'aviation, un secteur en pleine expansion en Afrique. " +
-                "Ce grand rassemblement vise à sensibiliser le public à l'importance croissante " +
-                "de l'industrie aéronautique en Afrique et à son rôle clé dans le développement " +
-                "économique et technologique de la région.",
-            secondary: "Au-delà des conférences et des ateliers, le Tunisian Aeroday propose des compétitions et des challenges " +
-                "scientifiques interactifs qui permettent au public de tous âges de découvrir et d'expérimenter les " +
-                "technologies de ce secteur. Ces initiatives visent à stimuler l'esprit d'entreprise et d'innovation, " +
-                "en renforçant la conscience collective de l'importance de l'aviation dans la construction de l'avenir " +
-                "de l'Afrique. En participant à cet événement, vous contribuez non seulement à la promotion de l'aviation, " +
-                "mais aussi à l'émergence d'une nouvelle génération d'innovateurs africains capables de relever les défis " +
-                "technologiques de demain."
-        }
+        description: 
+            "Cette 12ème édition du Tunisian Aeroday, placée sous le thème inspirant de Cieux éternels de l’Afrique, " +
+            "incarne une ambition forte : celle de positionner la Tunisie comme un centre névralgique de l'aviation en Afrique.\n" +
+            "Le choix de ce thème reflète une vision d’avenir qui relie l'héritage riche et intemporel du continent africain " +
+            "à son potentiel important de développement dans le domaine de l'aéronautique.",
+        headlines: [
+            "🚀 Un appel à innover, échanger et explorer les opportunités stratégiques de l’aviation",
+            "🌍 Un thème qui relie l’héritage africain à son immense potentiel de développement",
+            "🎤 Bien plus que des conférences et ateliers ✈️",
+        ]
     },
     editionsPrecedentes: {
+        galleries: [
+            {
+                label: 'Aeroday 2017',
+                images: [
+                    '/assets/images/editions-precedentes/2017/aeroday-2017-0.jpeg',
+                    '/assets/images/editions-precedentes/2017/aeroday-2017-1.jpeg',
+                    '/assets/images/editions-precedentes/2017/aeroday-2017-2.jpeg',
+                    '/assets/images/editions-precedentes/2017/aeroday-2017-3.jpeg',
+                    '/assets/images/editions-precedentes/2017/aeroday-2017-4.jpeg',
+                ]
+            },
+            {
+                label: 'Aeroday 2018',
+                images: [
+                    '/assets/images/editions-precedentes/2018/aeroday-2018-0.jpeg',
+                    '/assets/images/editions-precedentes/2018/aeroday-2018-1.jpeg',
+                    '/assets/images/editions-precedentes/2018/aeroday-2018-2.jpeg',
+                    '/assets/images/editions-precedentes/2018/aeroday-2018-3.jpeg',
+                ]
+            },
+            {
+                label: 'Aeroday 2019',
+                images: [
+                    '/assets/images/editions-precedentes/2019/aeroday-2019-0.jpeg',
+                    '/assets/images/editions-precedentes/2019/aeroday-2019-1.jpeg',
+                    '/assets/images/editions-precedentes/2019/aeroday-2019-2.jpeg',
+                    '/assets/images/editions-precedentes/2019/aeroday-2019-3.jpeg',
+                ]
+            },
+            {
+                label: 'Aeroday 2020',
+                images: [
+                    '/assets/images/editions-precedentes/2020/aeroday-2020-0.jpeg',
+                    '/assets/images/editions-precedentes/2020/aeroday-2020-1.jpeg',
+                    '/assets/images/editions-precedentes/2020/aeroday-2020-2.jpeg',
+                    '/assets/images/editions-precedentes/2020/aeroday-2020-3.jpeg',
+                    '/assets/images/editions-precedentes/2020/aeroday-2020-4.jpeg',
+                    '/assets/images/editions-precedentes/2020/aeroday-2020-5.jpeg',
+                    '/assets/images/editions-precedentes/2020/aeroday-2020-6.jpeg',
+                ]
+            },
+            {
+                label: 'Aeroday 2021',
+                images: [
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-0.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-1.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-2.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-3.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-4.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-5.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-6.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-7.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-8.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-9.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-10.jpg',
+                ]
+            },
+        ],
         description: "Nos éditions précédentes ont marqué l'histoire de l'aéronautique en Tunisie. " +
             "Chacune a été un succès grâce à l'engagement de nos partenaires, participants et du public. " +
             "Fiers de cet héritage, nous innovons sans cesse pour dépasser les attentes à chaque édition. " +

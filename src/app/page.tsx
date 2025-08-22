@@ -1,13 +1,12 @@
 import { axes } from "@/content/axes";
+import { Divider } from "@mui/material";
 import Hero from "@/components/event/Hero";
 import About from "@/components/event/About";
-import Teaser from "@/components/event/Teaser";
 import { Deck } from "@/components/cards/Deck";
 import MinCard from "@/components/axes/MinCard";
 import { challenges } from "@/content/challenges";
 import ContactForm from "@/components/ContactForm";
-import EditionsPrecedentes from "@/components/event/EditionsPrecedentes";
-import { Divider } from "@mui/material";
+import Teaser from "@/components/event/Teaser";
 
 export default function Home() {
     return (
@@ -17,8 +16,6 @@ export default function Home() {
             <About />
             <Divider />
             <Teaser />
-            <Divider />
-            <EditionsPrecedentes />
             <Divider />
             <Deck title="Axes" data={axes} CardComponent={MinCard} />
             <Divider />

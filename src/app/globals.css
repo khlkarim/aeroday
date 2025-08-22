@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Animated components */
 .animated
 {
     visibility: hidden;
