@@ -6,7 +6,8 @@ import ThemeToggle from "../../ThemeToggle";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { links } from "../../../constants/navlinks";
-import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Box } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Box, Stack } from "@mui/material";
+import ThreeDToggle from "@/components/ThreeDToggle";
 
 const Navbar: React.FC = () => {
     const theme = useTheme();
@@ -59,7 +60,10 @@ const Navbar: React.FC = () => {
                     <IconButton onClick={toggleDrawer(false)}>
                         <CloseIcon />
                     </IconButton>
-                    <ThemeToggle />
+                    <Stack gap={2} flexDirection={'row'}>
+                        <ThemeToggle />
+                        <ThreeDToggle />
+                    </Stack>
                 </Box>
                 <List>
                     {links.map((_, index) => (

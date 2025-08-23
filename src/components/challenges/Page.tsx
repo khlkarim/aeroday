@@ -41,18 +41,21 @@ export default function Page({ id }: { id: number }) {
 
     return (
         <Stack 
+            gap={2}
             flexWrap={'wrap'} 
-            flexDirection={'row'} 
             justifyContent={'space-around'}
+            flexDirection={{ sm: 'column', md: 'row' }} 
         >
-            <Box ref={cardRef} className='animated'>
+            <Box ref={cardRef} className='animated' flex={2}>
                 <MaxCard item={challenge} />
             </Box>
             <Stack 
+                gap={2}
+                flex={1}
                 alignItems={'center'}
                 justifyContent={'space-around'} 
             >
-                <Box ref={titleRef} className='animated' margin={2}>
+                <Box ref={titleRef} className='animated'>
                     <Title label="Responsable" />
                 </Box>
                 <Box ref={profileRef} className='animated'>

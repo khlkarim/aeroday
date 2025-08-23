@@ -3,6 +3,7 @@ import NavLink from "./NavLink";
 import ThemeToggle from "../../ThemeToggle";
 import { links } from "../../../constants/navlinks";
 import { AppBar, Toolbar, Container, useTheme } from "@mui/material";
+import ThreeDToggle from "@/components/ThreeDToggle";
 
 const DesktopNavbar: React.FC = () => {
     const theme = useTheme();
@@ -24,6 +25,7 @@ const DesktopNavbar: React.FC = () => {
                         <NavLink key={index} index={index} />
                     ))}
                     <ThemeToggle />
+                    <ThreeDToggle />
                 </Toolbar>
             </Container>
         </AppBar>

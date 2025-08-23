@@ -5,7 +5,7 @@ const useThemeMode = (): ThemeModeContextType => {
     const context = useContext(ThemeModeContext);
 
     if (context === undefined) {
-        throw new Error('useThemeMode must be used within a ThemeProvider');
+        throw new Error('useThemeMode must be used within a ThemeModeProvider');
     }
     
     return context;

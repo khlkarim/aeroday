@@ -6,7 +6,7 @@ const starWarsBlue = "#2b4f98";
 
 const background = common['black'];
 const bodyBackground = {
-    light: 'linear-gradient(to left, #90dffe 0%,#38a3d1 100%)',
+    light: 'linear-gradient(90deg, white 0%, #d9e7ff 100%)',
     dark: 'linear-gradient(to right, #020111 10%,#151426 100%)'
 };
 

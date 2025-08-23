@@ -7,10 +7,13 @@ import { event } from '@/content/event';
 import { useTheme } from '@mui/material/styles';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button, Stack } from '@mui/material';
-import Plane from '../scenes/Plane';
+import Plane from '@/components/scenes/Plane';
+import useThreeD from '@/hooks/useThreeD';
 
 const Hero: React.FC = () => {
-    const theme = useTheme();    
+    const theme = useTheme();   
+    const threeD = useThreeD();
+
     const chipRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
     const buttonsRef = useRef<HTMLDivElement>(null);
@@ -149,9 +152,11 @@ const Hero: React.FC = () => {
                 </Box>
             </Stack>
             
-            <Box flex={1}>
-                <Plane />
-            </Box>
+            {threeD.active &&
+                <Box flex={1} minHeight={'300px'}>
+                    <Plane />
+                </Box>
+            }
         </Stack>
 
     );

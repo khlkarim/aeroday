@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { axes } from "@/content/axes";
 import { useGSAP } from "@gsap/react";
 import { team } from "@/content/team";
-import { Box, Typography, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import MaxCard from "@/components/axes/MaxCard";
 import ProfileCard from "@/components/team/ProfileCard";
 import Title from "../text/Title";
@@ -41,18 +41,21 @@ export default function Page({ id }: { id: number }) {
 
     return (
         <Stack 
+            gap={2}
             flexWrap={'wrap'} 
-            flexDirection={'row'} 
             justifyContent={'space-around'}
+            flexDirection={{ sm: 'column', md: 'row' }} 
         >
-            <Box ref={cardRef} className='animated'>
+            <Box ref={cardRef} className='animated' flex={2}>
                 <MaxCard item={axe} />
             </Box>
             <Stack 
+                gap={2}
+                flex={1}
                 alignItems={'center'}
                 justifyContent={'space-around'} 
             >
-                <Box ref={titleRef} className='animated' margin={2}>
+                <Box ref={titleRef} className='animated'>
                     <Title label="Responsable" />
                 </Box>
                 <Box ref={profileRef} className='animated'>

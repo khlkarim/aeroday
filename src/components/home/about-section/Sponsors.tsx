@@ -8,6 +8,7 @@ export default function Sponsors() {
 
     return (
         <Stack
+            gap={6}
             flexWrap={'wrap'}
             flexDirection={'row'}
             justifyContent={'space-around'}

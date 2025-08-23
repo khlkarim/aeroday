@@ -1,14 +1,16 @@
 import { gsap } from "gsap";
-import Image from "next/image";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "../../../content/event";
 import { Paragraph } from "../../text/Paragraph";
 import { Typography, Box, Stack } from "@mui/material";
-import EarthAndMoon from "@/components/scenes/EarthAndMoon";
 import LowPolyEarth from "@/components/scenes/LowPolyEarth";
+import useThreeD from "@/hooks/useThreeD";
+import Image from "next/image";
 
 export const APropos = () => {
+    const threeD = useThreeD();
+
     const titleRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLImageElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -24,7 +26,6 @@ export const APropos = () => {
             logoRef.current, 
             { 
                 y: 50, 
-                scale: 0.95, 
                 autoAlpha: 0, 
                 duration: 0.8, 
                 scrollTrigger: 
@@ -72,9 +73,30 @@ export const APropos = () => {
             flexDirection={'row'}
             justifyContent={'space-around'}
         >
-            <Box flex={1} minHeight={'300px'} ref={logoRef}>
-                <LowPolyEarth />
-            </Box>
+            {threeD.active? 
+                <Box flex={1} minHeight={'300px'} ref={logoRef}>
+                    <LowPolyEarth />
+                </Box> :
+                <Box
+                    ref={logoRef}
+                    sx={{
+                        overflow: "hidden",
+                        borderRadius: "50%",
+                        position: "relative",
+                        mx: { xs: "auto", md: 0 },
+                        backgroundColor: "action.hover",
+                        width: { xs: 180, sm: 220, md: 280 },
+                        height: { xs: 180, sm: 220, md: 280 },
+                    }}
+                >
+                    <Image
+                        fill
+                        src={event.logo}
+                        alt={`${event.name} logo`}
+                        style={{ objectFit: "cover" }}
+                    />
+                </Box>
+            }
             <Stack flex={2} justifyContent={'center'}>
                 <Typography ref={titleRef} className="animated" variant="h3" sx={{ mb: 2 }}>
                     A propos de {event.name}

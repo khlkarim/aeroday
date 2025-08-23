@@ -31,30 +31,6 @@ export default function Earth() {
       {/* Soft ambient light for base illumination */}
       <ambientLight intensity={0.7} />
 
-      {/* Key directional light with shadows */}
-      <directionalLight
-        position={[8, 12, 10]}
-        intensity={1.2}
-        castShadow
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
-        shadow-bias={-0.0005}
-      />
-
-      {/* Fill light to soften shadows */}
-      <directionalLight
-        position={[-8, 5, -10]}
-        intensity={0.4}
-        color="#b0c4de"
-      />
-
-      {/* Rim light for highlights */}
-      <directionalLight
-        position={[0, 10, -10]}
-        intensity={0.6}
-        color="#fffbe6"
-      />
-
       <Model position={[0, 0, 0]} scale={0.01} />
       <OrbitControls enableZoom={false} />
     </Canvas>

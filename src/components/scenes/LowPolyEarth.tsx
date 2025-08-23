@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import * as THREE from 'three'
 import type { JSX } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { Stars, useGLTF } from '@react-three/drei'
 import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
 
@@ -21,7 +21,12 @@ export function Earth(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/assets/models/LowPolyEarth-transformed.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={(nodes.Object_Planet_0 as THREE.Mesh).geometry} material={materials.Planet} position={[0, 0, 0]} rotation={[Math.PI, 0, Math.PI]} />
+      <mesh
+        position={[0, 0, 0]}
+        rotation={[Math.PI, 0, Math.PI]}
+        geometry={(nodes.Object_Planet_0 as THREE.Mesh).geometry}
+        material={new THREE.MeshLambertMaterial({ map: (materials.Planet as THREE.MeshLambertMaterial).map })}
+      />
     </group>
   )
 }
@@ -54,23 +59,9 @@ export default function Scene() {
       }}
     >
       <ambientLight intensity={0.7} />
-      <directionalLight
-        position={[8, 12, 10]}
-        intensity={1.2}
-        castShadow
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
-        shadow-bias={-0.0005}
-      />
-      <directionalLight position={[-8, 5, -10]} intensity={0.4} color="#b0c4de" />
-      <directionalLight position={[0, 10, -10]} intensity={0.6} color="#fffbe6" />
-
-      {/* Earth at center */}
+      <directionalLight position={[-30, 5, -30]} intensity={1} />
       <Earth position={[0, 0, 0]} scale={2.5} />
-
-      {/* ISS orbiting */}
       <OrbitingISS />
-
       <OrbitControls enableZoom={false} />
     </Canvas>
   )
