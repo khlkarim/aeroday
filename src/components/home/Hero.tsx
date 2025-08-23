@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import { event } from '@/content/event';
+import { ScrollTrigger } from 'gsap/all';
 import useThreeD from '@/hooks/useThreeD';
 import Plane from '@/components/scenes/Plane';
 import { useTheme } from '@mui/material/styles';
@@ -13,16 +14,13 @@ import { Box, Typography, Chip, Button, Stack } from '@mui/material';
 const Hero: React.FC = () => {
     const theme = useTheme();   
     const threeD = useThreeD();
-
-    const chipRef = useRef<HTMLDivElement>(null);
-    const titleRef = useRef<HTMLDivElement>(null);
-    const buttonsRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const subtitleRef = useRef<HTMLSpanElement>(null);
-    const descriptionRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => { 
-        animate({ chipRef, titleRef, subtitleRef, descriptionRef, buttonsRef });
+        if(containerRef.current) 
+        {
+            animate({ container: containerRef.current });
+        }
     }, { scope: containerRef });
 
     const handleScroll = (target: string) => {
@@ -42,7 +40,12 @@ const Hero: React.FC = () => {
             alignItems={'center'}
             sx={{ minHeight: '76vh' }} 
             flexDirection={{ sm: 'column', md: 'row' }} 
-            justifyContent={threeD.active ? "space-between" : "start"}
+            justifyContent={
+                threeD.active ? 
+                    { xs: 'space-around', sm: 'space-around', md: 'space-between' }
+                        : 
+                    { xs: "center", sm: "center", md: 'start' }
+                }
         >
             <Stack
                 gap={3}
@@ -51,7 +54,6 @@ const Hero: React.FC = () => {
                 justifyContent={'center'}
             >
                 <Chip
-                    ref={chipRef}
                     color="secondary"
                     variant="outlined"
                     className='animated'
@@ -63,7 +65,7 @@ const Hero: React.FC = () => {
                     }}
                 />
             
-                <Box ref={titleRef} className='animated'>
+                <Box className='animated'>
                     <Typography variant="h2">
                         {event.name + " "}
                         <Box
@@ -79,7 +81,6 @@ const Hero: React.FC = () => {
                         </Box>
                     </Typography>
                     <Typography
-                        ref={subtitleRef}
                         variant="subtitle1"
                         className='animated'
                         sx={{
@@ -90,7 +91,7 @@ const Hero: React.FC = () => {
                     </Typography>
                 </Box>
 
-                <Box ref={descriptionRef} className='animated'>
+                <Box className='animated'>
                     <Paragraph>
                         {event.description.primary}
                     </Paragraph>
@@ -98,7 +99,6 @@ const Hero: React.FC = () => {
 
                 <Stack 
                     gap={2}
-                    ref={buttonsRef} 
                     className="animated"
                     flexDirection={'row'}
                 >
@@ -147,58 +147,41 @@ const Hero: React.FC = () => {
 
 export default Hero;
 
-function animate({
-    chipRef,
-    titleRef,
-    subtitleRef,
-    descriptionRef,
-    buttonsRef,
-}: {
-    chipRef: React.RefObject<HTMLDivElement | null>
-    titleRef: React.RefObject<HTMLDivElement | null>
-    subtitleRef: React.RefObject<HTMLSpanElement | null>
-    descriptionRef: React.RefObject<HTMLDivElement | null>
-    buttonsRef: React.RefObject<HTMLDivElement | null>
-}) {
-    if (
-        !chipRef.current ||
-        !titleRef.current ||
-        !buttonsRef.current ||
-        !subtitleRef.current ||
-        !descriptionRef.current
-    ) return;
+type AnimateRefs = {
+    container: HTMLElement;
+};
 
-    const onLoad = gsap.timeline();
-    onLoad
-        .from(chipRef.current, {
-            autoAlpha: 0,
-            y: 50,
-            duration: 1,
-            ease: "power3.out"
-        })
-        .from(titleRef.current, {
-            autoAlpha: 0,
-            y: 40,
-            duration: 0.9,
-            ease: "power3.out"
-        }, "-=0.8")
-        .from(subtitleRef.current, {
-            autoAlpha: 0,
-            y: 35,
-            duration: 0.8,
-            ease: "power3.out"
-        }, "-=0.7")
-        .from(descriptionRef.current, {
-            autoAlpha: 0,
-            y: 30,
-            duration: 0.7,
-            ease: "power3.out"
-        }, "-=0.6")
-        .from(buttonsRef.current, {
-            autoAlpha: 0,
-            y: 25,
-            scale: 0.8,
-            duration: 0.9,
-            ease: "power3.out"
-        }, "-=0.4");
+export function animate({ container }: AnimateRefs) {
+    const onLoad = gsap.timeline({
+        defaults: { ease: "power3.out" },
+        onComplete: () => animateScroll({ container }),
+    });
+
+    onLoad.from('.animated', {
+        y: 40,
+        scale: 0.95,
+        autoAlpha: 0,
+        stagger: 0.15,
+    });
+}
+
+function animateScroll({ container }: AnimateRefs) {
+    const onScroll = gsap.timeline({
+        overwrite: "auto",
+        defaults: { ease: "power2.inOut" },
+    });
+
+    onScroll.to('.animated', {
+        y: -50,
+        autoAlpha: 0,
+        stagger: 0.1,
+    });
+
+    ScrollTrigger.create({
+        scrub: 1,
+        end: "bottom 15%",
+        trigger: container,
+        animation: onScroll,
+        start: "bottom center",
+    });
 }

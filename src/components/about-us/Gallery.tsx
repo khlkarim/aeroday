@@ -4,15 +4,17 @@ import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "@/content/event";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 interface GalleryProps {
     index: number;
 }
 
 export const Gallery: React.FC<GalleryProps> = ({ index }) => {
-    const gallery = event.editionsPrecedentes.galleries[index];
+    const theme = useTheme();
+
     const imagesRef = useRef<HTMLDivElement>(null);
+    const gallery = event.editionsPrecedentes.galleries[index];
 
     useGSAP(() => {
         if (!imagesRef.current) return;
@@ -38,7 +40,15 @@ export const Gallery: React.FC<GalleryProps> = ({ index }) => {
     return (
         <Box>
             <Typography variant="h3" gutterBottom>
-                {gallery.label}
+                {(() => {
+                    const [firstWord, ...rest] = gallery.label.split(" ");
+                    return (
+                        <>
+                            <span style={{ color: theme.palette.secondary.main }}>{firstWord}</span>{" "}
+                            {rest.join(" ")}
+                        </>
+                    );
+                })()}
             </Typography>
 
             <Box ref={imagesRef} sx={{ columns: { xs: '150px', sm: '200px', md: '300px', } }}>

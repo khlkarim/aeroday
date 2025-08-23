@@ -8,7 +8,7 @@ const ThreeDToggle: React.FC = () => {
     return (
         <Tooltip title={
             active? 
-                "Disable 3D assets if your device feels slow."
+                "Disable 3D effects if your device feels slow."
                 :
                 "Enable 3D effects"
             }
@@ -16,10 +16,9 @@ const ThreeDToggle: React.FC = () => {
             <Button 
                 onClick={toggle}
                 sx={{ 
-                    minWidth: 40, 
                     padding: 0,
-                    width: 40, 
-                    height: 40, 
+                    minWidth: 40, 
+                    minHeight: 40,
                     borderRadius: "50%", 
                 }} 
             >

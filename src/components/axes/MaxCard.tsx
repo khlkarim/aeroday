@@ -1,15 +1,22 @@
 "use client"
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import type { Axe } from '../../content/axes';
 import { Card, CardContent, Typography, Button, Box, Divider, Chip, Stack } from '@mui/material';
+import { useGSAP } from '@gsap/react';
 
 interface MaxCardProps {
     item: Axe;
 }
 
 const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
+    const imageRef = useRef<HTMLImageElement>(null);
+
+    useGSAP(() => {
+        animate({ imageRef });
+    });
+
     return (
         <Card>
             <Box sx={{ 
@@ -75,4 +82,9 @@ export default MaxCard;
 function formatDate(date: Axe['date']): string
 {
     return `${String(date.day).padStart(2, '0')}/${String(date.month).padStart(2, '0')}`;
+}
+
+function animate({ imageRef }: { imageRef: React.RefObject<HTMLImageElement | null> })
+{
+    if(!imageRef.current) return; 
 }

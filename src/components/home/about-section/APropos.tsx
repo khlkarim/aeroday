@@ -3,21 +3,22 @@ import Image from "next/image";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import useThreeD from "@/hooks/useThreeD";
+import { ScrollTrigger }  from "gsap/all";
 import { event } from "../../../content/event";
 import { Paragraph } from "../../text/Paragraph";
 import LowPolyEarth from "@/components/scenes/Earth";
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box, Stack, useTheme } from "@mui/material";
 
 export const APropos = () => {
+    const theme = useTheme();
     const threeD = useThreeD();
-
-    const titleRef = useRef<HTMLDivElement>(null);
-    const logoRef = useRef<HTMLImageElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const descriptionRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
-        animate({ logoRef, titleRef, descriptionRef });
+    useGSAP(() => { 
+        if(containerRef.current) 
+        {
+            animate({ container: containerRef.current });
+        }
     }, { scope: containerRef });
 
     return (
@@ -29,8 +30,8 @@ export const APropos = () => {
             alignItems={'center'}
             justifyContent={'space-around'}
         >
-            <Box 
-                ref={logoRef} 
+            <Box
+                className='animated' 
                 sx={{
                     mx: 'auto',
                     width: 300,
@@ -60,10 +61,10 @@ export const APropos = () => {
                 }
             </Box>
             <Stack justifyContent={'center'}>
-                <Typography ref={titleRef} className="animated" variant="h3" sx={{ mb: 2 }}>
-                    A propos de {event.name}
+                <Typography className="animated" variant="h3" sx={{ mb: 2 }}>
+                    A propos de <span style={{ color: theme.palette.secondary.main }}>{event.name}</span>
                 </Typography>
-                <Box ref={descriptionRef} className="animated">
+                <Box className="animated">
                     <Paragraph>{event.description.secondary}</Paragraph>
                 </Box>
             </Stack>
@@ -71,55 +72,28 @@ export const APropos = () => {
     );
 };
 
-function animate({
-    logoRef,
-    titleRef,
-    descriptionRef,
-}: {
-    logoRef: React.RefObject<HTMLElement | null>;
-    titleRef: React.RefObject<HTMLElement | null>;
-    descriptionRef: React.RefObject<HTMLElement | null>;
-}) {
-    if (!logoRef.current || !titleRef.current || !descriptionRef.current) return;
+type AnimateRefs = {
+    container: HTMLElement;
+};
 
-    const onScrollIn = gsap.timeline();
+function animate({ container }: AnimateRefs) {
+    const onScroll = gsap.timeline({
+        overwrite: "auto",
+        defaults: { ease: "power2.inOut" },
+    });
 
-        onScrollIn.from( 
-            logoRef.current, 
-            { 
-                y: 50, 
-                autoAlpha: 0, 
-                duration: 0.8, 
-                scrollTrigger: 
-                { 
-                    scrub: 1, 
-                    end: "top 60%", 
-                    start: "top 90%", 
-                    trigger: logoRef.current, 
-                } 
-            });
+    onScroll.from('.animated', {
+        y: 50,
+        autoAlpha: 0,
+        stagger: 0.1,
+    });
 
-        onScrollIn.from(titleRef.current, {
-            autoAlpha: 0,
-            y: 50,
-            duration: 0.6,
-            scrollTrigger: {
-                trigger: titleRef.current,
-                start: "top 90%",
-                end: "top 60%",
-                scrub: 1
-            }
-        });
-
-        onScrollIn.from(descriptionRef.current, {
-            autoAlpha: 0,
-            y: 50,
-            duration: 0.6,
-            scrollTrigger: {
-                scrub: 1,
-                end: "top 60%",
-                start: "top 90%",
-                trigger: descriptionRef.current,
-            }
-        });
+    ScrollTrigger.create({
+        scrub: 1,
+        markers: true,
+        start: "top 90%",
+        end: "top center",
+        trigger: container,
+        animation: onScroll,
+    });
 }

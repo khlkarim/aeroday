@@ -13,19 +13,22 @@ interface CardLayoutProps<T> {
 }
 
 export function CardLayout<T>({ title, data, CardComponent }: CardLayoutProps<T>) {
-    const cardsRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        animate({ cardsRef });
-    }, { dependencies: [data], scope: cardsRef });
+        if(containerRef.current) 
+        {
+            animate();
+        }
+    }, { dependencies: [data], scope: containerRef });
 
     return (
         <Stack id={title} gap={6}>
             <Title label={title} />
 
             <Stack 
-                ref={cardsRef} 
                 gap={4}
+                ref={containerRef} 
                 flexWrap={'wrap'} 
                 flexDirection={'row'} 
                 justifyContent={'space-around'} 
@@ -46,23 +49,18 @@ export function CardLayout<T>({ title, data, CardComponent }: CardLayoutProps<T>
     );
 }
 
-function animate({ cardsRef }: { cardsRef: React.RefObject<HTMLDivElement | null> })
-{
-    if (!cardsRef.current) return;
-
-    const cards = Array.from(cardsRef.current.children);
-    cards.forEach((card) => {
-        gsap.from(card, {
+function animate() {
+    gsap.utils.toArray<HTMLElement>('.animated').forEach((el) => {
+        gsap.from(el, {
             y: 80,
-            scale: 1,
             autoAlpha: 0,
             ease: "power2.out",
             scrollTrigger: {
-                scrub: true,
-                trigger: card,
-                end: "top center",
+                trigger: el,
                 start: "top bottom",
-            }
+                end: "top center",
+                scrub: true,
+            },
         });
     });
 }
