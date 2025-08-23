@@ -9,9 +9,7 @@ interface MinCardProps {
 
 const MinCard: React.FC<MinCardProps> = ({ item }) => {
     return (
-        <Card
-            className="w-full max-w-sm rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
-        >
+        <Card className='max-w-md'>
             <CardActionArea href={item.href}>   
                 <Box
                     sx={{
@@ -29,12 +27,7 @@ const MinCard: React.FC<MinCardProps> = ({ item }) => {
                 </Box>
 
                 <CardContent className="p-4 space-y-2">
-                    <Typography
-                        variant="h6"
-                        component="h2"
-                        fontWeight={600}
-                        className="truncate"
-                    >
+                    <Typography variant="h6">
                         {item.name}
                     </Typography>
                     <Typography

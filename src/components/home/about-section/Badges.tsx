@@ -10,6 +10,7 @@ import { Typography, Box } from "@mui/material";
 import { EmojiEvents } from "@mui/icons-material";
 import { CardGiftcard } from "@mui/icons-material";
 import { SupportAgent } from "@mui/icons-material";
+import Badge from '@/components/Badge';
 
 function getIcon(label: string) {
     let IconComponent;
@@ -95,54 +96,28 @@ const Badges: React.FC = () => {
     }, { scope: badgesRef });
 
     return (
-        <Box ref={badgesRef} className="flex flex-wrap justify-center gap-6">
+        <Box ref={badgesRef} className="flex flex-wrap justify-around gap-7">
             {event.badges.map((badge, index) => {
                 const IconComponent = getIcon(badge.icon);
 
                 return (
-                    <Box
-                        key={index}
-                        className="animated about-badge shadow-md rounded-lg flex flex-col items-center justify-center"
-                        sx={{
-                            width: 220,
-                            height: 160,
-                            p: 3,
-                            border: '1px solid',
-                            borderColor: 'divider',
-                            cursor: 'pointer',
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-                            backdropFilter: 'blur(10px)',
-                            overflow: 'hidden',
-                            position: 'relative',
-                            '&::before': {
-                                content: '""',
-                                position: 'absolute',
-                                top: 0,
-                                left: '-100%',
-                                width: '100%',
-                                height: '100%',
-                                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-                                transition: 'left 0.5s'
-                            },
-                            '&:hover::before': {
-                                left: '100%'
-                            }
-                        }}
-                    >
-                        <IconComponent 
-                            sx={{ 
-                                fontSize: 40, 
-                                color: 'primary.main', 
-                                mb: 1,
-                                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                            }} 
-                        />
-                        <Typography variant="h6" align="center" sx={{ fontWeight: 600 }}>
-                            {badge.title}
-                        </Typography>
-                        <Typography variant="body2" align="center" sx={{ opacity: 0.8 }}>
-                            {badge.subtitle}
-                        </Typography>
+                    <Box key={index} className='animated' sx={{ width: 220, height: 160 }}>
+                        <Badge>
+                            <IconComponent 
+                                sx={{ 
+                                    fontSize: 40, 
+                                    color: 'primary.main', 
+                                    mb: 1,
+                                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                                }} 
+                            />
+                            <Typography variant="h6" align="center" sx={{ fontWeight: 600 }}>
+                                {badge.title}
+                            </Typography>
+                            <Typography variant="body2" align="center" sx={{ opacity: 0.8 }}>
+                                {badge.subtitle}
+                            </Typography>
+                        </Badge>
                     </Box>
                 );
             })}

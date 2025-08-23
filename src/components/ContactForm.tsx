@@ -9,7 +9,10 @@ import {
     Typography,
     Paper,
     Container,
+    Stack,
 } from "@mui/material";
+import Badge from "./Badge";
+
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
@@ -25,9 +28,25 @@ export default function ContactForm() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+
+        formData.append("access_key", "64b5354c-becd-4534-a058-40e70a2f8e90");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            form.reset();
+        } else {
+            console.log("Error", data);
+        }
     };
 
     return (

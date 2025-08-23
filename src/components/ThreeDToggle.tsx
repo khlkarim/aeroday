@@ -1,24 +1,31 @@
 import React from "react";
+import { Button, Tooltip } from "@mui/material";
 import useThreeD from "@/hooks/useThreeD";
-import { Button, IconButton, Typography, useTheme } from "@mui/material";
-import ThreeDRotationIcon from "@mui/icons-material/ThreeDRotation";
 
 const ThreeDToggle: React.FC = () => {
-    const theme = useTheme();
     const { toggle, active } = useThreeD();
 
     return (
-        <>
-            {active?
-                <Button sx={{ borderRadius: 100 }} onClick={toggle}>
-                    <Typography>2D</Typography>
-                </Button>
-                    : 
-                <IconButton sx={{ color: theme.palette.primary.main }} onClick={toggle}>
-                    <ThreeDRotationIcon />
-                </IconButton>
+        <Tooltip title={
+            active? 
+                "Disable 3D assets if your device feels slow."
+                :
+                "Enable 3D effects"
             }
-        </>
+        >
+            <Button 
+                onClick={toggle}
+                sx={{ 
+                    minWidth: 40, 
+                    padding: 0,
+                    width: 40, 
+                    height: 40, 
+                    borderRadius: "50%", 
+                }} 
+            >
+                {active ? '2D' : '3D'}
+            </Button>
+        </Tooltip>
     );
 };
 

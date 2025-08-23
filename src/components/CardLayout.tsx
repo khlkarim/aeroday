@@ -16,24 +16,7 @@ export function CardLayout<T>({ title, data, CardComponent }: CardLayoutProps<T>
     const cardsRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        if (!cardsRef.current) return;
-
-        const cards = Array.from(cardsRef.current.children);
-        cards.forEach((card) => {
-            gsap.from(card, {
-                y: 80,
-                scale: 1,
-                autoAlpha: 0,
-                ease: "power2.out",
-                scrollTrigger: {
-                    scrub: true,
-                    trigger: card,
-                    end: "top center",
-                    start: "top bottom",
-                }
-            });
-        });
-
+        animate({ cardsRef });
     }, { dependencies: [data], scope: cardsRef });
 
     return (
@@ -61,4 +44,25 @@ export function CardLayout<T>({ title, data, CardComponent }: CardLayoutProps<T>
             </Stack>
         </Stack>
     );
+}
+
+function animate({ cardsRef }: { cardsRef: React.RefObject<HTMLDivElement | null> })
+{
+    if (!cardsRef.current) return;
+
+    const cards = Array.from(cardsRef.current.children);
+    cards.forEach((card) => {
+        gsap.from(card, {
+            y: 80,
+            scale: 1,
+            autoAlpha: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+                scrub: true,
+                trigger: card,
+                end: "top center",
+                start: "top bottom",
+            }
+        });
+    });
 }

@@ -6,26 +6,24 @@ import ThemeToggle from "../../ThemeToggle";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { links } from "../../../constants/navlinks";
-import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Box, Stack } from "@mui/material";
 import ThreeDToggle from "@/components/ThreeDToggle";
+import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Stack } from "@mui/material";
 
 const Navbar: React.FC = () => {
     const theme = useTheme();
+
     const [open, setOpen] = useState(false);
     const toggleDrawer = (state: boolean) => () => setOpen(state);
 
     return (
         <>
             <AppBar
-                elevation={0}
-                position="fixed"
                 sx={{
-                    display: 'flex',
-                    justifyContent: "center",
+                    position: 'fixed',
                     backdropFilter: "blur(10px)",
-                    borderBottom: `1px solid ${theme.palette.divider}`,
-                    backgroundColor: theme.palette.mode == 'light'? 
-                        `${theme.palette.background.paper}22` : `transparent`,
+                    backgroundColor: 
+                        theme.palette.mode == 'light'? 
+                            `${theme.palette.background.paper}22` : `transparent`,
                 }}
             >
                 <Toolbar>
@@ -43,28 +41,36 @@ const Navbar: React.FC = () => {
                     "& .MuiPaper-root": {
                         width: "100%",
                         backdropFilter: "blur(10px)",
-                        backgroundColor: theme.palette.mode == 'light'? 
-                            `${theme.palette.background.paper}22` : `transparent`,
+                        backgroundColor: 
+                            theme.palette.mode == 'light'? 
+                                `${theme.palette.background.paper}22` : `transparent`,
                     },
                 }}
             >
-                <Box
-                    sx={{
-                        padding: 2,
-                        display: "flex",
-                        alignItems: 'center',
-                        justifyContent: "space-between",
-                        borderBottom: `1px solid ${theme.palette.divider}`,
+                <Toolbar 
+                    sx={{ 
+                        borderBottom: `1px solid ${theme.palette.divider}` 
                     }}
                 >
-                    <IconButton onClick={toggleDrawer(false)}>
-                        <CloseIcon />
-                    </IconButton>
-                    <Stack gap={2} flexDirection={'row'}>
-                        <ThemeToggle />
-                        <ThreeDToggle />
+                    <Stack 
+                        width={'100%'} 
+                        flexDirection={'row'}
+                        justifyContent={'space-between'} 
+                    >
+                        <IconButton 
+                            onClick={toggleDrawer(false)}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                        <Stack 
+                            gap={2} 
+                            flexDirection={'row'}
+                        >
+                            <ThemeToggle />
+                            <ThreeDToggle />
+                        </Stack>
                     </Stack>
-                </Box>
+                </Toolbar>
                 <List>
                     {links.map((_, index) => (
                         <NavLink key={index} index={index} />

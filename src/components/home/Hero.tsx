@@ -4,11 +4,11 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import { event } from '@/content/event';
+import useThreeD from '@/hooks/useThreeD';
+import Plane from '@/components/scenes/Plane';
 import { useTheme } from '@mui/material/styles';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button, Stack } from '@mui/material';
-import Plane from '@/components/scenes/Plane';
-import useThreeD from '@/hooks/useThreeD';
 
 const Hero: React.FC = () => {
     const theme = useTheme();   
@@ -21,50 +21,8 @@ const Hero: React.FC = () => {
     const subtitleRef = useRef<HTMLSpanElement>(null);
     const descriptionRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
-        if (
-            !chipRef.current ||
-            !titleRef.current ||
-            !buttonsRef.current ||
-            !subtitleRef.current ||
-            !containerRef.current || 
-            !descriptionRef.current
-        ) return;
-
-        const onLoad = gsap.timeline();
-        onLoad
-            .from(chipRef.current, {
-                autoAlpha: 0,
-                y: 50,
-                duration: 1,
-                ease: "power3.out"
-            })
-            .from(titleRef.current, {
-                autoAlpha: 0,
-                y: 40,
-                duration: 0.9,
-                ease: "power3.out"
-            }, "-=0.8")
-            .from(subtitleRef.current, {
-                autoAlpha: 0,
-                y: 35,
-                duration: 0.8,
-                ease: "power3.out"
-            }, "-=0.7")
-            .from(descriptionRef.current, {
-                autoAlpha: 0,
-                y: 30,
-                duration: 0.7,
-                ease: "power3.out"
-            }, "-=0.6")
-            .from(buttonsRef.current, {
-                autoAlpha: 0,
-                y: 25,
-                scale: 0.8,
-                duration: 0.9,
-                ease: "power3.out"
-            }, "-=0.4");
-
+    useGSAP(() => { 
+        animate({ chipRef, titleRef, subtitleRef, descriptionRef, buttonsRef });
     }, { scope: containerRef });
 
     const handleScroll = (target: string) => {
@@ -79,11 +37,16 @@ const Hero: React.FC = () => {
     };
 
     return (
-        <Stack flexDirection={'row'} gap={6} sx={{ minHeight: '76vh' }} flexWrap={'wrap'} justifyContent={'space-around'}>
+        <Stack 
+            gap={6} 
+            alignItems={'center'}
+            sx={{ minHeight: '76vh' }} 
+            flexDirection={{ sm: 'column', md: 'row' }} 
+            justifyContent={threeD.active ? "space-between" : "start"}
+        >
             <Stack
-                flex={2}
-                ref={containerRef}
                 gap={3}
+                ref={containerRef}
                 alignItems={'start'}
                 justifyContent={'center'}
             >
@@ -133,9 +96,11 @@ const Hero: React.FC = () => {
                     </Paragraph>
                 </Box>
 
-                <Box 
+                <Stack 
+                    gap={2}
                     ref={buttonsRef} 
-                    className="animated flex gap-4"
+                    className="animated"
+                    flexDirection={'row'}
                 >
                     <Button
                         variant="contained"
@@ -149,17 +114,91 @@ const Hero: React.FC = () => {
                     >
                         Challenges
                     </Button>
-                </Box>
+                </Stack>
             </Stack>
             
             {threeD.active &&
-                <Box flex={1} minHeight={'300px'}>
-                    <Plane />
-                </Box>
+                <>
+                    <Box 
+                        sx={{ 
+                            width: 360,
+                            height: 360,
+                            position: 'relative',
+                            display: { xs: 'none', sm: 'block' } 
+                        }}
+                    >
+                        <Plane variant='desktop' />
+                    </Box>
+                    <Box 
+                        sx={{ 
+                            width: 360,
+                            height: 360,
+                            position: 'relative',
+                            display: { xs: 'block', sm: 'none' } 
+                        }}
+                    >
+                        <Plane variant='mobile' />
+                    </Box>
+                </>
             }
         </Stack>
-
     );
 };
 
 export default Hero;
+
+function animate({
+    chipRef,
+    titleRef,
+    subtitleRef,
+    descriptionRef,
+    buttonsRef,
+}: {
+    chipRef: React.RefObject<HTMLDivElement | null>
+    titleRef: React.RefObject<HTMLDivElement | null>
+    subtitleRef: React.RefObject<HTMLSpanElement | null>
+    descriptionRef: React.RefObject<HTMLDivElement | null>
+    buttonsRef: React.RefObject<HTMLDivElement | null>
+}) {
+    if (
+        !chipRef.current ||
+        !titleRef.current ||
+        !buttonsRef.current ||
+        !subtitleRef.current ||
+        !descriptionRef.current
+    ) return;
+
+    const onLoad = gsap.timeline();
+    onLoad
+        .from(chipRef.current, {
+            autoAlpha: 0,
+            y: 50,
+            duration: 1,
+            ease: "power3.out"
+        })
+        .from(titleRef.current, {
+            autoAlpha: 0,
+            y: 40,
+            duration: 0.9,
+            ease: "power3.out"
+        }, "-=0.8")
+        .from(subtitleRef.current, {
+            autoAlpha: 0,
+            y: 35,
+            duration: 0.8,
+            ease: "power3.out"
+        }, "-=0.7")
+        .from(descriptionRef.current, {
+            autoAlpha: 0,
+            y: 30,
+            duration: 0.7,
+            ease: "power3.out"
+        }, "-=0.6")
+        .from(buttonsRef.current, {
+            autoAlpha: 0,
+            y: 25,
+            scale: 0.8,
+            duration: 0.9,
+            ease: "power3.out"
+        }, "-=0.4");
+}

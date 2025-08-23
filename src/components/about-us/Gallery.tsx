@@ -1,10 +1,10 @@
 "use client"
 
+import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "@/content/event";
 import { Box, Typography } from "@mui/material";
-import gsap from "gsap";
 
 interface GalleryProps {
     index: number;
@@ -12,7 +12,6 @@ interface GalleryProps {
 
 export const Gallery: React.FC<GalleryProps> = ({ index }) => {
     const gallery = event.editionsPrecedentes.galleries[index];
-
     const imagesRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
@@ -42,7 +41,7 @@ export const Gallery: React.FC<GalleryProps> = ({ index }) => {
                 {gallery.label}
             </Typography>
 
-            <Box ref={imagesRef} sx={{ columns: '300px' }}>
+            <Box ref={imagesRef} sx={{ columns: { xs: '150px', sm: '200px', md: '300px', } }}>
                 {gallery.images.map((image, idx) => (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img

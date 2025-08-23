@@ -1,17 +1,8 @@
 import React from "react";
-import {
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    ListItem,
-    ListItemButton,
-    ListItemText,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { axes } from "../../../content/axes";
-import { challenges } from "../../../content/challenges";
-import { links } from "../../../constants/navlinks";
 import Link from 'next/link';
+import { links } from "../../../constants/navlinks";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Accordion, AccordionSummary, AccordionDetails, ListItem, ListItemButton, ListItemText } from "@mui/material";
 
 interface NavLinkProps {
     index: number;
@@ -19,10 +10,8 @@ interface NavLinkProps {
 
 const NavLink: React.FC<NavLinkProps> = ({ index }) => {
     const link = links[index];
-    const dropdownItems = link.label === "Axes" ? axes : challenges;
-    const isDropdown = link.label === "Axes" || link.label === "Challenges";
 
-    if (isDropdown) {
+    if (link.type === 'dropdown' && link.items) {
         return (
             <ListItem>
                 <Accordion sx={{ width: "100%", background: "none" }} >
@@ -30,7 +19,7 @@ const NavLink: React.FC<NavLinkProps> = ({ index }) => {
                         <ListItemText primary={link.label} />
                     </AccordionSummary>
                     <AccordionDetails>
-                        {dropdownItems.map((item) => (
+                        {link.items.map((item) => (
                             <ListItemButton
                                 key={item.href}
                                 component={Link}

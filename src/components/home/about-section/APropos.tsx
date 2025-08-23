@@ -1,12 +1,12 @@
 import { gsap } from "gsap";
+import Image from "next/image";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import useThreeD from "@/hooks/useThreeD";
 import { event } from "../../../content/event";
 import { Paragraph } from "../../text/Paragraph";
+import LowPolyEarth from "@/components/scenes/Earth";
 import { Typography, Box, Stack } from "@mui/material";
-import LowPolyEarth from "@/components/scenes/LowPolyEarth";
-import useThreeD from "@/hooks/useThreeD";
-import Image from "next/image";
 
 export const APropos = () => {
     const threeD = useThreeD();
@@ -17,11 +17,73 @@ export const APropos = () => {
     const descriptionRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        if (!containerRef.current || !logoRef.current || !titleRef.current || !descriptionRef.current) return;
+        animate({ logoRef, titleRef, descriptionRef });
+    }, { scope: containerRef });
 
-        const onScrollIn = gsap.timeline();
+    return (
+        <Stack 
+            gap={6}
+            flexWrap={'wrap'}
+            ref={containerRef} 
+            flexDirection={'row'}
+            alignItems={'center'}
+            justifyContent={'space-around'}
+        >
+            <Box 
+                ref={logoRef} 
+                sx={{
+                    mx: 'auto',
+                    width: 300,
+                    height: 300,
+                    position: 'relative',
+                }}
+            >
+                {threeD.active? 
+                    <LowPolyEarth />
+                        :
+                    <Box
+                        sx={{
+                            width: 300,
+                            height: 300,
+                            overflow: "hidden",
+                            borderRadius: "50%",
+                            position: 'relative',
+                        }}
+                    >
+                        <Image
+                            fill
+                            src={event.logo}
+                            alt={`${event.name} logo`}
+                            style={{ objectFit: "cover" }}
+                        />
+                    </Box>
+                }
+            </Box>
+            <Stack justifyContent={'center'}>
+                <Typography ref={titleRef} className="animated" variant="h3" sx={{ mb: 2 }}>
+                    A propos de {event.name}
+                </Typography>
+                <Box ref={descriptionRef} className="animated">
+                    <Paragraph>{event.description.secondary}</Paragraph>
+                </Box>
+            </Stack>
+        </Stack>
+    );
+};
 
-        // Animate logo
+function animate({
+    logoRef,
+    titleRef,
+    descriptionRef,
+}: {
+    logoRef: React.RefObject<HTMLElement | null>;
+    titleRef: React.RefObject<HTMLElement | null>;
+    descriptionRef: React.RefObject<HTMLElement | null>;
+}) {
+    if (!logoRef.current || !titleRef.current || !descriptionRef.current) return;
+
+    const onScrollIn = gsap.timeline();
+
         onScrollIn.from( 
             logoRef.current, 
             { 
@@ -37,7 +99,6 @@ export const APropos = () => {
                 } 
             });
 
-        // Animate title
         onScrollIn.from(titleRef.current, {
             autoAlpha: 0,
             y: 50,
@@ -50,7 +111,6 @@ export const APropos = () => {
             }
         });
 
-        // Animate description
         onScrollIn.from(descriptionRef.current, {
             autoAlpha: 0,
             y: 50,
@@ -62,49 +122,4 @@ export const APropos = () => {
                 trigger: descriptionRef.current,
             }
         });
-
-    }, { scope: containerRef });
-
-    return (
-        <Stack 
-            ref={containerRef} 
-            gap={7}
-            flexWrap={'wrap'}
-            flexDirection={'row'}
-            justifyContent={'space-around'}
-        >
-            {threeD.active? 
-                <Box flex={1} minHeight={'300px'} ref={logoRef}>
-                    <LowPolyEarth />
-                </Box> :
-                <Box
-                    ref={logoRef}
-                    sx={{
-                        overflow: "hidden",
-                        borderRadius: "50%",
-                        position: "relative",
-                        mx: { xs: "auto", md: 0 },
-                        backgroundColor: "action.hover",
-                        width: { xs: 180, sm: 220, md: 280 },
-                        height: { xs: 180, sm: 220, md: 280 },
-                    }}
-                >
-                    <Image
-                        fill
-                        src={event.logo}
-                        alt={`${event.name} logo`}
-                        style={{ objectFit: "cover" }}
-                    />
-                </Box>
-            }
-            <Stack flex={2} justifyContent={'center'}>
-                <Typography ref={titleRef} className="animated" variant="h3" sx={{ mb: 2 }}>
-                    A propos de {event.name}
-                </Typography>
-                <Box ref={descriptionRef} className="animated">
-                    <Paragraph>{event.description.secondary}</Paragraph>
-                </Box>
-            </Stack>
-        </Stack>
-    );
-};
+}

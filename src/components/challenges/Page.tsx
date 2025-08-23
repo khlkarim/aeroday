@@ -18,25 +18,7 @@ export default function Page({ id }: { id: number }) {
     const profileRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        if (!cardRef.current || !titleRef.current || !profileRef.current) return;
-
-        gsap.fromTo(
-            cardRef.current,
-            { autoAlpha: 0, y: 40 },
-            { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" }
-        );
-
-        gsap.fromTo(
-            titleRef.current,
-            { autoAlpha: 0, y: 20 },
-            { autoAlpha: 1, y: 0, duration: 0.6, delay: 0.4, ease: "power2.out" }
-        );
-
-        gsap.fromTo(
-            profileRef.current,
-            { autoAlpha: 0, scale: 0.9 },
-            { autoAlpha: 1, scale: 1, duration: 0.6, delay: 0.7, ease: "power3.out" }
-        );
+        animate({ cardRef, titleRef, profileRef });
     }, []);
 
     return (
@@ -63,5 +45,35 @@ export default function Page({ id }: { id: number }) {
                 </Box>
             </Stack>
         </Stack>
+    );
+}
+
+function animate({
+    cardRef,
+    titleRef,
+    profileRef,
+}: {
+    cardRef: React.RefObject<HTMLDivElement | null>;
+    titleRef: React.RefObject<HTMLDivElement | null>;
+    profileRef: React.RefObject<HTMLDivElement | null>;
+}) {
+    if (!cardRef.current || !titleRef.current || !profileRef.current) return;
+
+    gsap.fromTo(
+        cardRef.current,
+        { autoAlpha: 0, y: 40 },
+        { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" }
+    );
+
+    gsap.fromTo(
+        titleRef.current,
+        { autoAlpha: 0, y: 20 },
+        { autoAlpha: 1, y: 0, duration: 0.6, delay: 0.4, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+        profileRef.current,
+        { autoAlpha: 0, scale: 0.9 },
+        { autoAlpha: 1, scale: 1, duration: 0.6, delay: 0.7, ease: "power3.out" }
     );
 }
