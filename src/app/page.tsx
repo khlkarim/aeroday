@@ -6,7 +6,7 @@ import Teaser from "@/components/home/Teaser";
 import { CardLayout } from "@/components/CardLayout";
 import MinCard from "@/components/axes/MinCard";
 import { challenges } from "@/content/challenges";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/contact-us/Form";
 
 export default function Home() {
     return (

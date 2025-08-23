@@ -11,7 +11,7 @@ import {
     Container,
     Stack,
 } from "@mui/material";
-import Badge from "./Badge";
+import Badge from "../Badge";
 
 
 export default function ContactForm() {

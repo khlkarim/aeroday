@@ -90,7 +90,6 @@ function animate({ container }: AnimateRefs) {
 
     ScrollTrigger.create({
         scrub: 1,
-        markers: true,
         start: "top 90%",
         end: "top center",
         trigger: container,
