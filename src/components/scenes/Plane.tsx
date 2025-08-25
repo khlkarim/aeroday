@@ -1,9 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useRef, Suspense } from 'react'
 import * as THREE from 'three'
 import type { JSX } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { CameraControls, useGLTF } from '@react-three/drei'
 import { Canvas, useFrame } from "@react-three/fiber"
-import { OrbitControls } from "@react-three/drei"
 
 function AirStreaks({ count = 50, speed = 0.2 }) {
     const groupRef = useRef<THREE.Group>(null!)
@@ -75,23 +74,28 @@ export interface SceneProps {
 }
 
 export default function Scene({ variant = 'desktop' }: SceneProps) {
-    return (
-        <Canvas
-            orthographic
-            camera={{
-                zoom: 40,
-                position: [-5, 3, -7],
-            }}
-        >
-            <ambientLight intensity={0.7} />
-            <directionalLight position={[-30, 5, -30]} intensity={3} />
-            <directionalLight position={[30, -5, 30]} intensity={3} />
+  return (
+     <Canvas
+        shadows
+        camera={{
+            fov: 45,
+            position: [-8, 10, -12],
+        }}
+    >
+      <Suspense fallback={null}>
+        <CameraControls smoothTime={1.5} minPolarAngle={Math.PI / 3} maxPolarAngle={Math.PI / 2} />
+        
+        <ambientLight intensity={0.3} />
+        <directionalLight position={[10, 10, -10]} intensity={1} />
 
-            <Plane position={[0, 0, 0]} scale={variant === 'desktop'? 0.7 : 0.5} />
-            <AirStreaks count={5} speed={0.3} />
-            <OrbitControls enableZoom={false} />
-        </Canvas>
-    )
+        {/* Scene elements */}
+        <Plane position={[0, 0, 0]} scale={variant === 'desktop' ? 1 : 0.5} />
+        <AirStreaks count={7} speed={0.3} />
+
+      </Suspense>
+    </Canvas>
+  )
 }
+
 
 useGLTF.preload('assets/models/Plane.glb')
