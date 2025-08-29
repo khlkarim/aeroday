@@ -1,17 +1,20 @@
+import { Stack } from "@mui/material";
 import React, { ReactNode } from "react";
-import Box from "@mui/material/Box";
 
 interface BadgeProps {
-    className?: string;
     children: ReactNode;
     ref?: React.Ref<HTMLDivElement>;
 }
 
-const Badge: React.FC<BadgeProps> = ({ ref, className, children }) => (
-    <Box
+const Badge: React.FC<BadgeProps> = ({ ref, children }) => (
+    <Stack
         ref={ref}
-        className={`${className} shadow-md rounded-lg flex flex-col items-center justify-center`}
+        alignItems={'center'}
+        flexDirection={'column'}
+        justifyContent={'center'}
+
         sx={{
+            borderRadius: 3,
             minWidth: 220,
             minHeight: 160,
             p: 3,
@@ -40,7 +43,7 @@ const Badge: React.FC<BadgeProps> = ({ ref, className, children }) => (
         }}
     >
         {children}
-    </Box>
+    </Stack>
 );
 
 export default Badge;
