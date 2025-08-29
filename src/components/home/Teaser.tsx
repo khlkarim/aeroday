@@ -1,10 +1,10 @@
 "use client";
 
-import Title from '../text/Title';
 import React from 'react';
 import { event } from '@/content/event';
 import { Box, Stack } from '@mui/material';
-import { Paragraph } from '../text/Paragraph';
+import Title from '@/components/text/Title';
+import { Paragraph } from '@/components/text/Paragraph';
 
 export default function Teaser() {
     return (

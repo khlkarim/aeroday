@@ -1,10 +1,10 @@
 "use client"
 
-import React, { useRef } from 'react';
 import Image from 'next/image';
-import type { Axe } from '../../content/axes';
-import { Card, CardContent, Typography, Button, Box, Divider, Chip, Stack } from '@mui/material';
 import { useGSAP } from '@gsap/react';
+import React, { useRef } from 'react';
+import type { Axe } from '@/content/axes';
+import { Card, CardContent, Typography, Button, Box, Divider, Chip, Stack } from '@mui/material';
 
 interface MaxCardProps {
     item: Axe;

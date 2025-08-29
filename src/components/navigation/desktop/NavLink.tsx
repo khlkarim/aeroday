@@ -3,8 +3,8 @@
 import React from "react";
 import Link from 'next/link';
 import { Button } from "@mui/material";
-import NavDropdown from "./NavDropdown";
-import { links } from "../../../constants/navlinks";
+import { links } from "@/constants/navlinks";
+import NavDropdown from "@/components/navigation/desktop/NavDropdown";
 
 interface NavLinkProps {
     index: number;

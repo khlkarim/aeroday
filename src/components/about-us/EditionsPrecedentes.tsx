@@ -1,8 +1,8 @@
-import Title from "../text/Title";
 import { event } from "@/content/event";
 import { Box, Stack } from "@mui/material";
-import { Paragraph } from "../text/Paragraph";
-import { Gallery } from "./Gallery";
+import Title from "@/components/text/Title";
+import { Paragraph } from "@/components/text/Paragraph";
+import { Gallery } from "@/components/about-us/Gallery";
 
 export default function EditionsPrecedentes() {
     return (

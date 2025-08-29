@@ -2,9 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import type { TeamMember } from "@/content/team";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
-import type { TeamMember } from "../../content/team";
 import { Box, Typography, Button, Card, CardActionArea, CardContent } from "@mui/material";
 
 interface ProfileCardProps {

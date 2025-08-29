@@ -12,7 +12,7 @@ import "@fontsource/geist-sans/700.css";
 import { shadTheme } from "@/themes/shad/shadTheme";
 import { useMemo, useState, type ReactNode } from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ThemeModeContext, type ThemeMode } from "../contexts/ThemeModeContext";
+import { ThemeModeContext, type ThemeMode } from "@/contexts/ThemeModeContext";
 
 const ThemeModeProvider = ({ children }: { children: ReactNode }) => {
     const [mode, setMode] = useState<'light' | 'dark'>('dark');

@@ -1,8 +1,8 @@
 import React from "react";
-import NavLink from "./NavLink";
-import ThemeToggle from "../../ThemeToggle";
-import { links } from "../../../constants/navlinks";
+import { links } from "@/constants/navlinks";
+import ThemeToggle from "@/components/ThemeToggle";
 import ThreeDToggle from "@/components/ThreeDToggle";
+import NavLink from "@/components/navigation/desktop/NavLink";
 import { AppBar, Toolbar, Container, useTheme } from "@mui/material";
 
 const DesktopNavbar: React.FC = () => {

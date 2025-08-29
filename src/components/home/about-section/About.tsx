@@ -1,10 +1,10 @@
 "use client"
 
 import React from "react";
-import Badges from "./Badges";
-import { APropos } from "./APropos";
 import { Container } from "@mui/material";
-import Sponsors from "./Sponsors";
+import Badges from "@/components/home/about-section/Badges";
+import Sponsors from "@/components/home/about-section/Sponsors";
+import { APropos } from "@/components/home/about-section/APropos";
 
 const About: React.FC = () => {
     return (

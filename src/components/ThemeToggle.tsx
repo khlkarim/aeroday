@@ -1,5 +1,5 @@
 import React from "react";
-import useThemeMode from "../hooks/useThemeMode";
+import useThemeMode from "@/hooks/useThemeMode";
 import { IconButton, useTheme } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";

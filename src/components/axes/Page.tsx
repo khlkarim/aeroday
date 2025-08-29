@@ -6,9 +6,9 @@ import { axes } from "@/content/axes";
 import { useGSAP } from "@gsap/react";
 import { team } from "@/content/team";
 import { Box, Stack } from "@mui/material";
+import Title from "@/components/text/Title";
 import MaxCard from "@/components/axes/MaxCard";
 import ProfileCard from "@/components/team/ProfileCard";
-import Title from "../text/Title";
 
 export default function Page({ id }: { id: number }) {
     const axe = axes[id];

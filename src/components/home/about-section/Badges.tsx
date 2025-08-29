@@ -3,14 +3,14 @@
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import React, { useRef } from "react";
+import Badge from '@/components/Badge';
+import { event } from "@/content/event";
 import { Star } from "@mui/icons-material";
-import { event } from "../../../content/event";
 import { History } from "@mui/icons-material";
 import { Typography, Box } from "@mui/material";
 import { EmojiEvents } from "@mui/icons-material";
 import { CardGiftcard } from "@mui/icons-material";
 import { SupportAgent } from "@mui/icons-material";
-import Badge from '@/components/Badge';
 
 function getIcon(label: string) {
     let IconComponent;

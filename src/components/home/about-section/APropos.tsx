@@ -2,16 +2,15 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import useThreeD from "@/hooks/useThreeD";
+import { event } from "@/content/event";
 import { ScrollTrigger }  from "gsap/all";
-import { event } from "../../../content/event";
-import { Paragraph } from "../../text/Paragraph";
-import LowPolyEarth from "@/components/scenes/Earth";
+import Earth from "@/components/scenes/APropos";
+import { Scene } from "@/components/scenes/Scene";
+import { Paragraph } from "@/components/text/Paragraph";
 import { Typography, Box, Stack, useTheme } from "@mui/material";
 
 export const APropos = () => {
     const theme = useTheme();
-    const threeD = useThreeD();
     const containerRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => { 
@@ -39,9 +38,8 @@ export const APropos = () => {
                     position: 'relative',
                 }}
             >
-                {threeD.active? 
-                    <LowPolyEarth />
-                        :
+                <Scene 
+                    image={
                     <Box
                         sx={{
                             width: 300,
@@ -58,7 +56,11 @@ export const APropos = () => {
                             style={{ objectFit: "cover" }}
                         />
                     </Box>
-                }
+                    }
+                    canvas={
+                        <Earth />
+                    }
+                />
             </Box>
             <Stack justifyContent={'center'}>
                 <Typography className="animated" variant="h3" sx={{ mb: 2 }}>

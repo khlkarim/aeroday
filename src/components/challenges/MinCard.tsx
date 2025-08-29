@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import type { Challenge } from '../../content/challenges';
+import type { Challenge } from '@/content/challenges';
 import { Card, CardActionArea, CardContent, Typography, Box } from '@mui/material';
 
 interface MinCardProps {

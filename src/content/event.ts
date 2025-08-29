@@ -48,7 +48,7 @@ export interface Event {
 export const event: Event = {
     logo: "/assets/images/logos/event.png",
     name: "Tunisian Aeroday",
-    subtitle: "Le 2 février 2025 à l'INSAT",
+    subtitle: "Le 2 février 2026 à l'INSAT",
     edition: "13ème édition de l'Aeroday",
     date: {
         day: 2,

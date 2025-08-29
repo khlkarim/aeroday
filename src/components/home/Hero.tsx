@@ -6,8 +6,9 @@ import React, { useRef } from 'react';
 import { event } from '@/content/event';
 import { ScrollTrigger } from 'gsap/all';
 import useThreeD from '@/hooks/useThreeD';
-import Plane from '@/components/scenes/Plane';
+import Plane from '@/components/scenes/Hero';
 import { useTheme } from '@mui/material/styles';
+import { Scene } from '@/components/scenes/Scene';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button, Stack } from '@mui/material';
 
@@ -117,30 +118,23 @@ const Hero: React.FC = () => {
                 </Stack>
             </Stack>
             
-            {threeD.active &&
-                <>
+            <Scene 
+                image={
+                    <></>
+                }
+                canvas={
                     <Box 
                         sx={{ 
                             width: 360,
                             height: 360,
                             position: 'relative',
-                            display: { xs: 'none', sm: 'block' } 
                         }}
                     >
-                        <Plane variant='desktop' />
+                        <Plane />
+                        {/* <Demo /> */}
                     </Box>
-                    <Box 
-                        sx={{ 
-                            width: 360,
-                            height: 360,
-                            position: 'relative',
-                            display: { xs: 'block', sm: 'none' } 
-                        }}
-                    >
-                        <Plane variant='mobile' />
-                    </Box>
-                </>
-            }
+                }
+            />
         </Stack>
     );
 };

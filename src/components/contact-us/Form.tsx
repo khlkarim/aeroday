@@ -1,6 +1,5 @@
 "use client"
 
-import React, { useState } from "react";
 import {
     Box,
     Button,
@@ -9,9 +8,8 @@ import {
     Typography,
     Paper,
     Container,
-    Stack,
 } from "@mui/material";
-import Badge from "../Badge";
+import React, { useState } from "react";
 
 
 export default function ContactForm() {

@@ -3,12 +3,12 @@
 import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import MaxCard from "@/components/challenges/MaxCard";
-import ProfileCard from "@/components/team/ProfileCard";
-import { challenges } from "@/content/challenges";
 import { team } from "@/content/team";
 import { Box, Stack } from "@mui/material";
-import Title from "../text/Title";
+import Title from "@/components/text/Title";
+import { challenges } from "@/content/challenges";
+import MaxCard from "@/components/challenges/MaxCard";
+import ProfileCard from "@/components/team/ProfileCard";
 
 export default function Page({ id }: { id: number }) {
     const challenge = challenges[id];

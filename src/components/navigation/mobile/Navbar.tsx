@@ -1,12 +1,12 @@
 "use client"
 
-import NavLink from "./NavLink";
 import React, { useState } from "react";
-import ThemeToggle from "../../ThemeToggle";
+import { links } from "@/constants/navlinks";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { links } from "../../../constants/navlinks";
+import ThemeToggle from "@/components/ThemeToggle";
 import ThreeDToggle from "@/components/ThreeDToggle";
+import NavLink from "@/components/navigation/mobile/NavLink";
 import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Stack } from "@mui/material";
 
 const Navbar: React.FC = () => {

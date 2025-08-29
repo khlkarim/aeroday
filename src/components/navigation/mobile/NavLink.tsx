@@ -1,6 +1,6 @@
 import React from "react";
 import Link from 'next/link';
-import { links } from "../../../constants/navlinks";
+import { links } from "@/constants/navlinks";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, AccordionSummary, AccordionDetails, ListItem, ListItemButton, ListItemText } from "@mui/material";
 

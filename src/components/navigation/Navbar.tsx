@@ -2,8 +2,8 @@
 
 import React from "react";
 import { Box } from "@mui/material";
-import MobileNavbar from "./mobile/Navbar";
-import DesktopNavbar from "./desktop/Navbar";
+import MobileNavbar from "@/components/navigation/mobile/Navbar";
+import DesktopNavbar from "@/components/navigation/desktop/Navbar";
 
 const Navbar: React.FC = () => {
     return (

@@ -1,13 +1,13 @@
-import "./globals.css";
+import "@/app/globals.css";
 
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navigation/Navbar";
+import ThreeDProvider from "@/providers/ThreeDProvider";
 import { Container, Stack, Toolbar } from "@mui/material";
 import ThemeModeProvider from "@/providers/ThemeModeProvider";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import ThreeDProvider from "@/providers/ThreeDProvider";
 
 export const metadata: Metadata = {
     title: "Tunisian Aeroday 2026",
