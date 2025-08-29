@@ -131,7 +131,6 @@ const Hero: React.FC = () => {
                         }}
                     >
                         <Plane />
-                        {/* <Demo /> */}
                     </Box>
                 }
             />

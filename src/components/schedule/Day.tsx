@@ -34,28 +34,71 @@ export function Day({ index }: DayProps) {
                         "& .MuiTimelineItem-root:before": { flex: 0, padding: 0 },
                     }}
                 >
-                    {day.schedule.map((period, i) => (
-                        <TimelineItem key={i}>
-                            <TimelineOppositeContent>
-                                <Typography variant="body2" fontWeight={500}>
-                                    {period.startTime} – {period.endTime}
-                                </Typography>
-                            </TimelineOppositeContent>
+                    {day.schedule.map((period, i) => {
+                        const IconComponent = getIcon(period.icon);
 
-                            <TimelineSeparator>
-                                <TimelineDot color="primary" />
-                                {i !== day.schedule.length - 1 && <TimelineConnector />}
-                            </TimelineSeparator>
+                        return (
+                            <TimelineItem key={i}>
+                                <TimelineOppositeContent>
+                                    <Typography variant="body2" fontWeight={500}>
+                                        {period.startTime} – {period.endTime}
+                                    </Typography>
+                                </TimelineOppositeContent>
 
-                            <TimelineContent>
-                                <Typography variant="subtitle1" fontWeight={700}>
-                                    {period.label}
-                                </Typography>
-                            </TimelineContent>
-                        </TimelineItem>
-                    ))}
+                                <TimelineSeparator>
+                                    <TimelineDot color="primary">
+                                        <IconComponent />
+                                    </TimelineDot>
+                                    {i !== day.schedule.length - 1 && <TimelineConnector />}
+                                </TimelineSeparator>
+
+                                <TimelineContent>
+                                    <Typography variant="subtitle1" fontWeight={700}>
+                                        {period.label}
+                                    </Typography>
+                                </TimelineContent>
+                            </TimelineItem>
+                        );
+                    })}
                 </Timeline>
             </CardContent>
         </Card>
     );
+}
+
+import {
+  Star,
+  FlightTakeoff,
+  Restaurant,
+  EmojiEvents,
+  Work,
+  FreeBreakfast,
+  PresentToAll,
+  CheckCircle,
+  DinnerDining,
+} from "@mui/icons-material";
+
+type IconName =
+  | "check-in"
+  | "plane"
+  | "lunch"
+  | "challenge"
+  | "dinner"
+  | "work"
+  | "breakfast"
+  | "presentation";
+
+const iconMap: Record<IconName, typeof Star> = {
+  "check-in": CheckCircle,
+  plane: FlightTakeoff,
+  lunch: Restaurant,
+  challenge: EmojiEvents,
+  dinner: DinnerDining,
+  work: Work,
+  breakfast: FreeBreakfast,
+  presentation: PresentToAll,
+};
+
+export function getIcon(label?: string) {
+  return iconMap[label as IconName] || Star;
 }

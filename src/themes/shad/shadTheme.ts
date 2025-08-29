@@ -36,7 +36,7 @@ export const shadTheme = (mode: 'light' | 'dark') => {
             warning: {
                 main: amber['900'],
             },
-            divider: isDarkMode ? grey[800] : grey[300],
+            divider: isDarkMode ? grey[800] : common['black'],
             background: {
                 default: isDarkMode ? background : grey[50],
                 paper: isDarkMode ? background : grey[50],
@@ -137,9 +137,9 @@ export const shadTheme = (mode: 'light' | 'dark') => {
             MuiAppBar: {
                 styleOverrides: {
                     root: {
-                        boxShadow: 'none',
                         border: 0,
-                        borderBottom: `1px solid ${isDarkMode ? grey[800] : grey[300]}`,
+                        boxShadow: 'none',
+                        borderBottom: `1px solid ${isDarkMode ? grey[800] : common['black']}`,
                     },
                 },
             },
@@ -147,7 +147,7 @@ export const shadTheme = (mode: 'light' | 'dark') => {
                 styleOverrides: {
                     paper: {
                         backgroundColor: isDarkMode ? background : common['white'],
-                        border: `1px solid ${isDarkMode ? grey[800] : grey[300]}`,
+                        border: `1px solid ${isDarkMode ? grey[800] : common['black']}`,
                     },
                 },
             },
