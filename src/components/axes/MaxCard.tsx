@@ -5,6 +5,8 @@ import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import type { Axe } from '@/content/axes';
 import { Card, CardContent, Typography, Button, Box, Divider, Chip, Stack } from '@mui/material';
+import ExpAerospatiales from '../scenes/axes/ExpAerospatiales';
+import VidParDrone from '../scenes/challenges/VidParDrone';
 
 interface MaxCardProps {
     item: Axe;
@@ -23,13 +25,7 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                 aspectRatio: '16/7', 
                 position: 'relative', 
             }}>
-                <Image
-                    fill
-                    priority
-                    alt={item.name}
-                    src={item.image}
-                    style={{ objectFit: 'cover' }}
-                />
+                <VidParDrone />
             </Box>
 
             <CardContent>

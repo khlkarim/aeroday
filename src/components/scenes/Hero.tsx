@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
-import { Canvas } from "@react-three/fiber"
 import { Plane } from '@/components/models/Plane'
+import { Canvas } from "@react-three/fiber"
 import Lighting from '@/components/scenes/Lighting'
 import { PerformanceMonitor, OrbitControls } from '@react-three/drei'
 
