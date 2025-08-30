@@ -14,7 +14,7 @@ interface ProfileCardProps {
 const ProfileCard: React.FC<ProfileCardProps> = ({ item }) => {
     return (
         <Card
-            className="w-full max-w-xs rounded-4xl shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="w-full w-xs rounded-4xl shadow-md hover:shadow-lg transition-shadow duration-300"
         >
             <CardActionArea>
                 <Box

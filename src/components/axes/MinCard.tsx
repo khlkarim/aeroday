@@ -11,7 +11,7 @@ interface MinCardProps {
 
 const MinCard: React.FC<MinCardProps> = ({ item }) => {
     return (
-        <Card className='max-w-md'>
+        <Card className='max-w-lg'>
             <CardActionArea href={item.href}>
                 <Box
                     sx={{

@@ -9,6 +9,7 @@ import { Box, Stack } from "@mui/material";
 import Title from "@/components/text/Title";
 import MaxCard from "@/components/axes/MaxCard";
 import ProfileCard from "@/components/team/ProfileCard";
+import PersonIcon from '@mui/icons-material/Person'; 
 
 export default function Page({ id }: { id: number }) {
     const axe = axes[id];
@@ -37,7 +38,8 @@ export default function Page({ id }: { id: number }) {
                 alignItems={'center'}
                 justifyContent={'space-around'} 
             >
-                <Box ref={titleRef} className='animated'>
+                <Box ref={titleRef} className='animated' display="flex" alignItems="center" gap={1}>
+                    <PersonIcon color="primary" fontSize="large" />
                     <Title label="Responsable" />
                 </Box>
                 <Box ref={profileRef} className='animated'>

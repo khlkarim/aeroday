@@ -19,12 +19,20 @@ const Navbar: React.FC = () => {
         <>
             <AppBar
                 sx={{
+                    p: 1,
                     position: 'fixed',
-                    backdropFilter: "blur(10px)",
-                    backgroundColor: `transparent`,
+                    background: 'none',
+                    border: 'none',
+                    boxShadow: 'none'
                 }}
             >
-                <Toolbar>
+                <Toolbar sx={{ 
+                    p: 1,
+                    borderRadius: 100,
+                    border: '1px solid',
+                    borderColor: "divider",
+                    backgroundColor: `#FAF7F0`,
+                }}>
                     <IconButton onClick={toggleDrawer(true)}>
                         <MenuIcon />
                     </IconButton>

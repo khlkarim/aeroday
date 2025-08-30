@@ -44,7 +44,7 @@ export const Gallery: React.FC<GalleryProps> = ({ index }) => {
                     const [firstWord, ...rest] = gallery.label.split(" ");
                     return (
                         <>
-                            <span style={{ color: theme.palette.secondary.main }}>{firstWord}</span>{" "}
+                            <span style={{ color: theme.palette.primary.main }}>{firstWord}</span>{" "}
                             {rest.join(" ")}
                         </>
                     );

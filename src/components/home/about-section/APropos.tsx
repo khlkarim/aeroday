@@ -4,10 +4,9 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "@/content/event";
 import { ScrollTrigger }  from "gsap/all";
-import Earth from "@/components/scenes/APropos";
-import { SceneContainer } from "@/components/scenes/SceneContainer";
 import { Paragraph } from "@/components/text/Paragraph";
-import { Typography, Box, Stack, useTheme, Divider } from "@mui/material";
+import { Typography, Box, Stack, useTheme } from "@mui/material";
+import { Star } from "@mui/icons-material";
 
 export const APropos = () => {
     const theme = useTheme();
@@ -38,42 +37,49 @@ export const APropos = () => {
                     position: 'relative',
                 }}
             >
-                <SceneContainer
-                    image={
-                    <Box
-                        sx={{
-                            width: { xs: 260, sm: 280 },
-                            height: { xs: 260, sm: 280 },
-                            overflow: "hidden",
-                            borderRadius: "50%",
-                            position: 'relative',
-                        }}
-                    >
-                        <Image
-                            fill
-                            src={event.logo}
-                            alt={`${event.name} logo`}
-                            style={{ objectFit: "cover" }}
-                        />
-                    </Box>
-                    }
-                    canvas={
-                        <Earth />
-                    }
-                />
+                <Box
+                    sx={{
+                        width: { xs: 260, sm: 280 },
+                        height: { xs: 260, sm: 280 },
+                        overflow: "hidden",
+                        borderRadius: "50%",
+                        position: 'relative',
+                    }}
+                >
+                    <Image
+                        fill
+                        src={event.logo}
+                        alt={`${event.name} logo`}
+                        style={{ objectFit: "cover" }}
+                    />
+                </Box>
             </Box>
-            <Stack justifyContent={'center'}>
+            <Stack gap={2} justifyContent={'center'} alignItems={'center'}>
                 <Typography 
                     variant="h3" 
                     sx={{ 
-                        mb: 2,
                         fontSize: { xs: '1.3rem', sm: '2rem', md: '2rem', lg: '2rem' },
                     }}
                     className="animated" 
                 >
-                    A propos de <span style={{ color: theme.palette.primary.main }}>{event.name}</span>
+                    The Greatest Event <span style={{ color: theme.palette.primary.main }}>IN THE WORLD</span>
+                    <Box
+                        className="animated"
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: 2,
+                        }}
+                    >
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
+                    </Box>
                 </Typography>
-                <Box className="animated">
+                <Box className="animated" textAlign={'center'}>
                     <Paragraph>{event.description.secondary}</Paragraph>
                 </Box>
             </Stack>

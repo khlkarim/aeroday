@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { axes } from "@/content/axes";
 import { Divider } from "@mui/material";
 import Hero from "@/components/home/Hero";
@@ -11,6 +12,21 @@ import ContactForm from "@/components/contact-us/Form";
 export default function Home() {
     return (
         <>
+            <Box
+                sx={{
+                    top: 0,
+                    left: 0,
+                    zIndex: 0,
+                    width: '100dvw',
+                    height: { xs: '14dvh', sm: '14dvh', md: '18dvh' },
+                    overflow: 'hidden',
+                    position: 'absolute',
+                    backgroundImage: "url('/assets/images/deco/strand.jpg')",
+                    backgroundRepeat: 'repeat-x',
+                    backgroundSize: 'auto 150%', 
+                    backgroundPosition: 'bottom',
+                }}
+            />
             <Hero />    
             <Divider />
             <About />

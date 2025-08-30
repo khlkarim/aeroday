@@ -11,6 +11,7 @@ import { SceneContainer } from '@/components/scenes/SceneContainer';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button, Stack } from '@mui/material';
 import { Countdown } from './Countdown';
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
     const theme = useTheme();   
@@ -42,6 +43,7 @@ const Hero: React.FC = () => {
             sx={{ 
                 minHeight: '76vh',
             }} 
+            position={'relative'}
             flexDirection={{ xs: 'column', sm: 'column', md: 'row', lg: 'row' }} 
             justifyContent={
                     { xs: 'space-around', sm: 'space-around', md: 'space-between' }
