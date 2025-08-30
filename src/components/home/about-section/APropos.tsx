@@ -33,8 +33,8 @@ export const APropos = () => {
                 className='animated' 
                 sx={{
                     mx: 'auto',
-                    width: 300,
-                    height: 300,
+                    width: { xs: 260, sm: 280 },
+                    height: { xs: 260, sm: 280 },
                     position: 'relative',
                 }}
             >
@@ -42,8 +42,8 @@ export const APropos = () => {
                     image={
                     <Box
                         sx={{
-                            width: 300,
-                            height: 300,
+                            width: { xs: 260, sm: 280 },
+                            height: { xs: 260, sm: 280 },
                             overflow: "hidden",
                             borderRadius: "50%",
                             position: 'relative',
@@ -63,7 +63,14 @@ export const APropos = () => {
                 />
             </Box>
             <Stack justifyContent={'center'}>
-                <Typography className="animated" variant="h3" sx={{ mb: 2 }}>
+                <Typography 
+                    variant="h3" 
+                    sx={{ 
+                        mb: 2,
+                        fontSize: { xs: '1.3rem', sm: '2rem', md: '2rem', lg: '2rem' },
+                    }}
+                    className="animated" 
+                >
                     A propos de <span style={{ color: theme.palette.secondary.main }}>{event.name}</span>
                 </Typography>
                 <Box className="animated">

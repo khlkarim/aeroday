@@ -15,8 +15,10 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fontsource/geist-sans": "^5.2.5",
+    "@fontsource/righteous": "^5.2.6",
     "@fontsource/roboto": "^5.2.6",
     "@gsap/react": "^2.1.2",
+    "@leenguyen/react-flip-clock-countdown": "^1.7.1",
     "@mui/icons-material": "^7.3.1",
     "@mui/lab": "7.0.0-beta.16",
     "@mui/material": "^7.3.1",
@@ -31,6 +33,7 @@
     "maath": "^0.10.8",
     "next": "15.4.6",
     "react": "19.1.0",
+    "react-countdown-circle-timer": "^3.2.1",
     "react-dom": "19.1.0",
     "three": "^0.179.1",
     "three-stdlib": "^2.36.0"

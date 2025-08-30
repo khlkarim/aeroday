@@ -5,16 +5,15 @@ import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import { event } from '@/content/event';
 import { ScrollTrigger } from 'gsap/all';
-import useThreeD from '@/hooks/useThreeD';
 import Plane from '@/components/scenes/Hero';
 import { useTheme } from '@mui/material/styles';
 import { SceneContainer } from '@/components/scenes/SceneContainer';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button, Stack } from '@mui/material';
+import { Countdown } from './Countdown';
 
 const Hero: React.FC = () => {
     const theme = useTheme();   
-    const threeD = useThreeD();
     const containerRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => { 
@@ -38,19 +37,16 @@ const Hero: React.FC = () => {
     return (
         <Stack 
             gap={6} 
+            ref={containerRef}
             alignItems={'center'}
             sx={{ minHeight: '76vh' }} 
-            flexDirection={{ sm: 'column', md: 'row' }} 
+            flexDirection={{ xs: 'column', sm: 'column', md: 'row', lg: 'row' }} 
             justifyContent={
-                threeD.active ? 
                     { xs: 'space-around', sm: 'space-around', md: 'space-between' }
-                        : 
-                    { xs: "center", sm: "center", md: 'start' }
                 }
         >
             <Stack
                 gap={3}
-                ref={containerRef}
                 alignItems={'start'}
                 justifyContent={'center'}
             >
@@ -67,7 +63,12 @@ const Hero: React.FC = () => {
                 />
             
                 <Box className='animated'>
-                    <Typography variant="h2">
+                    <Typography
+                        variant="h2"
+                        sx={{
+                            fontSize: { xs: '1.65rem', sm: '2.5rem', md: '2.5rem', lg: '2.75rem' },
+                        }}
+                    >
                         {event.name + " "}
                         <Box
                             component="span"
@@ -118,22 +119,34 @@ const Hero: React.FC = () => {
                 </Stack>
             </Stack>
             
-            <SceneContainer
-                image={
-                    <></>
-                }
-                canvas={
-                    <Box 
-                        sx={{ 
-                            width: 360,
-                            height: 360,
-                            position: 'relative',
-                        }}
-                    >
-                        <Plane />
-                    </Box>
-                }
-            />
+            <Box className='animated'>
+                <SceneContainer
+                    image={
+                        <Countdown />
+                    }
+                    canvas={
+                        <Box 
+                            sx={theme => ({ 
+                                width: { xs: 330, sm: 400, md: 360 },
+                                height: { xs: 240, sm: 300, md: 360 },
+                                position: 'relative',
+                                borderRadius: 5,
+                                background: {
+                                    xs: theme.palette.mode === "light"
+                                            ? "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.4) 100%)"
+                                            : "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+                                    sm: theme.palette.mode === "light"
+                                            ? "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.4) 100%)"
+                                            : "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+                                    md: "none"
+                                },
+                            })}
+                        >
+                            <Plane />
+                        </Box>
+                    }
+                />
+            </Box>
         </Stack>
     );
 };

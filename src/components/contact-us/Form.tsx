@@ -8,6 +8,7 @@ import {
     Typography,
     Paper,
     Container,
+    Stack,
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -48,15 +49,7 @@ export default function ContactForm() {
     };
 
     return (
-        <Container 
-            sx={{ 
-                gap: 6,
-                display: 'flex', 
-                alignItems: 'center',
-                flexDirection: 'column', 
-                
-            }}
-        >
+        <Stack gap={6}>
             <Paper
                 elevation={3}
                 sx={{ p: 4, mx: "auto", borderRadius: 3 }}
@@ -124,6 +117,6 @@ export default function ContactForm() {
                     </Grid>
                 </Box>
             </Paper>
-        </Container>
+        </Stack>
     );
 }

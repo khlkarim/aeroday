@@ -1,5 +1,5 @@
 import useThreeD from "@/hooks/useThreeD";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface SceneProps {
     delay?: number;
@@ -27,5 +27,5 @@ export const SceneContainer: React.FC<SceneProps> = ({ delay = 1000, image, canv
         };
     }, [delay, active]);
 
-    return <>{showCanvas ? <Suspense fallback={image}>{canvas? canvas : image}</Suspense> : image}</>;
+    return <>{active ? showCanvas? canvas : <></> : image}</>;
 };

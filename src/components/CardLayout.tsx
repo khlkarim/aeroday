@@ -49,18 +49,28 @@ export function CardLayout<T>({ title, data, CardComponent }: CardLayoutProps<T>
     );
 }
 
-function animate() {
-    gsap.utils.toArray<HTMLElement>('.animated').forEach((el) => {
-        gsap.from(el, {
-            y: 80,
-            autoAlpha: 0,
-            ease: "power2.out",
+export function animate() {
+    const elements = gsap.utils.toArray<HTMLElement>(".animated");
+
+    elements.forEach((el) => {
+        const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: el,
-                start: "top bottom",
-                end: "top center",
-                scrub: true,
+                start: "top 80%",
+                end: "top 40%",
+                scrub: 1.2,
             },
+            defaults: {
+                ease: "power3.out",
+                duration: 1,
+            },
+        });
+
+        tl.from(el, {
+            y: 20,
+            autoAlpha: 0,
+            scale: 0.95,
         });
     });
 }
+

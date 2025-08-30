@@ -12,8 +12,7 @@ const Badge: React.FC<BadgeProps> = ({ ref, children }) => (
         alignItems={'center'}
         flexDirection={'column'}
         justifyContent={'center'}
-
-        sx={{
+        sx={theme => ({
             borderRadius: 3,
             minWidth: 220,
             minHeight: 160,
@@ -22,7 +21,9 @@ const Badge: React.FC<BadgeProps> = ({ ref, children }) => (
             borderColor: "divider",
             cursor: "pointer",
             background:
-                "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+                theme.palette.mode === "light"
+                    ? "linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)"
+                    : "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
             backdropFilter: "blur(10px)",
             overflow: "hidden",
             position: "relative",
@@ -34,13 +35,15 @@ const Badge: React.FC<BadgeProps> = ({ ref, children }) => (
                 width: "100%",
                 height: "100%",
                 background:
-                    "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                    theme.palette.mode === "light"
+                        ? "linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent)"
+                        : "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
                 transition: "left 0.5s",
             },
             "&:hover::before": {
                 left: "100%",
             },
-        }}
+        })}
     >
         {children}
     </Stack>

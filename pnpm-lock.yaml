@@ -20,12 +20,18 @@ importers:
       '@fontsource/geist-sans':
         specifier: ^5.2.5
         version: 5.2.5
+      '@fontsource/righteous':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@fontsource/roboto':
         specifier: ^5.2.6
         version: 5.2.6
       '@gsap/react':
         specifier: ^2.1.2
         version: 2.1.2(gsap@3.13.0)(react@19.1.0)
+      '@leenguyen/react-flip-clock-countdown':
+        specifier: ^1.7.1
+        version: 1.7.1(react@19.1.0)
       '@mui/icons-material':
         specifier: ^7.3.1
         version: 7.3.1(@mui/material@7.3.1(@emotion/react@11.14.0(@types/react@19.1.10)(react@19.1.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.10)(react@19.1.0))(@types/react@19.1.10)(react@19.1.0))(@types/react@19.1.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@types/react@19.1.10)(react@19.1.0)
@@ -68,6 +74,9 @@ importers:
       react:
         specifier: 19.1.0
         version: 19.1.0
+      react-countdown-circle-timer:
+        specifier: ^3.2.1
+        version: 3.2.1(react@19.1.0)
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
@@ -1017,6 +1026,9 @@ packages:
   '@fontsource/geist-sans@5.2.5':
     resolution: {integrity: sha512-anllOHyJbElRs9fV15TeDRqAeb1IKm4bSknPl6ZMoyPTx1BBy7logudcUwpNjmQLkzn4Q0JGQLRCUKJYoyST6A==}
 
+  '@fontsource/righteous@5.2.6':
+    resolution: {integrity: sha512-YH0U/+YEEsHRMqDyiQOdvzLVqU31MlJkRcD+JSHsDODogVLd+5ccxpbuRTcMRJoxFaELUy6bWP52NlR9hywvPw==}
+
   '@fontsource/roboto@5.2.6':
     resolution: {integrity: sha512-hzarG7yAhMoP418smNgfY4fO7UmuUEm5JUtbxCoCcFHT0hOJB+d/qAEyoNjz7YkPU5OjM2LM8rJnW8hfm0JLaA==}
 
@@ -1304,6 +1316,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.30':
     resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
+
+  '@leenguyen/react-flip-clock-countdown@1.7.1':
+    resolution: {integrity: sha512-hCUYZ/lshBntf+EscYoDu6BDwLBjHYyACkPnZa7T7sDLx6KEZVCZzdKicHw8YfKPpP/j9+Rfq5WdfgxLXk1cbw==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>= 16.13.0'
 
   '@mdx-js/react@3.1.0':
     resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
@@ -2520,6 +2538,10 @@ packages:
 
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+
+  clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
 
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
@@ -4264,6 +4286,11 @@ packages:
   range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
+
+  react-countdown-circle-timer@3.2.1:
+    resolution: {integrity: sha512-yBAy/9ILXOiFbLBM+3jS72TW5LeRcH8wkRC9NNqMpUkCXkGjSnaeRbJMsR9lsYF0oVXjSDbJaRbCuVMT+9HnKA==}
+    peerDependencies:
+      react: '>=16.8.0'
 
   react-docgen-typescript@2.4.0:
     resolution: {integrity: sha512-ZtAp5XTO5HRzQctjPU0ybY0RRCQO19X/8fxn3w7y2VVTUbGHDKULPTL4ky3vB05euSgG5NpALhEhDPvQ56wvXg==}
@@ -6168,6 +6195,8 @@ snapshots:
 
   '@fontsource/geist-sans@5.2.5': {}
 
+  '@fontsource/righteous@5.2.6': {}
+
   '@fontsource/roboto@5.2.6': {}
 
   '@gltf-transform/core@4.1.0':
@@ -6394,6 +6423,11 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@leenguyen/react-flip-clock-countdown@1.7.1(react@19.1.0)':
+    dependencies:
+      clsx: 1.2.1
+      react: 19.1.0
 
   '@mdx-js/react@3.1.0(@types/react@19.1.10)(react@19.1.0)':
     dependencies:
@@ -7735,6 +7769,8 @@ snapshots:
       source-map: 0.6.1
 
   client-only@0.0.1: {}
+
+  clsx@1.2.1: {}
 
   clsx@2.1.1: {}
 
@@ -9727,6 +9763,10 @@ snapshots:
       safe-buffer: 5.2.1
 
   range-parser@1.2.1: {}
+
+  react-countdown-circle-timer@3.2.1(react@19.1.0):
+    dependencies:
+      react: 19.1.0
 
   react-docgen-typescript@2.4.0(typescript@5.9.2):
     dependencies:
