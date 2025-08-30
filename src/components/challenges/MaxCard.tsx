@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import { SceneContainer } from '../scenes/SceneContainer';
+import { GetScene } from '../scenes/GetScene';
 import type { Challenge } from '@/content/challenges';
 import { Card, CardContent, Typography, Button, Box, Divider, Chip, Stack } from '@mui/material';
 
@@ -8,18 +10,27 @@ interface MaxCardProps {
 }
 
 const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
+    const Canvas = GetScene(item.name);
+    
     return (
         <Card>
             <Box sx={{ 
                 aspectRatio: '16/7', 
                 position: 'relative', 
             }}>
-                <Image
-                    fill
-                    priority
-                    alt={item.name}
-                    src={item.image}
-                    style={{ objectFit: 'cover' }}
+                <SceneContainer
+                    image={
+                        <Image
+                            fill
+                            priority
+                            alt={item.name}
+                            src={item.image}
+                            style={{ objectFit: 'cover' }}
+                        />
+                    }
+                    canvas={    
+                        Canvas && <Canvas />
+                    }
                 />
             </Box>
 

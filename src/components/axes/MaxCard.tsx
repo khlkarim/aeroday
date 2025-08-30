@@ -1,23 +1,18 @@
 "use client"
 
+import React from 'react';
 import Image from 'next/image';
-import { useGSAP } from '@gsap/react';
-import React, { useRef } from 'react';
+import { SceneContainer } from '../scenes/SceneContainer';
 import type { Axe } from '@/content/axes';
+import { GetScene } from '../scenes/GetScene';
 import { Card, CardContent, Typography, Button, Box, Divider, Chip, Stack } from '@mui/material';
-import ExpAerospatiales from '../scenes/axes/ExpAerospatiales';
-import VidParDrone from '../scenes/challenges/VidParDrone';
 
 interface MaxCardProps {
     item: Axe;
 }
 
 const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
-    const imageRef = useRef<HTMLImageElement>(null);
-
-    useGSAP(() => {
-        animate({ imageRef });
-    });
+    const Canvas = GetScene(item.name);
 
     return (
         <Card>
@@ -25,7 +20,20 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                 aspectRatio: '16/7', 
                 position: 'relative', 
             }}>
-                <VidParDrone />
+                <SceneContainer 
+                    image={
+                        <Image
+                            fill
+                            priority
+                            alt={item.name}
+                            src={item.image}
+                            style={{ objectFit: 'cover' }}
+                        />
+                    }
+                    canvas={    
+                        Canvas && <Canvas />
+                    }
+                />
             </Box>
 
             <CardContent>
@@ -78,9 +86,4 @@ export default MaxCard;
 function formatDate(date: Axe['date']): string
 {
     return `${String(date.day).padStart(2, '0')}/${String(date.month).padStart(2, '0')}`;
-}
-
-function animate({ imageRef }: { imageRef: React.RefObject<HTMLImageElement | null> })
-{
-    if(!imageRef.current) return; 
 }

@@ -30,7 +30,7 @@ export const axes: Axe[] = [
             "et intergénérationnel, mettant en lumière des projets, des " +
             "innovations et des exploits remarquables.",
         formulaire: "#",
-        responsableId: 8
+        responsableId: 22
     },
     {
         id: 1,
@@ -49,7 +49,7 @@ export const axes: Axe[] = [
             "de projets fascinants, révélant les promesses de l'espace et éveillant la curiosité " +
             "des passionnés pour l'astronomie et l'exploration spatiale.",
         formulaire: "#",
-        responsableId: 8
+        responsableId: 9
     },
     {
         id: 2,
@@ -87,6 +87,6 @@ export const axes: Axe[] = [
             "avec plusieurs universités et acteurs nationaux, tout en organisant des " +
             "conférences qui encouragent le partage des connaissances en aéronautique.",
         formulaire: "#",
-        responsableId: 9
+        responsableId: 16
     }
 ];

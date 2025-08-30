@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { event } from "@/content/event";
 import { ScrollTrigger }  from "gsap/all";
 import Earth from "@/components/scenes/APropos";
-import { Scene } from "@/components/scenes/Scene";
+import { SceneContainer } from "@/components/scenes/SceneContainer";
 import { Paragraph } from "@/components/text/Paragraph";
 import { Typography, Box, Stack, useTheme } from "@mui/material";
 
@@ -38,7 +38,7 @@ export const APropos = () => {
                     position: 'relative',
                 }}
             >
-                <Scene 
+                <SceneContainer
                     image={
                     <Box
                         sx={{

@@ -51,7 +51,7 @@ export const challenges: Challenge[] = [
             "pour l'aéromodélisme dans une ambiance conviviale et inspirante.",
         cahierDesCharges: "#",
         formulaire: "#",
-        responsableId: 6
+        responsableId: 3
     },
     {
         id: 2,
@@ -69,7 +69,7 @@ export const challenges: Challenge[] = [
             "public enthousiaste.",
         cahierDesCharges: "#",
         formulaire: "#",
-        responsableId: 3
+        responsableId: 7
     },
     {
         id: 3,
@@ -87,7 +87,7 @@ export const challenges: Challenge[] = [
             "devant un jury d'experts en CAO, qui évaluera les créations selon des critères pertinents.",
         cahierDesCharges: "#",
         formulaire: "#",
-        responsableId: 7
+        responsableId: 5
     },
     {
         id: 4,
@@ -104,6 +104,6 @@ export const challenges: Challenge[] = [
             "Cette compétition mettra en lumière le talent des vidéastes et permettra de valoriser la maîtrise technique de la production aérienne.",
         cahierDesCharges: "#",
         formulaire: "#",
-        responsableId: 5
+        responsableId: 8
     }
 ];

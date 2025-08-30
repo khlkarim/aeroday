@@ -16,7 +16,7 @@ export default function Scene() {
 
             <Suspense fallback={null}>
                 <Lighting />
-                <Earth scale={1} />
+                <Earth scale={1.15} />
             </Suspense>
 
             <OrbitControls

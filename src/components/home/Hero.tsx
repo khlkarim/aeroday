@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/all';
 import useThreeD from '@/hooks/useThreeD';
 import Plane from '@/components/scenes/Hero';
 import { useTheme } from '@mui/material/styles';
-import { Scene } from '@/components/scenes/Scene';
+import { SceneContainer } from '@/components/scenes/SceneContainer';
 import { Paragraph } from '@/components/text/Paragraph';
 import { Box, Typography, Chip, Button, Stack } from '@mui/material';
 
@@ -118,7 +118,7 @@ const Hero: React.FC = () => {
                 </Stack>
             </Stack>
             
-            <Scene 
+            <SceneContainer
                 image={
                     <></>
                 }

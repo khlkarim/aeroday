@@ -17,7 +17,11 @@ export default function Scene() {
             <Suspense fallback={null}>
                 <Plane />
                 <Lighting />
-                <OrbitControls enableZoom={false} enableDamping dampingFactor={0.1} />
+                <OrbitControls 
+                    enableDamping 
+                    enableZoom={false} 
+                    dampingFactor={0.1} 
+                />
             </Suspense>
         </Canvas>
     )
