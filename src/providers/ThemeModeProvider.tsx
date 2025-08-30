@@ -16,7 +16,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ThemeModeContext, type ThemeMode } from "@/contexts/ThemeModeContext";
 
 const ThemeModeProvider = ({ children }: { children: ReactNode }) => {
-    const [mode, setMode] = useState<'light' | 'dark'>('dark');
+    const [mode, setMode] = useState<'light' | 'dark'>('light');
     
     const setTheme = (m: ThemeMode) => setMode(m);
     const toggleTheme = () => setMode((m) => (m === 'light' ? 'dark' : 'light'));

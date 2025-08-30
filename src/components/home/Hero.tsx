@@ -39,7 +39,9 @@ const Hero: React.FC = () => {
             gap={6} 
             ref={containerRef}
             alignItems={'center'}
-            sx={{ minHeight: '76vh' }} 
+            sx={{ 
+                minHeight: '76vh',
+            }} 
             flexDirection={{ xs: 'column', sm: 'column', md: 'row', lg: 'row' }} 
             justifyContent={
                     { xs: 'space-around', sm: 'space-around', md: 'space-between' }
@@ -51,12 +53,12 @@ const Hero: React.FC = () => {
                 justifyContent={'center'}
             >
                 <Chip
-                    color="secondary"
+                    color="primary"
                     variant="outlined"
                     className='animated'
                     label={"📅 " + event.subtitle}
                     sx={{
-                        borderRadius: 2,
+                        borderRadius: 1,
                         fontSize: "1rem",
                         cursor: "pointer",
                     }}
@@ -76,7 +78,7 @@ const Hero: React.FC = () => {
                                 px: 2,
                                 borderRadius: 1,
                                 color: theme.palette.secondary.contrastText,
-                                backgroundColor: theme.palette.secondary.main,
+                                backgroundColor: theme.palette.primary.main,
                             }}
                         >
                             {event.date.year}

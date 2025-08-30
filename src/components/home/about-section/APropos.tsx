@@ -7,7 +7,7 @@ import { ScrollTrigger }  from "gsap/all";
 import Earth from "@/components/scenes/APropos";
 import { SceneContainer } from "@/components/scenes/SceneContainer";
 import { Paragraph } from "@/components/text/Paragraph";
-import { Typography, Box, Stack, useTheme } from "@mui/material";
+import { Typography, Box, Stack, useTheme, Divider } from "@mui/material";
 
 export const APropos = () => {
     const theme = useTheme();
@@ -71,7 +71,7 @@ export const APropos = () => {
                     }}
                     className="animated" 
                 >
-                    A propos de <span style={{ color: theme.palette.secondary.main }}>{event.name}</span>
+                    A propos de <span style={{ color: theme.palette.primary.main }}>{event.name}</span>
                 </Typography>
                 <Box className="animated">
                     <Paragraph>{event.description.secondary}</Paragraph>

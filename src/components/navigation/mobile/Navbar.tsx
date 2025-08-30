@@ -21,9 +21,7 @@ const Navbar: React.FC = () => {
                 sx={{
                     position: 'fixed',
                     backdropFilter: "blur(10px)",
-                    backgroundColor: 
-                        theme.palette.mode == 'light'? 
-                            `${theme.palette.background.paper}22` : `transparent`,
+                    backgroundColor: `transparent`,
                 }}
             >
                 <Toolbar>
@@ -41,15 +39,13 @@ const Navbar: React.FC = () => {
                     "& .MuiPaper-root": {
                         width: "100%",
                         backdropFilter: "blur(10px)",
-                        backgroundColor: 
-                            theme.palette.mode == 'light'? 
-                                `${theme.palette.background.paper}22` : `transparent`,
+                        backgroundColor: `transparent`,
                     },
                 }}
             >
                 <Toolbar 
                     sx={{ 
-                        borderBottom: `1px solid ${theme.palette.divider}` 
+                        borderBottom: `1px solid ${theme.palette.primary.main}` 
                     }}
                 >
                     <Stack 

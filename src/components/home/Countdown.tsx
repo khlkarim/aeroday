@@ -95,6 +95,8 @@ export const Countdown: React.FC = () => {
                 p: { xs: 2, sm: 4 },
                 gap: { xs: 2, sm: 0 },
                 flexWrap: { xs: 'wrap', sm: 'nowrap' },
+                border: "1px solid",
+                borderColor: "divider",
                 background:
                     theme.palette.mode === "light"
                         ? "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.4) 100%)"
@@ -105,28 +107,28 @@ export const Countdown: React.FC = () => {
                 label="Days"
                 value={timeParts.days}
                 duration={365 * 24 * 60 * 60}
-                colors={theme.palette.secondary.main as ColorHex}
+                colors={theme.palette.primary.main as ColorHex}
                 initialRemainingTime={timeParts.days * 24 * 3600 + timeParts.hours * 3600 + timeParts.minutes * 60 + timeParts.seconds}
             />
             <TimeUnit
                 label="Hours"
                 value={timeParts.hours}
                 duration={24 * 60 * 60}
-                colors={theme.palette.secondary.main as ColorHex}
+                colors={theme.palette.primary.main as ColorHex}
                 initialRemainingTime={timeParts.hours * 3600 + timeParts.minutes * 60 + timeParts.seconds}
             />
             <TimeUnit
                 label="Minutes"
                 value={timeParts.minutes}
                 duration={60 * 60}
-                colors={theme.palette.secondary.main as ColorHex}
+                colors={theme.palette.primary.main as ColorHex}
                 initialRemainingTime={timeParts.minutes * 60 + timeParts.seconds}
             />
             <TimeUnit
                 label="Seconds"
                 value={timeParts.seconds}
                 duration={60}
-                colors={theme.palette.secondary.main as ColorHex}
+                colors={theme.palette.primary.main as ColorHex}
                 initialRemainingTime={timeParts.seconds}
             />
         </Stack>
