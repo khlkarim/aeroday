@@ -1,7 +1,6 @@
 import { team } from "@/content/team";
 import { Divider } from "@mui/material";
 import { CardLayout } from "@/components/CardLayout";
-import Teaser from "@/components/home/Teaser";
 import ProfileCard from "@/components/team/ProfileCard";
 import EditionsPrecedentes from "@/components/about-us/EditionsPrecedentes";
 

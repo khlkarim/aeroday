@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import { days } from "@/content/schedule";
 import { Day } from "@/components/schedule/Day";
 
