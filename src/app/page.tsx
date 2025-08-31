@@ -1,13 +1,13 @@
 import { axes } from "@/content/axes";
 import { Divider } from "@mui/material";
 import Hero from "@/components/home/Hero";
-import About from "@/components/home/about-section/About";
 import Teaser from "@/components/home/Teaser";
-import { CardLayout } from "@/components/CardLayout";
+import Banner from "@/components/deco/Banner";
 import MinCard from "@/components/axes/MinCard";
 import { challenges } from "@/content/challenges";
+import { CardLayout } from "@/components/CardLayout";
 import ContactForm from "@/components/contact-us/Form";
-import Banner from "@/components/deco/Banner";
+import About from "@/components/home/about-section/About";
 
 export default function Home() {
     return (
@@ -19,9 +19,17 @@ export default function Home() {
             <Divider />
             <Teaser />
             <Divider />
-            <CardLayout title="Axes" data={axes} CardComponent={MinCard} />
+            <CardLayout 
+                data={axes}
+                title="Axes" 
+                CardComponent={MinCard} 
+            />
             <Divider />
-            <CardLayout title="Challenges" data={challenges} CardComponent={MinCard} />
+            <CardLayout 
+                data={challenges} 
+                title="Challenges" 
+                CardComponent={MinCard} 
+            />
             <Divider />
             <ContactForm />
         </>

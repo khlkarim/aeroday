@@ -3,14 +3,14 @@
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
+import { Countdown } from './Countdown';
 import { event } from '@/content/event';
 import { ScrollTrigger } from 'gsap/all';
 import Plane from '@/components/scenes/Hero';
 import { useTheme } from '@mui/material/styles';
-import { SceneContainer } from '@/components/scenes/SceneContainer';
 import { Paragraph } from '@/components/text/Paragraph';
+import { SceneContainer } from '@/components/scenes/SceneContainer';
 import { Box, Typography, Chip, Button, Stack } from '@mui/material';
-import { Countdown } from './Countdown';
 
 const Hero: React.FC = () => {
     const theme = useTheme();   
@@ -49,78 +49,92 @@ const Hero: React.FC = () => {
                 }
         >
             <Stack
-                gap={3}
-                alignItems={'start'}
-                justifyContent={'center'}
-            >
-                <Chip
-                    color="primary"
-                    variant="outlined"
-                    className='animated'
-                    label={"📅 " + event.subtitle}
-                    sx={{
-                        borderRadius: 1,
-                        fontSize: "1rem",
-                        cursor: "pointer",
-                    }}
-                />
-            
-                <Box className='animated'>
-                    <Typography
-                        variant="h2"
-                        sx={{
-                            fontSize: { xs: '1.65rem', sm: '2.5rem', md: '2.5rem', lg: '2.75rem' },
-                        }}
-                    >
-                        {event.name + " "}
-                        <Box
-                            component="span"
-                            sx={{
-                                px: 2,
-                                borderRadius: 1,
-                                color: theme.palette.secondary.contrastText,
-                                backgroundColor: theme.palette.primary.main,
-                            }}
-                        >
-                            {event.date.year}
-                        </Box>
-                    </Typography>
-                    <Typography
-                        variant="subtitle1"
-                        className='animated'
-                        sx={{
-                            color: theme.palette.text.secondary,
-                        }}
-                    >
-                        {event.edition}
-                    </Typography>
-                </Box>
+  gap={{ xs: 2, md: 3 }}
+  mt={{ xs: 2, md: 3 }}
+  alignItems={{ xs: "center", md: "flex-start" }}
+  justifyContent="center"
+  textAlign={{ xs: "center", md: "left" }}
+>
+  {/* Subtitle Chip */}
+  <Chip
+    color="primary"
+    variant="outlined"
+    className="animated"
+    label={"📅 " + event.subtitle}
+    sx={{
+      borderRadius: 1,
+      fontSize: { xs: "0.9rem", md: "1rem" },
+      cursor: "pointer",
+      px: 1.5,
+      py: 0.5,
+    }}
+  />
 
-                <Box className='animated'>
-                    <Paragraph>
-                        {event.description.primary}
-                    </Paragraph>
-                </Box>
+  {/* Title + Year */}
+  <Box className="animated">
+    <Typography
+      variant="h2"
+      fontSize={{ xs: "1.8rem", sm: "2.4rem", md: "3rem" }}
+      fontWeight="bold"
+      lineHeight={1.2}
+    >
+      {event.name + " "}
+      <Box
+        component="span"
+        sx={{
+          px: 2,
+          py: 0.5,
+          borderRadius: 1,
+          color: theme.palette.secondary.contrastText,
+          backgroundColor: theme.palette.primary.main,
+          display: "inline-block",
+        }}
+      >
+        {event.date.year}
+      </Box>
+    </Typography>
 
-                <Stack 
-                    gap={2}
-                    className="animated"
-                    flexDirection={'row'}
-                >
-                    <Button
-                        variant="contained"
-                        onClick={() => handleScroll("#Axes")}
-                    >
-                        Axes
-                    </Button>
-                    <Button
-                        variant="outlined"
-                        onClick={() => handleScroll("#Challenges")}
-                    >
-                        Challenges
-                    </Button>
-                </Stack>
-            </Stack>
+    <Typography
+      variant="subtitle1"
+      className="animated"
+      sx={{
+        color: theme.palette.text.secondary,
+        mt: 0.5,
+      }}
+    >
+      {event.edition}
+    </Typography>
+  </Box>
+
+  {/* Description */}
+  <Box className="animated" maxWidth="60ch">
+    <Paragraph>{event.description.primary}</Paragraph>
+  </Box>
+
+  {/* Action Buttons */}
+  <Stack
+    gap={2}
+    className="animated"
+    flexDirection={{ xs: "column", sm: "row" }}
+    width={{ xs: "100%", sm: "auto" }}
+  >
+    <Button
+      variant="contained"
+      size="large"
+      onClick={() => handleScroll("#Axes")}
+    >
+      Axes
+    </Button>
+    <Button
+      variant="outlined"
+      size="large"
+      onClick={() => handleScroll("#Challenges")}
+    >
+      Challenges
+    </Button>
+  </Stack>
+</Stack>
+
             
             <Box className='animated'>
                 <SceneContainer
@@ -130,8 +144,8 @@ const Hero: React.FC = () => {
                     canvas={
                         <Box 
                             sx={{ 
-                                width: 360,
-                                height: 360,
+                                width: { xs: 240, sm: 360},
+                                height: { xs: 240, sm: 360},
                                 borderRadius: 5,
                                 position: 'relative',
                                 border: { xs: `1px solid ${theme.palette.divider}`, sm: 'none' },

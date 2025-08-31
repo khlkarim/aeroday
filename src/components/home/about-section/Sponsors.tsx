@@ -16,10 +16,10 @@ export default function Sponsors() {
         {sponsors.map((sponsor, index) => (
             <Link
                 key={index}
-                target="_blank"
-                href={sponsor.website}
-                underline='none'
                 variant="h5"
+                target="_blank"
+                underline='none'
+                href={sponsor.website}
                 color="text.secondary"
             >
                 {sponsor.name}

@@ -1,9 +1,8 @@
 import React from "react";
 import { links } from "@/constants/navlinks";
-// import ThemeToggle from "@/components/ThemeToggle";
 import ThreeDToggle from "@/components/ThreeDToggle";
-import NavLink from "@/components/navigation/desktop/NavLink";
 import { AppBar, Toolbar, Container } from "@mui/material";
+import NavLink from "@/components/navigation/desktop/NavLink";
 
 const DesktopNavbar: React.FC = () => {
     return (
@@ -23,15 +22,14 @@ const DesktopNavbar: React.FC = () => {
                     borderRadius: 50,
                     border: '1px solid',
                     borderColor: "divider",
-                    backdropFilter: "blur(100px)",
                     backgroundColor: `#FAF7F0`,
+                    backdropFilter: "blur(100px)",
                     justifyContent: "space-between",
                 }}>
                     {links.map((_, index) => (
                         <NavLink key={index} index={index} />
                     ))}
                     
-                    {/* <ThemeToggle /> */}
                     <ThreeDToggle />
                 </Toolbar>
             </Container>

@@ -19,19 +19,19 @@ export default function VidParDrone() {
 
             <Suspense fallback={null}>
                 <Environment
-                    files={"/assets/environments/day.hdr"}
                     background
                     blur={0.05}
+                    files={"/assets/environments/day.hdr"}
                 />
                 <Lighting />
                 <AnimatedDrone position={[3, 2, -5]} />
             </Suspense>
             <OrbitControls 
+                autoRotate
                 enableDamping 
+                rotateSpeed={0.02}
                 target={[3, 2, -5]} 
                 dampingFactor={0.1} 
-                autoRotate
-                rotateSpeed={0.02}
             />
         </Canvas>
     );

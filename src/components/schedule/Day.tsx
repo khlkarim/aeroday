@@ -67,38 +67,38 @@ export function Day({ index }: DayProps) {
 }
 
 import {
-  Star,
-  FlightTakeoff,
-  Restaurant,
-  EmojiEvents,
-  Work,
-  FreeBreakfast,
-  PresentToAll,
-  CheckCircle,
-  DinnerDining,
+    Star,
+    FlightTakeoff,
+    Restaurant,
+    EmojiEvents,
+    Work,
+    FreeBreakfast,
+    PresentToAll,
+    CheckCircle,
+    DinnerDining,
 } from "@mui/icons-material";
 
 type IconName =
-  | "check-in"
-  | "plane"
-  | "lunch"
-  | "challenge"
-  | "dinner"
-  | "work"
-  | "breakfast"
-  | "presentation";
+    | "check-in"
+    | "plane"
+    | "lunch"
+    | "challenge"
+    | "dinner"
+    | "work"
+    | "breakfast"
+    | "presentation";
 
 const iconMap: Record<IconName, typeof Star> = {
-  "check-in": CheckCircle,
-  plane: FlightTakeoff,
-  lunch: Restaurant,
-  challenge: EmojiEvents,
-  dinner: DinnerDining,
-  work: Work,
-  breakfast: FreeBreakfast,
-  presentation: PresentToAll,
+    "check-in": CheckCircle,
+    plane: FlightTakeoff,
+    lunch: Restaurant,
+    challenge: EmojiEvents,
+    dinner: DinnerDining,
+    work: Work,
+    breakfast: FreeBreakfast,
+    presentation: PresentToAll,
 };
 
 export function getIcon(label?: string) {
-  return iconMap[label as IconName] || Star;
+    return iconMap[label as IconName] || Star;
 }

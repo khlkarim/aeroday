@@ -23,10 +23,10 @@ export default function Page({ id }: { id: number }) {
 
     return (
         <Stack 
-            gap={2}
             flexWrap={'wrap'} 
+            gap={{ xs: 6, sm: 6, md: 2 }}
             justifyContent={'space-around'}
-            flexDirection={{ sm: 'column', md: 'row' }} 
+            flexDirection={{ xs: 'column', sm: 'column', md: 'row' }} 
         >
             <Box ref={cardRef} className='animated' flex={2}>
                 <MaxCard item={axe} />

@@ -5,10 +5,10 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "@/content/event";
 import { Box, Stack } from "@mui/material";
+import { SplitText } from 'gsap/SplitText';
 import Title from "@/components/text/Title";
 import { Paragraph } from "@/components/text/Paragraph";
 import { Gallery } from "@/components/about-us/Gallery";
-import { SplitText } from 'gsap/SplitText';
 
 export default function EditionsPrecedentes() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -18,8 +18,15 @@ export default function EditionsPrecedentes() {
     }, { scope: containerRef });
 
     return (
-        <Stack position={"relative"} ref={containerRef} gap={6}>
-            <Stack gap={6} alignItems={'center'}>
+        <Stack 
+            gap={6}
+            ref={containerRef} 
+            position={"relative"} 
+        >
+            <Stack 
+                gap={6} 
+                alignItems={'center'}
+            >
                 <Title label="Editions Précédentes" />
                 <Paragraph>
                     <Box className='split'>
@@ -27,7 +34,6 @@ export default function EditionsPrecedentes() {
                     </Box>
                 </Paragraph>
             </Stack>
-
 
             <Stack gap={8}>
                 {event.editionsPrecedentes.galleries.map((_, index) => {

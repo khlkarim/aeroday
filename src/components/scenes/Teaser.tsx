@@ -21,8 +21,9 @@ export default function Teaser() {
             </Suspense>
             <OrbitControls 
                 enableDamping 
-                target={[-2, 0, -2]} 
+                enableZoom={false}
                 dampingFactor={0.1} 
+                target={[-2, 0, -2]} 
             />
         </Canvas>
     );

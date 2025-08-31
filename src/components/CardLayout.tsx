@@ -5,7 +5,6 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Box, Stack } from "@mui/material";
 import Title from "@/components/text/Title";
-import String from "./deco/String";
 
 interface CardLayoutProps<T> {
     data: T[]; 

@@ -1,7 +1,7 @@
 "use client"
 
-import { Star } from '@mui/icons-material';
 import { Stack } from '@mui/material';
+import { Star } from '@mui/icons-material';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 

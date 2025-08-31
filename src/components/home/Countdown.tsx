@@ -92,15 +92,11 @@ export const Countdown: React.FC = () => {
             spacing={{ xs: 1, sm: 2 }}
             sx={{
                 borderRadius: 3,
+                border: "1px solid",
                 p: { xs: 2, sm: 4 },
                 gap: { xs: 2, sm: 0 },
-                flexWrap: { xs: 'wrap', sm: 'nowrap' },
-                border: "1px solid",
                 borderColor: "divider",
-                background:
-                    theme.palette.mode === "light"
-                        ? "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.4) 100%)"
-                        : "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+                flexWrap: { xs: 'wrap', sm: 'nowrap' },
             }}
         >
             <TimeUnit

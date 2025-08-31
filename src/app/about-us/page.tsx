@@ -9,7 +9,11 @@ export default function AboutUs() {
         <>
             <EditionsPrecedentes />
             <Divider />
-            <CardLayout title="Our Team" data={team} CardComponent={ProfileCard} />
+            <CardLayout 
+                data={team} 
+                title="Our Team" 
+                CardComponent={ProfileCard} 
+            />
         </>
     );
 }

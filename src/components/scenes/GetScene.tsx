@@ -1,5 +1,5 @@
+import VidParDrone from "./challenges/VidParDrone";
 import ExpAerospatiales from "./axes/ExpAerospatiales";
-import VidParDrone from "./challenges/VidParDrone"
 
 export const GetScene = (name: string) => {
     switch(name)

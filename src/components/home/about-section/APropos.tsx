@@ -4,9 +4,9 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "@/content/event";
 import { ScrollTrigger }  from "gsap/all";
+import { Star } from "@mui/icons-material";
 import { Paragraph } from "@/components/text/Paragraph";
 import { Typography, Box, Stack, useTheme } from "@mui/material";
-import { Star } from "@mui/icons-material";
 
 export const APropos = () => {
     const theme = useTheme();
@@ -30,9 +30,9 @@ export const APropos = () => {
             <Box
                 className='animated' 
                 sx={{
-                    width: { xs: 300, sm: 280 },
-                    height: { xs: 260, sm: 280 },
                     position: 'relative',
+                    width: { xs: 280, sm: 280 },
+                    height: { xs: 240, sm: 280 },
                 }}
             >
                 <Image
@@ -42,7 +42,11 @@ export const APropos = () => {
                     style={{ objectFit: "contain" }}
                 />
             </Box>
-            <Stack gap={2} justifyContent={'center'} alignItems={'center'}>
+            <Stack 
+                gap={2} 
+                alignItems={'center'}
+                justifyContent={'center'} 
+            >
                 <Typography 
                     variant="h3" 
                     sx={{ 

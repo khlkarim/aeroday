@@ -1,14 +1,14 @@
 "use client";
 
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import { event } from '@/content/event';
 import { Box, Stack } from '@mui/material';
-import Title from '@/components/text/Title';
-import { Paragraph } from '@/components/text/Paragraph';
-import { useGSAP } from '@gsap/react';
-import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import Title from '@/components/text/Title';
 import Scene from '@/components/scenes/Teaser';
+import { Paragraph } from '@/components/text/Paragraph';
 import { SceneContainer } from '../scenes/SceneContainer';
 
 export default function Teaser() {
@@ -59,11 +59,11 @@ export default function Teaser() {
                         borderRadius: 12,
                         aspectRatio: '16/9',
                     }}
-                    title="vimeo-player"
-                    src="https://player.vimeo.com/video/1027667756?h=8cdfcae03"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                     allowFullScreen
+                    title="vimeo-player"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    src="https://player.vimeo.com/video/1027667756?h=8cdfcae03"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 />
             </Box>
         </Stack>

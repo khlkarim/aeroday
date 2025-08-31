@@ -2,9 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { SceneContainer } from '../scenes/SceneContainer';
 import type { Axe } from '@/content/axes';
 import { GetScene } from '../scenes/GetScene';
+import { SceneContainer } from '../scenes/SceneContainer';
 import { Card, CardContent, Typography, Button, Box, Divider, Chip, Stack } from '@mui/material';
 
 interface MaxCardProps {

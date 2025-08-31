@@ -1,12 +1,11 @@
 "use client"
 
 import React from 'react';
-import { Box, Container, Typography, Stack, IconButton, useTheme } from '@mui/material';
 import Link from 'next/link';
+import TikTokIcon from '@mui/icons-material/MusicNote';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import TikTokIcon from '@mui/icons-material/MusicNote'; // TikTok doesn't have a dedicated icon in MUI
+import { Box, Container, Typography, Stack, IconButton, useTheme } from '@mui/material';
 
 const Footer: React.FC = () => {
     const theme = useTheme();
@@ -35,7 +34,7 @@ const Footer: React.FC = () => {
                     <Stack direction="row" spacing={1}>
                             <IconButton
                                 component="a"
-                                href="https://www.facebook.com/yourpage"
+                                href="https://www.facebook.com/TunAeroday"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 color="inherit"
@@ -44,16 +43,7 @@ const Footer: React.FC = () => {
                             </IconButton>
                             <IconButton
                                 component="a"
-                                href="https://www.linkedin.com/in/yourprofile"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                color="inherit"
-                            >
-                                <LinkedInIcon />
-                            </IconButton>
-                            <IconButton
-                                component="a"
-                                href="https://www.instagram.com/yourprofile"
+                                href="https://www.instagram.com/tunisian_aeroday"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 color="inherit"
