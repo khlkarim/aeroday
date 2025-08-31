@@ -34,7 +34,13 @@ const TimeUnit: React.FC<TimeUnitProps> = ({ value, label, duration, colors, ini
     return (
         <Box sx={{ textAlign: 'center', mx: { xs: 1, sm: 2 } }}>
             <CountdownCircleTimer
-                size={useTheme().breakpoints.values.sm > window.innerWidth ? 58 : 90}
+                size={
+                    window.innerWidth < theme.breakpoints.values.xs
+                        ? 40
+                        : window.innerWidth < theme.breakpoints.values.sm
+                        ? 58
+                        : 90
+                }
                 isPlaying
                 strokeWidth={2}
                 colors={colors}
@@ -48,7 +54,11 @@ const TimeUnit: React.FC<TimeUnitProps> = ({ value, label, duration, colors, ini
                         variant="h6"
                         sx={{
                             fontWeight: 'bold',
-                            fontSize: { xs: '0.8rem', sm: '1.1rem' },
+                            fontSize: {
+                                xs: '0.7rem',
+                                sm: '0.8rem',
+                                md: '1.1rem',
+                            },
                         }}
                     >
                         {value.toString().padStart(2, '0')}
@@ -96,7 +106,6 @@ export const Countdown: React.FC = () => {
                 p: { xs: 2, sm: 4 },
                 gap: { xs: 2, sm: 0 },
                 borderColor: "divider",
-                flexWrap: { xs: 'wrap', sm: 'nowrap' },
             }}
         >
             <TimeUnit
