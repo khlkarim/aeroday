@@ -10,11 +10,11 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother, ScrollToPlugin, SplitText);
 
 export default function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
-    useGSAP(() => {
-        ScrollSmoother.create({
-            smooth: 1
-        });
-    });
+    // useGSAP(() => {
+    //     ScrollSmoother.create({
+    //         smooth: 1
+    //     });
+    // });
 
     return (
         <div id="smooth-wrapper" className="App">
