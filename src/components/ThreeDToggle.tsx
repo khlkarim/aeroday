@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Tooltip } from "@mui/material";
+import { Button, Tooltip, Typography } from "@mui/material";
 import useThreeD from "@/hooks/useThreeD";
 
 const ThreeDToggle: React.FC = () => {
@@ -16,13 +16,14 @@ const ThreeDToggle: React.FC = () => {
             <Button 
                 onClick={toggle}
                 sx={{ 
+                    color: "text.secondary",
                     padding: 0,
                     minWidth: 40, 
                     minHeight: 40,
                     borderRadius: "50%", 
                 }} 
             >
-                {active ? '2D' : '3D'}
+                <Typography>{active ? '2D' : '3D'}</Typography>
             </Button>
         </Tooltip>
     );

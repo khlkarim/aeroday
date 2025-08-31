@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { links } from "@/constants/navlinks";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ThreeDToggle from "@/components/ThreeDToggle";
 import NavLink from "@/components/navigation/mobile/NavLink";
 import { AppBar, Toolbar, IconButton, Drawer, List, useTheme, Stack } from "@mui/material";
@@ -46,14 +46,13 @@ const Navbar: React.FC = () => {
                 sx={{
                     "& .MuiPaper-root": {
                         width: "100%",
-                        backdropFilter: "blur(10px)",
-                        backgroundColor: `transparent`,
+                        backgroundColor: `#FAF7F0`,
                     },
                 }}
             >
                 <Toolbar 
                     sx={{ 
-                        borderBottom: `1px solid ${theme.palette.primary.main}` 
+                        borderBottom: `1px solid ${theme.palette.divider}` 
                     }}
                 >
                     <Stack 
@@ -70,7 +69,7 @@ const Navbar: React.FC = () => {
                             gap={2} 
                             flexDirection={'row'}
                         >
-                            <ThemeToggle />
+                            {/* <ThemeToggle /> */}
                             <ThreeDToggle />
                         </Stack>
                     </Stack>

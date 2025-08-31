@@ -9,7 +9,6 @@ import Title from "@/components/text/Title";
 import { challenges } from "@/content/challenges";
 import MaxCard from "@/components/challenges/MaxCard";
 import ProfileCard from "@/components/team/ProfileCard";
-import PersonIcon from '@mui/icons-material/Person'; 
 
 export default function Page({ id }: { id: number }) {
     const challenge = challenges[id];

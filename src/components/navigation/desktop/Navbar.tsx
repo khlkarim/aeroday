@@ -1,6 +1,6 @@
 import React from "react";
 import { links } from "@/constants/navlinks";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ThreeDToggle from "@/components/ThreeDToggle";
 import NavLink from "@/components/navigation/desktop/NavLink";
 import { AppBar, Toolbar, Container } from "@mui/material";
@@ -31,7 +31,7 @@ const DesktopNavbar: React.FC = () => {
                         <NavLink key={index} index={index} />
                     ))}
                     
-                    <ThemeToggle />
+                    {/* <ThemeToggle /> */}
                     <ThreeDToggle />
                 </Toolbar>
             </Container>

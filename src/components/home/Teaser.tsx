@@ -9,6 +9,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import Scene from '@/components/scenes/Teaser';
+import { SceneContainer } from '../scenes/SceneContainer';
 
 export default function Teaser() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -28,9 +29,16 @@ export default function Teaser() {
             }}>
                 <Title label="Teaser" />
                 <Stack flexWrap={'wrap'} flexDirection={'row'} gap={6} alignItems={'center'} justifyContent={'center'} width={'100%'}>
-                    <Box position={'relative'} width={240} height={240}>
-                        <Scene />
-                    </Box>
+                    <SceneContainer 
+                        image={
+                            <Box></Box>
+                        }
+                        canvas={
+                            <Box position={'relative'} width={240} height={240}>
+                                <Scene />
+                            </Box>
+                        }
+                    />
                     <Paragraph>
                         <Box minWidth={'md'} className='split'>
                             {event.teaser.description}
