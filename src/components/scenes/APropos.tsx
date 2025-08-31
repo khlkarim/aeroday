@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Earth } from '@/components/models/Earth'
 import Lighting from '@/components/scenes/Lighting'
-import { PerformanceMonitor, OrbitControls, Loader } from '@react-three/drei'
+import { PerformanceMonitor, OrbitControls } from '@react-three/drei'
 
 export default function Scene() {
     return (
@@ -13,7 +13,6 @@ export default function Scene() {
             }}
         >
             <PerformanceMonitor />
-            <Loader />
 
             <Suspense fallback={null}>
                 <Lighting />

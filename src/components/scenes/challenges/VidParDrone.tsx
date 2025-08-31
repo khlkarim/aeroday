@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
 import Lighting from "@/components/scenes/Lighting";
+import { PerformanceMonitor } from '@react-three/drei';
+import { OrbitControls, Environment } from "@react-three/drei";
 import { AnimatedDrone } from "@/components/models/AnimatedDrone";
-import { PerformanceMonitor, Loader } from '@react-three/drei'
 
 
 export default function VidParDrone() {
@@ -15,7 +15,6 @@ export default function VidParDrone() {
             }}
         >
             <PerformanceMonitor />
-            <Loader />
 
             <Suspense fallback={null}>
                 <Environment

@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Loader, OrbitControls, PerformanceMonitor } from "@react-three/drei";
-import Lighting from "@/components/scenes/Lighting";
 import { Drone } from "@/components/models/Drone";
+import Lighting from "@/components/scenes/Lighting";
+import { OrbitControls, PerformanceMonitor } from "@react-three/drei";
 
 export default function Teaser() {
     return (
@@ -13,7 +13,6 @@ export default function Teaser() {
             }}
         >
             <PerformanceMonitor />
-            <Loader />
 
             <Suspense fallback={null}>
                 <Lighting />
