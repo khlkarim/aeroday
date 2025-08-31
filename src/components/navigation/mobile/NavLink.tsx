@@ -6,9 +6,10 @@ import { Accordion, AccordionSummary, AccordionDetails, ListItem, ListItemButton
 
 interface NavLinkProps {
     index: number;
+    toggleDrawer: () => void;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ index }) => {
+const NavLink: React.FC<NavLinkProps> = ({ index, toggleDrawer }) => {
     const link = links[index];
 
     if (link.type === 'dropdown' && link.items) {
@@ -16,7 +17,7 @@ const NavLink: React.FC<NavLinkProps> = ({ index }) => {
             <ListItem>
                 <Accordion sx={{ width: "100%", background: "none" }} >
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <ListItemText primary={link.label} />
+                        <ListItemText sx={theme => ({color: theme.palette.primary.main})} primary={link.label} />
                     </AccordionSummary>
                     <AccordionDetails>
                         {link.items.map((item) => (
@@ -24,6 +25,8 @@ const NavLink: React.FC<NavLinkProps> = ({ index }) => {
                                 key={item.href}
                                 component={Link}
                                 href={item.href}
+                                onClick={toggleDrawer}
+                                sx={theme => ({color: theme.palette.primary.main})}
                             >
                                 <ListItemText primary={item.name} />
                             </ListItemButton>
@@ -36,8 +39,13 @@ const NavLink: React.FC<NavLinkProps> = ({ index }) => {
 
     return (
         <ListItem>
-            <ListItemButton component={Link} href={link.href}>
-                <ListItemText primary={link.label} />
+            <ListItemButton
+                component={Link}
+                href={link.href}
+                onClick={toggleDrawer}
+                sx={theme => ({color: theme.palette.primary.main})}
+            >
+                <ListItemText  primary={link.label} />
             </ListItemButton>
         </ListItem>
     );

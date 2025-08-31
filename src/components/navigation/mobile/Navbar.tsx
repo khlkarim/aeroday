@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
                     backgroundColor: `#FAF7F0`,
                 }}>
                     <IconButton onClick={toggleDrawer(true)}>
-                        <MenuIcon />
+                        <MenuIcon sx={theme => ({color: theme.palette.primary.main})} />
                     </IconButton>
                 </Toolbar>
             </AppBar>
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
                         <IconButton 
                             onClick={toggleDrawer(false)}
                         >
-                            <CloseIcon />
+                            <CloseIcon color="primary" />
                         </IconButton>
                         <Stack 
                             gap={2} 
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
                 </Toolbar>
                 <List>
                     {links.map((_, index) => (
-                        <NavLink key={index} index={index} />
+                        <NavLink key={index} index={index} toggleDrawer={toggleDrawer(false)} />
                     ))}
                 </List>
             </Drawer>
