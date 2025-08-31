@@ -49,93 +49,89 @@ const Hero: React.FC = () => {
                 }
         >
             <Stack
-  gap={{ xs: 2, md: 3 }}
-  mt={{ xs: 2, md: 3 }}
-  alignItems={{ xs: "center", md: "flex-start" }}
-  justifyContent="center"
-  textAlign={{ xs: "center", md: "left" }}
->
-  {/* Subtitle Chip */}
-  <Chip
-    color="primary"
-    variant="outlined"
-    className="animated"
-    label={"📅 " + event.subtitle}
-    sx={{
-      borderRadius: 1,
-      fontSize: { xs: "0.9rem", md: "1rem" },
-      cursor: "pointer",
-      px: 1.5,
-      py: 0.5,
-    }}
-  />
+                mt={{ xs: 2, md: 3 }}
+                gap={{ xs: 2, md: 3 }}
+                justifyContent="center"
+                textAlign={{ xs: "center", md: "left" }}
+                alignItems={{ xs: "center", md: "flex-start" }}
+            >
+                <Chip
+                    color="primary"
+                    variant="outlined"
+                    className="animated"
+                    label={"📅 " + event.subtitle}
+                    sx={{
+                        px: 1.5,
+                        py: 0.5,
+                        borderRadius: 1,
+                        cursor: "pointer",
+                        fontSize: { xs: "0.9rem", md: "1rem" },
+                    }}
+                />
 
-  {/* Title + Year */}
-  <Box className="animated">
-    <Typography
-      variant="h2"
-      fontSize={{ xs: "1.8rem", sm: "2.4rem", md: "3rem" }}
-      fontWeight="bold"
-      lineHeight={1.2}
-    >
-      {event.name + " "}
-      <Box
-        component="span"
-        sx={{
-          px: 2,
-          py: 0.5,
-          borderRadius: 1,
-          color: theme.palette.secondary.contrastText,
-          backgroundColor: theme.palette.primary.main,
-          display: "inline-block",
-        }}
-      >
-        {event.date.year}
-      </Box>
-    </Typography>
+                <Box className="animated">
+                    <Typography
+                        variant="h2"
+                        lineHeight={1.2}
+                        fontWeight="bold"
+                        fontSize={{ xs: "2.2rem", sm: "2.4rem", md: "3rem" }}
+                    >
+                        {event.name + " "}
+                        <Box
+                            component="span"
+                            sx={{
+                                px: 2,
+                                py: 0.5,
+                                borderRadius: 1,
+                                color: theme.palette.secondary.contrastText,
+                                backgroundColor: theme.palette.primary.main,
+                                display: "inline-block",
+                            }}
+                        >
+                            {event.date.year}
+                        </Box>
+                    </Typography>
 
-    <Typography
-      variant="subtitle1"
-      className="animated"
-      sx={{
-        color: theme.palette.text.secondary,
-        mt: 0.5,
-      }}
-    >
-      {event.edition}
-    </Typography>
-  </Box>
+                    <Typography
+                        variant="subtitle1"
+                        className="animated"
+                        sx={{
+                            color: theme.palette.text.secondary,
+                            mt: 0.5,
+                        }}
+                    >
+                        {event.edition}
+                    </Typography>
+                </Box>
 
-  {/* Description */}
-  <Box className="animated" maxWidth="60ch">
-    <Paragraph>{event.description.primary}</Paragraph>
-  </Box>
+                {/* Description */}
+                <Box className="animated" maxWidth="60ch">
+                    <Paragraph>{event.description.primary}</Paragraph>
+                </Box>
 
-  {/* Action Buttons */}
-  <Stack
-    gap={2}
-    className="animated"
-    flexDirection={{ xs: "column", sm: "row" }}
-    width={{ xs: "100%", sm: "auto" }}
-  >
-    <Button
-      variant="contained"
-      size="large"
-      onClick={() => handleScroll("#Axes")}
-    >
-      Axes
-    </Button>
-    <Button
-      variant="outlined"
-      size="large"
-      onClick={() => handleScroll("#Challenges")}
-    >
-      Challenges
-    </Button>
-  </Stack>
-</Stack>
-
-            
+                {/* Action Buttons */}
+                <Stack
+                    gap={2}
+                    className="animated"
+                    flexDirection={{ xs: "column", sm: "row" }}
+                    width={{ xs: "100%", sm: "auto" }}
+                >
+                    <Button
+                        variant="contained"
+                        size="large"
+                        onClick={() => handleScroll("#Axes")}
+                    >
+                        Axes
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        size="large"
+                        onClick={() => handleScroll("#Challenges")}
+                    >
+                        Challenges
+                    </Button>
+                </Stack>
+            </Stack>
             <Box className='animated'>
                 <SceneContainer
                     image={
