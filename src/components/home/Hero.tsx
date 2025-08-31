@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
                 }
         >
             <Stack
-                mt={{ xs: 2, md: 3 }}
+                mt={{ xs: 4, sm: 3, md: 3 }}
                 gap={{ xs: 2, md: 3 }}
                 justifyContent="center"
                 textAlign={{ xs: "center", md: "left" }}

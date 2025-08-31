@@ -9,7 +9,7 @@ const Banner: React.FC = () => {
                 left: 0,
                 zIndex: 0,
                 width: '100dvw',
-                height: { xs: '14dvh', sm: '14dvh', md: '18dvh' },
+                height: { xs: '16dvh', sm: '16dvh', md: '18dvh' },
                 overflow: 'hidden',
                 position: 'absolute',
                 backgroundImage: "url('/assets/images/deco/strand.jpg')",
