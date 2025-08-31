@@ -17,7 +17,8 @@ const Footer: React.FC = () => {
             sx={{
                 py: 3,
                 borderTop: `1px solid ${theme.palette.divider}`,
-                zIndex: 400
+                zIndex: 400,
+                position: 'relative',
             }}
         >
             <Container maxWidth="lg">

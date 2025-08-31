@@ -8,6 +8,7 @@ import { Paragraph } from '@/components/text/Paragraph';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import Scene from '@/components/scenes/Teaser';
 
 export default function Teaser() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -17,7 +18,7 @@ export default function Teaser() {
     }, { scope: containerRef });
 
     return (
-        <Stack ref={containerRef} gap={6} alignItems={'center'}>
+        <Stack ref={containerRef} gap={6} alignItems={'center'} position={'relative'}>
             <Box sx={{
                 gap: 4,
                 width: "100%",
@@ -26,11 +27,16 @@ export default function Teaser() {
                 flexDirection: 'column', 
             }}>
                 <Title label="Teaser" />
-                <Paragraph>
-                    <Box className='split'>
-                        {event.teaser.description}
+                <Stack flexWrap={'wrap'} flexDirection={'row'} gap={6} alignItems={'center'} justifyContent={'center'} width={'100%'}>
+                    <Box position={'relative'} width={240} height={240}>
+                        <Scene />
                     </Box>
-                </Paragraph>
+                    <Paragraph>
+                        <Box minWidth={'md'} className='split'>
+                            {event.teaser.description}
+                        </Box>
+                    </Paragraph>
+                </Stack>
             </Box>
             <Box width={'80%'}>
                 <iframe

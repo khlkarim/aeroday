@@ -18,7 +18,7 @@ export default function EditionsPrecedentes() {
     }, { scope: containerRef });
 
     return (
-        <Stack ref={containerRef} gap={6}>
+        <Stack position={"relative"} ref={containerRef} gap={6}>
             <Stack gap={6} alignItems={'center'}>
                 <Title label="Editions Précédentes" />
                 <Paragraph>

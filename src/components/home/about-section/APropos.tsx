@@ -32,17 +32,16 @@ export const APropos = () => {
                 className='animated' 
                 sx={{
                     mx: 'auto',
-                    width: { xs: 260, sm: 280 },
+                    width: { xs: 300, sm: 280 },
                     height: { xs: 260, sm: 280 },
                     position: 'relative',
                 }}
             >
                 <Box
                     sx={{
-                        width: { xs: 260, sm: 280 },
+                        width: { xs: 300, sm: 280 },
                         height: { xs: 260, sm: 280 },
                         overflow: "hidden",
-                        borderRadius: "50%",
                         position: 'relative',
                     }}
                 >
@@ -50,7 +49,7 @@ export const APropos = () => {
                         fill
                         src={event.logo}
                         alt={`${event.name} logo`}
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "contain" }}
                     />
                 </Box>
             </Box>
@@ -58,25 +57,29 @@ export const APropos = () => {
                 <Typography 
                     variant="h3" 
                     sx={{ 
-                        fontSize: { xs: '1.3rem', sm: '2rem', md: '2rem', lg: '2rem' },
+                        fontSize: { xs: '2rem', sm: '2rem', md: '2rem', lg: '2rem' },
                     }}
                     className="animated" 
                 >
-                    The Greatest Event <span style={{ color: theme.palette.primary.main }}>IN THE WORLD</span>
+                    <Stack gap={1} alignItems={'center'} flexDirection={{ xs: 'column', sm: 'row' }}>
+                        <Box>The Greatest Event</Box>
+                        <Box><span style={{ color: theme.palette.primary.main }}>IN THE WORLD</span></Box>
+                    </Stack>
                     <Box
                         className="animated"
                         sx={{
                             display: 'flex',
-                            alignItems: 'center',
+                            alignItems: 'baseline',
                             justifyContent: 'center',
                             gap: 2,
+                            mb: 2,
                         }}
                     >
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 18 }} />
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 24 }} />
                         <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
-                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
-                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
-                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
-                        <Star sx={{ color: theme.palette.warning.main, fontSize: 32 }} />
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 24 }} />
+                        <Star sx={{ color: theme.palette.warning.main, fontSize: 18 }} />
                     </Box>
                 </Typography>
                 <Box className="animated" textAlign={'center'}>

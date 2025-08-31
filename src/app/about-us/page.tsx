@@ -9,8 +9,6 @@ export default function AboutUs() {
         <>
             <EditionsPrecedentes />
             <Divider />
-            {/* <Teaser /> */}
-            {/* <Divider /> */}
             <CardLayout title="Our Team" data={team} CardComponent={ProfileCard} />
         </>
     );

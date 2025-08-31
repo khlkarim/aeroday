@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Button, Link, Menu, MenuItem } from "@mui/material";
+import { Button, Link, Menu, MenuItem, Typography } from "@mui/material";
 
 interface NavDropdownProps {
     label: string;
@@ -35,10 +35,9 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ label, items }) => {
                 onClose={handleClose}
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 transformOrigin={{ vertical: "top", horizontal: "left" }}
-                sx={{
+                 sx={{
                     "& .MuiPaper-root": {
-                        background: "transparent",
-                        backdropFilter: "blur(8px)",
+                        background: "#FAF7F0",
                     },
                 }}
             >
@@ -49,7 +48,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ label, items }) => {
                         href={item.href}
                         onClick={handleClose}
                     >
-                        {item.name}
+                        <Typography color="primary">{item.name}</Typography>
                     </MenuItem>
                 ))}
             </Menu>

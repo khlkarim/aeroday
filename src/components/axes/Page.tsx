@@ -39,7 +39,6 @@ export default function Page({ id }: { id: number }) {
                 justifyContent={'space-around'} 
             >
                 <Box ref={titleRef} className='animated' display="flex" alignItems="center" gap={1}>
-                    <PersonIcon color="primary" fontSize="large" />
                     <Title label="Responsable" />
                 </Box>
                 <Box ref={profileRef} className='animated'>

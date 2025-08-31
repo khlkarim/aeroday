@@ -33,9 +33,43 @@ export default function Home() {
             <Divider />
             <Teaser />
             <Divider />
-            <CardLayout title="Axes" data={axes} CardComponent={MinCard} />
+            <Box position={'relative'}>
+                <Box
+                    sx={{
+                        top: '-9dvh',
+                        left: '-17dvh',
+                        // bgcolor: "red", 
+                        zIndex: 0,
+                        width: '20dvh',
+                        height: '20dvh',
+                        overflow: 'hidden',
+                        position: 'absolute',
+                        backgroundImage: "url('/assets/images/deco/string.png')",
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '100%', 
+                    }}
+                />
+                <CardLayout title="Axes" data={axes} CardComponent={MinCard} />
+            </Box>
             <Divider />
-            <CardLayout title="Challenges" data={challenges} CardComponent={MinCard} />
+            <Box position={'relative'}>
+                <Box
+                    sx={{
+                        top: '-9dvh',
+                        right: '-17dvh',
+                        // bgcolor: "red", 
+                        zIndex: 0,
+                        width: '20dvh',
+                        height: '20dvh',
+                        overflow: 'hidden',
+                        position: 'absolute',
+                        backgroundImage: "url('/assets/images/deco/inverted-string.png')",
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '100%', 
+                    }}
+                />
+                <CardLayout title="Challenges" data={challenges} CardComponent={MinCard} />
+            </Box>
             <Divider />
             <ContactForm />
         </>

@@ -1,5 +1,6 @@
 "use client"
 
+import { Star } from '@mui/icons-material';
 import { Stack } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
@@ -8,9 +9,13 @@ const Title = ({ label }: { label: string }) => {
     return (
         <Stack alignItems={'center'}>
             <Stack alignItems={'center'}>
-                <Typography variant="h3">
-                    {label}
-                </Typography>
+                <Stack flexDirection={'row'} alignItems={"center"} gap={1}>
+                    <Star color='warning' fontSize="medium" />
+                    <Typography variant="h3" color='primary'>
+                        {label}
+                    </Typography>
+                    <Star color='warning' fontSize='medium' />
+                </Stack>
                 <Divider
                     sx={{
                         mt: 1,
