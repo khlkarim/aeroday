@@ -5,7 +5,6 @@ import { PerformanceMonitor } from '@react-three/drei';
 import { OrbitControls, Environment } from "@react-three/drei";
 import { AnimatedDrone } from "@/components/models/AnimatedDrone";
 
-
 export default function VidParDrone() {
     return (
         <Canvas
@@ -20,7 +19,7 @@ export default function VidParDrone() {
                 <Environment
                     background
                     blur={0.05}
-                    files={"/assets/environments/day.hdr"}
+                    files={"/assets/environments/day.exr"}
                 />
                 <Lighting />
                 <AnimatedDrone position={[3, 2, -5]} />

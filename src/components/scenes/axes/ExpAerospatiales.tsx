@@ -18,7 +18,7 @@ export default function ExpAerospatiales() {
                 <Environment 
                     background
                     blur={0.05} 
-                    files={"/assets/environments/space.hdr"}
+                    files={"/assets/environments/space.exr"}
                 />
 
                 <Lighting />
