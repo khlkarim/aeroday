@@ -129,21 +129,13 @@ const Hero: React.FC = () => {
                     }
                     canvas={
                         <Box 
-                            sx={theme => ({ 
-                                width: { xs: 330, sm: 400, md: 360 },
-                                height: { xs: 240, sm: 300, md: 360 },
-                                position: 'relative',
+                            sx={{ 
+                                width: 360,
+                                height: 360,
                                 borderRadius: 5,
-                                background: {
-                                    xs: theme.palette.mode === "light"
-                                            ? "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.4) 100%)"
-                                            : "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
-                                    sm: theme.palette.mode === "light"
-                                            ? "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.4) 100%)"
-                                            : "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
-                                    md: "none"
-                                },
-                            })}
+                                position: 'relative',
+                                border: { xs: `1px solid ${theme.palette.divider}`, sm: 'none' },
+                            }}
                         >
                             <Plane />
                         </Box>

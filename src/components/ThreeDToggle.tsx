@@ -16,7 +16,6 @@ const ThreeDToggle: React.FC = () => {
             <Button 
                 onClick={toggle}
                 sx={{ 
-                    color: "text.secondary",
                     padding: 0,
                     minWidth: 40, 
                     minHeight: 40,

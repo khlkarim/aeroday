@@ -16,7 +16,6 @@ export function Drone(props: JSX.IntrinsicElements['group']) {
         if(animations[0].tracks.length > 4) animations[0].tracks.splice(-2)
       const firstClipName = Object.keys(actions)[0];
       actions[firstClipName]?.play()
-      console.log(animations);
     }
   }, [actions, animations])
 

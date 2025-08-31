@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { ISS } from "@/components/models/ISS";
 import Lighting from "@/components/scenes/Lighting";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls, Environment, PerformanceMonitor, Loader } from "@react-three/drei";
 
 export default function ExpAerospatiales() {
     return (
@@ -12,6 +12,9 @@ export default function ExpAerospatiales() {
                 position: [-50, 15, 0],
             }}
         >
+            <PerformanceMonitor />
+            <Loader />
+
             <Suspense fallback={null}>
                 <Environment 
                     files={"/assets/environments/space.hdr"}

@@ -34,19 +34,25 @@ export default function Teaser() {
                             <Box></Box>
                         }
                         canvas={
-                            <Box position={'relative'} width={240} height={240}>
+                            <Box 
+                                width={240} 
+                                height={240}
+                                borderRadius={5}
+                                border={theme => ({ xs: `1px solid ${theme.palette.divider}`, sm: 'none' })}
+                                position={'relative'} 
+                            >
                                 <Scene />
                             </Box>
                         }
                     />
                     <Paragraph>
-                        <Box minWidth={'md'} className='split'>
+                        <Box className='split'>
                             {event.teaser.description}
                         </Box>
                     </Paragraph>
                 </Stack>
             </Box>
-            <Box width={'80%'}>
+            <Box width={{xs: '100%', sm: '100%', md: '80%'}}>
                 <iframe
                     style={{
                         width: '100%',

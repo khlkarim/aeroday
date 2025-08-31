@@ -27,5 +27,16 @@ export const SceneContainer: React.FC<SceneProps> = ({ delay = 1000, image, canv
         };
     }, [delay, active]);
 
-    return <>{active ? showCanvas? canvas : <></> : image}</>;
+    let content;
+    if (active) {
+        if (showCanvas) {
+            content = canvas ? canvas : image;
+        } else {
+            content = <></>;
+        }
+    } else {
+        content = image;
+    }
+
+    return content;
 };

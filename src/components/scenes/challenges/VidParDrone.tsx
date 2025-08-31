@@ -3,6 +3,8 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 import Lighting from "@/components/scenes/Lighting";
 import { AnimatedDrone } from "@/components/models/AnimatedDrone";
+import { PerformanceMonitor, Loader } from '@react-three/drei'
+
 
 export default function VidParDrone() {
     return (
@@ -12,6 +14,9 @@ export default function VidParDrone() {
                 position: [7, 3, 1],
             }}
         >
+            <PerformanceMonitor />
+            <Loader />
+
             <Suspense fallback={null}>
                 <Environment
                     files={"/assets/environments/day.hdr"}

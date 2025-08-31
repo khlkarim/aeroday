@@ -66,7 +66,7 @@ export function AnimatedDrone(props: JSX.IntrinsicElements['group']) {
                             <skinnedMesh name="Object_26" geometry={(nodes.Object_26 as THREE.SkinnedMesh).geometry} material={materials.Drone_Outline} skeleton={(nodes.Object_26 as THREE.SkinnedMesh).skeleton} />
                             <skinnedMesh name="Object_29" geometry={(nodes.Object_29 as THREE.SkinnedMesh).geometry} material={materials.Drone} skeleton={(nodes.Object_29 as THREE.SkinnedMesh).skeleton} />
                             <skinnedMesh name="Object_32" geometry={(nodes.Object_32 as THREE.SkinnedMesh).geometry} material={materials.Drone_Yellow} skeleton={(nodes.Object_32 as THREE.SkinnedMesh).skeleton} />
-                            <skinnedMesh name="Object_35" geometry={(nodes.Object_35 as THREE.SkinnedMesh).geometry} material={materials.Drone_Blue} skeleton={(nodes.Object_35 as THREE.SkinnedMesh).skeleton} />
+                            <skinnedMesh name="Object_35" geometry={(nodes.Object_35 as THREE.SkinnedMesh).geometry} material={materials.Drone_Red} skeleton={(nodes.Object_35 as THREE.SkinnedMesh).skeleton} />
                             <skinnedMesh name="Object_38" geometry={(nodes.Object_38 as THREE.SkinnedMesh).geometry} material={materials.Drone_Red} skeleton={(nodes.Object_38 as THREE.SkinnedMesh).skeleton} />
                           </group>
                         </group>

@@ -21,7 +21,6 @@ export const APropos = () => {
 
     return (
         <Stack 
-            gap={6}
             flexWrap={'wrap'}
             ref={containerRef} 
             flexDirection={'row'}
@@ -31,27 +30,17 @@ export const APropos = () => {
             <Box
                 className='animated' 
                 sx={{
-                    mx: 'auto',
                     width: { xs: 300, sm: 280 },
                     height: { xs: 260, sm: 280 },
                     position: 'relative',
                 }}
             >
-                <Box
-                    sx={{
-                        width: { xs: 300, sm: 280 },
-                        height: { xs: 260, sm: 280 },
-                        overflow: "hidden",
-                        position: 'relative',
-                    }}
-                >
-                    <Image
-                        fill
-                        src={event.logo}
-                        alt={`${event.name} logo`}
-                        style={{ objectFit: "contain" }}
-                    />
-                </Box>
+                <Image
+                    fill
+                    src={event.logo}
+                    alt={`${event.name} logo`}
+                    style={{ objectFit: "contain" }}
+                />
             </Box>
             <Stack gap={2} justifyContent={'center'} alignItems={'center'}>
                 <Typography 
