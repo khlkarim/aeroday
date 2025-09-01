@@ -52,8 +52,8 @@ const Hero: React.FC = () => {
                 mt={{ xs: 4, sm: 3, md: 3 }}
                 gap={{ xs: 2, md: 3 }}
                 justifyContent="center"
-                textAlign={{ xs: "center", md: "left" }}
-                alignItems={{ xs: "center", md: "flex-start" }}
+                textAlign={{ xs: "center", sm: 'center', md: "left" }}
+                alignItems={{ xs: "center", sm: 'center', md: "flex-start" }}
             >
                 <Chip
                     color="primary"
@@ -105,8 +105,12 @@ const Hero: React.FC = () => {
                 </Box>
 
                 {/* Description */}
-                <Box className="animated" maxWidth="60ch">
-                    <Paragraph>{event.description.primary}</Paragraph>
+                <Box className="animated">
+                    <Paragraph>
+                        <Typography textAlign={{ xs: "center", sm: 'center', md: "left" }}>
+                            {event.description.primary}    
+                        </Typography>
+                    </Paragraph>
                 </Box>
 
                 {/* Action Buttons */}
@@ -144,7 +148,7 @@ const Hero: React.FC = () => {
                                 height: { xs: 240, sm: 360},
                                 borderRadius: 5,
                                 position: 'relative',
-                                border: { xs: `1px solid ${theme.palette.divider}`, sm: 'none' },
+                                border: { xs: `1px solid ${theme.palette.divider}`, sm: `1px solid ${theme.palette.divider}`, md: 'none' },
                             }}
                         >
                             <Plane />

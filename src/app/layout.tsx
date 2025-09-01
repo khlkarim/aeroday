@@ -8,6 +8,8 @@ import { Container, Stack, Toolbar } from "@mui/material";
 import ThemeModeProvider from "@/providers/ThemeModeProvider";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import String from "@/components/deco/String";
+import Banner from "@/components/deco/Banner";
 
 export const metadata: Metadata = {
     title: "Tunisian Aeroday 2026",
@@ -27,6 +29,8 @@ export default function RootLayout({
                         <ThreeDProvider>
                             <Navbar />
                             <SmoothScrollProvider>
+                                <Banner />
+                                <String variant="inverted" />
                                 <Container className="stars">
                                     <Stack gap={8}>
                                         <Toolbar />

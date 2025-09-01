@@ -1,3 +1,5 @@
+"use client"
+
 import useThreeD from "@/hooks/useThreeD";
 import { Loader } from "@react-three/drei";
 import { useEffect, useState } from "react";
@@ -30,10 +32,17 @@ export const SceneContainer: React.FC<SceneProps> = ({ delay = 1000, image, canv
 
     let content;
     if (active) {
-        if (showCanvas) {
-            content = canvas ? <> {canvas} <Loader /> </> : image;
-        } else {
-            content = <></>;
+        if(canvas)
+        {
+            if (showCanvas) {
+                content = <> {canvas} <Loader /> </>;
+            } else {
+                content = <></>;
+            }
+        } 
+        else 
+        {
+            content = image;
         }
     } else {
         content = image;

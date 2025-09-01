@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import { event } from '@/content/event';
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import { SplitText } from 'gsap/SplitText';
 import Title from '@/components/text/Title';
 import Scene from '@/components/scenes/Teaser';
@@ -38,18 +38,20 @@ export default function Teaser() {
                                 width={240} 
                                 height={240}
                                 borderRadius={5}
-                                border={theme => ({ xs: `1px solid ${theme.palette.divider}`, sm: 'none' })}
+                                border={theme => ({ xs: `1px solid ${theme.palette.divider}`, sm: `1px solid ${theme.palette.divider}`, md: 'none' })}
                                 position={'relative'} 
                             >
                                 <Scene />
                             </Box>
                         }
                     />
-                    <Paragraph>
-                        <Box className='split'>
-                            {event.teaser.description}
-                        </Box>
-                    </Paragraph>
+                    <Box className="split">
+                        <Paragraph>
+                            <Typography textAlign={{ xs: "center", sm: 'center', md: "left" }}>
+                                {event.teaser.description}    
+                            </Typography>
+                        </Paragraph>
+                    </Box>
                 </Stack>
             </Box>
             <Box width={{xs: '100%', sm: '100%', md: '80%'}}>

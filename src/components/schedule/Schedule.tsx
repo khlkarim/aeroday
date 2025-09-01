@@ -29,7 +29,7 @@ export function Schedule() {
     ]
 
     return (
-        <Stack gap={4}>
+        <Stack gap={6}>
             <Title label='Schedule' />
             
             <Stack gap={6}>

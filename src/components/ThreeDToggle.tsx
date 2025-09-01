@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Tooltip, Typography } from "@mui/material";
 import useThreeD from "@/hooks/useThreeD";
+import { Button, Tooltip } from "@mui/material";
 
 const ThreeDToggle: React.FC = () => {
     const { toggle, active } = useThreeD();
@@ -22,7 +22,7 @@ const ThreeDToggle: React.FC = () => {
                     borderRadius: "50%", 
                 }} 
             >
-                <Typography>{active ? '2D' : '3D'}</Typography>
+                {active ? '2D' : '3D'}
             </Button>
         </Tooltip>
     );

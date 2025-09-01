@@ -2,7 +2,6 @@ import { axes } from "@/content/axes";
 import { Divider } from "@mui/material";
 import Hero from "@/components/home/Hero";
 import Teaser from "@/components/home/Teaser";
-import Banner from "@/components/deco/Banner";
 import MinCard from "@/components/axes/MinCard";
 import { challenges } from "@/content/challenges";
 import { CardLayout } from "@/components/CardLayout";
@@ -12,8 +11,7 @@ import About from "@/components/home/about-section/About";
 export default function Home() {
     return (
         <>
-            <Banner />
-            <Hero />    
+            <Hero /> 
             <Divider />
             <About />
             <Divider />

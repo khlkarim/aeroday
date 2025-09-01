@@ -2,6 +2,8 @@ import Page from "@/components/axes/Page";
 
 export default function Ambassade() {
     return (
-        <Page id={3} />        
+        <>
+            <Page id={3} />        
+        </>
     );
 }

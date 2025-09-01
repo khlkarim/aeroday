@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { event } from "@/content/event";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { SplitText } from 'gsap/SplitText';
 import Title from "@/components/text/Title";
 import { Paragraph } from "@/components/text/Paragraph";
@@ -28,11 +28,13 @@ export default function EditionsPrecedentes() {
                 alignItems={'center'}
             >
                 <Title label="Editions Précédentes" />
-                <Paragraph>
-                    <Box className='split'>
-                        {event.editionsPrecedentes.description}
-                    </Box>
-                </Paragraph>
+                <Box className="split">
+                    <Paragraph>
+                        <Typography textAlign={{ xs: "center", sm: 'center', md: "left" }}>
+                            {event.editionsPrecedentes.description}    
+                        </Typography>
+                    </Paragraph>
+                </Box>
             </Stack>
 
             <Stack gap={8}>

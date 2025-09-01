@@ -75,8 +75,8 @@ export const APropos = () => {
                         <Star sx={{ color: theme.palette.warning.main, fontSize: 18 }} />
                     </Box>
                 </Typography>
-                <Box className="animated" textAlign={'center'}>
-                    <Paragraph>{event.description.secondary}</Paragraph>
+                <Box className="animated">
+                    <Paragraph><Typography textAlign={'center'}>{event.description.secondary}</Typography></Paragraph>
                 </Box>
             </Stack>
         </Stack>
