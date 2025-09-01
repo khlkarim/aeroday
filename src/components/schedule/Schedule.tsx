@@ -174,7 +174,8 @@ function renderEventContent(eventInfo: EventContentArg) {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                minHeight: '32px'
+                minHeight: '32px',
+                overflow: 'hidden',
             }}
         >
             <Stack direction="row" alignItems="center" gap={0.5} mb={0.5}>
