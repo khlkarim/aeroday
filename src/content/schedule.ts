@@ -1,80 +1,152 @@
-export interface Period
-{
+import { EventInput } from "@fullcalendar/core";
+
+export interface CalendarEvent extends EventInput {
+  extendedProps: {
     icon?: string;
-    label: string;
-    startTime: string;
-    endTime?: string;
+    description?: string;
+  };
 }
 
-export interface Day
-{
-    label: string;
-    schedule: Period[];
-}
-
-export const days: Day[] = [
+export const janvier26: CalendarEvent[] = [
     {
-        label: "26 Janvier",
-        schedule: [
-            { icon: "check-in", label: "Check in et Homologation", startTime: "08:00", endTime: "09:45" },
-            { icon: "plane", label: "Aéromodélisme", startTime: "10:00", endTime: "12:45" },
-            { icon: "lunch", label: "Pause Déjeuner", startTime: "13:00", endTime: "14:45" },
-            { icon: "challenge", label: "Lancement du challenge", startTime: "15:00", endTime: "20:45" },
-            { icon: "dinner", label: "Dîner", startTime: "21:00", endTime: "22:45" },
-            { icon: "work", label: "Retour au challenge", startTime: "23:00", endTime: "7:45" },
-            { icon: "breakfast", label: "Petit Déjeuner", startTime: "8:00", endTime: "8:45" },
-            { icon: "presentation", label: "Présentations des équipes", startTime: "9:00", endTime: "8:45" },
-        ],
+        title: "Check in et Homologation",
+        start: "2026-01-26T08:00",
+        end: "2026-01-26T09:45",
+        extendedProps: { icon: "check-in" },
     },
     {
-        label: "01 Février",
-        schedule: [
-            { icon: "check-in", label: "Check in et Homologation", startTime: "08:00", endTime: "09:45" },
-            { icon: "plane", label: "Aéromodélisme", startTime: "10:00", endTime: "12:45" },
-            { icon: "work", label: "Retour au challenge", startTime: "23:00", endTime: "7:45" },
-            { icon: "breakfast", label: "Petit Déjeuner", startTime: "8:00", endTime: "8:45" },
-            { icon: "presentation", label: "Présentations des équipes", startTime: "9:00", endTime: "8:45" },
-        ],
+        title: "Aéromodélisme",
+        start: "2026-01-26T10:00",
+        end: "2026-01-26T12:45",
+        extendedProps: { icon: "plane", description: 'Challenge des Planeurs' },
     },
     {
-        label: "02 Février",
-        schedule: [
-            { icon: "check-in", label: "Check in et Homologation", startTime: "08:00", endTime: "09:45" },
-            { icon: "work", label: "Retour au challenge", startTime: "23:00", endTime: "7:45" },
-            { icon: "breakfast", label: "Petit Déjeuner", startTime: "8:00", endTime: "8:45" },
-            { icon: "presentation", label: "Présentations des équipes", startTime: "9:00", endTime: "8:45" },
-        ],
+        title: "Pause Déjeuner",
+        start: "2026-01-26T13:00",
+        end: "2026-01-26T14:45",
+        extendedProps: { icon: "lunch" },
     },
     {
-        label: "01 Février",
-        schedule: [
-            { icon: "check-in", label: "Check in et Homologation", startTime: "08:00", endTime: "09:45" },
-            { icon: "plane", label: "Aéromodélisme", startTime: "10:00", endTime: "12:45" },
-            { icon: "work", label: "Retour au challenge", startTime: "23:00", endTime: "7:45" },
-            { icon: "breakfast", label: "Petit Déjeuner", startTime: "8:00", endTime: "8:45" },
-            { icon: "presentation", label: "Présentations des équipes", startTime: "9:00", endTime: "8:45" },
-        ],
+        title: "Lancement du challenge",
+        start: "2026-01-26T15:00",
+        end: "2026-01-26T20:45",
+        extendedProps: { icon: "challenge" },
     },
     {
-        label: "02 Février",
-        schedule: [
-            { icon: "check-in", label: "Check in et Homologation", startTime: "08:00", endTime: "09:45" },
-            { icon: "work", label: "Retour au challenge", startTime: "23:00", endTime: "7:45" },
-            { icon: "breakfast", label: "Petit Déjeuner", startTime: "8:00", endTime: "8:45" },
-            { icon: "presentation", label: "Présentations des équipes", startTime: "9:00", endTime: "8:45" },
-        ],
+        title: "Dîner",
+        start: "2026-01-26T21:00",
+        end: "2026-01-26T22:45",
+        extendedProps: { icon: "dinner" },
     },
     {
-        label: "26 Janvier",
-        schedule: [
-            { icon: "check-in", label: "Check in et Homologation", startTime: "08:00", endTime: "09:45" },
-            { icon: "plane", label: "Aéromodélisme", startTime: "10:00", endTime: "12:45" },
-            { icon: "lunch", label: "Pause Déjeuner", startTime: "13:00", endTime: "14:45" },
-            { icon: "challenge", label: "Lancement du challenge", startTime: "15:00", endTime: "20:45" },
-            { icon: "dinner", label: "Dîner", startTime: "21:00", endTime: "22:45" },
-            { icon: "work", label: "Retour au challenge", startTime: "23:00", endTime: "7:45" },
-            { icon: "breakfast", label: "Petit Déjeuner", startTime: "8:00", endTime: "8:45" },
-            { icon: "presentation", label: "Présentations des équipes", startTime: "9:00", endTime: "8:45" },
-        ],
+        title: "Retour au challenge",
+        start: "2026-01-26T23:00",
+        end: "2026-01-27T07:45", // ✅ overnight, next day
+        extendedProps: { icon: "work" },
+    },
+    {
+        title: "Petit Déjeuner",
+        start: "2026-01-27T08:00",
+        end: "2026-01-27T08:45",
+        extendedProps: { icon: "breakfast" },
+    },
+    {
+        title: "Présentations des équipes",
+        start: "2026-01-27T09:00",
+        end: "2026-01-27T09:45",
+        extendedProps: { icon: "presentation" },
     },
 ];
+export const fevrier1: CalendarEvent[] = [
+    {
+        title: "Check in et Homologation",
+        start: "2026-02-01T13:00",
+        end: "2026-02-01T13:30",
+        extendedProps: { icon: "check-in" },
+    },
+    {
+        title: "Lancement du cahier des charges",
+        start: "2026-02-01T13:30",
+        end: "2026-02-01T14:00",
+        extendedProps: { icon: "plane" },
+    },
+    {
+        title: "Formation solidworks surfacique",
+        start: "2026-02-01T14:00",
+        end: "2026-02-01T16:45",
+        extendedProps: { icon: "work" },
+    },
+    {
+        title: "Airshow",
+        start: "2026-02-01T14:00",
+        end: "2026-02-01T16:45",
+        extendedProps: { icon: "plane" },
+    },
+    {
+        title: "Clôture de la Journée et remise des certificats",
+        start: "2026-02-01T17:00",
+        extendedProps: { icon: "presentation" },
+    },
+];
+export const fevrier2: CalendarEvent[] = [
+    {
+        title: "Check in et Homologation",
+        start: "2026-02-02T08:00",
+        extendedProps: { icon: "check-in" },
+    },
+    {
+        title: "Challenge Aéromodélisme Junior + Expositions aéronautiques et aérospaciales",
+        start: "2026-02-02T09:00",
+        end: "2026-02-02T12:00",
+        extendedProps: { icon: "work" },
+    },
+    {
+        title: "Pause artistique CinéRadio INSAT",
+        start: "2026-02-02T12:00",
+        end: "2026-02-02T13:15",
+        extendedProps: { icon: "music" },
+    },
+    {
+        title: "Cérémonie d'ouverture",
+        start: "2026-02-02T13:30",
+        end: "2026-02-02T14:00",
+        extendedProps: { icon: "presentation" },
+    },
+    {
+        title: "Conférence de Mr Azouz Bachouche",
+        start: "2026-02-02T14:00",
+        end: "2026-02-02T14:30",
+        extendedProps: { icon: "presentation" },
+    },
+    {
+        title: "Conférence de Mr Belgacem Mekki",
+        start: "2026-02-02T14:30",
+        end: "2026-02-02T15:00",
+        extendedProps: { icon: "presentation" },
+    },
+    {
+        title: "Conférence de Mr Anis Guelbi",
+        start: "2026-02-02T15:00",
+        end: "2026-02-02T15:30",
+        extendedProps: { icon: "presentation" },
+    },
+    {
+        title: "Pause artistique Théatro INSAT",
+        start: "2026-02-02T15:30",
+        end: "2026-02-02T16:30",
+        extendedProps: { icon: "threater" },
+    },
+    {
+        title: "Lancement aérochallenge",
+        start: "2026-02-02T15:45",
+        end: "2026-02-02T16:45",
+        extendedProps: { icon: "plane" },
+    },
+    {
+        title: "Cérémonie de clôture et remise des prix",
+        start: "2026-02-02T17:00",
+        extendedProps: { icon: "presentation" },
+    },
+];
+
+export const days: CalendarEvent[] = [...janvier26, ...fevrier1, ...fevrier2];
