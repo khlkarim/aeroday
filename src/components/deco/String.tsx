@@ -27,7 +27,7 @@ const String: React.FC<StringProps> = ({ variant  = 'default' }) => {
                     : "url('/assets/images/deco/inverted-string.png')",
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: '100%',
-                zIndex: (theme) => theme.zIndex.appBar + 1,
+                zIndex: (theme) => theme.zIndex.appBar - 1,
                 pointerEvents: 'none',
             }}
         />

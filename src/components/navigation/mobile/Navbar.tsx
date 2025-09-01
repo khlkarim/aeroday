@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
                     position: 'fixed',
                     background: 'none',
                     border: 'none',
-                    boxShadow: 'none'
+                    boxShadow: 'none',
                 }}
             >
                 <Toolbar sx={{ 

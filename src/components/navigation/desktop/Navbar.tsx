@@ -12,7 +12,7 @@ const DesktopNavbar: React.FC = () => {
                 position: 'fixed',
                 background: 'none',
                 border: 'none',
-                boxShadow: 'none'
+                boxShadow: 'none',
             }}
         >
             <Container maxWidth="md">
