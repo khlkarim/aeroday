@@ -18,17 +18,17 @@ const String: React.FC<StringProps> = ({ variant  = 'default' }) => {
     return (
         <Box
             sx={{
+                right: 0,
                 position: 'fixed',
                 width: { xs: 140, sm: 160, md: 200 },
                 height: { xs: 140, sm: 160, md: 200 },
-                right: 0,
                 backgroundImage: variant === 'default'
                     ? "url('/assets/images/deco/string.png')"
                     : "url('/assets/images/deco/inverted-string.png')",
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: '100%',
-                zIndex: (theme) => theme.zIndex.appBar - 1,
                 pointerEvents: 'none',
+                backgroundSize: '100%',
+                backgroundRepeat: 'no-repeat',
+                zIndex: (theme) => theme.zIndex.appBar + 1,
             }}
         />
     );
