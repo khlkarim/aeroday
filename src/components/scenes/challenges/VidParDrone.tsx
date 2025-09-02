@@ -26,10 +26,7 @@ export default function VidParDrone() {
             </Suspense>
             <OrbitControls 
                 autoRotate
-                enableDamping 
-                rotateSpeed={0.02}
                 target={[3, 2, -5]} 
-                dampingFactor={0.1} 
             />
         </Canvas>
     );

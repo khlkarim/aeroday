@@ -31,10 +31,7 @@ export default function CAO() {
                 />
 
                 {/* CAD-like orbit navigation */}
-                <OrbitControls 
-                    enableDamping 
-                    dampingFactor={0.1} 
-                />
+                <OrbitControls />
 
                 {/* Coordinate system widget */}
                 <GizmoHelper alignment="bottom-right" margin={[80, 80]}>

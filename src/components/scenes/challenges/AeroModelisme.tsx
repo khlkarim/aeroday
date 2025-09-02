@@ -24,10 +24,7 @@ export default function AeroModelisme() {
                 <Lighting />
                 <AnimatedGlider />
             </Suspense>
-            <OrbitControls 
-                autoRotate
-                enableDamping 
-            />
+            <OrbitControls autoRotate />
         </Canvas>
     );
 }

@@ -25,12 +25,7 @@ export default function ExpAerospatiales() {
                 <ISS rotation={[0, 0, 0.7]} />
             </Suspense>
 
-            <OrbitControls 
-                autoRotate 
-                enableDamping 
-                rotateSpeed={0.03} 
-                dampingFactor={0.1}
-            />
+            <OrbitControls autoRotate />
         </Canvas>
     );
 }
