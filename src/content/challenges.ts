@@ -3,6 +3,7 @@ export interface Challenge {
     name: string;
     href: string;
     image: string;
+    video?: string;
     date: {
         day: number;
         month: number;
@@ -16,7 +17,7 @@ export interface Challenge {
 export const challenges: Challenge[] = [
     {
         id: 0,
-        name: "Aérochallenge",
+        name: "AéroChallenge",
         href: "/challenges/aerochallenge",
         image: "/assets/images/challenges/aerochallenge/banner.jpg",
         date: {
@@ -36,7 +37,7 @@ export const challenges: Challenge[] = [
     },
     {
         id: 1,
-        name: "Aéromodélisme",
+        name: "AéroModélisme",
         href: "/challenges/aeromodelisme",
         image: "/assets/images/challenges/aeromodelisme/banner.jpg",
         date: {
@@ -94,6 +95,7 @@ export const challenges: Challenge[] = [
         name: "Vidéographie par drone",
         href: "/challenges/videographie-par-drone",
         image: "/assets/images/challenges/videographie-par-drone/banner.jpg",
+        video: "/assets/images/challenges/videographie-par-drone/video.mp4",
         date: {
             day: 2,
             month: 2

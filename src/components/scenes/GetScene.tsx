@@ -1,16 +1,19 @@
-import VidParDrone from "./challenges/VidParDrone";
-import ExpAerospatiales from "./axes/ExpAerospatiales";
 import CAO from "./challenges/CAD";
+import ExpAerospatiales from "./axes/ExpAerospatiales";
+import AeroChallenge from "./challenges/AeroChallenge";
+import AeroModelisme from "./challenges/AeroModelisme";
 
 export const GetScene = (name: string) => {
     switch(name)
     {
-        case 'Vidéographie par drone':  
-            return VidParDrone;
+        case 'AéroModélisme':
+            return AeroModelisme;
         case 'Expositions Aérospatiales':
             return ExpAerospatiales;
         case 'Challenge CAO':
             return CAO;
+        case 'AéroChallenge':
+            return AeroChallenge;
         default:
             return undefined;
     }

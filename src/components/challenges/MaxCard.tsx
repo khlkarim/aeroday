@@ -20,13 +20,23 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
             }}>
                 <SceneContainer
                     image={
-                        <Image
-                            fill
-                            priority
-                            alt={item.name}
-                            src={item.image}
-                            style={{ objectFit: 'cover' }}
-                        />
+                        item.video? 
+                            <video 
+                                loop 
+                                muted 
+                                autoPlay 
+                                playsInline 
+                                src={item.video} 
+                                style={{ width: '115%', height: '115%', objectFit: 'cover' }}
+                            />
+                            :
+                            <Image
+                                fill
+                                priority
+                                alt={item.name}
+                                src={item.image}
+                                style={{ objectFit: 'cover' }}
+                            />
                     }
                     canvas={    
                         Canvas && <Canvas />
