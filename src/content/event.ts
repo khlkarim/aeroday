@@ -66,7 +66,7 @@ export const event: Event = {
             "de Robotique (ATR).",
         secondary: "Cette journée repose sur plusieurs axes et différents défis. Elle vise à " +
             "la vulgarisation du domaine aéronautique auprès du grand public ainsi qu'à " +
-            "la découverte des nouveaux potentiels dont disposent les jeunes."
+            "la découverte de nouveaux potentiels dont disposent les jeunes."
     },
     teaser: {
         video: "https://www.youtube.com/embed/dQw4w9WgXcQ",

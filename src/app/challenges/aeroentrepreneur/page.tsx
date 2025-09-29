@@ -2,6 +2,6 @@ import Page from "@/components/challenges/Page";
 
 export default function Ambassade() {
     return (
-        <Page id={5} />        
+        <Page id={3} />        
     );
 }

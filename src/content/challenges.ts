@@ -74,6 +74,24 @@ export const challenges: Challenge[] = [
     },
     {
         id: 3,
+        name: "AéroEntrepreneur",
+        href: "/challenges/aeroentrepreneur",
+        image: "/assets/images/challenges/aeroentrepreneur/banner.jpg",
+        date: {
+            day: 26,
+            month: 1
+        },
+        description:
+            "Le Challenge AéroEntrepreneur est une compétition alliant aéronautique et entrepreneuriat, destinée aux jeunes porteurs" + 
+            "d’un esprit d’innovation et d’initiative.Durant 24 heures, les équipes devront concevoir et proposer des solutions aux " +
+            "problématiques qui leur seront présentées au début du challenge. Tout au long de l’événement, les participants bénéficieront"+ 
+            "de l’accompagnement de coaches spécialisés dans les deux domaines, ainsi que de formations ciblées pour enrichir leurs compétences.",
+        cahierDesCharges: "#",
+        formulaire: "#",
+        responsableId: 6
+    },
+    {
+        id: 4,
         name: "Challenge CAO",
         href: "/challenges/challenge-cao",
         image: "/assets/images/challenges/cao/banner.jpg",
@@ -91,7 +109,7 @@ export const challenges: Challenge[] = [
         responsableId: 5
     },
     {
-        id: 4,
+        id: 5,
         name: "Vidéographie par drone",
         href: "/challenges/videographie-par-drone",
         image: "/assets/images/challenges/videographie-par-drone/banner.jpg",

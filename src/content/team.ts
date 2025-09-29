@@ -17,7 +17,7 @@ export const team: TeamMember[] = [
         role: "President",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "96917998",
+            phone: "+216 96 917 998",
             personalEmail: "firas.hammami@insat.ucar.tn",
             aerodayEmail: "firas.hammami@aeroday.tn"
         }
@@ -28,7 +28,7 @@ export const team: TeamMember[] = [
         role: "Vice President Administratif",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "52307312",
+            phone: "+216 52 307 312",
             personalEmail: "znaidi.zeineb@gmail.com",
             aerodayEmail: "zeineb.znaidi@aeroday.tn"
         }
@@ -39,7 +39,7 @@ export const team: TeamMember[] = [
         role: "Vice President Technique",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "99735434",
+            phone: "+216 99 735 434",
             personalEmail: "Mouadh.bhs@gmail.com",
             aerodayEmail: "mouadh.belhajsaleh@aeroday.tn"
         }
@@ -50,7 +50,7 @@ export const team: TeamMember[] = [
         role: "Responsable Aeromodélisme",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "99807899",
+            phone: "+216 99 807 899",
             personalEmail: "ayoubferjani789@gmail.com",
             aerodayEmail: "ayoub.ferjani@aeroday.tn"
         }
@@ -61,7 +61,7 @@ export const team: TeamMember[] = [
         role: "Responsable Aerochallenge",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "58882855",
+            phone: "+216 58 882 855",
             personalEmail: "lina.chtioui01@gmail.com",
             aerodayEmail: "lina.chtioui@aeroday.tn"
         }
@@ -72,7 +72,7 @@ export const team: TeamMember[] = [
         role: "Responsable CAO",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "21300465",
+            phone: "+216 21 300 465",
             personalEmail: "kallelmohamed094@gmail.com",
             aerodayEmail: "mohamed.kallel@aeroday.tn"
         }
@@ -83,7 +83,7 @@ export const team: TeamMember[] = [
         role: "Aeroentrepreneur",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "29568214",
+            phone: "+216 29 568 214",
             personalEmail: "Ccps62075@gmail.com",
             aerodayEmail: "wijden.darguech@aeroday.tn"
         }
@@ -94,7 +94,7 @@ export const team: TeamMember[] = [
         role: "Responsable Airshow",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "92935588",
+            phone: "+216 92 935 588",
             personalEmail: "ademmighri7@gmail.com",
             aerodayEmail: "adem.mighri@aeroday.tn"
         }
@@ -105,7 +105,7 @@ export const team: TeamMember[] = [
         role: "Videographie par Drone",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "52208390",
+            phone: "+216 52 208 390",
             personalEmail: "flifel.seif@outlook.com / seif.flifel0@gmail.com",
             aerodayEmail: "seif.flifel@aeroday.tn"
         }
@@ -116,7 +116,7 @@ export const team: TeamMember[] = [
         role: "Responsable Aerospace",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "55158408",
+            phone: "+216 55 158 408",
             personalEmail: "ahmed.ksibi9@gmail.com",
             aerodayEmail: "ahmed.ksibi@aeroday.tn"
         }
@@ -127,7 +127,7 @@ export const team: TeamMember[] = [
         role: "Novice",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "55532572",
+            phone: "+216 55 532 572",
             personalEmail: "medimegh.insaf2020@gmail.com",
             aerodayEmail: "insaf.medimegh@aeroday.tn"
         }
@@ -138,7 +138,7 @@ export const team: TeamMember[] = [
         role: "Sponsoring",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "92971236",
+            phone: "+216 92 971 236",
             personalEmail: "ahmedrannen1@gmail.com",
             aerodayEmail: "ahmed.rannen@aeroday.tn"
         }
@@ -149,7 +149,7 @@ export const team: TeamMember[] = [
         role: "Participation Manager",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "51305581",
+            phone: "+216 51 305 581",
             personalEmail: "mahexpro@gmail.com",
             aerodayEmail: "maha.menai@aeroday.tn"
         }
@@ -160,7 +160,7 @@ export const team: TeamMember[] = [
         role: "Web Master",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "58749077",
+            phone: "+216 58 749 077",
             personalEmail: "karimkahili002@gmail.com",
             aerodayEmail: "karim.khili@aeroday.tn"
         }
@@ -171,7 +171,7 @@ export const team: TeamMember[] = [
         role: "Secrétaire Général",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "23025252",
+            phone: "+216 23 025 252",
             personalEmail: "khlifimariem122@gmail.com",
             aerodayEmail: "mariem.khlifi@aeroday.tn"
         }
@@ -182,7 +182,7 @@ export const team: TeamMember[] = [
         role: "HR Manager",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "54546051/26349280",
+            phone: "+216 54 546 051/26349280",
             personalEmail: "kefiyasmine229@gmail.com",
             aerodayEmail: "yasmine.kefi@aeroday.tn"
         }
@@ -193,7 +193,7 @@ export const team: TeamMember[] = [
         role: "Ambassador Coordinator",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "28386759",
+            phone: "+216 28 386 759",
             personalEmail: "nouransbai5@gmail.com",
             aerodayEmail: "nouran.sbai@aeroday.tn"
         }
@@ -204,7 +204,7 @@ export const team: TeamMember[] = [
         role: "Media Off",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "54378559",
+            phone: "+216 54 378 559",
             personalEmail: "ahmed.belkahia.2004@gmail.com",
             aerodayEmail: "ahmed.belkahia@aeroday.tn"
         }
@@ -215,7 +215,7 @@ export const team: TeamMember[] = [
         role: "Media On",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "21903388",
+            phone: "+216 21 903 388",
             personalEmail: "mariemhm2101@gmail.com",
             aerodayEmail: "mariem.hammami@aeroday.tn"
         }
@@ -226,7 +226,7 @@ export const team: TeamMember[] = [
         role: "Media On",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "96203547",
+            phone: "+216 96 203 547",
             personalEmail: "issralass@gmail.com",
             aerodayEmail: "issra.lassoued@aeroday.tn"
         }
@@ -237,7 +237,7 @@ export const team: TeamMember[] = [
         role: "Décoration",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "29338552",
+            phone: "+216 29 338 552",
             personalEmail: "hiba.daghesni25@gmail.com",
             aerodayEmail: "hiba.daghesni@aeroday.tn"
         }
@@ -248,7 +248,7 @@ export const team: TeamMember[] = [
         role: "Responsable Organisation",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "94612076",
+            phone: "+216 94 612 076",
             personalEmail: "yazidiyosr007@gmail.com",
             aerodayEmail: "yosr.yazidi@aeroday.tn"
         }
@@ -259,7 +259,7 @@ export const team: TeamMember[] = [
         role: "Responsable Expositions aéronautiques",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "55706442",
+            phone: "+216 55 706 442",
             personalEmail: "sirine.bouzayene@insat.ucar.tn",
             aerodayEmail: "sirine.bouzayene@aeroday.tn"
         }
@@ -270,7 +270,7 @@ export const team: TeamMember[] = [
         role: "Media On",
         image: "https://picsum.photos/400/300",
         contact: {
-            phone: "12345678",
+            phone: "+216 12 345 678",
             personalEmail: "Hajhmidayassine@gmail.com",
             aerodayEmail: "yassine.hajhamida@aeroday.tn"
         }
