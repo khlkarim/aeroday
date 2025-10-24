@@ -111,7 +111,7 @@ const VideoList: React.FC = () => {
         <Title label="Candidats" />
         <Alert
           severity="error"
-          sx={{ borderRadius: 2, mt: 4, maxWidth: 500, textAlign: "center" }}
+          sx={{ borderRadius: 2, mt: 4, textAlign: "center" }}
         >
           {error}
         </Alert>

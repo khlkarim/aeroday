@@ -49,8 +49,6 @@ const VoteResults: React.FC = () => {
           sx={{
             borderRadius: 2,
             mt: 4,
-            maxWidth: 500,
-            width: "100%",
             textAlign: "center",
           }}
         >

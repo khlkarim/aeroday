@@ -77,7 +77,7 @@ const WinnerCard: React.FC = () => {
         <Title label="Winner" />
         <Alert
           severity="error"
-          sx={{ borderRadius: 2, mt: 4, maxWidth: 500, textAlign: "center" }}
+          sx={{ borderRadius: 2, mt: 4, textAlign: "center" }}
         >
           {message}
         </Alert>
