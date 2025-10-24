@@ -61,12 +61,12 @@ export const fevrier1: CalendarEvent[] = [
     {
         title: "Check in et Homologation",
         start: "2026-02-01T13:00",
-        end: "2026-02-01T13:30",
+        end: "2026-02-01T14:00",
         extendedProps: { icon: "check-in" },
     },
     {
         title: "Lancement du cahier des charges",
-        start: "2026-02-01T13:30",
+        start: "2026-02-01T13:00",
         end: "2026-02-01T14:00",
         extendedProps: { icon: "plane" },
     },
@@ -108,25 +108,13 @@ export const fevrier2: CalendarEvent[] = [
     },
     {
         title: "Cérémonie d'ouverture",
-        start: "2026-02-02T13:30",
+        start: "2026-02-02T13:15",
         end: "2026-02-02T14:00",
         extendedProps: { icon: "presentation" },
     },
     {
-        title: "Conférence de Mr Azouz Bachouche",
+        title: "Conférence",
         start: "2026-02-02T14:00",
-        end: "2026-02-02T14:30",
-        extendedProps: { icon: "presentation" },
-    },
-    {
-        title: "Conférence de Mr Belgacem Mekki",
-        start: "2026-02-02T14:30",
-        end: "2026-02-02T15:00",
-        extendedProps: { icon: "presentation" },
-    },
-    {
-        title: "Conférence de Mr Anis Guelbi",
-        start: "2026-02-02T15:00",
         end: "2026-02-02T15:30",
         extendedProps: { icon: "presentation" },
     },
@@ -135,12 +123,6 @@ export const fevrier2: CalendarEvent[] = [
         start: "2026-02-02T15:30",
         end: "2026-02-02T16:30",
         extendedProps: { icon: "threater" },
-    },
-    {
-        title: "Lancement aérochallenge",
-        start: "2026-02-02T15:45",
-        end: "2026-02-02T16:45",
-        extendedProps: { icon: "plane" },
     },
     {
         title: "Cérémonie de clôture et remise des prix",

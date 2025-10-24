@@ -93,15 +93,15 @@ export const event: Event = {
                     '/assets/images/editions-precedentes/2017/aeroday-2017-4.jpeg',
                 ]
             },
-            {
-                label: 'Aeroday 2018',
-                images: [
-                    '/assets/images/editions-precedentes/2018/aeroday-2018-0.jpeg',
-                    // '/assets/images/editions-precedentes/2018/aeroday-2018-1.jpeg',
-                    '/assets/images/editions-precedentes/2018/aeroday-2018-2.jpeg',
-                    '/assets/images/editions-precedentes/2018/aeroday-2018-3.jpeg',
-                ]
-            },
+            // {
+            //     label: 'Aeroday 2018',
+            //     images: [
+            //         '/assets/images/editions-precedentes/2018/aeroday-2018-0.jpeg',
+            //         // '/assets/images/editions-precedentes/2018/aeroday-2018-1.jpeg',
+            //         '/assets/images/editions-precedentes/2018/aeroday-2018-2.jpeg',
+            //         '/assets/images/editions-precedentes/2018/aeroday-2018-3.jpeg',
+            //     ]
+            // },
             // {
             //     label: 'Aeroday 2019',
             //     images: [
@@ -128,7 +128,7 @@ export const event: Event = {
                 images: [
                     '/assets/images/editions-precedentes/2021/aeroday-2021-9.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-7.jpg',
-                    '/assets/images/editions-precedentes/2021/aeroday-2021-0.jpg',
+                    // '/assets/images/editions-precedentes/2021/aeroday-2021-0.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-1.jpg',
                     // '/assets/images/editions-precedentes/2021/aeroday-2021-2.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-3.jpg',
@@ -137,6 +137,23 @@ export const event: Event = {
                     // '/assets/images/editions-precedentes/2021/aeroday-2021-5.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-6.jpg',
                     // '/assets/images/editions-precedentes/2021/aeroday-2021-10.jpg',
+                ]
+            },
+            {
+                label: 'Aeroday 2025',
+                images: [
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-0.jpg',
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-7.jpg',
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-11.jpg',
+                    // '/assets/images/editions-precedentes/2025/aeroday-2025-1.jpg',
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-2.jpg',
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-9.jpg',
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-3.jpg',
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-4.jpg',
+                    // '/assets/images/editions-precedentes/2025/aeroday-2025-8.jpg',
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-10.jpg',
+                    '/assets/images/editions-precedentes/2025/aeroday-2025-5.jpg',
+                    // '/assets/images/editions-precedentes/2025/aeroday-2025-6.jpg',
                 ]
             },
         ],
@@ -205,3 +222,4 @@ export const event: Event = {
         address: "INSAT Centre Urbain Nord\nBP 676 - 1080 Tunis Cedex",
     }
 };
+event.editionsPrecedentes.galleries.reverse();
