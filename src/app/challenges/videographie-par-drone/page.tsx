@@ -1,6 +1,7 @@
 import Page from "@/components/challenges/Page";
 import VideoList from "@/components/challenges/videographie-par-drone/VideoList";
-import VotingResults from "@/components/challenges/videographie-par-drone/VotingResults";
+import VoteResults from "@/components/challenges/videographie-par-drone/VoteResults";
+import WinnerCard from "@/components/challenges/videographie-par-drone/WinnerCard";
 import { Divider, Stack } from "@mui/material";
 
 export default function Ambassade() {
@@ -10,7 +11,9 @@ export default function Ambassade() {
             <Divider />
             <VideoList />     
             <Divider />
-            <VotingResults />
+            <WinnerCard />
+            <Divider />
+            <VoteResults />
         </Stack>
     );
 }
