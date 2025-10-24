@@ -29,7 +29,6 @@ export const useVoteResults = () => {
         setError("Failed to fetch vote results.");
         setResults([]);
       } else if (data) {
-        console.log(data);
         if (data.success) {
           setResults(data.data || []);
         } else {
