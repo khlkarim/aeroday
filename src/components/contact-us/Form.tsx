@@ -23,7 +23,7 @@ export default function ContactForm() {
         const form = e.target as HTMLFormElement;
         const formData = new FormData(form);
 
-        formData.append("access_key", "64b5354c-becd-4534-a058-40e70a2f8e90");
+        formData.append("access_key", "da76bc64-032b-4022-b082-1392421ddb3e");
 
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
@@ -37,6 +37,12 @@ export default function ContactForm() {
         } else {
             console.log("Error", data);
         }
+        setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+        });
     };
 
     return (
