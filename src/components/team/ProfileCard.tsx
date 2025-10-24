@@ -47,12 +47,16 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ item }) => {
                 <Button
                     variant="outlined"
                     startIcon={<PhoneIcon />}
+                    component="a"
+                    href={`tel:${item.contact.phone}`}
                 >
                     {item.contact.phone}
                 </Button>
                 <Button
                     variant="outlined"
                     startIcon={<EmailIcon />}
+                    component="a"
+                    href={`mailto:${item.contact.aerodayEmail}`}
                 >
                     {item.contact.aerodayEmail}
                 </Button>
