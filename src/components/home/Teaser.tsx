@@ -54,18 +54,20 @@ export default function Teaser() {
                     </Box>
                 </Stack>
             </Box>
-            <Box width={{xs: '100%', sm: '100%', md: '80%'}}>
+            <Box
+                sx={{
+                    width: { xs: '100%', sm: '100%', md: '80%' },
+                    position: 'relative',
+                    aspectRatio: '16/9',
+                    overflow: 'hidden',
+                    borderRadius: 1,
+                }}
+            >
                 <iframe
-                    style={{
-                        width: '100%',
-                        borderRadius: 12,
-                        aspectRatio: '16/9',
-                    }}
+                    src="https://www.facebook.com/plugins/video.php?height=302&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1308313737121492%2F&show_text=false&width=560&t=0"
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                     allowFullScreen
-                    title="vimeo-player"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    src="https://player.vimeo.com/video/1027667756?h=8cdfcae03"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 />
             </Box>
         </Stack>

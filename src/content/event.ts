@@ -168,36 +168,36 @@ export const event: Event = {
         },
     ],
     sponsors: [
-        {
-            name: "Company A",
-            logo: "https://picsum.photos/100",
-            website: "https://company-a.com"
-        },
-        {
-            name: "Company B", 
-            logo: "https://picsum.photos/100",
-            website: "https://company-b.com"
-        },
-        {
-            name: "Company C",
-            logo: "https://picsum.photos/100",
-            website: "https://company-c.com"
-        },
-        {
-            name: "Company D", 
-            logo: "https://picsum.photos/100",
-            website: "https://company-d.com"
-        },
-        {
-            name: "Company E",
-            logo: "https://picsum.photos/100",
-            website: "https://company-e.com"
-        },
-        {
-            name: "Company F", 
-            logo: "https://picsum.photos/100",
-            website: "https://company-f.com"
-        }
+        // {
+        //     name: "Company A",
+        //     logo: "https://picsum.photos/100",
+        //     website: "https://company-a.com"
+        // },
+        // {
+        //     name: "Company B", 
+        //     logo: "https://picsum.photos/100",
+        //     website: "https://company-b.com"
+        // },
+        // {
+        //     name: "Company C",
+        //     logo: "https://picsum.photos/100",
+        //     website: "https://company-c.com"
+        // },
+        // {
+        //     name: "Company D", 
+        //     logo: "https://picsum.photos/100",
+        //     website: "https://company-d.com"
+        // },
+        // {
+        //     name: "Company E",
+        //     logo: "https://picsum.photos/100",
+        //     website: "https://company-e.com"
+        // },
+        // {
+        //     name: "Company F", 
+        //     logo: "https://picsum.photos/100",
+        //     website: "https://company-f.com"
+        // }
     ],
     contact: {
         phone: "+216 94 384 001",

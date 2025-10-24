@@ -11,13 +11,13 @@ const About: React.FC = () => {
         <Stack
             gap={4}
             zIndex={1}
-            minHeight="100vh"
+            minHeight="75vh"
             position="relative"
             justifyContent="space-around"
         >   
             <APropos />
             <Badges />
-            <Sponsors />
+            {/* <Sponsors /> */}
         </Stack>
     );
 };

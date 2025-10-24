@@ -81,6 +81,13 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                     variant="contained"
                     href={item.formulaire}
                     rel="noopener noreferrer"
+                    onClick={(e) => {
+                        if (item.formulaire === '#') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            alert("Le formulaire n'est pas encore disponible.");
+                        }
+                    }}
                 >
                     Remplir le formulaire
                 </Button>
@@ -89,6 +96,13 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                     variant="outlined"
                     href={item.cahierDesCharges}
                     rel="noopener noreferrer"
+                    onClick={(e) => {
+                        if (item.cahierDesCharges === '#') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            alert("Le cahier des charges n'est pas encore disponible.");
+                        }
+                    }}
                 >
                     Cahier des charges
                 </Button>
