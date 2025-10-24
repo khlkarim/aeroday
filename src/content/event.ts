@@ -97,20 +97,20 @@ export const event: Event = {
                 label: 'Aeroday 2018',
                 images: [
                     '/assets/images/editions-precedentes/2018/aeroday-2018-0.jpeg',
-                    '/assets/images/editions-precedentes/2018/aeroday-2018-1.jpeg',
+                    // '/assets/images/editions-precedentes/2018/aeroday-2018-1.jpeg',
                     '/assets/images/editions-precedentes/2018/aeroday-2018-2.jpeg',
                     '/assets/images/editions-precedentes/2018/aeroday-2018-3.jpeg',
                 ]
             },
-            {
-                label: 'Aeroday 2019',
-                images: [
-                    '/assets/images/editions-precedentes/2019/aeroday-2019-0.jpeg',
-                    '/assets/images/editions-precedentes/2019/aeroday-2019-1.jpeg',
-                    '/assets/images/editions-precedentes/2019/aeroday-2019-2.jpeg',
-                    '/assets/images/editions-precedentes/2019/aeroday-2019-3.jpeg',
-                ]
-            },
+            // {
+            //     label: 'Aeroday 2019',
+            //     images: [
+            //         '/assets/images/editions-precedentes/2019/aeroday-2019-0.jpeg',
+            //         '/assets/images/editions-precedentes/2019/aeroday-2019-1.jpeg',
+            //         '/assets/images/editions-precedentes/2019/aeroday-2019-2.jpeg',
+            //         '/assets/images/editions-precedentes/2019/aeroday-2019-3.jpeg',
+            //     ]
+            // },
             {
                 label: 'Aeroday 2020',
                 images: [
@@ -120,23 +120,23 @@ export const event: Event = {
                     '/assets/images/editions-precedentes/2020/aeroday-2020-3.jpeg',
                     '/assets/images/editions-precedentes/2020/aeroday-2020-4.jpeg',
                     '/assets/images/editions-precedentes/2020/aeroday-2020-5.jpeg',
-                    '/assets/images/editions-precedentes/2020/aeroday-2020-6.jpeg',
+                    // '/assets/images/editions-precedentes/2020/aeroday-2020-6.jpeg',
                 ]
             },
             {
                 label: 'Aeroday 2021',
                 images: [
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-9.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-7.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-0.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-1.jpg',
-                    '/assets/images/editions-precedentes/2021/aeroday-2021-2.jpg',
+                    // '/assets/images/editions-precedentes/2021/aeroday-2021-2.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-3.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-4.jpg',
-                    '/assets/images/editions-precedentes/2021/aeroday-2021-5.jpg',
-                    '/assets/images/editions-precedentes/2021/aeroday-2021-6.jpg',
-                    '/assets/images/editions-precedentes/2021/aeroday-2021-7.jpg',
                     '/assets/images/editions-precedentes/2021/aeroday-2021-8.jpg',
-                    '/assets/images/editions-precedentes/2021/aeroday-2021-9.jpg',
-                    '/assets/images/editions-precedentes/2021/aeroday-2021-10.jpg',
+                    // '/assets/images/editions-precedentes/2021/aeroday-2021-5.jpg',
+                    '/assets/images/editions-precedentes/2021/aeroday-2021-6.jpg',
+                    // '/assets/images/editions-precedentes/2021/aeroday-2021-10.jpg',
                 ]
             },
         ],
