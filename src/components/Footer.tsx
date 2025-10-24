@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                             </IconButton>
                             <IconButton
                                 component="a"
-                                href="https://www.tiktok.com/@yourprofile"
+                                href="https://www.tiktok.com/@tunisian.aeroday"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 color="inherit"
