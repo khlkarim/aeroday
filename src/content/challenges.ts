@@ -21,7 +21,7 @@ export const challenges: Challenge[] = [
         href: "/challenges/aerochallenge",
         image: "/assets/images/challenges/aerochallenge/banner.jpg",
         date: {
-            day: 2,
+            day: 1,
             month: 2
         },
         description: 
@@ -111,7 +111,7 @@ export const challenges: Challenge[] = [
         image: "/assets/images/challenges/videographie-par-drone/banner.jpg",
         video: "/assets/images/challenges/videographie-par-drone/video.mp4",
         date: {
-            day: 2,
+            day: 1,
             month: 2
         },
         description: 

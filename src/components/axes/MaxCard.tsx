@@ -45,10 +45,10 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                         <Typography variant="h5">
                             {item.name}
                         </Typography>
-                        <Chip
+                        {item.date && <Chip
                             color="primary"
                             label={formatDate(item.date)}
-                        />
+                        />}
                     </Stack>
 
                     <Divider />
@@ -92,5 +92,6 @@ export default MaxCard;
 
 function formatDate(date: Axe['date']): string
 {
+    if(!date) return "";
     return `${String(date.day).padStart(2, '0')}/${String(date.month).padStart(2, '0')}`;
 }

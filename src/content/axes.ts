@@ -3,7 +3,7 @@ export interface Axe {
     name: string;
     href: string;
     image: string;
-    date: {
+    date?: {
         day: number;
         month: number;
     };
@@ -19,16 +19,10 @@ export const axes: Axe[] = [
         href: "/axes/expositions-aeronautiques",
         image: "/assets/images/axes/expositions-aeronautiques/banner.jpg",
         date: {
-            day: 2, 
+            day: 1, 
             month: 2
         },
-        description: 
-            "Plongez dans une exposition aéronautique captivante où " +
-            "la créativité et la passion des jeunes passionnés rencontrent " +
-            "l'expertise des professionnels chevronnés. Les stands, installés " +
-            "dans le hall de l'INSAT, offrent un espace d'échange inspirant " +
-            "et intergénérationnel, mettant en lumière des projets, des " +
-            "innovations et des exploits remarquables.",
+        description: "Plongez au cœur d’une exposition aéronautique où l’imagination des jeunes s’élève aux côtés du savoir des experts. Dans le hall de l’INSAT, les stands deviennent un ciel d’échanges et d’inspirations, où brillent projets audacieux, innovations et rêves d’altitude. ",
         formulaire: "#",
         responsableId: 22
     },
@@ -38,7 +32,7 @@ export const axes: Axe[] = [
         href: "/axes/expositions-aerospatiales",
         image: "/assets/images/axes/expositions-aerospatiales/banner.jpg",
         date: {
-            day: 2,
+            day: 1,
             month: 2
         },
         description: 
@@ -56,10 +50,6 @@ export const axes: Axe[] = [
         name: "Ateliers Novices",
         href: "/axes/ateliers-novices",
         image: "/assets/images/axes/novices/banner.jpg",        
-        date: {
-            day: 2, 
-            month: 2
-        },
         description:
             "Les Ateliers Novices sont conçus pour les jeunes débutants en aéronautique, âgés de 6 à 17 ans. Au programme: Défis en aéromodélisme, Aero Entrepreneure Junior et CAO — des activités adaptées à chaque âge pour apprendre, imaginer et s’envoler vers l’innovation!",
         formulaire: "#",
@@ -70,10 +60,6 @@ export const axes: Axe[] = [
         name: "Ambassade",
         href: "/axes/ambassade",
         image: "/assets/images/axes/ambassade/banner.jpg",    
-        date: {
-            day: 2, 
-            month: 2
-        },
         description: 
             "L'Ambassade est un axe clé de l'Aeroday, visant à donner une dimension " +
             "nationale et internationale à l'événement. En attirant des conférenciers, " +
