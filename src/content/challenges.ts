@@ -82,9 +82,9 @@ export const challenges: Challenge[] = [
             month: 1
         },
         description:
-            "Le Challenge AéroEntrepreneur est une compétition alliant aéronautique et entrepreneuriat, destinée aux jeunes porteurs" + 
-            "d’un esprit d’innovation et d’initiative.Durant 24 heures, les équipes devront concevoir et proposer des solutions aux " +
-            "problématiques qui leur seront présentées au début du challenge. Tout au long de l’événement, les participants bénéficieront"+ 
+            "Le Challenge AéroEntrepreneur est une compétition alliant aéronautique et entrepreneuriat, destinée aux jeunes porteurs " + 
+            "d’un esprit d’innovation et d’initiative. Durant 24 heures, les équipes devront concevoir et proposer des solutions aux " +
+            "problématiques qui leur seront présentées au début du challenge. Tout au long de l’événement, les participants bénéficieront "+ 
             "de l’accompagnement de coaches spécialisés dans les deux domaines, ainsi que de formations ciblées pour enrichir leurs compétences.",
         cahierDesCharges: "#",
         formulaire: "#",
@@ -99,11 +99,7 @@ export const challenges: Challenge[] = [
             day: 1,
             month: 2
         },
-        description: 
-            "La Conception Assistée par Ordinateur est un challenge de 24 heures destinée aux passionnés du design et de l'aéronautique. " +
-            "Les participants devront concevoir un modèle 3D novateur et fonctionnel d'un engin, en respectant un cahier des charges précis " +
-            "et en utilisant des logiciels de modélisation (SolidWorks, Catia, …). À l'issue du challenge, chaque équipe présentera son projet " +
-            "devant un jury d'experts en CAO, qui évaluera les créations selon des critères pertinents.",
+        description: "Le challenge CAO (Conception Assistée par Ordinateur) est un challenge de 24 heures destiné aux passionnés de design et d’aéronautique. Les participants devront concevoir un modèle 3D innovant et fonctionnel répondant à une problématique dévoilée au début du hackathon, tout en respectant un cahier des charges précis et en utilisant des logiciels de modélisation tels que SolidWorks ou CATIA... À l’issue du challenge, chaque équipe présentera son projet devant un jury qui évaluera les créations selon des critères techniques, esthétiques et fonctionnels.",
         cahierDesCharges: "#",
         formulaire: "#",
         responsableId: 5

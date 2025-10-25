@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Stack, Typography, Box, useTheme } from '@mui/material';
 import { ColorFormat, ColorHex, CountdownCircleTimer } from 'react-countdown-circle-timer';
 
@@ -82,17 +82,17 @@ const TimeUnit: React.FC<TimeUnitProps> = ({ value, label, duration, colors, ini
 
 export const Countdown: React.FC = () => {
     const theme = useTheme();
-    const [timeParts, setTimeParts] = useState<TimeParts>(getTimeParts(new Date(2026, 1, 2).getTime()));
+    const targetDate = useMemo(() => new Date(2026, 1, 1), []);
+    const [timeParts, setTimeParts] = useState<TimeParts>(getTimeParts(targetDate.getTime()));
 
     useEffect(() => {
         const updateTimer = () => {
-            const targetDate = new Date(2026, 1, 2);
             setTimeParts(getTimeParts(targetDate.getTime()));
         };
         updateTimer();
         const interval = setInterval(updateTimer, 1000);
         return () => clearInterval(interval);
-    }, []);
+    }, [targetDate]);
 
     return (
         <Stack
