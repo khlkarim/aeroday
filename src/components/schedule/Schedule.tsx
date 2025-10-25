@@ -30,7 +30,7 @@ export function Schedule() {
 
     return (
 
-        <Stack gap={6} alignItems="center" justifyContent="center" sx={{ minHeight: "65vh" }}>
+        <Stack gap={6} alignItems="center" sx={{ minHeight: "65vh" }}>
             <Title label="Schedule" />
             <Box
                 sx={{
@@ -42,7 +42,7 @@ export function Schedule() {
                 }}
             >
                 <Typography variant="h5" fontWeight={600}>
-                    <Typography component={"span"} variant="h5" fontWeight={600} color={theme.palette.primary.main}>Coming</Typography> Soon ⏳
+                    <Typography component={"span"} variant="h5" fontWeight={600} color={theme.palette.primary.main}>Coming</Typography> Soon... ⏳
                 </Typography>
 
             </Box>

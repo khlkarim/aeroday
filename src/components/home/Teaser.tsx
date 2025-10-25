@@ -63,7 +63,8 @@ export default function Teaser() {
                 }}
             >
                 <iframe
-                    src="https://www.facebook.com/plugins/video.php?height=302&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1308313737121492%2F&show_text=false&width=560&t=0"
+                    title="Facebook video"
+                    src="https://www.facebook.com/plugins/video.php?height=302&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1308313737121492%2F&show_text=false&width=560&t=0&autoplay=1&mute=1"
                     style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                     allowFullScreen

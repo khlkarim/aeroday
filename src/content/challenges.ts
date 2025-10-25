@@ -45,7 +45,7 @@ export const challenges: Challenge[] = [
             month: 1
         },
         description: 
-            "L'AéroModélisme est un challenge indoor où les participants doivent concevoir et construire " +
+            "L'AéroModélisme est un challenge où les participants doivent concevoir et construire " +
             "leurs propres modèles réduits de planeurs en suivant un cahier des charges précis. Chaque équipe " +
             "fait ensuite voler son planeur, démontrant son talent technique et créatif devant un public de " +
             "passionnés et un jury de professionnels. Ce challenge est une occasion unique de partager sa passion " +
@@ -64,7 +64,7 @@ export const challenges: Challenge[] = [
             month: 1
         },
         description: 
-            "L'AirShow est un challenge indoor dédié aux avions radio-commandés, où les participants doivent concevoir et réaliser " +
+            "L'AirShow est un challenge dédié aux avions radio-commandés, où les participants doivent concevoir et réaliser " +
             "leur propre PolyClub en suivant un cahier des charges rigoureux. Au cours de ce show aérien compétitif, chaque équipe " +
             "présente un spectacle innovant, mettant en avant leurs compétences en pilotage devant un jury de professionnels et un " +
             "public enthousiaste.",

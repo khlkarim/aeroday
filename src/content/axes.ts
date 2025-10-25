@@ -60,13 +60,8 @@ export const axes: Axe[] = [
             day: 2, 
             month: 2
         },
-        description: 
-            "Avec une confiance profonde dans le potentiel des générations futures, " +
-            "nous avons créé les Ateliers Novices, une expérience immersive pour " +
-            "les enfants de 4 à 17 ans, visant à les initier au monde de l'aéronautique. " +
-            "Ce mini Aeroday propose des ateliers adaptés à chaque tranche d'âge, " +
-            "incluant des défis en aéromodélisme, programmation et conception assistée " +
-            "par ordinateur (CAO), pour des découvertes enrichissantes.",
+        description:
+            "Les Ateliers Novices sont conçus pour les jeunes débutants en aéronautique, âgés de 6 à 17 ans. Au programme: Défis en aéromodélisme, Aero Entrepreneure Junior et CAO — des activités adaptées à chaque âge pour apprendre, imaginer et s’envoler vers l’innovation!",
         formulaire: "#",
         responsableId: 10
     }, 
