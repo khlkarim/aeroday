@@ -263,16 +263,5 @@ export const team: TeamMember[] = [
             personalEmail: "sirine.bouzayene@insat.ucar.tn",
             aerodayEmail: "sirine.bouzayene@aeroday.tn"
         }
-    },
-    {
-        id: 23,
-        name: "Yassine Haj Hmida",
-        role: "Media On",
-        image: "/assets/images/team/Yassine Haj Hmida.png",
-        contact: {
-            phone: "+216 12 345 678",
-            personalEmail: "Hajhmidayassine@gmail.com",
-            aerodayEmail: "yassine.hajhamida@aeroday.tn"
-        }
     }
 ];

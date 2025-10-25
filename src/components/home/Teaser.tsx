@@ -60,7 +60,6 @@ export default function Teaser() {
                     position: 'relative',
                     aspectRatio: '16/9',
                     overflow: 'hidden',
-                    borderRadius: 1,
                 }}
             >
                 <iframe
