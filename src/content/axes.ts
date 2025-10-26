@@ -57,7 +57,7 @@ export const axes: Axe[] = [
     }, 
     {
         id: 3,
-        name: "Ambassade",
+        name: "Ambassadorship",
         href: "/axes/ambassade",
         image: "/assets/images/axes/ambassade/banner.jpg",    
         description: 
