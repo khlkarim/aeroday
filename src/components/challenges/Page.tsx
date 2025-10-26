@@ -24,19 +24,15 @@ export default function Page({ id }: { id: number }) {
     return (
         <Stack 
             flexWrap={'wrap'} 
-            gap={{ xs: 6, sm: 6, md: 2 }}
+            gap={{ xs: 6, sm: 6, md: 4 }}
+            alignItems={'center'}
             justifyContent={'space-around'}
             flexDirection={{ xs: 'column', sm: 'column', md: 'row' }} 
         >
             <Box ref={cardRef} className='animated' flex={2}>
                 <MaxCard item={challenge} />
             </Box>
-            <Stack 
-                gap={2}
-                flex={1}
-                alignItems={'center'}
-                justifyContent={'space-around'} 
-            >
+            <Stack gap={4} alignItems={'center'}>
                 <Box ref={titleRef} className='animated' display="flex" alignItems="center" gap={1}>
                     <Title label="Responsable" />
                 </Box>
