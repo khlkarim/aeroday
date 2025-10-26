@@ -31,6 +31,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ item }) => {
                         alt={item.name}
                         src={item.image}
                         style={{ objectFit: 'cover' }}
+                        unoptimized
                     />
                 </Box>
 
