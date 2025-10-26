@@ -71,10 +71,9 @@ export const event: Event = {
     teaser: {
         video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         description: 
-            "Cette 12ème édition du Tunisian Aeroday, placée sous le thème inspirant de Cieux éternels de l’Afrique, " +
-            "incarne une ambition forte : celle de positionner la Tunisie comme un centre névralgique de l'aviation en Afrique.\n" +
-            "Le choix de ce thème reflète une vision d’avenir qui relie l'héritage riche et intemporel du continent africain " +
-            "à son potentiel important de développement dans le domaine de l'aéronautique.",
+            "Cette 13ème édition du Tunisian Aeroday, placée sous le thème de AEROPARK, transforme l’univers de l’aéronautique en une véritable expérience immersive et ludique. " +
+            "Inspiré des parcs d’attractions, AEROPARK invite les passionnés et les curieux à découvrir l’aéronautique sous un nouveau visage — un lieu où innovation, divertissement et découverte se rencontrent. " + 
+            "À travers cette édition, le Tunisian Aeroday ambitionne de rapprocher la science et le rêve, en faisant de l’aviation non seulement un domaine d’expertise, mais aussi un espace d’émerveillement accessible à tous.",
         headlines: [
             "🚀 Un appel à innover, échanger et explorer les opportunités stratégiques de l’aviation",
             "🌍 Un thème qui relie l’héritage africain à son immense potentiel de développement",
