@@ -9,13 +9,13 @@ export default function Scene() {
         <Canvas
             camera={{ 
                 fov: 45, 
-                position: [-5, 10, -14] 
+                position: [-5, 7, -14] 
             }}
         >
             <PerformanceMonitor />
 
             <Suspense fallback={null}>
-                <Plane />
+                <Plane rotation={[-Math.PI/8, -Math.PI/8, -Math.PI/8]} />
                 <Lighting />
                 <OrbitControls 
                     enableDamping 
