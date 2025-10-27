@@ -47,7 +47,7 @@ export default function Teaser() {
                     />
                     <Box className="split">
                         <Paragraph>
-                            <Typography textAlign={{ xs: "center", sm: 'center', md: "left" }}>
+                            <Typography textAlign={"justify"}>
                                 {event.teaser.description}    
                             </Typography>
                         </Paragraph>

@@ -56,6 +56,7 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                     <Typography 
                         variant="body1" 
                         color="text.secondary"
+                        textAlign={'justify'}
                     >
                         {item.description}
                     </Typography>

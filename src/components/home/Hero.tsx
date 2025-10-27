@@ -107,7 +107,7 @@ const Hero: React.FC = () => {
                 {/* Description */}
                 <Box className="animated">
                     <Paragraph>
-                        <Typography textAlign={{ xs: "center", sm: 'center', md: "left" }}>
+                        <Typography textAlign={"justify"}>
                             {event.description.primary}    
                         </Typography>
                     </Paragraph>
