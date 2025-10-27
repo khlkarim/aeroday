@@ -30,7 +30,7 @@ export default function EditionsPrecedentes() {
                 <Title label="Editions Précédentes" />
                 <Box className="split">
                     <Paragraph>
-                        <Typography textAlign={"justify"}>
+                        <Typography textAlign={'left'}>
                             {event.editionsPrecedentes.description}    
                         </Typography>
                     </Paragraph>
