@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
                         variant="h2"
                         lineHeight={1.2}
                         fontWeight="bold"
-                        fontSize={{ xs: "2.2rem", sm: "2.4rem", md: "3rem" }}
+                        fontSize={{ xs: "1.6rem", sm: "2.4rem", md: "3rem" }}
                     >
                         {event.name + " "}
                         <Box
