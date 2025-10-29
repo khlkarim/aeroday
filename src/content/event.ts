@@ -71,9 +71,9 @@ export const event: Event = {
     teaser: {
         video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         description: 
-            "Cette 13ème édition du Tunisian Aeroday, placée sous le thème de AEROPARK, transforme l’univers de l’aéronautique en une véritable expérience immersive et ludique. " +
-            "Inspiré des parcs d’attractions, AEROPARK invite les passionnés et les curieux à découvrir l’aéronautique sous un nouveau visage — un lieu où innovation, divertissement et découverte se rencontrent. " + 
-            "À travers cette édition, le Tunisian Aeroday ambitionne de rapprocher la science et le rêve, en faisant de l’aviation non seulement un domaine d’expertise, mais aussi un espace d’émerveillement accessible à tous.",
+            "Placée sous le thème AEROPARK, la 13ᵉ édition du Tunisian Aeroday transforme l’aéronautique en une expérience à la fois scientifique, culturelle et ludique. " +
+            "Inspiré des parcs d’attractions, l’événement réunit étudiants, start-ups, entreprises et passionnés autour de conférences, ateliers et compétitions dédiés aux technologies aéronautiques et spatiales. " +
+            "Son objectif est de stimuler la créativité, l’innovation et l’entrepreneuriat, tout en inspirant une nouvelle génération d’innovateurs tunisiens.",
         headlines: [
             "🚀 Un appel à innover, échanger et explorer les opportunités stratégiques de l’aviation",
             "🌍 Un thème qui relie l’héritage africain à son immense potentiel de développement",
