@@ -41,7 +41,7 @@ export const challenges: Challenge[] = [
         href: "/challenges/aeromodelisme",
         image: "/assets/images/challenges/aeromodelisme/banner.jpg",
         date: {
-            day: 26,
+            day: 31,
             month: 1
         },
         description: 
@@ -60,7 +60,7 @@ export const challenges: Challenge[] = [
         href: "/challenges/airshow",
         image: "/assets/images/challenges/airshow/banner.jpg",
         date: {
-            day: 26,
+            day: 31,
             month: 1
         },
         description: 
@@ -78,7 +78,7 @@ export const challenges: Challenge[] = [
         href: "/challenges/aeroentrepreneur",
         image: "/assets/images/challenges/aeroentrepreneur/banner.jpg",
         date: {
-            day: 26,
+            day: 31,
             month: 1
         },
         description:
