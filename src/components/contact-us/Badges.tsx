@@ -95,7 +95,7 @@ const Badges: React.FC = () => {
                 <Box>
                     <Typography variant="h5" textAlign={'center'}>Call Us</Typography>
                     <Typography variant="body1" color="text.secondary" textAlign={'center'}>
-                        +216 12 123 123
+                        +216 96 917 998
                     </Typography>
                 </Box>
             </Stack>

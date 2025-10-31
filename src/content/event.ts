@@ -216,7 +216,7 @@ export const event: Event = {
         // }
     ],
     contact: {
-        phone: "+216 94 384 001",
+        phone: "+216 96 917 998",
         email: "contact@aeroday.tn",
         address: "INSAT Centre Urbain Nord\nBP 676 - 1080 Tunis Cedex",
     }
