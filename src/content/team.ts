@@ -47,7 +47,7 @@ export const team: TeamMember[] = [
     {
         id: 3,
         name: "Ayoub Ferjani",
-        role: "Responsable Aeromodélisme",
+        role: "Aéromodélisme",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Ayoub_Ferjani.jpg",
         contact: {
             phone: "+216 99 807 899",
@@ -58,7 +58,7 @@ export const team: TeamMember[] = [
     {
         id: 4,
         name: "Lina Chtioui",
-        role: "Responsable Aerochallenge",
+        role: "Aérochallenge",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Lina_Chtioui.jpg",
         contact: {
             phone: "+216 58 882 855",
@@ -69,7 +69,7 @@ export const team: TeamMember[] = [
     {
         id: 5,
         name: "Mohamed Kallel",
-        role: "Responsable CAO",
+        role: "CAO",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Mohamed_Kallel.jpg",
         contact: {
             phone: "+216 21 300 465",
@@ -80,7 +80,7 @@ export const team: TeamMember[] = [
     {
         id: 6,
         name: "Wijden Darguech",
-        role: "Aeroentrepreneur",
+        role: "AéroEntrepreneur",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Wijden_Darguech.jpg",
         contact: {
             phone: "+216 29 568 214",
@@ -91,7 +91,7 @@ export const team: TeamMember[] = [
     {
         id: 7,
         name: "Adem Mighri",
-        role: "Responsable Airshow",
+        role: "Airshow",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Adem_Mighri.jpg",
         contact: {
             phone: "+216 92 935 588",
@@ -113,7 +113,7 @@ export const team: TeamMember[] = [
     {
         id: 9,
         name: "Ahmed Ksibi",
-        role: "Responsable Aerospace",
+        role: "Expositions Aérospatiales",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Ahmed_Ksibi.jpg",
         contact: {
             phone: "+216 55 158 408",
@@ -124,7 +124,7 @@ export const team: TeamMember[] = [
     {
         id: 10,
         name: "Insaf Medimegh",
-        role: "Novice",
+        role: "Ateliers Novices",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Insaf_Medimegh.jpg",
         contact: {
             phone: "+216 55 532 572",
@@ -182,7 +182,7 @@ export const team: TeamMember[] = [
         role: "HR Manager",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Yasmine_Kefi.jpg",
         contact: {
-            phone: "+216 54 546 051/26349280",
+            phone: "+216 54 546 051",
             personalEmail: "kefiyasmine229@gmail.com",
             aerodayEmail: "yasmine.kefi@aeroday.tn"
         }
@@ -245,7 +245,7 @@ export const team: TeamMember[] = [
     {
         id: 21,
         name: "Yosr Yazidi",
-        role: "Responsable Organisation",
+        role: "Organisation",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Yosr_Yazidi.jpg",
         contact: {
             phone: "+216 94 612 076",
@@ -256,7 +256,7 @@ export const team: TeamMember[] = [
     {
         id: 22,
         name: "Sirine Bouzayene",
-        role: "Responsable Expositions aéronautiques",
+        role: "Expositions Aéronautiques",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Sirine_Bouzayene.jpg",
         contact: {
             phone: "+216 55 706 442",
