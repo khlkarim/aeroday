@@ -165,12 +165,12 @@ export const event: Event = {
         {
             icon: "trophy",
             title: "Défi a battre",
-            subtitle: "Plusieurs challenges vous attendent"
+            subtitle: "Plusieurs challenges vous attendent!"
         },
         {
             icon: "history",
             title: "Notre Histoire",
-            subtitle: "plus de 10 ans d'experience"
+            subtitle: "Plus de 10 ans d'experience."
         },
         {
             icon: "gift",

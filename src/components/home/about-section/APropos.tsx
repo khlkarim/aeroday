@@ -76,7 +76,7 @@ export const APropos = () => {
                     </Box>
                 </Typography>
                 <Box className="animated">
-                    <Paragraph><Typography textAlign={'center'}>{event.description.secondary}</Typography></Paragraph>
+                    <Paragraph><Typography textAlign={{ xs: 'justify', sm: 'center', md: 'center' }}>{event.description.secondary}</Typography></Paragraph>
                 </Box>
             </Stack>
         </Stack>
