@@ -6,6 +6,7 @@ import TikTokIcon from '@mui/icons-material/MusicNote';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Box, Container, Typography, Stack, IconButton, useTheme } from '@mui/material';
+import { LinkedIn } from '@mui/icons-material';
 
 const Footer: React.FC = () => {
     const theme = useTheme();
@@ -49,6 +50,15 @@ const Footer: React.FC = () => {
                                 color="inherit"
                             >
                                 <InstagramIcon />
+                            </IconButton>
+                            <IconButton
+                                component="a"
+                                href="https://www.linkedin.com/company/tunisian-aeroday/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                color="inherit"
+                            >
+                                <LinkedIn />
                             </IconButton>
                             <IconButton
                                 component="a"
