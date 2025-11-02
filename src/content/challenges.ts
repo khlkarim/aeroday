@@ -106,7 +106,7 @@ export const challenges: Challenge[] = [
     },
     {
         id: 5,
-        name: "Vidéographie par drone",
+        name: "Vidéographie par Drone",
         href: "/challenges/videographie-par-drone",
         image: "/assets/images/challenges/videographie-par-drone/banner.jpg",
         video: "/assets/images/challenges/videographie-par-drone/video.mp4",
@@ -115,9 +115,7 @@ export const challenges: Challenge[] = [
             month: 2
         },
         description: 
-            "Le challenge de vidéographie par drone offre aux passionnés de production visuelle une occasion unique de présenter leurs œuvres au grand public. " +
-            "Les participants devront respecter un cahier des charges précis, garantissant une compétition de qualité où créativité et expertise seront mises en avant. " +
-            "Cette compétition mettra en lumière le talent des vidéastes et permettra de valoriser la maîtrise technique de la production aérienne.",
+            "le Challenge de Vidéographie par Drone invite les participants à explorer le ciel comme une toile de création, transformant l’outil aéronautique en instrument narratif et visuel. Cette année, le challenge s’inscrit sous le thème : \"Simuler une performance acrobatique dans un cirque\". Pour l’édition 2026, le challenge propose aux participants de recréer la magie et la maîtrise d’une performance acrobatique dans un cirque, à travers l’objectif de leur drone. Ce challenge permet aux participants de montrer leur créativité, leur maîtrise technique et leur sens artistique en capturant la fluidité, la précision et l’émotion des acrobaties entre les espaces verts et les bâtiments.",
         cahierDesCharges: "#",
         formulaire: "#",
         responsableId: 8

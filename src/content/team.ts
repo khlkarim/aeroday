@@ -102,7 +102,7 @@ export const team: TeamMember[] = [
     {
         id: 8,
         name: "Seif Flifel",
-        role: "Videographie par Drone",
+        role: "Vidéographie par Drone",
         image: "https://dnwmpwnyzljrvaanwjqp.supabase.co/storage/v1/object/public/team/Seif_Flifel.jpg",
         contact: {
             phone: "+216 52 208 390",
