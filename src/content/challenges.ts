@@ -50,8 +50,8 @@ export const challenges: Challenge[] = [
             "fait ensuite voler son planeur, démontrant son talent technique et créatif devant un public de " +
             "passionnés et un jury de professionnels. Ce challenge est une occasion unique de partager sa passion " +
             "pour l'aéromodélisme dans une ambiance conviviale et inspirante.",
-        cahierDesCharges: "#",
-        formulaire: "#",
+        cahierDesCharges: "https://drive.google.com/file/d/1BUBu1HuYXQRVdyVKUtlIMUEyEXm5DfW7/view",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSe7EtXshqgdu9BKOc2xiCRrYenkaC_omhctgUF2KUTh60WCrg/viewform",
         responsableId: 3
     },
     {
