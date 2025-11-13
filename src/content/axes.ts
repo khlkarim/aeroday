@@ -67,7 +67,7 @@ export const axes: Axe[] = [
             "diversifiée. Grâce à son réseau d'ambassadeurs, il connecte l'événement " +
             "avec plusieurs universités et acteurs nationaux, tout en organisant des " +
             "conférences qui encouragent le partage des connaissances en aéronautique.",
-        formulaire: "#",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSdFfxAFflV2TEx6_cxPtiqIMnMYE4D_m-MmW4EHgLUJNr7QNA/viewform",
         responsableId: 16
     }
 ];
