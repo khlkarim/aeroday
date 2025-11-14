@@ -68,8 +68,8 @@ export const challenges: Challenge[] = [
             "leur propre PolyClub en suivant un cahier des charges rigoureux. Au cours de ce show aérien compétitif, chaque équipe " +
             "présente un spectacle innovant, mettant en avant leurs compétences en pilotage devant un jury de professionnels et un " +
             "public enthousiaste.",
-        cahierDesCharges: "#",
-        formulaire: "#",
+        cahierDesCharges: "https://drive.google.com/file/d/16oRm7wmmMO81HFakJHFQA6ahxjRK3J2o/view",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLScxYleyuzdYqOx21gTFycGWnehPg2V_obgdIKAk4XU7QUR10w/viewform",
         responsableId: 7
     },
     {
