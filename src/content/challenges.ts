@@ -116,8 +116,8 @@ export const challenges: Challenge[] = [
         },
         description: 
             "le Challenge de Vidéographie par Drone invite les participants à explorer le ciel comme une toile de création, transformant l’outil aéronautique en instrument narratif et visuel. Cette année, le challenge s’inscrit sous le thème : \"Simuler une performance acrobatique dans un cirque\". Pour l’édition 2026, le challenge propose aux participants de recréer la magie et la maîtrise d’une performance acrobatique dans un cirque, à travers l’objectif de leur drone. Ce challenge permet aux participants de montrer leur créativité, leur maîtrise technique et leur sens artistique en capturant la fluidité, la précision et l’émotion des acrobaties entre les espaces verts et les bâtiments.",
-        cahierDesCharges: "#",
-        formulaire: "#",
+        cahierDesCharges: "https://drive.google.com/file/d/1UOGJvamEKBiOZ422ufQgYgEp1Op3uVas/view",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSdQ-OmltKUoUhQ77sfkkSEHajZx-mjE9UCmwj8Fg8uE36UtOg/viewform",
         responsableId: 8
     }
 ];
