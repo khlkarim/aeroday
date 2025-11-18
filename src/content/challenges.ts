@@ -31,8 +31,8 @@ export const challenges: Challenge[] = [
             "les exigences du cahier des charges. Ce challenge a pour objectif de réunir les passionnés " +
             "de drones dans un affrontement captivant où leur talent, leurs compétences et leur enthousiasme " +
             "seront mis en lumière.",
-        cahierDesCharges: "#",
-        formulaire: "#",
+        cahierDesCharges: "https://drive.google.com/file/d/1Btl_WHpCS_-km--undwtOc1Z5tM0J39v/view",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLScv5LeStGzoceUWunt7z2ARlld9iMTKE3VUFasqipBsDTQmNw/viewform",
         responsableId: 4
     },
     {
