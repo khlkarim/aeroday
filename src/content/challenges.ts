@@ -100,8 +100,8 @@ export const challenges: Challenge[] = [
             month: 2
         },
         description: "Le challenge CAO (Conception Assistée par Ordinateur) est un challenge de 24 heures destiné aux passionnés de design et d’aéronautique. Les participants devront concevoir un modèle 3D innovant et fonctionnel répondant à une problématique dévoilée au début du hackathon, tout en respectant un cahier des charges précis et en utilisant des logiciels de modélisation tels que SolidWorks ou CATIA... À l’issue du challenge, chaque équipe présentera son projet devant un jury qui évaluera les créations selon des critères techniques, esthétiques et fonctionnels.",
-        cahierDesCharges: "#",
-        formulaire: "#",
+        cahierDesCharges: "https://drive.google.com/file/d/1Te-rc9r5kgmY6UF-hH3U3xDbU5PvmSv1/view",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSd-diC_uCaGuvMVslMqUNkTWeYSC4GLVgoJWRmCT6ZjNDsScA/viewform",
         responsableId: 5
     },
     {
