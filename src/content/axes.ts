@@ -23,7 +23,7 @@ export const axes: Axe[] = [
             month: 2
         },
         description: "Plongez au cœur d’une exposition aéronautique où l’imagination des jeunes s’élève aux côtés du savoir des experts. Dans le hall de l’INSAT, les stands deviennent un ciel d’échanges et d’inspirations, où brillent projets audacieux, innovations et rêves d’altitude. ",
-        formulaire: "#",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSd8dkew503UlV5M472Hj3uFoGUIDn1yjGRjQ58BmM3hatCX-w/viewform?usp=send_form",
         responsableId: 22
     },
     {
@@ -42,7 +42,7 @@ export const axes: Axe[] = [
             "Cette exposition offrira aux visiteurs l'occasion de plonger dans une diversité " +
             "de projets fascinants, révélant les promesses de l'espace et éveillant la curiosité " +
             "des passionnés pour l'astronomie et l'exploration spatiale.",
-        formulaire: "#",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSd8dkew503UlV5M472Hj3uFoGUIDn1yjGRjQ58BmM3hatCX-w/viewform?usp=send_form",
         responsableId: 9
     },
     {
