@@ -42,7 +42,7 @@ export const axes: Axe[] = [
             "Cette exposition offrira aux visiteurs l'occasion de plonger dans une diversité " +
             "de projets fascinants, révélant les promesses de l'espace et éveillant la curiosité " +
             "des passionnés pour l'astronomie et l'exploration spatiale.",
-        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSd8dkew503UlV5M472Hj3uFoGUIDn1yjGRjQ58BmM3hatCX-w/viewform?usp=send_form",
+        formulaire: "#",
         responsableId: 9
     },
     {
