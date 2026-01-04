@@ -38,14 +38,14 @@ const VideoCard: React.FC<VideoCardProps> = ({ candidate, selected, onSelect }) 
             onClick={onSelect}
             sx={{
                 maxWidth: 350,
-                borderRadius: 4,
+                borderRadius: 2,
                 overflow: "hidden",
                 cursor: "pointer",
                 transition: theme.transitions.create(["transform", "box-shadow", "border"], {
                     duration: theme.transitions.duration.short,
                     easing: theme.transitions.easing.easeInOut,
                 }),
-                border: selected ? `2px solid ${theme.palette.primary.main}` : "2px solid transparent",
+                border: selected ? `2px solid ${theme.palette.primary.main}` : "none",
                 boxShadow: selected ? theme.shadows[8] : theme.shadows[4],
                 transform: selected ? "scale(1.03)" : "scale(1)",
                 "&:hover": {

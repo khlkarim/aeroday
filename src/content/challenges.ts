@@ -86,7 +86,7 @@ export const challenges: Challenge[] = [
             "d’un esprit d’innovation et d’initiative. Durant 24 heures, les équipes devront concevoir et proposer des solutions aux " +
             "problématiques qui leur seront présentées au début du challenge. Tout au long de l’événement, les participants bénéficieront "+ 
             "de l’accompagnement de coaches spécialisés dans les deux domaines, ainsi que de formations ciblées pour enrichir leurs compétences.",
-        cahierDesCharges: "https://drive.google.com/file/d/1rVLE-Zyc4tMGInbSBKyPYGOPEbeagwNj/view",
+        cahierDesCharges: "https://drive.google.com/file/d/1Q6FQN0xZ3FuOvvscCtmVij-Ij29jmj0m/view",
         formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSfN85-SFam4jsbe06aJRdAnMtnKV0TNQe35D7Pk0IcMLHnlOg/viewform",
         responsableId: 6
     },
