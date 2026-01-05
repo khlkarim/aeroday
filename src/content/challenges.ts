@@ -31,7 +31,7 @@ export const challenges: Challenge[] = [
             "les exigences du cahier des charges. Ce challenge a pour objectif de réunir les passionnés " +
             "de drones dans un affrontement captivant où leur talent, leurs compétences et leur enthousiasme " +
             "seront mis en lumière.",
-        cahierDesCharges: "https://drive.google.com/file/d/1Btl_WHpCS_-km--undwtOc1Z5tM0J39v/view",
+        cahierDesCharges: "https://drive.google.com/file/d/1pj4cKT9ayKONQPb-GxqV_pspMsoqZj59/view",
         formulaire: "https://docs.google.com/forms/d/e/1FAIpQLScv5LeStGzoceUWunt7z2ARlld9iMTKE3VUFasqipBsDTQmNw/viewform",
         responsableId: 4
     },
@@ -50,7 +50,7 @@ export const challenges: Challenge[] = [
             "fait ensuite voler son planeur, démontrant son talent technique et créatif devant un public de " +
             "passionnés et un jury de professionnels. Ce challenge est une occasion unique de partager sa passion " +
             "pour l'aéromodélisme dans une ambiance conviviale et inspirante.",
-        cahierDesCharges: "https://drive.google.com/file/d/1s0fPX3_cEqFMWlVtqhZLD39HE9t0G3lZ/view",
+        cahierDesCharges: "https://drive.google.com/file/d/1Sd8AwHsAAI7qspRR5wGgPElLo4VJ97Mu/view",
         formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSe7EtXshqgdu9BKOc2xiCRrYenkaC_omhctgUF2KUTh60WCrg/viewform",
         responsableId: 3
     },
@@ -68,7 +68,7 @@ export const challenges: Challenge[] = [
             "leur propre PolyClub en suivant un cahier des charges rigoureux. Au cours de ce show aérien compétitif, chaque équipe " +
             "présente un spectacle innovant, mettant en avant leurs compétences en pilotage devant un jury de professionnels et un " +
             "public enthousiaste.",
-        cahierDesCharges: "https://drive.google.com/file/d/16oRm7wmmMO81HFakJHFQA6ahxjRK3J2o/view",
+        cahierDesCharges: "https://drive.google.com/file/d/1gHWsBMZY9zCY5YFVVs8t7BJQFhnmEJY_/view",
         formulaire: "https://docs.google.com/forms/d/e/1FAIpQLScxYleyuzdYqOx21gTFycGWnehPg2V_obgdIKAk4XU7QUR10w/viewform",
         responsableId: 7
     },
@@ -86,7 +86,7 @@ export const challenges: Challenge[] = [
             "d’un esprit d’innovation et d’initiative. Durant 24 heures, les équipes devront concevoir et proposer des solutions aux " +
             "problématiques qui leur seront présentées au début du challenge. Tout au long de l’événement, les participants bénéficieront "+ 
             "de l’accompagnement de coaches spécialisés dans les deux domaines, ainsi que de formations ciblées pour enrichir leurs compétences.",
-        cahierDesCharges: "https://drive.google.com/file/d/1Q6FQN0xZ3FuOvvscCtmVij-Ij29jmj0m/view",
+        cahierDesCharges: "https://drive.google.com/file/d/1CG1XJyN836PRKtcJTvP-TNPe-qNpsEB6/view",
         formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSfN85-SFam4jsbe06aJRdAnMtnKV0TNQe35D7Pk0IcMLHnlOg/viewform",
         responsableId: 6
     },
@@ -100,7 +100,7 @@ export const challenges: Challenge[] = [
             month: 2
         },
         description: "Le challenge CAO (Conception Assistée par Ordinateur) est un challenge de 24 heures destiné aux passionnés de design et d’aéronautique. Les participants devront concevoir un modèle 3D innovant et fonctionnel répondant à une problématique dévoilée au début du hackathon, tout en respectant un cahier des charges précis et en utilisant des logiciels de modélisation tels que SolidWorks ou CATIA... À l’issue du challenge, chaque équipe présentera son projet devant un jury qui évaluera les créations selon des critères techniques, esthétiques et fonctionnels.",
-        cahierDesCharges: "https://drive.google.com/file/d/1Te-rc9r5kgmY6UF-hH3U3xDbU5PvmSv1/view",
+        cahierDesCharges: "https://drive.google.com/file/d/19O50jf590jbh1-_OT5BUBHEfmbhDyY1n/view",
         formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSd-diC_uCaGuvMVslMqUNkTWeYSC4GLVgoJWRmCT6ZjNDsScA/viewform",
         responsableId: 5
     },
@@ -116,7 +116,7 @@ export const challenges: Challenge[] = [
         },
         description: 
             "le Challenge de Vidéographie par Drone invite les participants à explorer le ciel comme une toile de création, transformant l’outil aéronautique en instrument narratif et visuel. Cette année, le challenge s’inscrit sous le thème : \"Simuler une performance acrobatique dans un cirque\". Pour l’édition 2026, le challenge propose aux participants de recréer la magie et la maîtrise d’une performance acrobatique dans un cirque, à travers l’objectif de leur drone. Ce challenge permet aux participants de montrer leur créativité, leur maîtrise technique et leur sens artistique en capturant la fluidité, la précision et l’émotion des acrobaties entre les espaces verts et les bâtiments.",
-        cahierDesCharges: "https://drive.google.com/file/d/1UOGJvamEKBiOZ422ufQgYgEp1Op3uVas/view",
+        cahierDesCharges: "https://drive.google.com/file/d/1V-HWB080BP4BA-_aJ_i8G_bJiSvifRT7/view",
         formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSdQ-OmltKUoUhQ77sfkkSEHajZx-mjE9UCmwj8Fg8uE36UtOg/viewform",
         responsableId: 8
     }
