@@ -52,7 +52,7 @@ export const axes: Axe[] = [
         image: "/assets/images/axes/novices/banner.jpg",        
         description:
             "Les Ateliers Novices sont conçus pour les jeunes débutants en aéronautique, âgés de 6 à 17 ans. Au programme: Défis en aéromodélisme, Aero Entrepreneure Junior et CAO — des activités adaptées à chaque âge pour apprendre, imaginer et s’envoler vers l’innovation!",
-        formulaire: "#",
+        formulaire: "https://docs.google.com/forms/d/e/1FAIpQLSefWMtYFjlg0rTA6YOS-f5tD3QS_qIV5bt4a4WCa7I6pFPRAA/viewform",
         responsableId: 10
     }, 
     {

@@ -12,6 +12,8 @@ interface MaxCardProps {
 }
 
 const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
+    const isNovices = item.id == 2;
+    const linkCdcNovices = "https://drive.google.com/file/d/1bu5buw_OQ6dMldk6sR8NLHPedL0fn4AJ/view";
     const Canvas = GetScene(item.name);
 
     return (
@@ -83,6 +85,14 @@ const MaxCard: React.FC<MaxCardProps> = ({ item }) => {
                 >
                     Remplir le formulaire
                 </Button>
+                {isNovices && <Button
+                    target="_blank"
+                    variant="outlined"
+                    href={linkCdcNovices}
+                    rel="noopener noreferrer"
+                >
+                    Cahier des charges
+                </Button>}
             </Stack>
         </Card>
     );
