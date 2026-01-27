@@ -18,7 +18,7 @@ interface TeamTurn {
     turn: number;
 }
 
-const LiveAeromodelismePage = () => {
+const LiveAirshowPage = () => {
     const {
         data: teamTurns,
         isPending,
@@ -28,7 +28,7 @@ const LiveAeromodelismePage = () => {
         queryKey: ["team-turns"],
         fetcher: async () => {
             const { data, error } = await supabase
-                .from("aeromodelisme")
+                .from("airshow")
                 .select("*");
 
             if (error) {
@@ -39,7 +39,7 @@ const LiveAeromodelismePage = () => {
         },
         subscribe: (onChange) => {
             const channel = supabase.channel(
-                "db-events:public:aeromodelisme"
+                "db-events:public:airshow"
             );
 
             channel.on(
@@ -47,7 +47,7 @@ const LiveAeromodelismePage = () => {
                 {
                     event: "*",
                     schema: "public",
-                    table: "aeromodelisme",
+                    table: "airshow",
                 },
                 onChange
             );
@@ -100,7 +100,7 @@ const LiveAeromodelismePage = () => {
             {/* Title */}
             <Stack spacing={1} textAlign="center">
                 <Typography variant="h3" fontWeight={700}>
-                    Aeromodelisme Team Queue
+                    Airshow Team Queue
                 </Typography>
                 <Typography variant="h4" color="text.secondary">
                     Live competition order
@@ -193,4 +193,4 @@ const LiveAeromodelismePage = () => {
     );
 };
 
-export default LiveAeromodelismePage;
+export default LiveAirshowPage;
