@@ -178,18 +178,18 @@ export function StreamPlayer({ isHost = false }) {
         className="absolute inset-0 bg-black/90 backdrop-blur-3xl text-white font-black text-3xl tracking-tighter uppercase cursor-pointer flex items-center justify-center transition-all hover:bg-black/80 z-[100] border-4 border-white/5"
       />
 
-      <Box position="absolute" top={0} width="100%" className="p-6 z-50 transition-opacity duration-300 group-hover:opacity-100 opacity-0 lg:opacity-100">
-        <Box display="flex" justifyContent="space-between" alignItems="center">
+      <Box position="absolute" top={0} width="100%" className="p-2 md:p-6 z-50 transition-all duration-300 opacity-100">
+        <Box display="flex" flexWrap="wrap" justifyContent="space-between" alignItems="center" className="gap-2">
           <Box display="flex" gap={2} alignItems="center">
             <Button
-              size="large"
+              size="small"
               variant="contained"
               disabled={!roomName}
               onClick={() =>
                 copy(`${process.env.NEXT_PUBLIC_SITE_URL}/watch/${roomName}`)
               }
-              startIcon={<ContentCopy />}
-              className="bg-white/15 border border-white/20 backdrop-blur-xl hover:bg-white/25 text-white font-bold rounded-2xl px-5 py-2.5 normal-case tracking-tight shadow-2xl transition-all active:scale-95"
+              startIcon={<ContentCopy className="text-sm" />}
+              className="bg-white/15 border border-white/20 backdrop-blur-xl hover:bg-white/25 text-white font-bold rounded-xl px-3 py-1.5 md:px-5 md:py-2.5 normal-case tracking-tight shadow-2xl transition-all active:scale-95 text-xs md:text-sm"
             >
               {roomState === ConnectionState.Connected
                 ? roomName
@@ -259,11 +259,11 @@ export function StreamPlayer({ isHost = false }) {
                 )}
 
                 <Button
-                  size="large"
+                  size="small"
                   variant="contained"
                   disabled={roomState !== ConnectionState.Connected}
                   onClick={() => setIsPresenceOpen(true)}
-                  className="bg-white/15 border border-white/20 backdrop-blur-xl hover:bg-white/25 text-white font-bold rounded-2xl min-w-0 p-3 shadow-2xl transition-all active:scale-95"
+                  className="bg-white/15 border border-white/20 backdrop-blur-xl hover:bg-white/25 text-white font-bold rounded-xl min-w-0 p-2 md:p-3 shadow-2xl transition-all active:scale-95"
                 >
                   {roomState === ConnectionState.Connected ? (
                     <Box className="flex items-center gap-2">
