@@ -7,7 +7,6 @@ import {
   VideoTrack,
   useDataChannel,
   useLocalParticipant,
-  useMediaDeviceSelect,
   useParticipants,
   useRoomContext,
   useTracks,
@@ -27,15 +26,14 @@ import {
 import Confetti from "js-confetti";
 import {
   ConnectionState,
-  LocalVideoTrack,
   Track,
-  createLocalTracks,
 } from "livekit-client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { MediaDeviceSettings } from "./media-device-settings";
 import { PresenceDialog } from "./presence-dialog";
 import { useAuthToken } from "./token-context";
 import { useCopyToClipboard } from "@/lib/clipboard";
+import { cn } from "@/lib/utils";
 
 function ConfettiCanvas() {
   const [confetti, setConfetti] = useState<Confetti>();
@@ -64,9 +62,6 @@ function ConfettiCanvas() {
 export function StreamPlayer({ isHost = false }) {
   const [, copy] = useCopyToClipboard();
   const [isPresenceOpen, setIsPresenceOpen] = useState(false);
-  const [localVideoTrack, setLocalVideoTrack] =
-    useState<LocalVideoTrack>();
-  const localVideoEl = useRef<HTMLVideoElement>(null);
 
   const { metadata, name: roomName, state: roomState } = useRoomContext();
   const roomMetadata = (metadata && JSON.parse(metadata)) as RoomMetadata;
@@ -88,34 +83,9 @@ export function StreamPlayer({ isHost = false }) {
     })
     : localMetadata?.invited_to_stage && !localMetadata?.hand_raised;
 
-  useEffect(() => {
-    if (!canHost) return;
+  const tracks = useTracks([Track.Source.Camera]);
 
-    const createTracks = async () => {
-      const tracks = await createLocalTracks({ audio: true, video: true });
-      const camTrack = tracks.find((t) => t.kind === Track.Kind.Video);
-      if (camTrack && localVideoEl.current) {
-        camTrack.attach(localVideoEl.current);
-      }
-      setLocalVideoTrack(camTrack as LocalVideoTrack);
-    };
-
-    void createTracks();
-  }, [canHost]);
-
-  const { activeDeviceId } = useMediaDeviceSelect({ kind: "videoinput" });
-
-  useEffect(() => {
-    if (localVideoTrack) {
-      void localVideoTrack.setDeviceId(activeDeviceId);
-    }
-  }, [localVideoTrack, activeDeviceId]);
-
-  const remoteVideoTracks = useTracks([Track.Source.Camera]).filter(
-    (t) => t.participant.identity !== localParticipant.identity
-  );
-
-  const totalVideoTracks = (canHost ? 1 : 0) + remoteVideoTracks.length;
+  const totalVideoTracks = tracks.length;
 
   const remoteAudioTracks = useTracks([Track.Source.Microphone]).filter(
     (t) => t.participant.identity !== localParticipant.identity
@@ -149,48 +119,7 @@ export function StreamPlayer({ isHost = false }) {
         position="absolute"
         className="p-0"
       >
-        {canHost && (
-          <Box position="relative" className="overflow-hidden bg-transparent transition-all duration-500">
-            <Box
-              position="absolute"
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="center"
-              width="100%"
-              height="100%"
-              className="z-0 bg-gradient-to-b from-slate-900 to-black"
-            >
-              <Avatar
-                className="w-24 h-24 bg-gradient-to-br from-primary-main/20 to-secondary-main/20 border-2 border-white/5 text-white/40 text-4xl font-black mb-4"
-                sx={{ width: 96, height: 96, bgcolor: 'transparent' }}
-              >
-                {localParticipant.identity[0]?.toUpperCase() ?? "?"}
-              </Avatar>
-              <Typography variant="caption" className="text-white/30 font-bold uppercase tracking-widest mt-2">
-                Off Air
-              </Typography>
-            </Box>
-
-            <video
-              ref={localVideoEl}
-              className="absolute w-full h-full object-cover -scale-x-100 z-10"
-            />
-
-            <Box className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
-              <Chip
-                label="YOU"
-                size="small"
-                className="bg-primary-main/90 text-white font-black text-[10px] tracking-tighter"
-              />
-              <Typography variant="caption" className="text-white font-bold drop-shadow-md">
-                {localParticipant.identity}
-              </Typography>
-            </Box>
-          </Box>
-        )}
-
-        {remoteVideoTracks.map((t) => (
+        {tracks.map((t) => (
           <Box key={t.participant.identity} position="relative" className="overflow-hidden bg-transparent transition-all duration-500">
             <Box
               position="absolute"
@@ -209,16 +138,26 @@ export function StreamPlayer({ isHost = false }) {
                 {t.participant.identity[0]?.toUpperCase() ?? "?"}
               </Avatar>
               <Typography variant="caption" className="text-white/30 font-bold uppercase tracking-widest mt-2">
-                Connecting...
+                {t.participant.identity === localParticipant.identity ? "Off Air" : "Connecting..."}
               </Typography>
             </Box>
 
             <VideoTrack
               trackRef={t}
-              className="absolute w-full h-full bg-transparent object-cover z-10"
+              className={cn(
+                "absolute w-full h-full bg-transparent object-cover z-10",
+                t.participant.identity === localParticipant.identity && "-scale-x-100"
+              )}
             />
 
             <Box className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
+              {t.participant.identity === localParticipant.identity && (
+                <Chip
+                  label="YOU"
+                  size="small"
+                  className="bg-primary-main/90 text-white font-black text-[10px] tracking-tighter"
+                />
+              )}
               <Typography variant="caption" className="text-white font-bold drop-shadow-md">
                 {t.participant.identity}
               </Typography>
@@ -226,6 +165,7 @@ export function StreamPlayer({ isHost = false }) {
           </Box>
         ))}
       </Box>
+
 
       {remoteAudioTracks.map((t) => (
         <AudioTrack key={t.participant.identity} trackRef={t} />
