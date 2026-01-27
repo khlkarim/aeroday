@@ -13,7 +13,7 @@ const Banner: React.FC = () => {
     useGSAP(() => {
         if (bannerRef.current) animate(bannerRef.current);
     }, { dependencies: [pathname], scope: bannerRef });
-
+    
     if(pathname.length > 1)
     {
         return <></>;

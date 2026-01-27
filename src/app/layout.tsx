@@ -4,12 +4,14 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navigation/Navbar";
 import ThreeDProvider from "@/providers/ThreeDProvider";
-import { Container, Stack, Toolbar } from "@mui/material";
+import { Container, Stack } from "@mui/material";
+import Toolbar from "@/components/Toolbar";
 import ThemeModeProvider from "@/providers/ThemeModeProvider";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import String from "@/components/deco/String";
 import Banner from "@/components/deco/Banner";
+import QueryProvider from "@/providers/QueryProvider";
 
 export const metadata: Metadata = {
     title: "Tunisian Aeroday 2026",
@@ -27,18 +29,20 @@ export default function RootLayout({
                 <AppRouterCacheProvider>
                     <ThemeModeProvider>
                         <ThreeDProvider>
-                            <Navbar />
-                            <SmoothScrollProvider>
-                                <Banner />
-                                <String variant="inverted" />
-                                <Container className="stars">
-                                    <Stack gap={8}>
-                                        <Toolbar />
-                                        {children}
-                                        <Footer />
-                                    </Stack>
-                                </Container>
-                            </SmoothScrollProvider>
+                            <QueryProvider>
+                                <Navbar />
+                                <SmoothScrollProvider>
+                                    <Banner />
+                                    <String variant="inverted" />
+                                    <Container className="stars">
+                                        <Stack gap={8}>
+                                            <Toolbar />
+                                            {children}
+                                            <Footer />
+                                        </Stack>
+                                    </Container>
+                                </SmoothScrollProvider>
+                            </QueryProvider>
                         </ThreeDProvider>
                     </ThemeModeProvider>
                 </AppRouterCacheProvider>

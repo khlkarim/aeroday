@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from 'react';
 import Link from 'next/link';
@@ -7,9 +7,12 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Box, Container, Typography, Stack, IconButton, useTheme } from '@mui/material';
 import { LinkedIn } from '@mui/icons-material';
+import { usePathname } from 'next/navigation';
 
 const Footer: React.FC = () => {
     const theme = useTheme();
+    const pathname = usePathname();
+    if(pathname.startsWith('/live')) return;
 
     return (
         <Box
