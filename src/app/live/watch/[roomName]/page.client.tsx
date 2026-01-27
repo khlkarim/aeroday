@@ -12,8 +12,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Chat } from "@/components/chat";
-import { ReactionBar } from "@/components/reaction-bar";
 import { Spinner } from "@/components/spinner";
 import { StreamPlayer } from "@/components/stream-player";
 import { TokenContext } from "@/components/token-context";
@@ -124,21 +122,7 @@ export default function WatchPage({
     <TokenContext.Provider value={authToken}>
       <LiveKitRoom serverUrl={serverUrl} token={roomToken}>
         <Box display="flex" width="100%" height="100vh">
-          <Box display="flex" flexDirection="column" flex={1}>
-            <Box flex={1} bgcolor="grey.100">
-              <StreamPlayer />
-            </Box>
-            <ReactionBar />
-          </Box>
-
-          <Box
-            minWidth={280}
-            borderLeft={1}
-            borderColor="divider"
-            bgcolor="background.paper"
-          >
-            <Chat />
-          </Box>
+          <StreamPlayer />
         </Box>
       </LiveKitRoom>
     </TokenContext.Provider>

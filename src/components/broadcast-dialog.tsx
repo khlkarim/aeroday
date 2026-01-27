@@ -63,54 +63,73 @@ export function BroadcastDialog({ children }: { children: React.ReactNode }) {
     <>
       <Box onClick={() => setOpen(true)}>{children}</Box>
 
-      <Dialog open={open} onClose={resetForm} maxWidth="sm" fullWidth>
-        <DialogTitle>Create new stream</DialogTitle>
+      <Dialog
+        open={open}
+        onClose={resetForm}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>
+          Start a stream
+        </DialogTitle>
 
-        <DialogContent>
-          <Stack spacing={3} mt={1}>
-            <TextField
-              label="Room name"
-              placeholder="abcd-1234"
-              value={roomName}
-              onChange={(e) => setRoomName(e.target.value)}
-              fullWidth
-            />
+        <DialogContent className="px-8 py-2">
+          <Stack spacing={4} mt={3}>
+            <div className="flex flex-col gap-6">
+              <TextField
+                label="Room name"
+                placeholder="abcd-1234"
+                value={roomName}
+                onChange={(e) => setRoomName(e.target.value)}
+                fullWidth
+                variant="outlined"
+                className="bg-gray-50/50"
+              />
 
-            <TextField
-              label="Your name"
-              placeholder="Roger Dunn"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              fullWidth
-            />
+              <TextField
+                label="Your name"
+                placeholder="Roger Dunn"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                fullWidth
+                variant="outlined"
+                className="bg-gray-50/50"
+              />
+            </div>
 
-            <Stack spacing={2}>
+            <Box className="bg-blue-50/30 p-6 rounded-xl border border-blue-100 flex flex-col gap-4">
               <FormControlLabel
                 control={
                   <Switch
                     checked={enableChat}
                     onChange={(e) => setEnableChat(e.target.checked)}
+                    color="primary"
                   />
                 }
-                label={<Typography fontWeight="bold">Enable chat</Typography>}
+                label={<Typography className="font-semibold text-gray-700">Enable chat</Typography>}
               />
 
-              <Stack direction="row" alignItems="center" justifyContent="space-between">
-                <Stack direction="row" alignItems="center" spacing={1}>
-                  <Typography fontWeight="bold">Viewers can participate</Typography>
-                  <AllowParticipationInfo />
-                </Stack>
-                <Switch
-                  checked={allowParticipation}
-                  onChange={(e) => setAllowParticipation(e.target.checked)}
-                />
-              </Stack>
-            </Stack>
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={allowParticipation}
+                    onChange={(e) => setAllowParticipation(e.target.checked)}
+                    color="primary"
+                  />
+                }
+                label={<Typography className="font-semibold text-gray-700">Viewers can participate</Typography>}
+              />
+            </Box>
           </Stack>
         </DialogContent>
 
-        <DialogActions sx={{ gap: 1, px: 3, py: 2 }}>
-          <Button variant="outlined" color="inherit" onClick={resetForm}>
+        <DialogActions className="px-8 pb-8 pt-4 gap-3">
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={resetForm}
+            className="px-6 rounded-lg text-gray-500 hover:bg-gray-100"
+          >
             Cancel
           </Button>
 
@@ -118,14 +137,19 @@ export function BroadcastDialog({ children }: { children: React.ReactNode }) {
             variant="contained"
             disabled={!(roomName && name) || loading}
             onClick={onGoLive}
+            size="large"
+            className={`px-10 rounded-lg shadow-md transition-all ${!(roomName && name) || loading
+              ? 'bg-gray-300'
+              : 'hover:shadow-lg'
+              }`}
           >
             {loading ? (
-              <Stack direction="row" spacing={1} alignItems="center">
+              <Stack direction="row" spacing={1.5} alignItems="center">
                 <Spinner />
-                <Typography>Creating...</Typography>
+                <span>Creating...</span>
               </Stack>
             ) : (
-              "Create"
+              "Go Live"
             )}
           </Button>
         </DialogActions>

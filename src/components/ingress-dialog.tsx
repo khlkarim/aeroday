@@ -74,124 +74,173 @@ export function IngressDialog({ children }: { children: React.ReactNode }) {
     <>
       <Box onClick={() => setOpen(true)}>{children}</Box>
 
-      <Dialog open={open} onClose={resetForm} maxWidth="sm" fullWidth>
-        <DialogContent>
+      <Dialog
+        open={open}
+        onClose={resetForm}
+        maxWidth="sm"
+        fullWidth
+        PaperProps={{
+          className: "rounded-2xl shadow-2xl"
+        }}
+      >
+        <DialogContent className="p-0">
           {ingressResponse ? (
-            <>
-              <DialogTitle>Start streaming now</DialogTitle>
-              <Stack spacing={3} mt={2}>
-                <Typography>
+            <Box className="p-8">
+              <Typography variant="h5" fontWeight="800" className="text-gray-900 border-b-4 border-green-500 w-fit pb-1 mb-6">
+                Start Streaming Now
+              </Typography>
+
+              <Stack spacing={4}>
+                <Typography className="text-gray-600 leading-relaxed bg-green-50 p-4 rounded-lg border border-green-100">
                   Copy these values into your OBS settings under{" "}
-                  <code>Stream</code> → <code>Service</code> →{" "}
-                  <code>{type === "whip" ? "WHIP" : "Custom"}</code>. When
-                  you’re ready, press &quot;Start Streaming&quot; and watch the
-                  bits flow!
+                  <code className="bg-white px-1.5 py-0.5 rounded border font-mono text-sm">Stream</code> → <code className="bg-white px-1.5 py-0.5 rounded border font-mono text-sm">Service</code> →{" "}
+                  <code className="bg-blue-600 text-white px-1.5 py-0.5 rounded font-mono text-sm">{type === "whip" ? "WHIP" : "Custom"}</code>.
                 </Typography>
 
-                <TextField
-                  label="Server URL"
-                  value={ingressResponse.ingress.url}
-                  InputProps={{ readOnly: true }}
-                  fullWidth
-                />
+                <Box className="flex flex-col gap-4">
+                  <TextField
+                    label="Server URL"
+                    value={ingressResponse.ingress.url}
+                    InputProps={{
+                      readOnly: true,
+                      className: "font-mono text-sm bg-gray-50"
+                    }}
+                    fullWidth
+                  />
 
-                <TextField
-                  label="Stream key"
-                  value={ingressResponse.ingress.streamKey}
-                  InputProps={{ readOnly: true }}
-                  fullWidth
-                />
+                  <TextField
+                    label="Stream key"
+                    type="password"
+                    value={ingressResponse.ingress.streamKey}
+                    InputProps={{
+                      readOnly: true,
+                      className: "font-mono text-sm bg-gray-50"
+                    }}
+                    fullWidth
+                  />
+                </Box>
 
-                <Box display="flex" justifyContent="flex-end" mt={2}>
+                <Box display="flex" justifyContent="flex-end" className="pt-4">
                   <Button
                     variant="contained"
+                    size="large"
                     endIcon={<ArrowRightIcon />}
                     onClick={() =>
                       router.push(
                         `/watch?at=${ingressResponse.auth_token}&rt=${ingressResponse.connection_details.token}`
                       )
                     }
+                    className="bg-green-600 hover:bg-green-700 rounded-lg px-8 shadow-lg transition-all"
                   >
                     Join as viewer
                   </Button>
                 </Box>
               </Stack>
-            </>
+            </Box>
           ) : (
-            <>
-              <DialogTitle>Setup ingress endpoint</DialogTitle>
-              <Stack spacing={3} mt={2}>
-                <TextField
-                  label="Room name"
-                  placeholder="abcd-1234"
-                  value={roomName}
-                  onChange={(e) => setRoomName(e.target.value)}
-                  fullWidth
-                />
+            <Box className="p-8">
+              <Typography variant="h5" fontWeight="800" className="text-gray-900 border-b-4 border-blue-500 w-fit pb-1 mb-6">
+                Setup Ingress Endpoint
+              </Typography>
 
-                <TextField
-                  label="Your name"
-                  placeholder="Roger Dunn"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  fullWidth
-                />
+              <Stack spacing={4}>
+                <div className="flex flex-col gap-6">
+                  <TextField
+                    label="Room name"
+                    placeholder="abcd-1234"
+                    value={roomName}
+                    onChange={(e) => setRoomName(e.target.value)}
+                    fullWidth
+                    className="bg-gray-50/50"
+                  />
 
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">Ingress type</FormLabel>
+                  <TextField
+                    label="Your name"
+                    placeholder="Roger Dunn"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    fullWidth
+                    className="bg-gray-50/50"
+                  />
+                </div>
+
+                <FormControl component="fieldset" className="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                  <FormLabel component="legend" className="font-bold text-gray-700 mb-2">Ingress Type</FormLabel>
                   <RadioGroup
+                    row
                     value={type}
                     onChange={(e) => setType(e.target.value)}
+                    className="gap-4"
                   >
-                    <FormControlLabel value="rtmp" control={<Radio />} label="RTMP" />
-                    <FormControlLabel value="whip" control={<Radio />} label="WHIP" />
+                    <FormControlLabel
+                      value="rtmp"
+                      control={<Radio color="primary" />}
+                      label={<span className="font-semibold">RTMP</span>}
+                    />
+                    <FormControlLabel
+                      value="whip"
+                      control={<Radio color="primary" />}
+                      label={<span className="font-semibold">WHIP</span>}
+                    />
                   </RadioGroup>
                 </FormControl>
 
-                <Stack spacing={2}>
+                <Box className="bg-blue-50/30 p-6 rounded-xl border border-blue-100 flex flex-col gap-4">
                   <FormControlLabel
                     control={
                       <Switch
                         checked={enableChat}
                         onChange={(e) => setEnableChat(e.target.checked)}
+                        color="primary"
                       />
                     }
-                    label={<Typography fontWeight="bold">Enable chat</Typography>}
+                    label={<Typography className="font-semibold text-gray-700">Enable chat</Typography>}
                   />
 
                   <Box display="flex" justifyContent="space-between" alignItems="center">
                     <Stack direction="row" spacing={1} alignItems="center">
-                      <Typography fontWeight="bold">Viewers can participate</Typography>
+                      <Typography className="font-semibold text-gray-700">Viewers can participate</Typography>
                       <AllowParticipationInfo />
                     </Stack>
                     <Switch
                       checked={allowParticipation}
                       onChange={(e) => setAllowParticipation(e.target.checked)}
+                      color="primary"
                     />
                   </Box>
-                </Stack>
-              </Stack>
+                </Box>
 
-              <DialogActions sx={{ gap: 1, mt: 3 }}>
-                <Button variant="outlined" color="inherit" onClick={resetForm}>
-                  Cancel
-                </Button>
-                <Button
-                  variant="contained"
-                  disabled={!(roomName && name && type) || loading}
-                  onClick={onCreateIngress}
-                >
-                  {loading ? (
-                    <Stack direction="row" spacing={1} alignItems="center">
-                      <Spinner />
-                      <Typography>Creating...</Typography>
-                    </Stack>
-                  ) : (
-                    "Create"
-                  )}
-                </Button>
-              </DialogActions>
-            </>
+                <DialogActions className="p-0 gap-3 pt-4">
+                  <Button
+                    variant="text"
+                    color="inherit"
+                    onClick={resetForm}
+                    className="px-6 rounded-lg text-gray-500 hover:bg-gray-100"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    variant="contained"
+                    disabled={!(roomName && name && type) || loading}
+                    onClick={onCreateIngress}
+                    size="large"
+                    className={`px-10 rounded-lg shadow-md transition-all ${!(roomName && name && type) || loading
+                        ? 'bg-gray-300'
+                        : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg'
+                      }`}
+                  >
+                    {loading ? (
+                      <Stack direction="row" spacing={1.5} alignItems="center">
+                        <Spinner />
+                        <span>Creating...</span>
+                      </Stack>
+                    ) : (
+                      "Create Endpoint"
+                    )}
+                  </Button>
+                </DialogActions>
+              </Stack>
+            </Box>
           )}
         </DialogContent>
       </Dialog>

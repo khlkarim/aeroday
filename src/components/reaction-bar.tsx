@@ -18,46 +18,31 @@ export function ReactionBar() {
 
   return (
     <Box
-      display="flex"
-      gap={2}
-      justifyContent="center"
-      alignItems="center"
-      minHeight={100}
+      className="flex gap-4 p-4 rounded-2xl border bg-white/80 backdrop-blur-md shadow-lg"
       sx={{
-        borderTop: 1,
-        borderColor: 'divider',
-        bgcolor: 'background.default',
+        width: 'fit-content',
+        margin: '0 auto',
+        transform: 'translateY(-20px)',
+        zIndex: 10,
       }}
     >
-      <Tooltip title="Fire" enterDelay={0}>
-        <Button size="large" variant="outlined" onClick={() => onSend("🔥")}>
-          🔥
-        </Button>
-      </Tooltip>
-
-      <Tooltip title="Applause">
-        <Button size="large" variant="outlined" onClick={() => onSend("👏")}>
-          👏
-        </Button>
-      </Tooltip>
-
-      <Tooltip title="LOL">
-        <Button size="large" variant="outlined" onClick={() => onSend("🤣")}>
-          🤣
-        </Button>
-      </Tooltip>
-
-      <Tooltip title="Love">
-        <Button size="large" variant="outlined" onClick={() => onSend("❤️")}>
-          ❤️
-        </Button>
-      </Tooltip>
-
-      <Tooltip title="Confetti">
-        <Button size="large" variant="outlined" onClick={() => onSend("🎉")}>
-          🎉
-        </Button>
-      </Tooltip>
+      {[
+        { emoji: "🔥", label: "Fire" },
+        { emoji: "👏", label: "Applause" },
+        { emoji: "🤣", label: "LOL" },
+        { emoji: "❤️", label: "Love" },
+        { emoji: "🎉", label: "Confetti" },
+      ].map((item) => (
+        <Tooltip key={item.label} title={item.label} placement="top" arrow>
+          <Button
+            size="large"
+            onClick={() => onSend(item.emoji)}
+            className="min-w-0 w-12 h-12 text-2xl p-0 rounded-xl hover:bg-gray-100 hover:scale-125 transition-all duration-200 active:scale-90"
+          >
+            {item.emoji}
+          </Button>
+        </Tooltip>
+      ))}
     </Box>
   );
 }

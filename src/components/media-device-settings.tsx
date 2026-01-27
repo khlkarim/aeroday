@@ -5,8 +5,8 @@ import {
   useMediaDeviceSelect,
   useRoomContext,
 } from "@livekit/components-react";
-import { ArrowDropDown } from "@mui/icons-material";
-import { Box, Button, ButtonGroup, Menu, MenuItem } from "@mui/material";
+import { ArrowDropDown, Mic, MicOff, Videocam, VideocamOff } from "@mui/icons-material";
+import { Box, Button, ButtonGroup, Menu, MenuItem, Typography } from "@mui/material";
 import { ConnectionState } from "livekit-client";
 import { useEffect, useState } from "react";
 
@@ -40,22 +40,28 @@ export function MediaDeviceSettings() {
   const [camAnchorEl, setCamAnchorEl] = useState<null | HTMLElement>(null);
 
   return (
-    <>
+    <Box className="flex gap-5">
       {/* Microphone */}
-      <Box display="flex" gap={1}>
-        <ButtonGroup size="small" variant="contained">
+      <Box display="flex">
+        <ButtonGroup
+          size="small"
+          variant="contained"
+          className="overflow-hidden"
+        >
           <Button
             onClick={() => setMicEnabled(!micEnabled)}
-            variant={micEnabled ? "contained" : "outlined"}
-            sx={{ minWidth: 80 }}
+            className={`px-4 py-2 min-w-[60px] transition-all border-none ${micEnabled
+              ? 'bg-primary-main/20 text-primary-main hover:bg-primary-main/30'
+              : 'bg-red-600/20 text-red-500 hover:bg-red-600/30'
+              }`}
           >
-            Mic {micEnabled ? "On" : "Off"}
+            {micEnabled ? <Mic /> : <MicOff />}
           </Button>
 
           <Button
-            disabled={!micEnabled}
+            // disabled={!micEnabled}
             onClick={(e) => setMicAnchorEl(e.currentTarget)}
-            sx={{ px: 0 }}
+            className="bg-white/5 text-white/60 hover:bg-white/10"
           >
             <ArrowDropDown />
           </Button>
@@ -65,6 +71,9 @@ export function MediaDeviceSettings() {
           anchorEl={micAnchorEl}
           open={Boolean(micAnchorEl)}
           onClose={() => setMicAnchorEl(null)}
+          PaperProps={{
+            className: "mt-2 rounded-xl border border-white/10 bg-black/90 backdrop-blur-xl text-white shadow-2xl"
+          }}
         >
           {microphoneDevices.map((d) => (
             <MenuItem
@@ -74,6 +83,7 @@ export function MediaDeviceSettings() {
                 setMicAnchorEl(null);
               }}
               selected={d.deviceId === activeMicrophoneDeviceId}
+              className="mx-1 my-0.5 rounded-lg text-sm hover:bg-white/10"
             >
               {d.label}
             </MenuItem>
@@ -82,42 +92,54 @@ export function MediaDeviceSettings() {
       </Box>
 
       {/* Camera */}
-      <ButtonGroup size="small" variant="contained">
-        <Button
-          onClick={() => setCamEnabled(!camEnabled)}
-          variant={camEnabled ? "contained" : "outlined"}
-          sx={{ minWidth: 80 }}
+      <Box display="flex">
+        <ButtonGroup
+          size="small"
+          variant="contained"
+          className="overflow-hidden"
         >
-          Cam {camEnabled ? "On" : "Off"}
-        </Button>
-
-        <Button
-          disabled={!camEnabled}
-          onClick={(e) => setCamAnchorEl(e.currentTarget)}
-          sx={{ px: 0 }}
-        >
-          <ArrowDropDown />
-        </Button>
-      </ButtonGroup>
-
-      <Menu
-        anchorEl={camAnchorEl}
-        open={Boolean(camAnchorEl)}
-        onClose={() => setCamAnchorEl(null)}
-      >
-        {cameraDevices.map((d) => (
-          <MenuItem
-            key={d.deviceId}
-            onClick={() => {
-              setActiveCameraDevice(d.deviceId);
-              setCamAnchorEl(null);
-            }}
-            selected={d.deviceId === activeCameraDeviceId}
+          <Button
+            onClick={() => setCamEnabled(!camEnabled)}
+            className={`px-4 py-2 min-w-[60px] transition-all border-none ${camEnabled
+              ? 'bg-primary-main/20 text-primary-main hover:bg-primary-main/30'
+              : 'bg-red-600/20 text-red-500 hover:bg-red-600/30'
+              }`}
           >
-            {d.label}
-          </MenuItem>
-        ))}
-      </Menu>
-    </>
+            {camEnabled ? <Videocam /> : <VideocamOff />}
+          </Button>
+
+          <Button
+            disabled={!camEnabled}
+            onClick={(e) => setCamAnchorEl(e.currentTarget)}
+            className="px-1 border-none bg-white/5 text-white/60 hover:bg-white/10"
+          >
+            <ArrowDropDown />
+          </Button>
+        </ButtonGroup>
+
+        <Menu
+          anchorEl={camAnchorEl}
+          open={Boolean(camAnchorEl)}
+          onClose={() => setCamAnchorEl(null)}
+          PaperProps={{
+            className: "mt-2 rounded-xl border border-white/10 bg-black/90 backdrop-blur-xl text-white shadow-2xl"
+          }}
+        >
+          {cameraDevices.map((d) => (
+            <MenuItem
+              key={d.deviceId}
+              onClick={() => {
+                setActiveCameraDevice(d.deviceId);
+                setCamAnchorEl(null);
+              }}
+              selected={d.deviceId === activeCameraDeviceId}
+              className="mx-1 my-0.5 rounded-lg text-sm hover:bg-white/10"
+            >
+              {d.label}
+            </MenuItem>
+          ))}
+        </Menu>
+      </Box>
+    </Box>
   );
 }

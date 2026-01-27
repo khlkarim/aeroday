@@ -32,14 +32,22 @@ export function AllowParticipationInfo() {
           horizontal: "center",
         }}
         PaperProps={{
-          sx: { maxWidth: 360, p: 1.5 },
+          sx: {
+            maxWidth: 320,
+            p: 2,
+            borderRadius: 2,
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+          },
         }}
       >
-        <Box>
-          <Typography variant="body2">
-            If enabled, viewers can <strong>raise their hand</strong>. When
+        <Box className="flex flex-col gap-2">
+          <Typography variant="subtitle2" className="flex items-center gap-1.5 font-bold text-blue-600">
+            <InfoOutlinedIcon fontSize="small" /> Participation Info
+          </Typography>
+          <Typography variant="body2" className="text-gray-600 leading-relaxed">
+            If enabled, viewers can <strong className="text-gray-900 font-semibold">raise their hand</strong>. When
             accepted by the host, they can share their audio and video. The host
-            can also <strong>invite</strong> viewers to share their audio and
+            can also <strong className="text-gray-900 font-semibold">invite</strong> viewers to share their audio and
             video.
           </Typography>
         </Box>

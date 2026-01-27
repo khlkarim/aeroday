@@ -156,29 +156,36 @@ function ParticipantListItem({
   return (
     <Box
       key={participant.sid}
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
+      className={`flex justify-between items-center p-3.5 rounded-2xl transition-all border ${isCurrentUser
+        ? 'bg-primary-main/10 border-primary-main/30 shadow-[0_0_15px_rgba(45,125,117,0.1)]'
+        : 'bg-background-paper border-divider hover:bg-action-hover shadow-sm'
+        }`}
     >
-      <Box display="flex" alignItems="center" gap={1}>
-        <Avatar sx={{ width: 24, height: 24 }}>
-          {participant.identity?.[0] ?? <Person fontSize="small" />}
+      <Box className="flex items-center gap-3">
+        <Avatar
+          className={`w-9 h-9 font-black border-2 transition-transform ${isCurrentUser ? 'border-primary-main/40 bg-primary-main/20 text-primary-main' : 'border-divider bg-action-hover text-text-secondary'
+            }`}
+          sx={{ width: 36, height: 36, fontSize: '0.9rem' }}
+        >
+          {participant.identity?.[0]?.toUpperCase() ?? <Person fontSize="small" />}
         </Avatar>
 
         <Typography
           variant="body2"
-          color={isCurrentUser ? "primary" : "text.primary"}
+          className={`font-bold tracking-tight ${isCurrentUser ? 'text-primary-main' : 'text-text-primary'}`}
         >
           {participant.identity}
-          {isCurrentUser && " (you)"}
+          {isCurrentUser && <span className="text-text-secondary font-medium ml-1.5 opacity-60">(you)</span>}
         </Typography>
       </Box>
 
-      {isHost && roomMetadata.allow_participation ? (
-        <HostActions />
-      ) : (
-        <ViewerActions />
-      )}
+      <Box className="flex items-center gap-1.5">
+        {isHost && roomMetadata.allow_participation ? (
+          <HostActions />
+        ) : (
+          <ViewerActions />
+        )}
+      </Box>
     </Box>
   );
 }
@@ -205,67 +212,79 @@ export function PresenceDialog({
   );
 
   return (
-    <Dialog onClose={() => onOpenChange(false)} open={open} fullWidth maxWidth="xs">
+    <Dialog
+      onClose={() => onOpenChange(false)}
+      open={open}
+      fullWidth
+      maxWidth="xs"
+      PaperProps={{
+        className: "rounded-[2rem] shadow-2xl border border-white/5",
+        sx: { backgroundImage: 'none', bgcolor: 'background.paper' }
+      }}
+    >
       {children}
 
-      <DialogTitle sx={{ m: 0, p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography variant="h6">Who&rsquo;s here</Typography>
+      <DialogTitle className="m-0 p-8 flex justify-between items-center border-b border-divider bg-action-hover/30">
+        <Typography variant="h5" fontWeight="900" className="text-text-primary tracking-tighter">
+          Participants
+          <span className="ml-3 text-sm font-black text-primary-main bg-primary-main/10 px-3 py-1 rounded-full">{participants.length}</span>
+        </Typography>
         <IconButton
           aria-label="close"
           onClick={() => onOpenChange(false)}
-          sx={{
-            color: (theme) => theme.palette.grey[500],
-          }}
+          className="text-text-secondary hover:text-text-primary hover:bg-action-hover rounded-2xl p-2.5 transition-all"
         >
           <Close />
         </IconButton>
       </DialogTitle>
 
-      <DialogContent dividers>
-        <Box display="flex" flexDirection="column" gap={3}>
+      <DialogContent dividers className="p-0 border-none">
+        <Box className="flex flex-col gap-8 p-6">
           {hosts.length > 0 && (
-            <Box display="flex" flexDirection="column" gap={1}>
+            <Box className="flex flex-col gap-3">
               <Typography
-                variant="caption"
-                fontWeight="bold"
-                color="text.secondary"
+                variant="overline"
+                className="text-text-secondary font-black tracking-[0.2em] text-[11px] px-1"
               >
                 {hosts.length > 1 ? "CO-HOSTS" : "HOST"}
               </Typography>
 
-              {hosts.map((participant) => (
-                <ParticipantListItem
-                  key={participant.identity}
-                  participant={participant}
-                  isCurrentUser={
-                    participant.identity === localParticipant.identity
-                  }
-                  isHost={isHost}
-                />
-              ))}
+              <div className="flex flex-col gap-2">
+                {hosts.map((participant) => (
+                  <ParticipantListItem
+                    key={participant.identity}
+                    participant={participant}
+                    isCurrentUser={
+                      participant.identity === localParticipant.identity
+                    }
+                    isHost={isHost}
+                  />
+                ))}
+              </div>
             </Box>
           )}
 
           {viewers.length > 0 && (
-            <Box display="flex" flexDirection="column" gap={1}>
+            <Box className="flex flex-col gap-3">
               <Typography
-                variant="caption"
-                fontWeight="bold"
-                color="text.secondary"
+                variant="overline"
+                className="text-text-secondary font-black tracking-[0.2em] text-[11px] px-1"
               >
                 VIEWERS
               </Typography>
 
-              {viewers.map((participant) => (
-                <ParticipantListItem
-                  key={participant.identity}
-                  participant={participant}
-                  isCurrentUser={
-                    participant.identity === localParticipant.identity
-                  }
-                  isHost={isHost}
-                />
-              ))}
+              <div className="flex flex-col gap-2">
+                {viewers.map((participant) => (
+                  <ParticipantListItem
+                    key={participant.identity}
+                    participant={participant}
+                    isCurrentUser={
+                      participant.identity === localParticipant.identity
+                    }
+                    isHost={isHost}
+                  />
+                ))}
+              </div>
             </Box>
           )}
         </Box>
