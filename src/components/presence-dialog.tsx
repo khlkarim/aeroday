@@ -19,7 +19,6 @@ import {
 } from "@mui/material";
 import { Participant } from "livekit-client";
 import { useAuthToken } from "./token-context";
-import { useState } from "react";
 
 function ParticipantListItem({
   participant,
@@ -156,36 +155,29 @@ function ParticipantListItem({
   return (
     <Box
       key={participant.sid}
-      className={`flex justify-between items-center p-3.5 rounded-2xl transition-all border ${isCurrentUser
-        ? 'bg-primary-main/10 border-primary-main/30 shadow-[0_0_15px_rgba(45,125,117,0.1)]'
-        : 'bg-background-paper border-divider hover:bg-action-hover shadow-sm'
-        }`}
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
     >
-      <Box className="flex items-center gap-3">
-        <Avatar
-          className={`w-9 h-9 font-black border-2 transition-transform ${isCurrentUser ? 'border-primary-main/40 bg-primary-main/20 text-primary-main' : 'border-divider bg-action-hover text-text-secondary'
-            }`}
-          sx={{ width: 36, height: 36, fontSize: '0.9rem' }}
-        >
-          {participant.identity?.[0]?.toUpperCase() ?? <Person fontSize="small" />}
+      <Box display="flex" alignItems="center" gap={1}>
+        <Avatar sx={{ width: 24, height: 24 }}>
+          {participant.identity?.[0] ?? <Person fontSize="small" />}
         </Avatar>
 
         <Typography
           variant="body2"
-          className={`font-bold tracking-tight ${isCurrentUser ? 'text-primary-main' : 'text-text-primary'}`}
+          color={isCurrentUser ? "primary" : "text.primary"}
         >
           {participant.identity}
-          {isCurrentUser && <span className="text-text-secondary font-medium ml-1.5 opacity-60">(you)</span>}
+          {isCurrentUser && " (you)"}
         </Typography>
       </Box>
 
-      <Box className="flex items-center gap-1.5">
-        {isHost && roomMetadata.allow_participation ? (
-          <HostActions />
-        ) : (
-          <ViewerActions />
-        )}
-      </Box>
+      {isHost && roomMetadata.allow_participation ? (
+        <HostActions />
+      ) : (
+        <ViewerActions />
+      )}
     </Box>
   );
 }
@@ -218,21 +210,19 @@ export function PresenceDialog({
       fullWidth
       maxWidth="xs"
       PaperProps={{
-        className: "rounded-[2rem] shadow-2xl border border-white/5",
-        sx: { backgroundImage: 'none', bgcolor: 'background.paper' }
+        className: "rounded-2xl shadow-2xl"
       }}
     >
       {children}
 
-      <DialogTitle className="m-0 p-8 flex justify-between items-center border-b border-divider bg-action-hover/30">
-        <Typography variant="h5" fontWeight="900" className="text-text-primary tracking-tighter">
-          Participants
-          <span className="ml-3 text-sm font-black text-primary-main bg-primary-main/10 px-3 py-1 rounded-full">{participants.length}</span>
+      <DialogTitle className="m-0 p-6 flex justify-between items-center bg-gray-50/50">
+        <Typography variant="h6" fontWeight="800" className="text-gray-900 border-b-4 border-blue-500 w-fit pb-0.5">
+          Who&rsquo;s here
         </Typography>
         <IconButton
           aria-label="close"
           onClick={() => onOpenChange(false)}
-          className="text-text-secondary hover:text-text-primary hover:bg-action-hover rounded-2xl p-2.5 transition-all"
+          className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-xl"
         >
           <Close />
         </IconButton>
@@ -244,7 +234,7 @@ export function PresenceDialog({
             <Box className="flex flex-col gap-3">
               <Typography
                 variant="overline"
-                className="text-text-secondary font-black tracking-[0.2em] text-[11px] px-1"
+                className="text-gray-400 font-black tracking-widest text-[10px]"
               >
                 {hosts.length > 1 ? "CO-HOSTS" : "HOST"}
               </Typography>
@@ -268,7 +258,7 @@ export function PresenceDialog({
             <Box className="flex flex-col gap-3">
               <Typography
                 variant="overline"
-                className="text-text-secondary font-black tracking-[0.2em] text-[11px] px-1"
+                className="text-gray-400 font-black tracking-widest text-[10px]"
               >
                 VIEWERS
               </Typography>

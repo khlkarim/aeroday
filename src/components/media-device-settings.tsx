@@ -6,7 +6,7 @@ import {
   useRoomContext,
 } from "@livekit/components-react";
 import { ArrowDropDown, Mic, MicOff, Videocam, VideocamOff } from "@mui/icons-material";
-import { Box, Button, ButtonGroup, Menu, MenuItem, Typography } from "@mui/material";
+import { Box, Button, ButtonGroup, Menu, MenuItem } from "@mui/material";
 import { ConnectionState } from "livekit-client";
 import { useEffect, useState } from "react";
 

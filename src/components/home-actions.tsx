@@ -1,9 +1,8 @@
 "use client";
 
 import { BroadcastDialog } from "@/components/broadcast-dialog";
-import { IngressDialog } from "@/components/ingress-dialog";
 import { JoinDialog } from "@/components/join-dialog";
-import { Stack, Button, Typography } from "@mui/material";
+import { Stack, Button } from "@mui/material";
 
 export function HomeActions() {
   return (

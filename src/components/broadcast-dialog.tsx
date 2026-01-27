@@ -1,7 +1,6 @@
 "use client";
 
 import { CreateStreamResponse } from "@/lib/controller";
-import { AllowParticipationInfo } from "./allow-participation-info";
 import { Spinner } from "./spinner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

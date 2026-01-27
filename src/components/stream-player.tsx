@@ -62,7 +62,7 @@ function ConfettiCanvas() {
 }
 
 export function StreamPlayer({ isHost = false }) {
-  const [_, copy] = useCopyToClipboard();
+  const [, copy] = useCopyToClipboard();
   const [isPresenceOpen, setIsPresenceOpen] = useState(false);
   const [localVideoTrack, setLocalVideoTrack] =
     useState<LocalVideoTrack>();
