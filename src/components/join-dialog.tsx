@@ -74,13 +74,10 @@ export function JoinDialog({ children }: { children: React.ReactNode }) {
             disabled={!roomName || loading}
             onClick={() => {
               setLoading(true);
-              router.push(`/watch/${roomName}`);
+              router.push(`/live/watch/${roomName}`);
             }}
             size="large"
-            className={`px-10 rounded-lg shadow-md transition-all ${!roomName || loading
-              ? 'bg-gray-300'
-              : 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 hover:shadow-lg'
-              }`}
+            className={`px-10 rounded-lg shadow-md transition-all ${!roomName || loading}`}
           >
             {loading ? (
               <Stack direction="row" spacing={1.5} alignItems="center">

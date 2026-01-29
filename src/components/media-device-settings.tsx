@@ -40,30 +40,30 @@ export function MediaDeviceSettings() {
   const [camAnchorEl, setCamAnchorEl] = useState<null | HTMLElement>(null);
 
   return (
-    <Box className="flex gap-5">
+    <Box className="flex gap-2">
       {/* Microphone */}
       <Box display="flex">
         <ButtonGroup
           size="small"
           variant="contained"
-          className="overflow-hidden"
+          className="overflow-hidden rounded-full shadow-none"
         >
           <Button
             onClick={() => setMicEnabled(!micEnabled)}
-            className={`px-4 py-2 min-w-[60px] transition-all border-none ${micEnabled
-              ? 'bg-primary-main/20 text-primary-main hover:bg-primary-main/30'
-              : 'bg-red-600/20 text-red-500 hover:bg-red-600/30'
+            className={`px-3 py-1.5 min-w-[40px] transition-all border-none ${micEnabled
+              ? 'bg-white/10 text-white hover:bg-white/20'
+              : 'bg-red-500/20 text-red-500 hover:bg-red-500/30'
               }`}
           >
-            {micEnabled ? <Mic /> : <MicOff />}
+            {micEnabled ? <Mic className="text-sm" /> : <MicOff className="text-sm" />}
           </Button>
 
           <Button
             // disabled={!micEnabled}
             onClick={(e) => setMicAnchorEl(e.currentTarget)}
-            className="bg-white/5 text-white/60 hover:bg-white/10"
+            className="bg-white/5 text-white/60 hover:bg-white/10 px-1 min-w-[24px] border-l border-white/5"
           >
-            <ArrowDropDown />
+            <ArrowDropDown className="text-sm" />
           </Button>
         </ButtonGroup>
 
@@ -96,24 +96,24 @@ export function MediaDeviceSettings() {
         <ButtonGroup
           size="small"
           variant="contained"
-          className="overflow-hidden"
+          className="overflow-hidden rounded-full shadow-none"
         >
           <Button
             onClick={() => setCamEnabled(!camEnabled)}
-            className={`px-4 py-2 min-w-[60px] transition-all border-none ${camEnabled
-              ? 'bg-primary-main/20 text-primary-main hover:bg-primary-main/30'
-              : 'bg-red-600/20 text-red-500 hover:bg-red-600/30'
+            className={`px-3 py-1.5 min-w-[40px] transition-all border-none ${camEnabled
+              ? 'bg-white/10 text-white hover:bg-white/20'
+              : 'bg-red-500/20 text-red-500 hover:bg-red-500/30'
               }`}
           >
-            {camEnabled ? <Videocam /> : <VideocamOff />}
+            {camEnabled ? <Videocam className="text-sm" /> : <VideocamOff className="text-sm" />}
           </Button>
 
           <Button
             disabled={!camEnabled}
             onClick={(e) => setCamAnchorEl(e.currentTarget)}
-            className="px-1 border-none bg-white/5 text-white/60 hover:bg-white/10"
+            className="px-1 border-l border-white/5 bg-white/5 text-white/60 hover:bg-white/10 min-w-[24px]"
           >
-            <ArrowDropDown />
+            <ArrowDropDown className="text-sm" />
           </Button>
         </ButtonGroup>
 

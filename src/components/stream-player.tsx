@@ -105,22 +105,32 @@ export function StreamPlayer({ isHost = false }) {
   };
 
   return (
-    <Box position="relative" height="100%" width="100%" bgcolor="transparent" className="overflow-hidden group">
+    <Box position="relative" height="100%" width="100%" bgcolor="#0a0a0a" className="overflow-hidden group flex flex-col">
       <Box
         display="grid"
+        className="flex-1 w-full"
         gridTemplateColumns={
-          totalVideoTracks === 1
+          totalVideoTracks <= 1
             ? "1fr"
-            : "repeat(auto-fit, minmax(400px, 1fr))"
+            : totalVideoTracks <= 4
+              ? "repeat(2, 1fr)"
+              : "repeat(auto-fit, minmax(320px, 1fr))"
         }
-        gap={0}
-        height="100%"
-        width="100%"
-        position="absolute"
-        className="p-0"
+        gridTemplateRows={
+          totalVideoTracks <= 2
+            ? "1fr"
+            : "repeat(auto-fit, minmax(0, 1fr))"
+        }
+        gap={1}
+        p={1}
       >
         {tracks.map((t) => (
-          <Box key={t.participant.identity} position="relative" className="overflow-hidden bg-transparent transition-all duration-500">
+          <Box
+            key={t.participant.identity}
+            position="relative"
+            className="overflow-hidden bg-zinc-900 rounded-2xl border border-white/5 transition-all duration-500 shadow-xl ring-1 ring-white/5"
+          >
+            {/* Placeholder / Avatar State */}
             <Box
               position="absolute"
               display="flex"
@@ -129,38 +139,46 @@ export function StreamPlayer({ isHost = false }) {
               justifyContent="center"
               width="100%"
               height="100%"
-              className="z-0 bg-gradient-to-b from-slate-900 to-black"
+              className="z-0 bg-gradient-to-b from-zinc-800 to-zinc-950"
             >
               <Avatar
-                className="w-24 h-24 bg-gradient-to-br from-secondary-main/20 to-primary-main/20 border-2 border-white/5 text-white/40 text-4xl font-black mb-4"
-                sx={{ width: 96, height: 96, bgcolor: 'transparent' }}
+                className="w-32 h-32 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border-2 border-white/10 text-white/50 text-5xl font-black mb-6 shadow-2xl"
+                sx={{ width: 128, height: 128 }}
               >
                 {t.participant.identity[0]?.toUpperCase() ?? "?"}
               </Avatar>
-              <Typography variant="caption" className="text-white/30 font-bold uppercase tracking-widest mt-2">
-                {t.participant.identity === localParticipant.identity ? "Off Air" : "Connecting..."}
-              </Typography>
+              <Box className="flex flex-col items-center gap-1">
+                <Typography variant="h6" className="text-white/90 font-bold tracking-tight">
+                  {t.participant.identity === localParticipant.identity ? "You" : t.participant.identity}
+                </Typography>
+                <Typography variant="caption" className="text-white/40 font-medium uppercase tracking-widest text-[10px]">
+                  {t.participant.identity === localParticipant.identity ? "Off Air" : "Connecting..."}
+                </Typography>
+              </Box>
             </Box>
 
             <VideoTrack
               trackRef={t}
               className={cn(
-                "absolute w-full h-full bg-transparent object-cover z-10",
+                "absolute w-full h-full bg-zinc-900 object-cover z-10",
                 t.participant.identity === localParticipant.identity && "-scale-x-100"
               )}
             />
 
-            <Box className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
-              {t.participant.identity === localParticipant.identity && (
-                <Chip
-                  label="YOU"
-                  size="small"
-                  className="bg-primary-main/90 text-white font-black text-[10px] tracking-tighter"
-                />
-              )}
-              <Typography variant="caption" className="text-white font-bold drop-shadow-md">
-                {t.participant.identity}
-              </Typography>
+            {/* Bottom Info Bar */}
+            <Box className="absolute bottom-0 left-0 right-0 z-20 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+              <div className="flex items-center gap-2.5">
+                {t.participant.identity === localParticipant.identity && (
+                  <Chip
+                    label="YOU"
+                    size="small"
+                    className="h-5 bg-indigo-500 text-white font-black text-[10px] tracking-wider px-1 border border-indigo-400/30"
+                  />
+                )}
+                <Typography className="text-white font-bold text-sm drop-shadow-md tracking-tight truncate">
+                  {t.participant.identity}
+                </Typography>
+              </div>
             </Box>
           </Box>
         ))}
@@ -175,87 +193,71 @@ export function StreamPlayer({ isHost = false }) {
 
       <StartAudio
         label="Tap to unlock audio"
-        className="absolute inset-0 bg-black/90 backdrop-blur-3xl text-white font-black text-3xl tracking-tighter uppercase cursor-pointer flex items-center justify-center transition-all hover:bg-black/80 z-[100] border-4 border-white/5"
+        // icon={<div className="mb-4 text-4xl">🔊</div>}
+        className="absolute inset-0 bg-black/80 backdrop-blur-md text-white font-bold text-xl tracking-wide uppercase cursor-pointer flex flex-col items-center justify-center transition-all hover:bg-black/70 z-[100]"
       />
 
-      <Box position="absolute" top={0} width="100%" className="p-2 md:p-6 z-50 transition-all duration-300 opacity-100">
-        <Box display="flex" flexWrap="wrap" justifyContent="space-between" alignItems="center" className="gap-2">
-          <Box display="flex" gap={2} alignItems="center">
-            <Button
-              size="small"
-              variant="contained"
-              disabled={!roomName}
-              onClick={() =>
-                copy(`${process.env.NEXT_PUBLIC_SITE_URL}/watch/${roomName}`)
-              }
-              startIcon={<ContentCopy className="text-sm" />}
-              className="bg-white/15 border border-white/20 backdrop-blur-xl hover:bg-white/25 text-white font-bold rounded-xl px-3 py-1.5 md:px-5 md:py-2.5 normal-case tracking-tight shadow-2xl transition-all active:scale-95 text-xs md:text-sm"
-            >
-              {roomState === ConnectionState.Connected
-                ? roomName
-                : "Connecting..."}
-            </Button>
+      {/* Top Controls Overlay */}
+      <Box position="absolute" top={0} width="100%" className="p-4 z-50 pointer-events-none">
+        <Box display="flex" justifyContent="space-between" alignItems="flex-start" className="gap-2">
+
+          {/* Left Controls */}
+          <Box display="flex" gap={1.5} alignItems="center" className="pointer-events-auto">
+            <Box className="group/room relative">
+              <Button
+                size="small"
+                variant="text"
+                disabled={!roomName}
+                onClick={() =>
+                  copy(`${process.env.NEXT_PUBLIC_SITE_URL}/watch/${roomName}`)
+                }
+                startIcon={<ContentCopy className="text-xs" />}
+                className="bg-black/40 border border-white/10 backdrop-blur-md hover:bg-white/10 text-white/90 font-medium rounded-full px-4 py-1.5 normal-case tracking-tight transition-all active:scale-95 text-xs h-9 min-w-0"
+              >
+                <span className="truncate max-w-[100px] md:max-w-xs">{roomState === ConnectionState.Connected ? roomName : "Waiting..."}</span>
+              </Button>
+            </Box>
 
             {roomName && canHost && (
-              <Box display="flex" gap={2} className="p-1.5">
+              <Box className="bg-black/40 border border-white/10 backdrop-blur-md rounded-full p-1 flex items-center gap-1 h-9">
                 <MediaDeviceSettings />
+                {roomMetadata?.creator_identity !==
+                  localParticipant.identity && (
+                    <Box className="w-px h-4 bg-white/10 mx-1" />
+                  )}
                 {roomMetadata?.creator_identity !==
                   localParticipant.identity && (
                     <Button
                       size="small"
                       onClick={onLeaveStage}
-                      className="text-red-400 hover:bg-red-500/10 font-bold px-4 rounded-xl"
+                      className="text-red-400 hover:bg-red-500/10 hover:text-red-300 font-bold px-3 min-w-0 rounded-full h-full text-xs"
                     >
-                      Leave Stage
+                      Leave
                     </Button>
                   )}
               </Box>
             )}
           </Box>
 
-          <Box display="flex" gap={2} alignItems="center">
+          {/* Right Controls */}
+          <Box display="flex" gap={1.5} alignItems="center" className="pointer-events-auto">
             {roomState === ConnectionState.Connected && (
-              <Box bgcolor={'#8B2635'} className="flex items-center gap-2.5 px-4 py-2 rounded-full">
-                <Box
-                  width={8}
-                  height={8}
-                  borderRadius="50%"
-                  bgcolor="white"
-                  className="animate-pulse shadow-[0_0_12px_rgba(255,255,255,1)]"
-                />
-                <Typography variant="caption" color="white" className="font-black tracking-[0.2em] uppercase text-[11px] leading-none">
-                  Live
-                </Typography>
+              <Box className="flex items-center gap-2 bg-rose-600/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-rose-500/50 shadow-lg shadow-rose-900/20">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                </span>
+                <span className="text-white font-bold text-[10px] tracking-widest uppercase leading-none">LIVE</span>
               </Box>
             )}
 
             <PresenceDialog isHost={isHost} open={isPresenceOpen} onOpenChange={setIsPresenceOpen}>
               <Box position="relative">
                 {showNotification && (
-                  <Box
-                    position="absolute"
-                    top={-4}
-                    right={-4}
-                    width={14}
-                    height={14}
-                    borderRadius="50%"
-                    bgcolor="primary.main"
-                    zIndex={1}
-                    className="border-2 border-black"
-                    sx={{
-                      animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                      '@keyframes pulse': {
-                        '0%, 100%': {
-                          opacity: 1,
-                          transform: 'scale(1)',
-                        },
-                        '50%': {
-                          opacity: .5,
-                          transform: 'scale(1.2)',
-                        },
-                      },
-                    }}
-                  />
+                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500 border-2 border-black"></span>
+                  </span>
                 )}
 
                 <Button
@@ -263,16 +265,9 @@ export function StreamPlayer({ isHost = false }) {
                   variant="contained"
                   disabled={roomState !== ConnectionState.Connected}
                   onClick={() => setIsPresenceOpen(true)}
-                  className="bg-white/15 border border-white/20 backdrop-blur-xl hover:bg-white/25 text-white font-bold rounded-xl min-w-0 p-2 md:p-3 shadow-2xl transition-all active:scale-95"
+                  className="bg-black/40 border border-white/10 backdrop-blur-md hover:bg-white/10 text-white font-bold rounded-full min-w-0 w-9 h-9 p-0 transition-all active:scale-95"
                 >
-                  {roomState === ConnectionState.Connected ? (
-                    <Box className="flex items-center gap-2">
-                      <Visibility />
-                      <span className="text-sm">{participants.length}</span>
-                    </Box>
-                  ) : (
-                    <VisibilityOff />
-                  )}
+                  <Visibility className="text-lg opacity-80" />
                 </Button>
               </Box>
             </PresenceDialog>
