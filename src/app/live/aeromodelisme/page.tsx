@@ -674,7 +674,8 @@ const LiveAeromodelismePage = () => {
             borderRight: "none",
             borderBottom: "none",
             pointerEvents: "none",
-            p: 3
+            p: 3,
+            display: { xs: "none", md: "block" }
           }}
         >
           <Image alt="atr" src="/assets/images/logos/logo-atr.png" width={200} height={200} />
@@ -691,7 +692,7 @@ const LiveAeromodelismePage = () => {
             borderBottom: "none",
             pointerEvents: "none",
             pt: 1,
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             alignItems: "center",
             justifyContent: "center"
           }}
