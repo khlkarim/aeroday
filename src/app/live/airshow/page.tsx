@@ -696,7 +696,7 @@ const LiveAeromodelismePage = () => {
             justifyContent: "center"
           }}
         >
-          <Image alt="atr" src="/assets/images/logos/logo-insat-rb.png" width={80} height={80} />
+          <Image alt="atr" src="/assets/images/logos/logo-sonicx.png" width={150} height={150} />
         </Box>
       </Box>
     </div>
