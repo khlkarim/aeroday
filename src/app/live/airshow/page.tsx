@@ -10,14 +10,13 @@ import {
   useTheme,
   alpha,
   darken,
-  lighten,
 } from "@mui/material";
 import { useMemo, useEffect, useRef } from "react";
 import { useTableSync } from "@/hooks/useTableSync";
 import { supabase } from "@/utils/supabase/client";
 import gsap from "gsap";
 import Image from "next/image";
-import { LandPlot, Plane, PlaneTakeoff } from 'lucide-react';
+import { LandPlot, PlaneTakeoff } from 'lucide-react';
 
 interface TeamTurn {
   id: number;
@@ -607,7 +606,7 @@ const LiveAeromodelismePage = () => {
 
           {/* UPCOMING QUEUE */}
           <Stack spacing={3} ref={upcomingRef}>
-            {upcomingGroups.map((group, index) => (
+            {upcomingGroups.map((group) => (
               <Box
                 key={group[0].turn}
                 className="upcoming-team"
