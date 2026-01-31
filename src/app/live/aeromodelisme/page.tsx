@@ -326,6 +326,7 @@ const LiveAeromodelismePage = () => {
                   // textTransform: "uppercase",
                   // letterSpacing: 8,
                   fontSize: { xs: "2rem", sm: "3rem", md: "3.5rem" },
+                  textAlign: "center",
                 }}
               >
                 Aeromodelisme Flight Schedule
@@ -357,10 +358,9 @@ const LiveAeromodelismePage = () => {
             </Box> */}
           </Stack>
 
-          <Stack direction={"row"} spacing={2} >
+          <Stack direction={{ xs: "column", md: "row" }} spacing={2} >
 
-            <Stack flex={1} spacing={5} pt={1.8}>
-              <Box mt={10}></Box>
+            <Stack flex={1} spacing={5} pt={{ xs: 0, md: 8 }}>
               {/* NOW FLYING - Main focus card */}
               {nextTeams.length > 0 && (
                 <Box
@@ -569,70 +569,70 @@ const LiveAeromodelismePage = () => {
             {/* UPCOMING QUEUE */}
             <Stack flex={1} spacing={-1.8} ref={upcomingRef}>
               <Box>
-              <Typography
-                variant="h4"
-                sx={{
-                  fontWeight: 800,
-                  color: "#000",
-                  fontSize: { xs: "1.75rem", sm: "2rem" },
-                  textAlign: "center",
-                }}
-              >
-                Upcoming Flights
-              </Typography></Box>
-              <Stack spacing={2}>
-              {upcomingGroups.slice(0, 4).map((group) => (
-                <Box
-                  key={group[0].turn}
-                  className="upcoming-team"
+                <Typography
+                  variant="h4"
                   sx={{
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    px: 4,
-                    py: 3,
-                    borderRadius: 2,
-                    bgcolor: theme.palette.background.paper,
-                    border: "1px solid",
-                    borderColor: theme.palette.divider,
-                    transition: "box-shadow 0.2s ease, transform 0.2s ease",
-                    "&:hover": {
-                      boxShadow: 2,
-                      transform: "translateY(-1px)",
-                    },
+                    fontWeight: 800,
+                    color: "#000",
+                    fontSize: { xs: "1.75rem", sm: "2rem" },
+                    textAlign: "center",
                   }}
                 >
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 2, flexWrap: 'wrap' }}>
-                    {group.map((team, i) => (
-                      <Box key={team.id} sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Typography
-                          variant="subtitle1"
-                          fontWeight={600}
-                          sx={{ color: theme.palette.text.primary, fontSize: '1.5rem' }}
-                        >
-                          {team.team}
-                        </Typography>
-                        {i < group.length - 1 && (
-                          <Typography color="text.secondary" sx={{ ml: 2 }}> | </Typography>
-                        )}
-                      </Box>
-                    ))}
-                  </Box>
-
-                  <Chip
-                    label={`FLIGHT #${group[0].turn}`}
-                    size="small"
+                  Upcoming Flights
+                </Typography></Box>
+              <Stack spacing={2}>
+                {upcomingGroups.slice(0, 4).map((group) => (
+                  <Box
+                    key={group[0].turn}
+                    className="upcoming-team"
                     sx={{
-                      fontWeight: 500,
-                      bgcolor: theme.palette.action.hover,
-                      color: theme.palette.text.secondary,
-                      borderRadius: 1,
-                      flexShrink: 0,
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      px: 4,
+                      py: 3,
+                      borderRadius: 2,
+                      bgcolor: theme.palette.background.paper,
+                      border: "1px solid",
+                      borderColor: theme.palette.divider,
+                      transition: "box-shadow 0.2s ease, transform 0.2s ease",
+                      "&:hover": {
+                        boxShadow: 2,
+                        transform: "translateY(-1px)",
+                      },
                     }}
-                  />
-                </Box>
-              ))}</Stack>
+                  >
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 2, flexWrap: 'wrap' }}>
+                      {group.map((team, i) => (
+                        <Box key={team.id} sx={{ display: 'flex', alignItems: 'center' }}>
+                          <Typography
+                            variant="subtitle1"
+                            fontWeight={600}
+                            sx={{ color: theme.palette.text.primary, fontSize: '1.5rem' }}
+                          >
+                            {team.team}
+                          </Typography>
+                          {i < group.length - 1 && (
+                            <Typography color="text.secondary" sx={{ ml: 2 }}> | </Typography>
+                          )}
+                        </Box>
+                      ))}
+                    </Box>
+
+                    <Chip
+                      label={`FLIGHT #${group[0].turn}`}
+                      size="small"
+                      sx={{
+                        fontWeight: 500,
+                        bgcolor: theme.palette.action.hover,
+                        color: theme.palette.text.secondary,
+                        borderRadius: 1,
+                        flexShrink: 0,
+                      }}
+                    />
+                  </Box>
+                ))}</Stack>
             </Stack>
           </Stack>
         </Stack>
@@ -658,6 +658,7 @@ const LiveAeromodelismePage = () => {
             },
             "&::before": { left: 0 },
             "&::after": { right: 0 },
+            display: { xs: "none", md: "block" },
           }}
         />
 
