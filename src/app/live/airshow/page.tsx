@@ -668,7 +668,7 @@ const LiveAeromodelismePage = () => {
             top: 20,
             left: 20,
             width: 200,
-            height: 100,
+            height: 180,
             border: `2px solid ${alpha("#000", 1)}`,
             borderRight: "none",
             borderBottom: "none",
@@ -678,6 +678,7 @@ const LiveAeromodelismePage = () => {
           }}
         >
           <Image alt="atr" src="/assets/images/logos/logo-atr.png" width={200} height={200} />
+          <Image alt="atr" src="/assets/images/logos/logo-aeroday.jpg" width={200} height={200} style={{ borderRadius: 5 }} />
         </Box>
         <Box
           sx={{

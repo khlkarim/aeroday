@@ -663,22 +663,23 @@ const LiveAeromodelismePage = () => {
 
         {/* Corner decorations - flight instruments style */}
         <Box
-          sx={{
-            position: "fixed",
-            top: 20,
-            left: 20,
-            width: 200,
-            height: 100,
-            border: `2px solid ${alpha("#000", 1)}`,
-            borderRight: "none",
-            borderBottom: "none",
-            pointerEvents: "none",
-            p: 3,
-            display: { xs: "none", md: "block" }
-          }}
-        >
-          <Image alt="atr" src="/assets/images/logos/logo-atr.png" width={200} height={200} />
-        </Box>
+                  sx={{
+                    position: "fixed",
+                    top: 20,
+                    left: 20,
+                    width: 200,
+                    height: 180,
+                    border: `2px solid ${alpha("#000", 1)}`,
+                    borderRight: "none",
+                    borderBottom: "none",
+                    pointerEvents: "none",
+                    p: 3,
+                    display: { xs: "none", md: "block" }
+                  }}
+                >
+                  <Image alt="atr" src="/assets/images/logos/logo-atr.png" width={200} height={200} />
+                  <Image alt="atr" src="/assets/images/logos/logo-aeroday.jpg" width={200} height={200} style={{ borderRadius: 5 }} />
+                </Box>
         <Box
           sx={{
             position: "fixed",
