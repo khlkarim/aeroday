@@ -325,7 +325,7 @@ const LiveAeromodelismePage = () => {
                   color: theme.palette.text.primary,
                   // textTransform: "uppercase",
                   // letterSpacing: 8,
-                  fontSize: { xs: "2rem", sm: "3rem", md: "3.5rem" },
+                  fontSize: { xs: "2rem", sm: "3rem", md: "3rem" },
                   textAlign: "center",
                 }}
               >
@@ -358,71 +358,72 @@ const LiveAeromodelismePage = () => {
             </Box> */}
           </Stack>
 
-          <Stack direction={{ xs: "column", md: "row" }} spacing={2} >
+          <Box pt={{ xs: 0, md: 3 }}>
+            <Stack direction={{ xs: "column", md: "row" }} spacing={2}>
 
-            <Stack flex={1} spacing={5} pt={{ xs: 0, md: 8 }}>
-              {/* NOW FLYING - Main focus card */}
-              {nextTeams.length > 0 && (
-                <Box
-                  ref={nowFlyingRef}
-                  sx={{
-                    position: "relative",
-                    borderRadius: 4,
-                    overflow: "hidden",
-                  }}
-                >
-                  {/* Glow effect */}
+              <Stack flex={1} spacing={5} pt={{ xs: 0, md: 7 }}>
+                {/* NOW FLYING - Main focus card */}
+                {nextTeams.length > 0 && (
                   <Box
-                    className="now-flying-glow"
+                    ref={nowFlyingRef}
                     sx={{
-                      position: "absolute",
-                      inset: -20,
-                      background: `radial-gradient(circle, ${alpha(theme.palette.secondary.main, 0.3)} 0%, transparent 70%)`,
-                      zIndex: 0,
-                    }}
-                  />
-
-                  <Card
-                    elevation={0}
-                    sx={{
-                      borderRadius: 4,
-                      background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${darken(theme.palette.primary.main, 0.1)} 100%)`,
                       position: "relative",
-                      zIndex: 1,
-                      border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
-                      "&::before": {
-                        content: '""',
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: "50%",
-                        background: "linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%)",
-                        pointerEvents: "none",
-                      },
+                      borderRadius: 4,
+                      overflow: "hidden",
                     }}
                   >
-                    <CardContent sx={{ p: 4 }}>
-                      <Stack spacing={3}>
-                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                          <Chip
-                            label="NOW FLYING"
-                            sx={{
-                              // fontFamily: "'Orbitron', monospace",
-                              fontWeight: 900,
-                              fontSize: "1rem",
-                              letterSpacing: 2,
-                              bgcolor: "#000",
-                              color: "#E3F2FD",
-                              px: 2,
-                              py: 2.5,
-                              height: "auto",
-                            }}
-                          />
+                    {/* Glow effect */}
+                    <Box
+                      className="now-flying-glow"
+                      sx={{
+                        position: "absolute",
+                        inset: -20,
+                        background: `radial-gradient(circle, ${alpha(theme.palette.secondary.main, 0.3)} 0%, transparent 70%)`,
+                        zIndex: 0,
+                      }}
+                    />
 
-                          <Box sx={{ fontSize: "2rem", color: "#E3F2FD" }}><PlaneTakeoff className="size-8" /></Box>
+                    <Card
+                      elevation={0}
+                      sx={{
+                        borderRadius: 4,
+                        background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${darken(theme.palette.primary.main, 0.1)} 100%)`,
+                        position: "relative",
+                        zIndex: 1,
+                        border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          height: "50%",
+                          background: "linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%)",
+                          pointerEvents: "none",
+                        },
+                      }}
+                    >
+                      <CardContent sx={{ p: 4 }}>
+                        <Stack spacing={3}>
+                          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                            <Chip
+                              label="NOW FLYING"
+                              sx={{
+                                // fontFamily: "'Orbitron', monospace",
+                                fontWeight: 900,
+                                fontSize: "1rem",
+                                letterSpacing: 2,
+                                bgcolor: "#000",
+                                color: "#E3F2FD",
+                                px: 2,
+                                py: 2.5,
+                                height: "auto",
+                              }}
+                            />
 
-                          {/* <Box sx={{ display: "flex", gap: 1 }}>
+                            <Box sx={{ fontSize: "2rem", color: "#E3F2FD" }}><PlaneTakeoff className="size-8" /></Box>
+
+                            {/* <Box sx={{ display: "flex", gap: 1 }}>
                           {[...Array(3)].map((_, i) => (
                             <Box
                               key={i}
@@ -436,205 +437,206 @@ const LiveAeromodelismePage = () => {
                             />
                           ))}
                         </Box> */}
-                        </Box>
+                          </Box>
 
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, alignItems: 'center' }}>
-                          {nextTeams.map((team, index) => (
-                            <Box key={team.id} sx={{ display: 'flex', alignItems: 'center' }}>
-                              <Typography
-                                variant="h5"
-                                sx={{
-                                  // fontFamily: "'Orbitron', monospace",
-                                  // fontWeight: 900,
-                                  color: "#fff",
-                                  // textTransform: "uppercase",
-                                  // letterSpacing: 6,
-                                  textShadow: theme.palette.mode === 'dark' ? "0 4px 20px rgba(0, 0, 0, 0.5)" : "none",
-                                  fontSize: { xs: "1.5rem", sm: "2.5rem", md: "3rem" },
-                                  wordBreak: "break-word",
-                                }}
-                              >
-                                {team.team}
-                              </Typography>
-                              {index < nextTeams.length - 1 && (
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, alignItems: 'center' }}>
+                            {nextTeams.map((team, index) => (
+                              <Box key={team.id} sx={{ display: 'flex', alignItems: 'center' }}>
                                 <Typography
-                                  variant="h2"
+                                  variant="h5"
                                   sx={{
-                                    fontFamily: "'Orbitron', monospace",
-                                    fontWeight: 900,
-                                    color: "#9E9E9E",
-                                    textTransform: "uppercase",
-                                    ml: 4,
-                                    fontSize: { xs: "2.5rem", sm: "3.5rem" },
+                                    // fontFamily: "'Orbitron', monospace",
+                                    // fontWeight: 900,
+                                    color: "#fff",
+                                    // textTransform: "uppercase",
+                                    // letterSpacing: 6,
+                                    textShadow: theme.palette.mode === 'dark' ? "0 4px 20px rgba(0, 0, 0, 0.5)" : "none",
+                                    fontSize: { xs: "1.5rem", sm: "2.5rem", md: "3rem" },
+                                    wordBreak: "break-word",
                                   }}
                                 >
-                                  |
+                                  {team.team}
                                 </Typography>
-                              )}
-                            </Box>
-                          ))}
-                        </Box>
-                      </Stack>
-                    </CardContent>
-                  </Card>
-                </Box>
-              )}
+                                {index < nextTeams.length - 1 && (
+                                  <Typography
+                                    variant="h2"
+                                    sx={{
+                                      fontFamily: "'Orbitron', monospace",
+                                      fontWeight: 900,
+                                      color: "#9E9E9E",
+                                      textTransform: "uppercase",
+                                      ml: 4,
+                                      fontSize: { xs: "2.5rem", sm: "3.5rem" },
+                                    }}
+                                  >
+                                    |
+                                  </Typography>
+                                )}
+                              </Box>
+                            ))}
+                          </Box>
+                        </Stack>
+                      </CardContent>
+                    </Card>
+                  </Box>
+                )}
 
-              {/* ON DECK - Ready position */}
-              {onDeckTeams.length > 0 && (
-                <Box ref={onDeckRef}>
-                  <Card
-                    elevation={0}
-                    sx={{
-                      marginBottom: 3,
-                      borderRadius: 3,
-                      background: `linear-gradient(135deg, ${"#1A1F3A"} 0%, ${darken("#1A1F3A", 0.2)} 100%)`,
-                      border: `2px solid ${"#1A1F3A"}`,
-                      position: "relative",
-                      overflow: "hidden",
-                      "&::before": {
-                        content: '""',
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: "50%",
-                        background: "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%)",
-                        pointerEvents: "none",
-                      },
-                    }}
-                  >
-                    <CardContent sx={{ p: 3 }}>
-                      <Stack spacing={2}>
-                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                          <Chip
-                            label="PREPARING"
-                            sx={{
-                              // fontFamily: "'Orbitron', monospace",
-                              fontWeight: 800,
-                              fontSize: "0.9rem",
-                              letterSpacing: 2,
-                              bgcolor: "#000",
-                              color: "#E3F2FD",
-                              px: 2,
-                              py: 2,
-                              height: "auto",
-                              width: "fit-content",
-                            }}
-                          />
+                {/* ON DECK - Ready position */}
+                {onDeckTeams.length > 0 && (
+                  <Box ref={onDeckRef}>
+                    <Card
+                      elevation={0}
+                      sx={{
+                        marginBottom: 3,
+                        borderRadius: 3,
+                        background: `linear-gradient(135deg, ${"#1A1F3A"} 0%, ${darken("#1A1F3A", 0.2)} 100%)`,
+                        border: `2px solid ${"#1A1F3A"}`,
+                        position: "relative",
+                        overflow: "hidden",
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          height: "50%",
+                          background: "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%)",
+                          pointerEvents: "none",
+                        },
+                      }}
+                    >
+                      <CardContent sx={{ p: 3 }}>
+                        <Stack spacing={2}>
+                          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                            <Chip
+                              label="PREPARING"
+                              sx={{
+                                // fontFamily: "'Orbitron', monospace",
+                                fontWeight: 800,
+                                fontSize: "0.9rem",
+                                letterSpacing: 2,
+                                bgcolor: "#000",
+                                color: "#E3F2FD",
+                                px: 2,
+                                py: 2,
+                                height: "auto",
+                                width: "fit-content",
+                              }}
+                            />
 
-                          <Box sx={{ fontSize: "2rem", color: "#E3F2FD" }}><LandPlot className="size-8" /></Box>
-                        </Box>
+                            <Box sx={{ fontSize: "2rem", color: "#E3F2FD" }}><LandPlot className="size-8" /></Box>
+                          </Box>
 
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center' }}>
-                          {onDeckTeams.map((team, index) => (
-                            <Box key={team.id} sx={{ display: 'flex', alignItems: 'center' }}>
-                              <Typography
-                                variant="h4"
-                                sx={{
-                                  // fontFamily: "'Orbitron', monospace",
-                                  fontWeight: 800,
-                                  color: "#fff",
-                                  // textTransform: "uppercase",
-                                  // letterSpacing: 4,
-                                  textShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
-                                  fontSize: { xs: "1.75rem", sm: "2.25rem" },
-                                }}
-                              >
-                                {team.team}
-                              </Typography>
-                              {index < onDeckTeams.length - 1 && (
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center' }}>
+                            {onDeckTeams.map((team, index) => (
+                              <Box key={team.id} sx={{ display: 'flex', alignItems: 'center' }}>
                                 <Typography
                                   variant="h4"
                                   sx={{
-                                    fontFamily: "'Orbitron', monospace",
+                                    // fontFamily: "'Orbitron', monospace",
                                     fontWeight: 800,
-                                    color: "rgba(255,255,255,0.5)",
-                                    ml: 2,
+                                    color: "#fff",
+                                    // textTransform: "uppercase",
+                                    // letterSpacing: 4,
+                                    textShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
                                     fontSize: { xs: "1.75rem", sm: "2.25rem" },
                                   }}
-                                >|</Typography>
-                              )}
-                            </Box>
-                          ))}
-                        </Box>
-                      </Stack>
-                    </CardContent>
-                  </Card>
-                </Box>
-              )}
+                                >
+                                  {team.team}
+                                </Typography>
+                                {index < onDeckTeams.length - 1 && (
+                                  <Typography
+                                    variant="h4"
+                                    sx={{
+                                      fontFamily: "'Orbitron', monospace",
+                                      fontWeight: 800,
+                                      color: "rgba(255,255,255,0.5)",
+                                      ml: 2,
+                                      fontSize: { xs: "1.75rem", sm: "2.25rem" },
+                                    }}
+                                  >|</Typography>
+                                )}
+                              </Box>
+                            ))}
+                          </Box>
+                        </Stack>
+                      </CardContent>
+                    </Card>
+                  </Box>
+                )}
 
-            </Stack>
+              </Stack>
 
-            {/* UPCOMING QUEUE */}
-            <Stack flex={1} spacing={-1.8} ref={upcomingRef}>
-              <Box>
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontWeight: 800,
-                    color: "#000",
-                    fontSize: { xs: "1.75rem", sm: "2rem" },
-                    textAlign: "center",
-                  }}
-                >
-                  Upcoming Flights
-                </Typography></Box>
-              <Stack spacing={2}>
-                {upcomingGroups.slice(0, 4).map((group) => (
-                  <Box
-                    key={group[0].turn}
-                    className="upcoming-team"
+              {/* UPCOMING QUEUE */}
+              <Stack flex={1} spacing={-1.8} ref={upcomingRef}>
+                <Box>
+                  <Typography
+                    variant="h4"
                     sx={{
-                      width: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      px: 4,
-                      py: 3,
-                      borderRadius: 2,
-                      bgcolor: theme.palette.background.paper,
-                      border: "1px solid",
-                      borderColor: theme.palette.divider,
-                      transition: "box-shadow 0.2s ease, transform 0.2s ease",
-                      "&:hover": {
-                        boxShadow: 2,
-                        transform: "translateY(-1px)",
-                      },
+                      fontWeight: 800,
+                      color: "#000",
+                      fontSize: { xs: "1.75rem", sm: "2rem" },
+                      textAlign: "center",
                     }}
                   >
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2, flexWrap: 'wrap' }}>
-                      {group.map((team, i) => (
-                        <Box key={team.id} sx={{ display: 'flex', alignItems: 'center' }}>
-                          <Typography
-                            variant="subtitle1"
-                            fontWeight={600}
-                            sx={{ color: theme.palette.text.primary, fontSize: '1.5rem' }}
-                          >
-                            {team.team}
-                          </Typography>
-                          {i < group.length - 1 && (
-                            <Typography color="text.secondary" sx={{ ml: 2 }}> | </Typography>
-                          )}
-                        </Box>
-                      ))}
-                    </Box>
-
-                    <Chip
-                      label={`FLIGHT #${group[0].turn}`}
-                      size="small"
+                    Upcoming Flights
+                  </Typography></Box>
+                <Stack spacing={2}>
+                  {upcomingGroups.slice(0, 4).map((group) => (
+                    <Box
+                      key={group[0].turn}
+                      className="upcoming-team"
                       sx={{
-                        fontWeight: 500,
-                        bgcolor: theme.palette.action.hover,
-                        color: theme.palette.text.secondary,
-                        borderRadius: 1,
-                        flexShrink: 0,
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        px: 4,
+                        py: 3,
+                        borderRadius: 2,
+                        bgcolor: theme.palette.background.paper,
+                        border: "1px solid",
+                        borderColor: theme.palette.divider,
+                        transition: "box-shadow 0.2s ease, transform 0.2s ease",
+                        "&:hover": {
+                          boxShadow: 2,
+                          transform: "translateY(-1px)",
+                        },
                       }}
-                    />
-                  </Box>
-                ))}</Stack>
+                    >
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 2, flexWrap: 'wrap' }}>
+                        {group.map((team, i) => (
+                          <Box key={team.id} sx={{ display: 'flex', alignItems: 'center' }}>
+                            <Typography
+                              variant="subtitle1"
+                              fontWeight={600}
+                              sx={{ color: theme.palette.text.primary, fontSize: '1.5rem' }}
+                            >
+                              {team.team}
+                            </Typography>
+                            {i < group.length - 1 && (
+                              <Typography color="text.secondary" sx={{ ml: 2 }}> | </Typography>
+                            )}
+                          </Box>
+                        ))}
+                      </Box>
+
+                      <Chip
+                        label={`FLIGHT #${group[0].turn}`}
+                        size="small"
+                        sx={{
+                          fontWeight: 500,
+                          bgcolor: theme.palette.action.hover,
+                          color: theme.palette.text.secondary,
+                          borderRadius: 1,
+                          flexShrink: 0,
+                        }}
+                      />
+                    </Box>
+                  ))}</Stack>
+              </Stack>
             </Stack>
-          </Stack>
+          </Box>
         </Stack>
 
         {/* Divider with runway markings */}
@@ -724,7 +726,7 @@ const LiveAeromodelismePage = () => {
           <Image alt="atr" src="/assets/images/logos/logo-aeroday-dark-no-bg-Photoroom.png" width={150} height={150} style={{ borderRadius: 5 }} />
         </Box>
       </Box>
-    </div>
+    </div >
   );
 };
 
