@@ -202,7 +202,7 @@ export function StreamPlayer({ isHost = false }) {
 
           {/* Left Controls */}
           <Box display="flex" gap={1.5} alignItems="center" className="pointer-events-auto">
-            <Box className="group/room relative">
+            {/* <Box className="group/room relative">
               <Button
                 size="small"
                 variant="text"
@@ -215,7 +215,7 @@ export function StreamPlayer({ isHost = false }) {
               >
                 <span className="truncate max-w-[100px] md:max-w-xs">{roomState === ConnectionState.Connected ? roomName : "Waiting..."}</span>
               </Button>
-            </Box>
+            </Box> */}
 
             {roomName && canHost && (
               <Box className="bg-black/40 border border-white/10 backdrop-blur-md rounded-full p-1 flex items-center gap-1 h-9">
@@ -240,7 +240,7 @@ export function StreamPlayer({ isHost = false }) {
 
           {/* Right Controls */}
           <Box display="flex" gap={1.5} alignItems="center" className="pointer-events-auto">
-            {roomState === ConnectionState.Connected && (
+            {/* {roomState === ConnectionState.Connected && (
               <Box className="flex items-center gap-2 bg-rose-600/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-rose-500/50 shadow-lg shadow-rose-900/20">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -248,7 +248,7 @@ export function StreamPlayer({ isHost = false }) {
                 </span>
                 <span className="text-white font-bold text-[10px] tracking-widest uppercase leading-none">LIVE</span>
               </Box>
-            )}
+            )} */}
 
             <PresenceDialog isHost={isHost} open={isPresenceOpen} onOpenChange={setIsPresenceOpen}>
               <Box position="relative">

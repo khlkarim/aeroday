@@ -58,7 +58,6 @@ export default function SupabaseWatchPage() {
         },
     });
 
-    console.log(tvData);
     const channelName = tvData?.[0]?.channel;
 
     // Join the stream when channel changes
