@@ -582,7 +582,7 @@ const LiveAeromodelismePage = () => {
                     Upcoming Flights
                   </Typography></Box>
                 <Stack spacing={2}>
-                  {upcomingGroups.slice(0, 4).map((group) => (
+                  {upcomingGroups.slice(0, 3).map((group) => (
                     <Box
                       key={group[0].turn}
                       className="upcoming-team"
@@ -592,7 +592,7 @@ const LiveAeromodelismePage = () => {
                         alignItems: "center",
                         justifyContent: "space-between",
                         px: 4,
-                        py: 3,
+                        py: 4.1,
                         borderRadius: 2,
                         bgcolor: theme.palette.background.paper,
                         border: "1px solid",
@@ -610,7 +610,7 @@ const LiveAeromodelismePage = () => {
                             <Typography
                               variant="subtitle1"
                               fontWeight={600}
-                              sx={{ color: theme.palette.text.primary, fontSize: '1.5rem' }}
+                              sx={{ color: theme.palette.text.primary, fontSize: '2.2rem' }}
                             >
                               {team.team}
                             </Typography>
@@ -622,7 +622,7 @@ const LiveAeromodelismePage = () => {
                       </Box>
 
                       <Chip
-                        label={`FLIGHT #${group[0].turn}`}
+                        label={`Flight #${group[0].turn}`}
                         size="small"
                         sx={{
                           fontWeight: 500,
@@ -630,6 +630,7 @@ const LiveAeromodelismePage = () => {
                           color: theme.palette.text.secondary,
                           borderRadius: 1,
                           flexShrink: 0,
+                          fontSize: '1.8rem',
                         }}
                       />
                     </Box>
