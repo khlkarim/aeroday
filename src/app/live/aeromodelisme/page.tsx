@@ -340,13 +340,13 @@ const LiveAeromodelismePage = () => {
               /> */}
             </Box>
 
-            <Box
+            {/* <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
                 gap: 1.5,
                 // px: 3,
-                pb: 5,
+                pb: 2,
                 // background: theme.palette.primary.main,
                 // border: `1px solid ${theme.palette.primary.dark}`,
                 borderRadius: 2,
@@ -354,11 +354,13 @@ const LiveAeromodelismePage = () => {
                 // boxShadow: `0 4px 20px ${alpha(theme.palette.primary.main, 0.3)}`,
               }}
             >
-            </Box>
+            </Box> */}
           </Stack>
 
-          <Stack direction={"row"} spacing={2}>
-            <Stack flex={1} spacing={5}>
+          <Stack direction={"row"} spacing={2} >
+
+            <Stack flex={1} spacing={5} pt={1.8}>
+              <Box mt={10}></Box>
               {/* NOW FLYING - Main focus card */}
               {nextTeams.length > 0 && (
                 <Box
@@ -565,22 +567,20 @@ const LiveAeromodelismePage = () => {
             </Stack>
 
             {/* UPCOMING QUEUE */}
-            <Stack flex={1} spacing={2} ref={upcomingRef}>
+            <Stack flex={1} spacing={-1.8} ref={upcomingRef}>
+              <Box>
               <Typography
                 variant="h4"
                 sx={{
-                  // fontFamily: "'Orbitron', monospace",
                   fontWeight: 800,
                   color: "#000",
-                  // textTransform: "uppercase",
-                  // letterSpacing: 4,
-                  // textShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
                   fontSize: { xs: "1.75rem", sm: "2rem" },
                   textAlign: "center",
                 }}
               >
                 Upcoming Flights
-              </Typography>
+              </Typography></Box>
+              <Stack spacing={2}>
               {upcomingGroups.slice(0, 4).map((group) => (
                 <Box
                   key={group[0].turn}
@@ -609,7 +609,7 @@ const LiveAeromodelismePage = () => {
                         <Typography
                           variant="subtitle1"
                           fontWeight={600}
-                          sx={{ letterSpacing: 0.2, color: theme.palette.text.primary }}
+                          sx={{ color: theme.palette.text.primary, fontSize: '1.5rem' }}
                         >
                           {team.team}
                         </Typography>
@@ -632,7 +632,7 @@ const LiveAeromodelismePage = () => {
                     }}
                   />
                 </Box>
-              ))}
+              ))}</Stack>
             </Stack>
           </Stack>
         </Stack>
@@ -642,9 +642,10 @@ const LiveAeromodelismePage = () => {
           sx={{
             height: "3px",
             background: "#000",
-            position: "absolute",
+            position: "fixed",
             left: "20px",
             right: "20px",
+            bottom: "50px",
             "&::before, &::after": {
               content: '""',
               position: "absolute",
@@ -662,7 +663,7 @@ const LiveAeromodelismePage = () => {
 
         <Stack sx={{
           position: "fixed",
-          bottom: 33,
+          bottom: 25,
           // width: 200,
           height: 50,
           left: "40%",
@@ -677,7 +678,7 @@ const LiveAeromodelismePage = () => {
           gap: 2,
           borderRadius: 2,
         }}>
-          <Typography variant="h6" fontWeight={600} sx={{ color: "#000" }}>
+          <Typography sx={{ color: "#000" }}>
             Powered by
           </Typography>
           <Image alt="atr" src="/assets/images/logos/logo-sonicx.png" width={90} height={90} />
