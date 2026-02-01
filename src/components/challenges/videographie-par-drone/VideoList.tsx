@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
     Grid,
@@ -13,6 +13,7 @@ import {
     Fade,
     useTheme,
     alpha,
+    TextField,
 } from "@mui/material";
 import HowToVoteRoundedIcon from "@mui/icons-material/HowToVoteRounded";
 import MovieFilterRoundedIcon from "@mui/icons-material/MovieFilterRounded";
@@ -34,29 +35,21 @@ const VideoList: React.FC = () => {
         submitVote,
     } = useCandidates();
 
+    const [username, setUsername] = useState("");
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        await submitVote(token);
+        await submitVote(token, username);
     };
+
+    const isUsernameValid = username.trim().length > 0;
+    const canSubmit = selectedIndex !== null && isUsernameValid;
 
     if (loading) {
         return (
             <Stack gap={6} alignItems="center">
                 <Title label="Candidates" />
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: 3,
-                        // p: 6,
-                        borderRadius: 4,
-                        // background: alpha(theme.palette.background.paper, 0.6),
-                        // backdropFilter: "blur(10px)",
-                    }}
-                >
-                    <CircularProgress />
-                </Box>
+                <CircularProgress />
             </Stack>
         );
     }
@@ -98,9 +91,6 @@ const VideoList: React.FC = () => {
                     <Typography variant="h6" color="text.secondary" fontWeight={500}>
                         No candidates available
                     </Typography>
-                    <Typography variant="body2" color="text.disabled">
-                        Check back later for submissions
-                    </Typography>
                 </Box>
             </Stack>
         );
@@ -133,13 +123,25 @@ const VideoList: React.FC = () => {
                     ))}
                 </Grid>
 
+                {/* Username input */}
+                <Box mx="auto" width="100%">
+                    <TextField
+                        fullWidth
+                        label="Fullname"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Enter your fullname"
+                        required
+                    />
+                </Box>
+
                 <Box
                     sx={{
                         display: "flex",
                         flexDirection: { xs: "column-reverse", sm: "row-reverse" },
                         alignItems: "stretch",
                         gap: 2,
-                        mt: 2,
+                        // mt: 2,
                     }}
                 >
                     {selectedIndex !== null && (
@@ -159,12 +161,12 @@ const VideoList: React.FC = () => {
                             </Typography>
                         </Fade>
                     )}
+
                     <Button
                         type="submit"
                         variant="contained"
-                        color="primary"
                         size="large"
-                        disabled={selectedIndex === null}
+                        disabled={!canSubmit}
                         startIcon={<HowToVoteRoundedIcon />}
                         sx={{
                             flex: 2,
@@ -175,7 +177,6 @@ const VideoList: React.FC = () => {
                             fontWeight: 700,
                             fontSize: "1rem",
                             background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
-                            // boxShadow: `0 8px 24px ${alpha(theme.palette.primary.main, 0.3)}`,
                             transition: "all 0.3s ease",
                             "&:hover": {
                                 transform: "translateY(-2px)",

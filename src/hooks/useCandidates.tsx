@@ -19,7 +19,7 @@ interface UseCandidatesResult {
     error: string | null;
     selectedIndex: number | null;
     setSelectedIndex: (index: number | null) => void;
-    submitVote: (token: string | null) => Promise<void>;
+    submitVote: (token: string | null, username: string | null) => Promise<void>;
 }
 
 export function useCandidates(): UseCandidatesResult {
@@ -70,7 +70,7 @@ export function useCandidates(): UseCandidatesResult {
         };
     }, [queryClient]);
 
-    const submitVote = async (token: string | null) => {
+    const submitVote = async (token: string | null, username: string | null) => {
         if (selectedIndex === null) {
             alert("Please select a candidate first.");
             return;
@@ -81,11 +81,17 @@ export function useCandidates(): UseCandidatesResult {
             return;
         }
 
+        if (!username || !username.trim()) {
+            alert("Username is required.");
+            return;
+        }
+
         const candidateId = data![selectedIndex].id;
 
-        const { data: rpcData, error } = await supabase.rpc("cast_vote", {
+        const { data: rpcData, error } = await supabase.rpc("cast_vote_with_username", {
             p_token_uuid: token,
             p_candidat_id: candidateId,
+            p_username: username.trim(),
         });
 
         if (error) {
@@ -95,11 +101,12 @@ export function useCandidates(): UseCandidatesResult {
 
         if (rpcData?.success) {
             alert(rpcData.message || "Vote cast successfully!");
-            queryClient.invalidateQueries(); // results, winner, etc.
+            queryClient.invalidateQueries();
         } else {
             alert(rpcData?.message || "Vote failed.");
         }
     };
+
 
     return {
         candidates: data ?? [],
