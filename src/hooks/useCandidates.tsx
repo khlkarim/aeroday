@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/utils/supabase/client";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 interface Candidate {
     id: number;
@@ -23,38 +24,51 @@ interface UseCandidatesResult {
 
 export function useCandidates(): UseCandidatesResult {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-    const [candidates, setCandidates] = useState<Candidate[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const queryClient = useQueryClient();
 
-    useEffect(() => {
-        const fetchCandidates = async () => {
-            setLoading(true);
-            setError(null);
-
+    const {
+        data,
+        isLoading,
+        error,
+    } = useQuery({
+        queryKey: ["candidates"],
+        queryFn: async () => {
             const { data, error } = await supabase.rpc("get_candidats");
 
             if (error) {
-                console.error("Failed to fetch candidats:", error);
-                setError("Error fetching candidats.");
-                setCandidates([]);
-            } else if (data) {
-                if (data.success) {
-                    setCandidates(Array.isArray(data.data) ? data.data : []);
-                } else {
-                    setError(data.message || "Candidats are not available.");
-                    setCandidates([]);
-                }
-            } else {
-                setError("Unexpected response from server.");
-                setCandidates([]);
+                throw new Error("Error fetching candidats.");
             }
 
-            setLoading(false);
-        };
+            if (!data?.success) {
+                throw new Error(data?.message || "Candidats not available.");
+            }
 
-        fetchCandidates();
-    }, []);
+            return Array.isArray(data.data) ? data.data : [];
+        },
+        staleTime: 0,
+        refetchOnWindowFocus: false,
+    });
+
+    useEffect(() => {
+        const channel = supabase.channel("realtime:candidates");
+
+        channel.on(
+            "postgres_changes",
+            {
+                event: "*",
+                schema: "public",
+                table: "vote_config",
+            },
+            () => {
+                queryClient.invalidateQueries({ queryKey: ["candidates"] });
+            }
+        );
+
+        channel.subscribe();
+        return () => {
+            supabase.removeChannel(channel);
+        };
+    }, [queryClient]);
 
     const submitVote = async (token: string | null) => {
         if (selectedIndex === null) {
@@ -67,36 +81,32 @@ export function useCandidates(): UseCandidatesResult {
             return;
         }
 
-        const candidateId = candidates[selectedIndex].id;
+        const candidateId = data![selectedIndex].id;
 
-        const { data, error } = await supabase.rpc("cast_vote", {
+        const { data: rpcData, error } = await supabase.rpc("cast_vote", {
             p_token_uuid: token,
             p_candidat_id: candidateId,
         });
 
         if (error) {
-            console.error("RPC call failed:", error);
             alert(`Vote failed: ${error.message}`);
             return;
         }
 
-        if (data) {
-            if (data.success) {
-        alert(data.message || "Vote cast successfully!");
-      } else {
-        alert(data.message || "Vote failed.");
-      }
-    } else {
-      alert("Unexpected response from server.");
-    }
-  };
+        if (rpcData?.success) {
+            alert(rpcData.message || "Vote cast successfully!");
+            queryClient.invalidateQueries(); // results, winner, etc.
+        } else {
+            alert(rpcData?.message || "Vote failed.");
+        }
+    };
 
-  return {
-    candidates,
-    loading,
-    error,
-    selectedIndex,
-    setSelectedIndex,
-    submitVote,
-  };
+    return {
+        candidates: data ?? [],
+        loading: isLoading,
+        error: error ? (error as Error).message : null,
+        selectedIndex,
+        setSelectedIndex,
+        submitVote,
+    };
 }

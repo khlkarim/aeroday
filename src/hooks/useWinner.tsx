@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { supabase } from "@/utils/supabase/client";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 interface Candidate {
     candidat_id: number;
@@ -13,41 +14,47 @@ interface Candidate {
     votes_count: number;
 }
 
-interface UseWinnerResult {
-    winner: Candidate | null;
-    loading: boolean;
-    message: string | null;
-}
+const WINNER_QUERY_KEY = ["winner"];
 
-export function useWinner(): UseWinnerResult {
-    const [winner, setWinner] = useState<Candidate | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [message, setMessage] = useState<string | null>(null);
+export function useWinner() {
+    const queryClient = useQueryClient();
 
-    useEffect(() => {
-        const fetchWinner = async () => {
+    const query = useQuery<Candidate | null>({
+        queryKey: WINNER_QUERY_KEY,
+        queryFn: async () => {
             const { data, error } = await supabase.rpc("get_vote_winner");
 
-            if (error) {
-                console.error("Failed to fetch winner:", error);
-                setMessage("Failed to fetch winner.");
-            } else if (data) {
-                if (data.success) {
-                    if (data.data) {
-                        setWinner(data.data);
-                    } else {
-                        setMessage("No winner data available.");
-                    }
-                } else {
-                    setMessage(data.message || "Winner not available.");
+            if (error) throw error;
+            if (data.success === false) throw new Error(data.message);
+
+            return data.data;
+        },
+        staleTime: 0,
+        refetchOnWindowFocus: false,
+    });
+
+    useEffect(() => {
+        const channel = supabase
+            .channel("realtime:vote_config")
+            .on(
+                "postgres_changes",
+                {
+                    event: "*",
+                    schema: "public",
+                    table: "vote_config",
+                },
+                () => {
+                    queryClient.invalidateQueries({
+                        queryKey: WINNER_QUERY_KEY,
+                    });
                 }
-            }
+            )
+            .subscribe();
 
-            setLoading(false);
+        return () => {
+            supabase.removeChannel(channel);
         };
+    }, [queryClient]);
 
-        fetchWinner();
-    }, []);
-
-    return { winner, loading, message };
+    return query;
 }

@@ -1,6 +1,8 @@
-// /hooks/useVoteResults.ts
-import { useEffect, useState } from "react";
+"use client";
+
 import { supabase } from "@/utils/supabase/client";
+import { useEffect } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 export interface VoteResult {
   candidat_id: number;
@@ -13,38 +15,55 @@ export interface VoteResult {
 }
 
 export const useVoteResults = () => {
-  const [results, setResults] = useState<VoteResult[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const queryClient = useQueryClient();
 
-  useEffect(() => {
-    const fetchResults = async () => {
-      setLoading(true);
-      setError(null);
-
+  const {
+    data,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["vote-results"],
+    queryFn: async () => {
       const { data, error } = await supabase.rpc("get_vote_results");
 
       if (error) {
-        console.error("Failed to fetch vote results:", error);
-        setError("Failed to fetch vote results.");
-        setResults([]);
-      } else if (data) {
-        if (data.success) {
-          setResults(data.data || []);
-        } else {
-          setError(data.message || "Vote results are not available.");
-          setResults([]);
-        }
-      } else {
-        setError("Unexpected response from server.");
-        setResults([]);
+        throw new Error("Failed to fetch vote results.");
       }
 
-      setLoading(false);
+      if (!data?.success) {
+        throw new Error(data?.message || "Vote results not available.");
+      }
+
+      return data.data || [];
+    },
+    staleTime: 0,
+    refetchOnWindowFocus: false,
+  });
+
+  useEffect(() => {
+    const channel = supabase.channel("realtime:vote-results");
+
+    channel.on(
+      "postgres_changes",
+      {
+        event: "*",
+        schema: "public",
+        table: "vote_config",
+      },
+      () => {
+        queryClient.invalidateQueries({ queryKey: ["vote-results"] });
+      }
+    );
+
+    channel.subscribe();
+    return () => {
+      supabase.removeChannel(channel);
     };
+  }, [queryClient]);
 
-    fetchResults();
-  }, []);
-
-  return { results, loading, error };
+  return {
+    results: data ?? [],
+    loading: isLoading,
+    error: error ? (error as Error).message : null,
+  };
 };
