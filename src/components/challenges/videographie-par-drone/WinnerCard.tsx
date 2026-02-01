@@ -204,8 +204,7 @@ const WinnerCard: React.FC = () => {
                                 flexWrap: "wrap",
                                 alignItems: "center",
                                 justifyContent: "space-between",
-                                gap: 3,
-                                p: 2,
+                                p: 1,
                                 borderRadius: 3,
                             }}
                         >

@@ -186,7 +186,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ candidate, selected, onSelect }) 
                 </Box>
             )}
 
-            <CardContent sx={{ p: 2.5, display: "flex", gap: 2 }}>
+            <CardContent sx={{ p: 2.5, display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 2 }}>
                 {/* <Typography
                     variant="h6"
                     fontWeight={700}

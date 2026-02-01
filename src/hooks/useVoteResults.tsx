@@ -25,6 +25,7 @@ export const useVoteResults = () => {
     queryKey: ["vote-results"],
     queryFn: async () => {
       const { data, error } = await supabase.rpc("get_vote_results");
+      console.log(data);
 
       if (error) {
         throw new Error("Failed to fetch vote results.");
