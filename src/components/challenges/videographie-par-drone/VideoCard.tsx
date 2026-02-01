@@ -3,14 +3,12 @@
 import React from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import {
     Card,
     CardContent,
     CardMedia,
     Typography,
-    CardActions,
     Button,
     Box,
     Chip,
@@ -35,7 +33,7 @@ interface VideoCardProps {
     onSelect: () => void;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ index, candidate, selected, onSelect }) => {
+const VideoCard: React.FC<VideoCardProps> = ({ candidate, selected, onSelect }) => {
     const theme = useTheme();
 
     return (
@@ -249,10 +247,10 @@ const VideoCard: React.FC<VideoCardProps> = ({ index, candidate, selected, onSel
                     size="small"
                     endIcon={<OpenInNewIcon sx={{ fontSize: 16 }} />}
                     href={candidate.url}
-                    target="_blank"
+                    // target="_blank"
                     rel="noopener noreferrer"
                     variant="outlined"
-                    flex={1}
+                    // flex={1}
                     onClick={(e) => e.stopPropagation()}
                     sx={{
                         borderRadius: 2,

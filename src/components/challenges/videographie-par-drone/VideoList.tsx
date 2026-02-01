@@ -155,7 +155,7 @@ const VideoList: React.FC = () => {
                                     fontWeight: 600,
                                 }}
                             >
-                                You selected: {candidates[selectedIndex].title}
+                                You selected: {candidates[selectedIndex].author}
                             </Typography>
                         </Fade>
                     )}

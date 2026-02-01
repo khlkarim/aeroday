@@ -21,7 +21,7 @@ export const useVoteResults = () => {
     data,
     isLoading,
     error,
-  } = useQuery({
+  } = useQuery<VoteResult[]>({
     queryKey: ["vote-results"],
     queryFn: async () => {
       const { data, error } = await supabase.rpc("get_vote_results");
