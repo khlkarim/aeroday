@@ -1,21 +1,21 @@
 "use client";
 
 import {
-  Stack,
-  Card,
-  CardContent,
-  Typography,
-  Chip,
   Box,
-  useTheme,
+  Card,
+  Chip,
   alpha,
+  Stack,
   darken,
+  useTheme,
+  Typography,
+  CardContent,
 } from "@mui/material";
-import { useMemo, useEffect, useRef } from "react";
-import { useTableSync } from "@/hooks/useTableSync";
-import { supabase } from "@/utils/supabase/client";
 import gsap from "gsap";
 import Image from "next/image";
+import { supabase } from "@/utils/supabase/client";
+import { useMemo, useEffect, useRef } from "react";
+import { useTableSync } from "@/hooks/useTableSync";
 import { LandPlot, PlaneTakeoff } from 'lucide-react';
 
 interface TeamTurn {
@@ -39,9 +39,7 @@ const LiveAeromodelismePage = () => {
   } = useTableSync<TeamTurn>({
     queryKey: ["team-turns"],
     fetcher: async () => {
-      const { data, error } = await supabase
-        .from("aeromodelisme")
-        .select("*");
+      const { data, error } = await supabase.from("aeromodelisme").select("*");
 
       if (error) {
         console.error(error);
@@ -50,9 +48,7 @@ const LiveAeromodelismePage = () => {
       return data;
     },
     subscribe: (onChange) => {
-      const channel = supabase.channel(
-        "db-events:public:aeromodelisme"
-      );
+      const channel = supabase.channel("db-events:public:aeromodelisme");
 
       channel.on(
         "postgres_changes",
@@ -207,7 +203,7 @@ const LiveAeromodelismePage = () => {
             letterSpacing: 2,
           }}
         >
-          SYSTEM ERROR: {String(error)}
+          Failed to fetch queue...
         </Typography>
       </Box>
     );
@@ -231,7 +227,7 @@ const LiveAeromodelismePage = () => {
             // letterSpacing: 2,
           }}
         >
-          Waiting for Flight Clearance...
+          The queue is empty...
         </Typography>
       </Box>
     );
