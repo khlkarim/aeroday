@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/((?!live).*)",
-      "destination": "https://tunisianaeroday.tn",
-      "permanent": true
-    }
-  ]
-}
