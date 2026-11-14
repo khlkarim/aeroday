@@ -72,7 +72,7 @@ async function insertUUIDs(uuids) {
 }
 
 async function generateQRCode(uuid) {
-    return QRCode.toBuffer("http://tunisianaeroday.tn/live/vote?token=" + uuid, {
+    return QRCode.toBuffer("http://aeroday.tn/live/vote?token=" + uuid, {
         type: "png",
         width: QR_SIZE,
         margin: 2,
