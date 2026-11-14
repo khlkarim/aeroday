@@ -95,7 +95,7 @@ export function useCandidates(): UseCandidatesResult {
         });
 
         if (error) {
-            alert(`Vote failed: ${error.message}`);
+            alert("Failed to submit vote (You cannot vote twice with the same QR code.)");
             return;
         }
 
@@ -103,7 +103,7 @@ export function useCandidates(): UseCandidatesResult {
             alert(rpcData.message || "Vote cast successfully!");
             queryClient.invalidateQueries();
         } else {
-            alert(rpcData?.message || "Vote failed.");
+            alert("Failed to submit vote (You cannot vote twice with the same QR code.)");
         }
     };
 

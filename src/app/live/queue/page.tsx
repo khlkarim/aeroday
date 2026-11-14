@@ -319,7 +319,7 @@ export default function QueueManager() {
     }
 
     return (
-        <Box sx={{ maxWidth: 900, mx: "auto", p: 3 }}>
+        <Box sx={{ width: "100%", maxWidth: 1600, mx: "auto", p: 3 }}>
             <Stack spacing={3}>
                 <Stack
                     direction="row"
