@@ -47,7 +47,11 @@ type Flight = {
     teams: TeamTurn[];
 };
 
-const ACCESS_CODE = process.env.NEXT_PUBLIC_QUEUE_MANAGEMENT_ACCESS_CODE!;
+const normalizeCode = (value: string) => value.trim().toLowerCase();
+
+// Fallback used when queue_config has no row.
+const ENV_ACCESS_CODE = normalizeCode(process.env.NEXT_PUBLIC_QUEUE_MANAGEMENT_ACCESS_CODE ?? "");
+const ACCESS_CODE_POLL_INTERVAL_MS = 30_000;
 
 const QUEUES: { value: QueueName; label: string }[] = [
     { value: "aeromodelisme", label: "Aeromodeslime" },
@@ -56,8 +60,18 @@ const QUEUES: { value: QueueName; label: string }[] = [
 ];
 
 export default function QueueManager() {
-    const [authenticated, setAuthenticated] = useState(false);
+    // The access code currently considered valid (DB value, or env fallback).
+    const [activeCode, setActiveCode] = useState(ENV_ACCESS_CODE);
+    const [configLoaded, setConfigLoaded] = useState(false);
+
+    // The code the user logged in with. null = not authenticated.
+    const [authenticatedWith, setAuthenticatedWith] = useState<string | null>(
+        null
+    );
+    const authenticated = authenticatedWith !== null;
+
     const [accessCode, setAccessCode] = useState("");
+    const [loginError, setLoginError] = useState<string | null>(null);
 
     const [selectedQueue, setSelectedQueue] =
         useState<QueueName>("aeromodelisme");
@@ -86,6 +100,64 @@ export default function QueueManager() {
             .sort((a, b) => a.turn - b.turn);
     }, [items]);
 
+    const fetchAccessCode = useCallback(async () => {
+        const { data, error } = await supabase
+            .from("queue_config")
+            .select("access_code")
+            .order("updated_at", { ascending: false })
+            .limit(1)
+            .maybeSingle();
+
+        if (error) {
+            // Keep whatever code we currently have rather than locking
+            // everyone out (or letting them in) because of a transient error.
+            console.error("Failed to load access code:", error.message);
+            setConfigLoaded(true);
+            return;
+        }
+
+        // No row (or empty value) -> fall back to the environment variable.
+        setActiveCode(
+            data?.access_code ? normalizeCode(String(data.access_code)) : ENV_ACCESS_CODE
+        );
+        setConfigLoaded(true);
+    }, []);
+
+    // Load the code, subscribe to changes, and poll as a safety net.
+    useEffect(() => {
+        fetchAccessCode();
+
+        const channel = supabase
+            .channel("queue-config")
+            .on(
+                "postgres_changes",
+                { event: "*", schema: "public", table: "queue_config" },
+                () => fetchAccessCode()
+            )
+            .subscribe();
+
+        const interval = setInterval(
+            fetchAccessCode,
+            ACCESS_CODE_POLL_INTERVAL_MS
+        );
+
+        return () => {
+            clearInterval(interval);
+            supabase.removeChannel(channel);
+        };
+    }, [fetchAccessCode]);
+
+    // Automatically disconnect when the access code changes.
+    useEffect(() => {
+        if (authenticatedWith !== null && authenticatedWith !== activeCode) {
+            setAuthenticatedWith(null);
+            setItems([]);
+            setDialogOpen(false);
+            setError(null);
+            setLoginError("The access code has changed. Please log in again.");
+        }
+    }, [activeCode, authenticatedWith]);
+
     const fetchQueue = useCallback(async () => {
         setLoading(true);
         setError(null);
@@ -105,8 +177,16 @@ export default function QueueManager() {
         setLoading(false);
     }, [selectedQueue]);
 
-    // Fetch and subscribe to the currently selected table.
+    // Fetch and subscribe to the selected table (only while logged in).
     useEffect(() => {
+        if (!authenticated) return;
+
+        let timer: ReturnType<typeof setTimeout>;
+        const debounced = () => {
+            clearTimeout(timer);
+            timer = setTimeout(fetchQueue, 150);
+        };
+
         fetchQueue();
 
         const channel = supabase
@@ -118,14 +198,15 @@ export default function QueueManager() {
                     schema: "public",
                     table: selectedQueue,
                 },
-                () => fetchQueue()
+                debounced
             )
             .subscribe();
 
         return () => {
+            clearTimeout(timer);
             supabase.removeChannel(channel);
         };
-    }, [selectedQueue, fetchQueue]);
+    }, [authenticated, selectedQueue, fetchQueue]);
 
     const mutate = async (operation: () => Promise<void>) => {
         setBusy(true);
@@ -222,71 +303,37 @@ export default function QueueManager() {
         });
     };
 
-    // Circular flight reordering.
+    // Circular flight reordering through a single PostgreSQL RPC call.
     const moveFlight = async (index: number, direction: -1 | 1) => {
         if (flights.length < 2) return;
 
         await mutate(async () => {
-            const reordered = [...flights];
-            const [flight] = reordered.splice(index, 1);
+            const { error } = await supabase.rpc("move_flight", {
+                p_queue: selectedQueue,
+                p_from_index: index,
+                p_direction: direction,
+            });
 
-            const targetIndex =
-                (index + direction + flights.length) % flights.length;
-
-            reordered.splice(targetIndex, 0, flight);
-
-            const positions = flights.map((item) => item.turn);
-            const temporaryBase =
-                Math.max(...positions) + flights.length + 1;
-
-            const temporaryTurns = new Map(
-                flights.map((item, i) => [
-                    item.turn,
-                    temporaryBase + i,
-                ])
-            );
-
-            // First move every flight to a temporary turn.
-            const temporaryUpdates = await Promise.all(
-                flights.map((item) =>
-                    supabase
-                        .from(selectedQueue)
-                        .update({ turn: temporaryTurns.get(item.turn)! })
-                        .eq("turn", item.turn)
-                )
-            );
-
-            const temporaryError = temporaryUpdates.find(
-                (result) => result.error
-            )?.error;
-
-            if (temporaryError) throw temporaryError;
-
-            // Then assign the final positions.
-            const finalUpdates = await Promise.all(
-                reordered.map((item, i) =>
-                    supabase
-                        .from(selectedQueue)
-                        .update({ turn: positions[i] })
-                        .eq("turn", temporaryTurns.get(item.turn)!)
-                )
-            );
-
-            const finalError = finalUpdates.find(
-                (result) => result.error
-            )?.error;
-
-            if (finalError) throw finalError;
+            if (error) throw error;
         });
     };
 
     const login = () => {
-        if (accessCode === ACCESS_CODE) {
-            setAuthenticated(true);
+        if (!configLoaded) return;
+
+        if (activeCode && normalizeCode(accessCode) === activeCode) {
+            setAuthenticatedWith(activeCode);
             setAccessCode("");
+            setLoginError(null);
         } else {
-            setError("Invalid access code.");
+            setLoginError("Invalid access code.");
         }
+    };
+
+    const logout = () => {
+        setAuthenticatedWith(null);
+        setItems([]);
+        setLoginError(null);
     };
 
     if (!authenticated) {
@@ -308,9 +355,13 @@ export default function QueueManager() {
                         fullWidth
                     />
 
-                    {error && <Alert severity="error">{error}</Alert>}
+                    {loginError && <Alert severity="error">{loginError}</Alert>}
 
-                    <Button variant="contained" onClick={login}>
+                    <Button
+                        variant="contained"
+                        onClick={login}
+                        disabled={!configLoaded}
+                    >
                         Login
                     </Button>
                 </Stack>
@@ -330,10 +381,7 @@ export default function QueueManager() {
                         Queue Manager
                     </Typography>
 
-                    <Button
-                        color="inherit"
-                        onClick={() => setAuthenticated(false)}
-                    >
+                    <Button color="inherit" onClick={logout}>
                         Logout
                     </Button>
                 </Stack>
