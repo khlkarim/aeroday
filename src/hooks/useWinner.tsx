@@ -1,25 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
+import { VoteResult } from "./useVoteResults";
 import { supabase } from "@/utils/supabase/client";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-
-interface Candidate {
-    candidat_id: number;
-    author: string;
-    title: string;
-    description?: string;
-    url?: string;
-    thumbnail?: string;
-    votes_count: number;
-}
 
 const WINNER_QUERY_KEY = ["winner"];
 
 export function useWinner() {
     const queryClient = useQueryClient();
 
-    const query = useQuery<Candidate | null>({
+    const query = useQuery<VoteResult | null>({
         queryKey: WINNER_QUERY_KEY,
         queryFn: async () => {
             const { data, error } = await supabase.rpc("get_vote_winner");
@@ -30,6 +21,7 @@ export function useWinner() {
             return data.data;
         },
         staleTime: 0,
+        retry: false,
         refetchOnWindowFocus: false,
     });
 

@@ -46,6 +46,7 @@ export function useCandidates(): UseCandidatesResult {
             return Array.isArray(data.data) ? data.data : [];
         },
         staleTime: 0,
+        retry: false,
         refetchOnWindowFocus: false,
     });
 

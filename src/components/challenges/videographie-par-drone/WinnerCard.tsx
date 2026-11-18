@@ -229,10 +229,10 @@ const WinnerCard: React.FC = () => {
                                 </Avatar>
                                 <Box>
                                     <Typography variant="caption" color="text.disabled">
-                                        Total Votes
+                                        Final Score
                                     </Typography>
                                     <Typography variant="body2" fontWeight={700} color="black">
-                                        {winner.votes_count}
+                                        {winner.score.toFixed(2)} / 100
                                     </Typography>
                                 </Box>
                             </Stack>

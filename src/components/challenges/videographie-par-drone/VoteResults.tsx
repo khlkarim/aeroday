@@ -24,45 +24,47 @@ import HowToVoteRoundedIcon from "@mui/icons-material/HowToVoteRounded";
 const WINNER_COLOR = "#D4A574";
 const OTHERS_COLOR = "#8B2635";
 
+import type { VoteResult } from "@/hooks/useVoteResults";
+
 interface CustomTooltipProps {
     active?: boolean;
-    payload?: Array<{ value: number; payload: { title: string } }>;
-    totalVotes: number;
+    payload?: Array<{ value: number; payload: VoteResult }>;
 }
 
-const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, totalVotes }) => {
+const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
     const theme = useTheme();
 
-    if (active && payload && payload.length) {
-        const value = payload[0].value;
-        const percentage = totalVotes ? ((value / totalVotes) * 100).toFixed(1) : "0.0";
-        const title = payload[0].payload.title;
+    if (!active || !payload?.length) return null;
 
-        return (
-            <Box
-                sx={{
-                    background: alpha(theme.palette.background.paper, 0.95),
-                    backdropFilter: "blur(12px)",
-                    borderRadius: 2,
-                    p: 2,
-                    border: `1px solid ${alpha(theme.palette.divider, 0.2)}`,
-                    boxShadow: `0 8px 32px ${alpha(theme.palette.common.black, 0.15)}`,
-                    minWidth: 140,
-                }}
-            >
-                <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
-                    {title}
-                </Typography>
-                <Typography variant="h6" fontWeight={700} color="primary.main">
-                    {value} votes
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {percentage}% of total
-                </Typography>
-            </Box>
-        );
-    }
-    return null;
+    const { title, score, jury_score, votes_count } = payload[0].payload;
+    const votePoints = score - jury_score;
+
+    return (
+        <Box
+            sx={{
+                background: alpha(theme.palette.background.paper, 0.95),
+                backdropFilter: "blur(12px)",
+                borderRadius: 2,
+                p: 2,
+                border: `1px solid ${alpha(theme.palette.divider, 0.2)}`,
+                boxShadow: `0 8px 32px ${alpha(theme.palette.common.black, 0.15)}`,
+                minWidth: 160,
+            }}
+        >
+            <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
+                {title}
+            </Typography>
+            <Typography variant="h6" fontWeight={700} color="primary.main">
+                {score.toFixed(2)} pts
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+                Jury: {jury_score.toFixed(2)} / 25
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+                Votes: {votePoints.toFixed(2)} / 75 ({votes_count})
+            </Typography>
+        </Box>
+    );
 };
 
 const VoteResults: React.FC = () => {
@@ -150,7 +152,7 @@ const VoteResults: React.FC = () => {
         );
     }
 
-    const maxVotes = Math.max(...results.map((item) => item.votes_count));
+    const maxScore = Math.max(...results.map((item) => item.score));
 
     return (
         <Box
@@ -273,20 +275,20 @@ const VoteResults: React.FC = () => {
                                         tickLine={{ stroke: alpha(theme.palette.divider, 0.2) }}
                                     />
                                     <Tooltip
-                                        content={<CustomTooltip totalVotes={totalVotes} />}
+                                        content={<CustomTooltip />}
                                         cursor={{
                                             fill: alpha(theme.palette.primary.main, 0.08),
                                             radius: 4,
                                         }}
                                     />
                                     <Bar
-                                        dataKey="votes_count"
+                                        dataKey="score"
                                         radius={[10, 10, 0, 0]}
                                         animationDuration={800}
                                         animationEasing="ease-out"
                                     >
                                         <LabelList
-                                            dataKey="votes_count"
+                                            dataKey="score"
                                             position="top"
                                             fill={theme.palette.text.primary}
                                             fontSize={isMobile ? 12 : 14}
@@ -295,9 +297,9 @@ const VoteResults: React.FC = () => {
                                         {results.map((r, index) => (
                                             <Cell
                                                 key={index}
-                                                fill={r.votes_count === maxVotes ? WINNER_COLOR : OTHERS_COLOR}
+                                                fill={r.score === maxScore ? WINNER_COLOR : OTHERS_COLOR}
                                                 style={{
-                                                    filter: `drop-shadow(0 4px 8px ${alpha(r.votes_count === maxVotes ? WINNER_COLOR : OTHERS_COLOR, 0.3)})`,
+                                                    filter: `drop-shadow(0 4px 8px ${alpha(r.votes_count === maxScore ? WINNER_COLOR : OTHERS_COLOR, 0.3)})`,
                                                 }}
                                             />
                                         ))}

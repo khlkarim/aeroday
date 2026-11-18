@@ -9,6 +9,8 @@ export interface VoteResult {
   author: string;
   title: string;
   votes_count: number;
+  jury_score: number; // 0–25
+  score: number;      // 0–100
   description?: string;
   url?: string;
   thumbnail?: string;
@@ -38,6 +40,7 @@ export const useVoteResults = () => {
       return data.data || [];
     },
     staleTime: 0,
+    retry: false,
     refetchOnWindowFocus: false,
   });
 
