@@ -325,7 +325,7 @@ const LivePresentationPage = () => {
                                     textAlign: "center",
                                 }}
                             >
-                                Presentation Flight Schedule
+                                Presentation Schedule
                             </Typography>
                             {/* <Box
                 sx={{
@@ -403,7 +403,7 @@ const LivePresentationPage = () => {
                                                 <Stack spacing={3}>
                                                     <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                                                         <Chip
-                                                            label="NOW FLYING"
+                                                            label="NOW PRESENTING"
                                                             sx={{
                                                                 // fontFamily: "'Orbitron', monospace",
                                                                 fontWeight: 900,
@@ -575,7 +575,7 @@ const LivePresentationPage = () => {
                                             textAlign: "center",
                                         }}
                                     >
-                                        Upcoming Flights
+                                        Upcoming Presentations
                                     </Typography></Box>
                                 <Stack spacing={2}>
                                     {upcomingGroups.slice(0, 3).map((group) => (
@@ -618,7 +618,7 @@ const LivePresentationPage = () => {
                                             </Box>
 
                                             <Chip
-                                                label={`Flight #${group[0].turn}`}
+                                                label={`Presentation #${group[0].turn}`}
                                                 size="small"
                                                 sx={{
                                                     fontWeight: 500,
